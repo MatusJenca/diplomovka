@@ -1,0 +1,23 @@
+syntax: glob
+*.backup*
+*.dbs*
+*.obj
+*.mtl
+*.pyc
+*.orig
+*.wmv
+*.sfk
+*.sfap*
+*.cbp
+./obj/**
+./bin/**
+*.exe
+*.o
+*.out
+*.so
+*.dll
+*.layout
+*.depend
+*.aux
+*.log
+temp.bat

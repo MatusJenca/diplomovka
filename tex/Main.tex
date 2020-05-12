@@ -1,0 +1,128 @@
+
+%\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt,twoside]{article}
+
+\setlength{\oddsidemargin}{0.65cm}
+\setlength{\evensidemargin}{-0.65cm}
+\setlength{\textheight}{24cm}%{22.7cm}
+\setlength{\textwidth}{16cm}
+\linespread{1.5}
+\addtolength{\voffset}{-1.2cm}
+
+
+%
+%\usepackage[inner=4cm,outer=3cm]{geometry}
+%\setlength{\textheight}{24cm}
+%\linespread{1.5}
+
+%PACKAGES
+
+\usepackage[utf8]{inputenc}
+\usepackage[slovak]{babel}
+%\usepackage[IL2]{fontenc}
+\usepackage{comment}
+
+\usepackage{xcolor}
+\usepackage{graphicx,amsmath,amssymb, amsthm, multicol}
+\usepackage{pdfpages}
+
+\usepackage[nottoc]{tocbibind}
+\usepackage{mathrsfs}
+\usepackage{psfrag}
+\usepackage[font=small,labelfont=bf,skip=0pt]{caption}
+\usepackage{ifthen}
+\usepackage{float}
+
+\newtheorem{defin}{Definícia}[section]
+\newtheorem{thm}[defin]{Veta}
+\newtheorem{prop}[defin]{Tvrdenie}
+\newtheorem{lema}[defin]{Lema}
+\newtheorem{cor}[defin]{Dôsledok}
+\newtheoremstyle{comment}{}{}{}{}{}{:}{ }{#1}
+\theoremstyle{comment}
+\newtheorem{com}{\textit{Poznámka}}
+
+\usepackage{hyperref}                                     
+\hypersetup{%  http://www.tug.org/applications/hyperref/
+bookmarksnumbered,
+pdfstartview={FitH},
+linkcolor=black,
+citecolor=black,
+colorlinks=true,
+pdfpagemode={None},
+plainpages=false
+}%
+
+%%%\usepackage{fullpage}
+%%%\setlength{\topmargin}{-0.5cm}
+%%%\setlength{\headheight}{0cm}
+%%%\setlength{\headsep}{0in}
+%\setlength{\textheight}{24cm}
+%\setlength{\textwidth}{15.5cm}
+%\addtolength{\voffset}{-1.2cm}
+%\addtolength{\hoffset}{-0.3cm}
+%%%\addtolength{\rightmargin}{-1cm}
+%\setlength{\parindent}{0.5cm}
+%\setlength{\parskip}{0in}
+%\linespread{1.5}
+
+\input{cmdefs}
+
+\begin{document}
+
+  \input{Titulka}
+
+  \input{Thesis_info}
+
+%  \includepdf[pages={1}, offset=25 -75]{zadanieFMFIpokorna.pdf}
+  \includepdf[pages={1}, offset=10 -75]{zadanie.pdf}
+\input{prehlasenie}
+\newpage
+  \input{Podakovanie}
+\newpage
+  \input{Abstrakt}
+\newpage
+  \input{Abstract}
+  \newpage \tableofcontents
+  \setcounter{page}{7}
+ % \newpage
+ % \listoffigures
+ % \newpage
+ % \listoftables  
+ % \newpage
+ % \section*{Zoznam použitých symbolov} 
+ %   \input{ZoznamPouzitychSymbolov}
+ %   \addcontentsline{toc}{section}{Zoznam použitých symbolov}
+  \newpage
+
+    \section*{Úvod}	          
+    \markboth{ÚVOD}{ÚVOD}  
+    \addcontentsline{toc}{section}{Úvod}
+    
+    \input{Uvod} 
+	\input{01Altschuler} 
+	\input{02experiment}
+	\newpage
+  \section*{Záver}
+    \addcontentsline{toc}{section}{Záver}
+    \markboth{ZÁVER}{ZÁVER} 
+    \input{Zaver}
+  
+  \renewcommand{\refname}{Zoznam použitej literatúry}
+  \include{Literatura}
+  \bibliography{literatura}
+\bibliographystyle{ieeetr} 
+  
+	\newpage
+  \appendix
+  %\section*{Dodatok A} 
+    %\addcontentsline{toc}{section}{Dodatok A}
+    %\markboth{Dodatok A}{Dadatok A}
+  %  \input{AppendixA}
+  %\section*{Dodatok B} 
+   % \addcontentsline{toc}{section}{Dodatok B}
+   % \markboth{Dodatok B}{Dodatok B}
+    %\input{AppendixB}
+    %\begin{comment}
+%\end{comment}
+\end{document}

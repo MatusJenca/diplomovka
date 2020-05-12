@@ -1,0 +1,109 @@
+\section {Experimentálne meranie ustoty stavov v disorderovanom kove}
+V tejto kapitole predstavíme experimentálnu metódu merania hustoty stavov
+Táto metóda využíva efekt tunelovania elektrónu cez potenciálovú bariéru.
+
+Experimentálna sústava pozostáva z dvoch kovov odelených izolantom. Naľavo máme čistý 
+kov, ktorého hustotu poznáme - {\it známy kov}. Napravo máme disorderovaný kov, ktorého 
+hustotu stavov budeme merať - {\it skúmaný kov}. Izolant tvorí potenciálovú bariéru.
+Na sústavu priložíme napätie  $U$ a budeme merať prúd.  
+
+Bez priloženého napätia ($U=0$) popisuje Hamiltonián 
+\begin{equation}
+ \label{eq:02barrier}
+ \hat{H}=\frac{\hbar^2 \laplace }{2m}+V(x) \text{,}
+\end{equation} 
+kde 
+\begin{equation}
+ \label{eq:02potential_barrier}
+ V(x)=
+ \begin{cases}
+    V_0,& \text{pre } 0<x<b\\
+    0,              & \text{inak}
+\end{cases}\text{,}
+\end{equation} 
+kde $b$ je šírka bariéry,
+
+Hladanie vlastných stavov Hamiltoniánu \eqref{eq:02barrier} je učebnicový problém, ktorý sa 
+štandartne rieši nájdením vlnových funkcii v troch oblastiach a následným ,,zošívaním'' 
+pomocou podmienky spojitosti vlnovej funkcie a jej derivácie. 
+
+Štandartný spôsob riešenia však zlyhá po priložení napätia na experimentálnu sústavu. 
+Preto predstavíme iný spôsob.
+
+Majme teraz dve nekonečne široké bariéry z ľava:
+\begin{equation}
+ \label{eq:02potential_left}
+ V_l(x)=
+ \begin{cases}
+    V_0,& \text{pre } 0<x\\
+    0,              & \text{inak}
+\end{cases}\text{,}
+\end{equation}
+a podobne sprava
+ \begin{equation}
+ \label{eq:02potential_right}
+ V_r(x)=
+ \begin{cases}
+    V_0,& \text{pre } b>x\\
+    0,              & \text{inak}
+\end{cases}\text{.}
+\end{equation}
+Pre obe bariéry \eqref{eq:02potential_left} a \eqref{eq:02potential_right} vieme určiť 
+vlastné stavy $\psi_{l}(x)$ a $\psi_{r}(x)$. Tieto stavy sú očividne dobrou aproximáciou 
+stavov naľavo a napravo od konečnej bariéry \eqref{eq:02potential_barrier}. Nie sú to však 
+vlastné stavy hamiltoniánu \eqref{eq:02barrier}, preto musíme riešiť časovú SchR 
+\begin{equation}
+ \label{eq:02time_schr}
+ i\hbar \frac{d}{dt}\psi(x,t)=\hat{H} \psi(x,t)\text{.}
+\end{equation} 
+Časticu je v čase $t=0$ na ľavo od bariéry teda v stave $\psi_l(x)$, teda máme počiatočnú 
+podmienku 
+\begin{equation}
+ \label{eq:02init_cond} 
+ \psi(x,0)=\psi_l(x)\text{.}
+\end{equation}
+Riešenie časovej SchR \eqref{eq:02time_schr} hľadáme v tvare:
+\begin{equation}
+ \label{eq:02time_schr_solution}
+ \psi(x,t)=c_l(t)\psi_l(x)e^{-\frac{iE_l t}{\hbar}}+\sum_{\forall r} c_r(t)\psi_l(x)e^{-\frac{iE_r t}
+{\hbar}}\text{,}
+\end{equation}  
+kde s počiatočných podmienok \eqref{eq:02init_cond} dostávame:
+\begin{equation}
+ \label{eq:02time_schr_coeficients} 
+c_l(0)=1 , c_r(0)=0 \text{.}
+ \end{equation} 
+ Pre slabo preniknuteľnú bariéru vieme koeficienty aproximovať ako:
+ \begin{equation}
+ \label{eq:02time_schr_coeficients_approx} 
+c_l(t)\doteq1,c_l'(t)\doteq1 , c_r(t)\doteq0 \text{.}
+ \end{equation} 
+ 
+Dosadením \eqref{eq:02time_schr_solution}  do \eqref{eq:02time_schr} a použitím 
+\eqref{eq:02time_schr_coeficients_approx} 
+a následnými úpravami  dostávame
+\begin{equation}
+ \label{eq:02golden_rule}
+ w_{r\to l}=\frac{2\pi}{\hbar} \bra{\psi_l}H-E_l\ket{\psi_r}\delta(E_l-E_r)\text{.}
+\end{equation} 
+Dostali sme vzťah podobný Fermiho zlatému pravidlu, ktorý popisuje pravdepodobnost 
+prechod zo stavu $\psi_l$  do stavu $\psi_r$. 
+
+Teraz priložíme na sústavu napätie $U$, čo spôsobí zmenu dna energetického pásu na 
+pravej strane bariéry $\Delta E_c$.  Potenciálová bariéra má teraz tvar lineárnej funkcie.
+Obsadzovacie čísla jednotlivých elektrónových stavov budú na ľavo dané Fermi-Diracovým rozdelením:
+\begin{equation}
+ \label{eq:02fermidirac_left}
+ f_l(k_l)=\frac{1}{e^{\frac{E_{k_l}-\mu_l}{k_bT}}+1}\text{,}
+\end{equation} 
+
+podobne pre stavy na pravo:
+
+\begin{equation}
+ \label{eq:02fermidirac_right}
+ f_r(k_r)=\frac{1}{e^{\frac{E_{k_r}-\mu_r}{k_bT}}+1}\text{.}
+\end{equation} 
+
+
+
+
