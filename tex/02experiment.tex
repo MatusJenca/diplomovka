@@ -89,6 +89,12 @@ a následnými úpravami  dostávame
 Dostali sme vzťah podobný Fermiho zlatému pravidlu, ktorý popisuje pravdepodobnost 
 prechod zo stavu $\psi_l$  do stavu $\psi_r$. 
 
+V ďalšom zavedieme označenie
+\begin{equation}
+\label{eq:02t}
+t_{k_l \to k_r}=\bra{\psi_l}H-E_l\ket{\psi_r}
+\end{equation}
+
 Teraz priložíme na sústavu napätie $U$, čo spôsobí zmenu dna energetického pásu na 
 pravej strane bariéry $\Delta E_c$.  Potenciálová bariéra má teraz tvar lineárnej funkcie.
 Obsadzovacie čísla jednotlivých elektrónových stavov budú na ľavo dané Fermi-Diracovým rozdelením:
@@ -104,6 +110,37 @@ podobne pre stavy na pravo:
  f_r(k_r)=\frac{1}{e^{\frac{E_{k_r}-\mu_r}{k_bT}}+1}\text{.}
 \end{equation} 
 
+Počet elektrónov ktoré prejdu zľava do prava, resp sprava do ľava.
+\begin{equation}
+\label{eq:02elctronsLTR}
+\Gamma^+(\Delta E)=\sum_{k_l}{\sum_{k_r} w_{k_l \to k_r} f_l(k_l)[1-f_r(k_r)]}
+\end{equation}
+
+\begin{equation}
+\label{eq:02elctronsRTL}
+\Gamma^-(\Delta E)=\sum_{k_l}{\sum_{k_r} w_{k_r \to k_l} f_r(k_r)[1-f_l(k_l)]}
+\end{equation}
+
+Kde $\Delta E$ je rozdiel energii medzi stavmi naľavo a napravo, pozri obrázok. Celkový prúd je teda 
+\begin{equation}
+\label{eq:02current}
+I={\Gamma^+(\Delta E) - \Gamma^-(\Delta E)}
+\end{equation}
 
 
+V roviniciach \eqref{eq:02elctronsLTR} a \eqref{eq:02elctronsRTL}  prejdeme od sumy k integrálu a dosadíme Zlaté pravidlo \eqref{eq:02golden_rule}. Nakoniec prejdeme k integrálu cez energiu, kde musíme násobiť hustotu stavov.
+\begin{align*}
+\Gamma^+(\Delta E)=\frac{2\pi}{\hbar}2\sum_{k_l} \sum_{k_r} {|t_{k_l \to k_r}|^2f_l(k_l)[1-f_r(k_r)]\delta(E_{l}-E_{r})}= \\
+\frac{2\pi}{\hbar}2 \int_{0}^{\infty}\frac{L}{\pi} dk_{r}\int_{0}^{\infty}\frac{L}{\pi} dl_{l} {|t_{k_l \to k_r}|^2f_l(k_l)[1-f_r(k_r)]\delta(E_{l}-E_{r})} \simeq\\
+ \frac{2\pi}{\hbar}2 |t|^2 \int_{E_{c,l}}^{\infty}\frac{L}{\pi}\rho_r(E_r)dE_r\int_{E_{c,r}}^{\infty}\frac{L}{\pi} N_r(E_r)dE_r {f_l(k_l)[1-f_r(k_r)]\delta(E_{l}-E_{r})} \text{,}\\
+\end{align*}
+kde sme v poslednom riadku zanedbali závislosť transmisného koeficientu $t(k_l,k_r)$ . Podobným spôsobom vieme upraviť aj vzťah \eqref{eq:02elctronsRTL}.
+Takto upravené vzťahy dosadíme do rovnice pre celkový prúd prechádzajúci sústavou \eqref{eq:02current} a dostaneme 
+\begin{equation}
+\label{eq:02current2}
+I=e\frac{4\pi|t^2|}{\hbar}\int_{E_{cl}}^\infty dE_l\rho_l(E_l)\rho_r(E_l)(f_l(E_l)-f_r(E_l)) \text{,}
+\end{equation}
+kde sme navyše využili $\delta$-funkciu a zbavili sa integrovania cez $E_r$. 
 
+
+V limite nízkych teplôt $T \simeq 0$ Fermi-Diracove funkcie prejdú na $\Theta$-funkcie. Preto dostávame
