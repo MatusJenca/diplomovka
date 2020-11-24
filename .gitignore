@@ -20,4 +20,5 @@ syntax: glob
 *.depend
 *.aux
 *.log
+*.png
 temp.bat
