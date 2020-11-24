@@ -3,6 +3,7 @@ sys.path.append(".")
 from integrator import Newton,EPSILON
 import numpy as np
 import matplotlib.pyplot as plt
+from math import pi
 '''
 #Ked dostavam runtime warningy
 import warnings
@@ -23,11 +24,22 @@ def F2(x,y,a,b):
     return (x+y+a+b)*np.arctan(x+y+a+b)
 
 #konstanty
+#fermiho energia uz nanormovana
 Ef=200
+#fermiho polomer
+kf=1.6e10
+#katof y
 ymax=1/200
+#permitivita vakua
 e0=8.8e-12
-m0=1
-const=1
+#hmotnost elektronu
+m0=9.109534e-31
+#naboj elektronu
+e=1.60217662e-19
+#reciprocna tieniaca dlzka
+ks=kf
+#konstanta pred integralom pri Eself
+const=(e**2)/(2*pi**4*e0*ks)
 
 def F(x,y):
     a=2*np.sqrt(x*y)
@@ -40,7 +52,7 @@ def selfEnergy(w):
     integral=[n for n in Newton(integrant,EPSILON,ymax,100).integrate()]
     return const*integral[-1]-integral[0]
 #vytvor linspace pre w
-W=np.linspace(1,10,10)
+W=np.linspace(1,2*Ef,100)
 Eself=np.array([selfEnergy(w) for w in W])
 print(Eself)
 plt.plot(W,Eself)
