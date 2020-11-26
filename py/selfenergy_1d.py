@@ -56,8 +56,10 @@ def selfEnergy(w):
     integral=[n for n in Newton(integrant,EPSILON,ymax,int(1e2)).integrate()]
     return const*integral[-1]-integral[0]
 #vytvor linspace pre w
+'''
 W=np.linspace(1,2*Uf,100)
 Eself=np.array([selfEnergy(w) for w in W])
 print(Eself)
 plt.plot(W,Eself)
 plt.show()
+'''
