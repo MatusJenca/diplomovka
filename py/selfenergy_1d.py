@@ -42,8 +42,14 @@ ymax=10
 e0=8.8e-12
 #reciprocna tieniaca dlzka
 ks=kf
+#planckova konstanta
+hbar=1.0545718e-34
 #konstanta pred integralom pri Eself
-const=(e**2)/(2*pi**4*e0*ks)
+const=(2*pi)/(2*pi)**3 *(e**2*ks/e0) *(1/pi) *(1/2)
+def Y(y):
+    citatel=(hbar**2*y**2*ks**3)/(2*m0)
+    menovatel=(hbar)/(2*tau0)
+    return citatel/menovatel
 
 def F(x,y):
     a=2*np.sqrt(x*y)
@@ -52,14 +58,12 @@ def F(x,y):
    
 def selfEnergy(w):
     def integrant(y):
-        return ((y**2)/(1+y**2))*F(w,y)
+        return ((y**2)/(1+y**2))*F(w,Y(y))
     integral=[n for n in Newton(integrant,EPSILON,ymax,int(1e2)).integrate()]
     return const*integral[-1]-integral[0]
-#vytvor linspace pre w
-'''
-W=np.linspace(1,2*Uf,100)
-Eself=np.array([selfEnergy(w) for w in W])
-print(Eself)
-plt.plot(W,Eself)
-plt.show()
-'''
+if __name__=='__main__':
+    W=np.linspace(1,2*Uf,100)
+    Eself=np.array([selfEnergy(w) for w in W])
+    print(Eself)
+    plt.plot(W,Eself)
+    plt.show()
