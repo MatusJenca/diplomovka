@@ -47,7 +47,7 @@ hbar=1.0545718e-34
 #konstanta pred integralom pri Eself
 const=(2*pi)/(2*pi)**3 *(e**2*ks/e0) *(1/pi) *(1/2)
 def Y(y):
-    citatel=(hbar**2*y**2*ks**3)/(2*m0)
+    citatel=(hbar**2*y**2*ks**2)/(2*m0)
     menovatel=(hbar)/(2*tau0)
     return citatel/menovatel
 
