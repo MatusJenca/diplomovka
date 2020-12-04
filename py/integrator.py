@@ -37,7 +37,8 @@ class Integrator:
         '''
         result=0
         for x in self.samples:
-            result+=self.intStep(x)
+            st=self.intStep(x)
+            result+=st
             yield result
 #Obdlznikova metoda
 class Newton(Integrator):
