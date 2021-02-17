@@ -99,6 +99,8 @@ if __name__=='__main__':
     plt.plot(Q,Ftest2)
     plt.plot(Q,Ftest3)
     '''
+    plt.xlabel(r"$\frac{ε}{ε_τ}$[ 1 ]")
+    plt.ylabel(r"$Σ_{self}$ [ J ]")
     plt.plot(W,Σ)
     plt.plot(W,Σtest)
     plt.show()
