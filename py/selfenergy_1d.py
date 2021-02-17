@@ -18,7 +18,7 @@ m=9.109534e-31
 #fermiho energia
 Ef=10*e
 #fermiho polomer
-kf=1.6*10e10
+kf=1.6e10
 #tau0
 τ0=6.58e-15
 #hranica integralu cez q
@@ -38,7 +38,7 @@ ks=kf
 #bezrozmerna fermiho energia
 uf=(Ef)/(ετ)
 #konstanta pred integralom
-CONST=(e**2*ks)/(π**3*ε0)
+CONST=(e**2*ks)/(8*π**3*ε0)
 
 '''
 Pomocne funkcie
@@ -65,12 +65,12 @@ def selfEnergy(w):
 #testovacia self energia
 def testSelfEnergy(w):
     k=(np.sqrt(2*m*ετ*w))/(h)
-    C=(e**2)/((2*π)**3)
+    C=(e**2)/((2*π)**2*ε0)
     F=(kf**2-k**2+ks**2)/(4*k)
     LN=np.log(((kf+k)**2+ks**2)/((kf-k)**2+ks**2))
     ARC1=(np.arctan((kf+k)/(ks)))
     ARC2=(np.arctan((kf-k)/(ks)))
-    return -C*F*LN-ks*(ARC1+ARC2)+kf
+    return -0.5*C*(F*LN-ks*(ARC1+ARC2)+kf)
 
     
 
@@ -86,7 +86,20 @@ if __name__=='__main__':
     W=np.linspace(10,2*uf,100)
     Σ=np.array([selfEnergy(w) for w in W])
     Σtest=np.array([testSelfEnergy(w) for w in W])
+    Y=np.linspace(0,2000,100)
+    Q=np.linspace(0,3,100)
+    '''
+    for q in Q:
+        print((h*τ*(q**2)*(ks**2))/(m))
+    Ftest1=np.array([-F(uf,(h*τ*(q**2)*(ks**2))/(m)) for q in Q])
+    Ftest2=np.array([-F(0.5*uf,(h*τ*(q**2)*(ks**2))/(m)) for q in Q])
+    Ftest3=np.array([-F(1.5*uf,(h*τ*(q**2)*(ks**2))/(m)) for q in Q])
+    print(Ftest1)
+    plt.plot(Q,Ftest1)
+    plt.plot(Q,Ftest2)
+    plt.plot(Q,Ftest3)
+    '''
     plt.plot(W,Σ)
-    #plt.plot(W,Σtest)
+    plt.plot(W,Σtest)
     plt.show()
 
