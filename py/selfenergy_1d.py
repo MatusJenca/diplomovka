@@ -3,9 +3,6 @@ import matplotlib.pyplot as plt
 from integrator import Newton,EPSILON
 from math import pi as π 
 '''
-konstanty
-
-
 Zakladne konstanty
 '''
 precision=1e3
