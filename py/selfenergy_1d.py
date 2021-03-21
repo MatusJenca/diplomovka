@@ -2,30 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from integrator import Newton,EPSILON
 from math import pi as π 
-'''
-Zakladne konstanty
-'''
-precision=1e3
-#naboj elektronu
-e=1.60217662e-19
-#htrans
-h=1.0545718e-34 
-#hmotnost elektronu
-m=9.109534e-31 
-#fermiho polomer
-kf=1.6e10
-#fermiho energiay
-Ef=(h**2*kf**2)/(2*m)
-#tau0
-τ0=6.58e-16
-#hranica integralu cez q
-qmax=10
-#permitivita
-ε0=8.854187e-12
-#tienenie
-ks=kf
+from constants import *
+
+
+
 #bezrozmerna fermiho energia
-def selfEnergy(ε,τ=τ0):
+def selfEnergy(ε,τ=τ0,qmax=10):
     #energia epsilon_tau
     ετ=(h)/(2*τ)
     #bezrozmerna energia
@@ -66,22 +48,23 @@ def testSelfEnergy(ε):
     ARC2=(np.arctan((kf-k)/(ks)))
     return -0.5*C*(F*LN-ks*(ARC1+ARC2)+kf)
 
-
 '''
 telo programu
 '''
 if __name__=='__main__':
+    #hranica integralu cez q
+    qmx=1/(τ0*vf)
+    qmx=qmx/ks
+    print(qmx)
+
     Erg=np.linspace(0.01,1.5,100)
-    Σ=np.array([selfEnergy(ε) for ε in Erg])
-    Σ5=np.array([selfEnergy(ε,τ=2*τ0) for ε in Erg])
-    Σ10=np.array([selfEnergy(ε,τ=5*τ0) for ε in Erg])
-    Σtest=np.array([testSelfEnergy(ε) for ε in Erg])
+    Σ=np.array([selfEnergy(ε,qmax=qmx) for ε in Erg])
+    Σ100=np.array([selfEnergy(ε,τ=100*τ0,qmax=qmx) for ε in Erg])
     plt.xlabel(r"$\frac{ε}{E_{Fermi}}$[ 1 ]")
     plt.ylabel(r"$Σ_{self}$ [ J ]")
     plt.xlim(0,1.5)
-    plt.plot(Erg,Σtest,linewidth=1,label="analyticka energia")
+    
     plt.plot(Erg,Σ,linewidth=1,label="τ=τ0")
-    plt.plot(Erg,Σ5,linewidth=1,label="τ=2τ0")
-    plt.plot(Erg,Σ10,linewidth=1,label="τ=5τ0")
+    plt.plot(Erg,Σ100,linewidth=1,label="τ=$\infty$")
     plt.legend() 
     plt.show()
