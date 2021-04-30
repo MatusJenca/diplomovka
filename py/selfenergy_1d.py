@@ -5,40 +5,54 @@ from math import pi as π
 from constants import *
 
 
+#integrant
 
-#bezrozmerna fermiho energia
-def selfEnergy(ε,τ=τ0,qmax=10):
-    #energia epsilon_tau
-    ετ=(h)/(2*τ)
-    #bezrozmerna energia
-    w=(ε*Ef)/(ετ)
+#konstanta pred integralom
+CONST=(e**2*ks)/(8*π**3*ε0)
+#energia epsilon q
+def εq(q):
+    return (h**2*q**2)/(2*m)
+
+def funkciaPodIntegralom(q,w,ετ):
+    '''
+    Cela funkcia pod integralom, je rozdelena na casti pretoze je dlha
+    '''
+    #cast vysledku analytickeho integralu (je to vlastne funkcia bez dosadenia hranic)
+
     #bezrozmerna fermiho energia
     uf=(Ef)/(ετ)
-    #konstanta pred integralom
-    CONST=(e**2*ks)/(8*π**3*ε0)
-
-    '''
-    Pomocne funkcie
-    '''
-    #energia epsilon q
-    def εq(q):
-        return (h**2*q**2)/(2*m)
-    #cast vysledku analytickeho integralu (je to vlastne funkcia bez dosadenia hranic)
     def Fpart(x,y,pm,u):
         return 0.5*(np.log((x+y+pm-u)**2+1))+(x+y+pm-u)*np.arctan(x+y+pm-u)
     #vysledok analytickeho integralu
     def F(x,y):
         a=2*np.sqrt(x*y)
         return 1/(a)*((Fpart(x,y,a,uf)-Fpart(x,y,-a,uf))-(Fpart(x,y,a,0)-Fpart(x,y,-a,0)))
+    return ((q**2)/(q**2+1))*F(w,(εq(q*ks))/(ετ))
+def selfEnergy(ε,τ=τ0,qmax=10):
+    #energia epsilon_tau
+    ετ=(h)/(2*τ)
+    #bezrozmerna energia
+    w=(ε*Ef)/(ετ)
+
+
+    '''
+    funkcia pod integralom s konkretnymi parametrami
+    '''
+    def integrant(q):
+        return funkciaPodIntegralom(q,w,ετ)
     '''
     vypocet self enerie
     '''
     #self energia
-    def integrant(q):
-        return ((q**2)/(q**2+1))*F(w,(εq(q*ks))/(ετ))
+
     prim=[_ for _ in Newton(integrant,EPSILON,qmax,int(precision)).integrate()]
     return CONST*(prim[-1]-prim[0])
     #testovacia self energia
+
+def selfEnergyNoInt(w,τ=τ0,qmax=10): 
+    ετ=(h)/(2*τ)
+    return CONST*qmax*funkciaPodIntegralom(qmax/2,w,ετ)
+
 def testSelfEnergy(ε):
     k=(np.sqrt(2*m*ε*Ef))/(h)
     C=(e**2)/((2*π)**2*ε0)

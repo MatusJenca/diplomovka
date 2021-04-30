@@ -19,7 +19,7 @@ print(Ef)
 #fermiho rychlost
 vf=np.sqrt((2*Ef)/(m))
 #tau0
-τ0=6.58e-16
+τ0=5*6.58e-16
 #permitivita
 ε0=8.854187e-12
 
