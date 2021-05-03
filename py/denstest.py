@@ -1,3 +1,5 @@
+import sys
+sys.path.append('tools')
 import numpy as np
 import matplotlib.pyplot as plt
 from selfenergy import SelfEnergy

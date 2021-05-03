@@ -1,3 +1,5 @@
+import sys
+sys.path.append('./tools')
 import numpy as np
 import matplotlib.pyplot as plt
 from integrator import Newton,EPSILON
