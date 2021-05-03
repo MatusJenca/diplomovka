@@ -2,7 +2,7 @@ import numpy as np
 from math import pi as π 
 from integrator import Newton,EPSILON
 class SelfEnergy:
-    def __init__(self,τ0=6.58e-16):
+    def __init__(self,τ0=6.58e-16,qmax=None):
         self.precision=1e3
         #naboj elektronu
         self.e=1.60217662e-19
@@ -22,14 +22,21 @@ class SelfEnergy:
         self.τ0=τ0
         #permitivita
         self.ε0=8.854187e-12
+        #hranica integralu
+        if qmax==None:
+            qmx=1/(self.τ0*self.vf)
+            self.qmax=qmx/self.ks
+        else:
+            self.qmax=qmax
+        #konstanta pred integralom
         self.CONST=(self.e**2*self.ks)/(8*π**3*self.ε0)
+        
     def εq(self,q):
         return (self.h**2*q**2)/(2*self.m)
     def funkciaPodIntegralom(self,q,w,ετ):
         '''
         Cela funkcia pod integralom, je rozdelena na casti pretoze je dlha
         '''
-        #cast vysledku analytickeho integralu (je to vlastne funkcia bez dosadenia hranic)
 
         #bezrozmerna fermiho energia
         uf=(self.Ef)/(ετ)
@@ -40,7 +47,7 @@ class SelfEnergy:
             a=2*np.sqrt(x*y)
             return 1/(a)*((Fpart(x,y,a,uf)-Fpart(x,y,-a,uf))-(Fpart(x,y,a,0)-Fpart(x,y,-a,0)))
         return ((q**2)/(q**2+1))*F(w,(self.εq(q*self.ks))/(ετ))
-    def __call__(self,ε,taucoef=1,qmax=10):
+    def __call__(self,ε,taucoef=1):
         #tau
         τ=taucoef*self.τ0
         #energia epsilon_tau
@@ -59,7 +66,15 @@ class SelfEnergy:
         '''
         #self energia
 
-        prim=[_ for _ in Newton(integrant,EPSILON,qmax,int(self.precision)).integrate()]
+        prim=[_ for _ in Newton(integrant,EPSILON,self.qmax,int(self.precision)).integrate()]
         return self.CONST*(prim[-1]-prim[0])
         #testovacia self energia
+    def test(self,ε):
+        k=(np.sqrt(2*self.m*ε*self.Ef))/(self.h)
+        C=(self.e**2)/((2*π)**2*self.ε0)
+        F=(self.kf**2-k**2+self.ks**2)/(4*k)
+        LN=np.log(((self.kf+k)**2+self.ks**2)/((self.kf-k)**2+self.ks**2))
+        ARC1=(np.arctan((self.kf+k)/(self.ks)))
+        ARC2=(np.arctan((self.kf-k)/(self.ks)))
+        return -0.5*C*(F*LN-self.ks*(ARC1+ARC2)+self.kf)
 
