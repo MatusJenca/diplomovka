@@ -33,6 +33,12 @@ class SelfEnergy:
         
     def εq(self,q):
         return (self.h**2*q**2)/(2*self.m)
+    def Fpart(self,x,y,pm,u):
+        return 0.5*(np.log((x+y+pm-u)**2+1))+(x+y+pm-u)*np.arctan(x+y+pm-u)
+    
+    def F(self,x,y,ετ,uf):
+        a=2*np.sqrt(x*y)
+        return 1/(a)*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0)))
     def funkciaPodIntegralom(self,q,w,ετ):
         '''
         Cela funkcia pod integralom, je rozdelena na casti pretoze je dlha
@@ -40,13 +46,8 @@ class SelfEnergy:
 
         #bezrozmerna fermiho energia
         uf=(self.Ef)/(ετ)
-        def Fpart(x,y,pm,u):
-            return 0.5*(np.log((x+y+pm-u)**2+1))+(x+y+pm-u)*np.arctan(x+y+pm-u)
-        #vysledok analytickeho integralu
-        def F(x,y):
-            a=2*np.sqrt(x*y)
-            return 1/(a)*((Fpart(x,y,a,uf)-Fpart(x,y,-a,uf))-(Fpart(x,y,a,0)-Fpart(x,y,-a,0)))
-        return ((q**2)/(q**2+1))*F(w,(self.εq(q*self.ks))/(ετ))
+                #vysledok analytickeho integralu
+        return ((q**2)/(q**2+1))*self.F(w,self.εq(q*self.ks)/(ετ),ετ,uf)
     def __call__(self,ε,taucoef=1):
         #tau
         τ=taucoef*self.τ0
