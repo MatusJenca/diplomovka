@@ -14,8 +14,20 @@ class DensityOfStates:
 class DOSDirect(SelfEnergy):
     def __init__(self,τ0=6.58e-16,qmax=None):
         SelfEnergy.__init__(self,τ0,qmax)
-    def Fpart(self,x,y,pm,u):
-        return 3*(pm-u+x+y)/((pm-u+x+y)**2+1) + np.arctan(x+y+pm-u)
+    def FpartDer(self,x,y,plus,u):
+        a=np.sqrt(x*y)
+        b=(y)/(a)
+        if plus:
+            zlomok1=((b+1)*(-u+2*a+x+y))/((u-2*a-x-y)**2+1)
+            zlomok2=((-b-1)*(-u+2*a+x+y))/((-u+2*a+x+y)**2+1)
+            return zlomok1 - zlomok2 - (b+1)*np.arctan(u-2*a-x-y)
+        zlomok1=((b-1)*(-u-2*a+x+y))/((-u-2*a+x+y)**2+1)
+        zlomok2=((b-1)*(-u-2*a+x+y))/((u+2*a-x-y)**2+1)
+        return -zlomok1 - zlomok2 - (1-b)*np.arctan(u+2*a-x-y)
+    def F(self,x,y,ετ,uf):
+        a=2*np.sqrt(x*y)
+        b=-y/(4*pow(x*y,3/2))
+        return b*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0)))+1/(a)*((self.FpartDer(x,y,True,uf)-self.FpartDer(x,y,False,uf))-(self.FpartDer(x,y,True,0)-self.FpartDer(x,y,False,0)))
     def __call__(self,ε):
         ετ0=(self.h)/(2*self.τ0)
         w0=(ε*self.Ef)/(ετ0)
