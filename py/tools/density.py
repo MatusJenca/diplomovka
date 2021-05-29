@@ -7,10 +7,14 @@ class DensityOfStates:
         assert issubclass(type(seFunc),SelfEnergy)
         self.seFunc=seFunc
         self.DELTA=1e-3
-    def __call__(self,w,taucoef=100):
-        def diff(x):
-            return -self.seFunc(x,taucoef=1)+self.seFunc(x,taucoef=taucoef)
-        return derivative(diff,w,self.DELTA)
+    def __call__(self,ε,taucoef=100):
+        ετ0=(self.seFunc.h)/(2*self.seFunc.τ0)
+        ετ=(self.seFunc.h)/(2*self.seFunc.τ0*taucoef)
+        def sf0(x):
+            return self.seFunc(x,taucoef=1)
+        def sf(x):
+            return self.seFunc(x,taucoef=100)
+        return self.seFunc.Ef*(-derivative(sf0,ε,self.DELTA)/ετ+derivative(sf,ε,self.DELTA)/ετ0)
 class DOSDirect(SelfEnergy):
     def __init__(self,τ0=6.58e-16,qmax=None):
         SelfEnergy.__init__(self,τ0,qmax)
@@ -31,21 +35,24 @@ class DOSDirect(SelfEnergy):
     def __call__(self,ε):
         ετ0=(self.h)/(2*self.τ0)
         w0=(ε*self.Ef)/(ετ0)
-        ετ=ετ0/100
-        w=100*w0
+        τ=100*self.τ0
+        ετ=(self.h)/(2*τ)
+        w=(ε*self.Ef)/(ετ)
         def integrant0(q):
             return self.funkciaPodIntegralom(q,w0,ετ0)
         def integrant(q):
             return self.funkciaPodIntegralom(q,w,ετ)
         prim0=[_ for _ in Newton(integrant0,EPSILON,self.qmax,int(self.precision)).integrate()] 
         prim=[_ for _ in Newton(integrant,EPSILON,self.qmax,int(self.precision)).integrate()]
+        #return self.CONST*self.Ef*(-(prim0[-1]-prim0[0])/ετ0+(prim[-1]-prim[0])/ετ)
         return self.CONST*(-(prim0[-1]-prim0[0])+(prim[-1]-prim[0]))
 class DOSDirectNoInt(DOSDirect):
     def __init__(self,τ0=6.58e-16,qmax=None):
         DOSDirect.__init__(self,τ0,qmax)
-    def __call__(self,ε):
+    def __call__(self,ε): 
         ετ0=(self.h)/(2*self.τ0)
         w0=(ε*self.Ef)/(ετ0)
-        ετ=ετ0/100
-        w=100*w0
-        return -(1/(self.vf*self.τ0))*(self.funkciaPodIntegralom(EPSILON,w0,ετ0))+(1/(self.vf*self.τ0))*(self.funkciaPodIntegralom(EPSILON,w,ετ))
+        τ=100*self.τ0
+        ετ=(self.h)/(2*τ)
+        w=(ε*self.Ef)/(ετ)
+        return -self.qmax*(self.funkciaPodIntegralom(self.qmax/2,w0,ετ0))+self.qmax*(self.funkciaPodIntegralom(self.qmax/2,w,ετ))
