@@ -46,7 +46,7 @@ class SelfEnergy:
 
         #bezrozmerna fermiho energia
         uf=(self.Ef)/(ετ)
-                #vysledok analytickeho integralu
+        #vysledok analytickeho integralu
         return ((q**2)/(q**2+1))*self.F(w,self.εq(q*self.ks)/(ετ),ετ,uf)
     def __call__(self,ε,taucoef=1):
         #tau

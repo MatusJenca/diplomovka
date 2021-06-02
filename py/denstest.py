@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from selfenergy import SelfEnergy
 from density import DensityOfStates
 if __name__=="__main__": 
-    Erg=np.linspace(0.2,1.8,100)
+    Erg=np.linspace(0.8,1.2,100)
     seFunc=SelfEnergy()
     seFunc5=SelfEnergy(τ0=5*6.58e-16)
     dosFunc=DensityOfStates(seFunc)
