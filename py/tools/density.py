@@ -10,11 +10,10 @@ class DensityOfStates:
     def __call__(self,ε,taucoef=100):
         ετ0=(self.seFunc.h)/(2*self.seFunc.τ0)
         ετ=(self.seFunc.h)/(2*self.seFunc.τ0*taucoef)
-        def sf0(x):
-            return self.seFunc(x,taucoef=1)
-        def sf(x):
-            return self.seFunc(x,taucoef=100)
-        return self.seFunc.Ef*(derivative(sf0,ε,self.DELTA)/ετ0-derivative(sf,ε,self.DELTA)/ετ)
+        def diff(x):
+            return self.seFunc(x,taucoef=100) - self.seFunc(x,taucoef=1)
+        #return diff(ε)/self.seFunc.Ef
+        return derivative(diff,ε,self.DELTA)/self.seFunc.Ef
 class DOSDirect(SelfEnergy):
     def __init__(self,τ0=6.58e-16,qmax=None):
         SelfEnergy.__init__(self,τ0,qmax)
@@ -31,7 +30,7 @@ class DOSDirect(SelfEnergy):
     def F(self,x,y,ετ,uf):
         a=2*np.sqrt(x*y)
         b=-y/(4*pow(x*y,3/2))
-        return (b*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0)))+1/(a)*((self.FpartDer(x,y,True,uf)-self.FpartDer(x,y,False,uf))-(self.FpartDer(x,y,True,0)-self.FpartDer(x,y,False,0))))
+        return (b*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0)))+1/(a)*((self.FpartDer(x,y,True,uf)-self.FpartDer(x,y,False,uf))-(self.FpartDer(x,y,True,0)-self.FpartDer(x,y,False,0))))/ετ
     def __call__(self,ε):
         ετ0=(self.h)/(2*self.τ0)
         w0=(ε*self.Ef)/(ετ0)
@@ -45,7 +44,7 @@ class DOSDirect(SelfEnergy):
         prim0=[_ for _ in Newton(integrant0,EPSILON,self.qmax,int(self.precision)).integrate()] 
         prim=[_ for _ in Newton(integrant,EPSILON,self.qmax,int(self.precision)).integrate()]
         #return self.CONST*self.Ef*(-(prim0[-1]-prim0[0])/ετ0+(prim[-1]-prim[0])/ετ)
-        return self.CONST*((prim0[-1]-prim0[0])-(prim[-1]-prim[0]))/ετ
+        return -self.CONST*((prim0[-1]-prim0[0])-(prim[-1]-prim[0]))
 class DOSDirectNoInt(DOSDirect):
     def __init__(self,τ0=6.58e-16,qmax=None):
         DOSDirect.__init__(self,τ0,qmax)

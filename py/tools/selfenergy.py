@@ -2,7 +2,7 @@ import numpy as np
 from math import pi as π 
 from integrator import Newton,EPSILON
 class SelfEnergy:
-    def __init__(self,τ0=6.58e-16,qmax=None):
+    def __init__(self,τ0=6.58e-15,qmax=None):
         self.precision=1e3
         #naboj elektronu
         self.e=1.60217662e-19
@@ -33,12 +33,32 @@ class SelfEnergy:
         
     def εq(self,q):
         return (self.h**2*q**2)/(2*self.m)
+    def log(self,x,y,pm,u):
+        return 0.5*(np.log((x+y+pm-u)**2+1))
+    def atan(self,x,y,pm,u):
+        return (x+y+pm-u)*np.arctan(x+y+pm-u)
+    #testovacie funkcie 
+    def fup1(self,x,y,uf):
+        return self.atan(x,y,2*np.sqrt(x*y),uf)
+    def fup2(self,x,y,uf):
+        return self.atan(x,y,-2*np.sqrt(x*y),uf)
+    
+    def fdown1(self,x,y):
+        return self.atan(x,y,2*np.sqrt(x*y),0)
+    def fdown2(self,x,y):
+        return self.atan(x,y,-2*np.sqrt(x*y),0)
+    def funcAtan(self,x,y,uf):
+        return (-1/(np.sqrt(4*x*y)))*((self.fup1(x,y,uf)-self.fup2(x,y,uf))-(self.fdown1(x,y)-self.fdown2(x,y)))
+    def funcLog(self,x,y,uf):
+        return 0.5*((1)/(np.sqrt(4*x*y)))*(np.log(((x+y+np.sqrt(4*x*y)-uf)**2+1)/((x+y-np.sqrt(4*x*y)-uf)**2+1))-np.log(((x+y+np.sqrt(4*x*y))**2+1)/((x+y-np.sqrt(4*x*y))**2+1)))
     def Fpart(self,x,y,pm,u):
-        return 0.5*(np.log((x+y+pm-u)**2+1))+(x+y+pm-u)*np.arctan(x+y+pm-u)
+        return self.log(x,y,pm,u)+self.atan(x,y,pm,u)
     
     def F(self,x,y,ετ,uf):
         a=2*np.sqrt(x*y)
-        return 1/(a)*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0)))
+        #return 1/(a)*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0))) #to povodne
+        #return 1/(a)*(self.log(x,y,a,uf)+self.atan(x,y,a,uf)-self.log(x,y,-a,uf)+self.atan(x,y,-a,uf)-(self.log(x,y,a,0)+self.atan(x,y,a,0)-self.log(x,y,-a,0)+self.atan(x,y,-a,0))) #to co mam v zosite (evidentne zle)
+        return self.funcAtan(x,y,uf)+self.funcLog(x,y,uf)
     def funkciaPodIntegralom(self,q,w,ετ):
         '''
         Cela funkcia pod integralom, je rozdelena na casti pretoze je dlha
@@ -55,7 +75,6 @@ class SelfEnergy:
         ετ=(self.h)/(2*τ)
         #bezrozmerna energia
         w=(ε*self.Ef)/(ετ)
-
 
         '''
         funkcia pod integralom s konkretnymi parametrami
