@@ -13,8 +13,8 @@ if __name__=="__main__":
     ρ=np.array([dosFunc(ε) for ε in Erg])
     #ρ5=np.array([dosFunc5(ε) for ε in Erg])
 
-    plt.plot(Erg,ρ,linewidth=1,label=r"hustota stavov τ0=$6.6\times10^{-16}$")
-    #plt.plot(Erg,ρ5,linewidth=1,label=r"hustota stavov τ0=$5*6.6\times10^{-16}$")
+    plt.plot(Erg,ρ,linewidth=1,label=r"hustota stavov τ0=$6.6\times10^{-15}$")
+    #plt.plot(Erg,ρ5,linewidth=1,label=r"hustota stavov τ0=$5*6.6\times10^{-15}$")
     plt.xlabel(r"$\frac{E}{E_{fermi}}$")
     plt.ylabel(r"ρ")
     plt.legend() 

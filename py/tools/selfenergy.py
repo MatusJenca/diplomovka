@@ -57,8 +57,9 @@ class SelfEnergy:
     def F(self,x,y,ετ,uf):
         a=2*np.sqrt(x*y)
         #return 1/(a)*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0))) #to povodne
-        #return 1/(a)*(self.log(x,y,a,uf)+self.atan(x,y,a,uf)-self.log(x,y,-a,uf)+self.atan(x,y,-a,uf)-(self.log(x,y,a,0)+self.atan(x,y,a,0)-self.log(x,y,-a,0)+self.atan(x,y,-a,0))) #to co mam v zosite (evidentne zle)
-        return self.funcAtan(x,y,uf)+self.funcLog(x,y,uf)
+        #return self.funcAtan(x,y,uf)+self.funcLog(x,y,uf) #to z fortranu
+        return (1/(a))*(self.log(x,y,a,uf)-self.atan(x,y,a,uf)-self.log(x,y,a,0)
+            -self.atan(x,y,a,0)-self.log(x,y,-a,uf)+self.atan(x,y,-a,uf)+self.log(x,y,-a,0)+self.atan(x,y,-a,0)) #zo zosita
     def funkciaPodIntegralom(self,q,w,ετ):
         '''
         Cela funkcia pod integralom, je rozdelena na casti pretoze je dlha
