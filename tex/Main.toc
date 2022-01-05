@@ -1,7 +1,8 @@
-\babel@toc {slovak}{}
-\contentsline {paragraph}{Poďakovanie}{5}{section*.1}% 
-\contentsline {section}{Úvod}{8}{section*.5}% 
-\contentsline {section}{\numberline {1}Elektróny v kovovej mriežke s disorderom : Altshuler-Aronovova aproximácia}{8}{section.1}% 
-\contentsline {section}{\numberline {2}Experimentálne meranie ustoty stavov v disorderovanom kove}{16}{section.2}% 
-\contentsline {section}{Záver}{19}{section*.6}% 
-\contentsline {section}{Zoznam použitej literatúry}{20}{section*.7}% 
+\babel@toc {slovak}{}\relax 
+\contentsline {paragraph}{Poďakovanie}{5}{section*.1}%
+\contentsline {section}{Úvod}{8}{section*.5}%
+\contentsline {section}{\numberline {1}Elektróny v kovovej mriežke s disorderom : Altshuler-Aronovova aproximácia}{8}{section.1}%
+\contentsline {section}{\numberline {2}Experimentálne meranie ustoty stavov v disorderovanom kove}{16}{section.2}%
+\contentsline {section}{\numberline {3}Odvodenie Kubovej Formuly}{19}{section.3}%
+\contentsline {section}{Záver}{21}{section*.6}%
+\contentsline {section}{Zoznam použitej literatúry}{22}{section*.7}%

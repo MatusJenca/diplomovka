@@ -1,0 +1,66 @@
+\section{Odvodenie Kubovej Formuly}
+V tejto kapitole odvodíme Kubovu Formulu pre optickú vodivosť, ktorú neskôr použijeme na ďalšie výpočty.
+%fakt neviem presne na ake, tuto vetu treba prepisat
+Narozdiel od štandartne používanej Boltzmanovej Kinetickej rovnice (BKR), ktorá využiva semiklasický 
+formalizmus vlnových balíkov, v Kubovej formule uvažujeme čisto kvantový prístup. V tejto kapitole 
+ukážeme, že v istom priblížení výsledok pre vodivosť z Kubovej formuly korešponduje s Drudeho formulou:
+\begin{align}
+\label{eq:03drude}
+\sigma=\frac{ne^2\tau}{m*}\mathrm{,}
+\end{align}
+kde $n$ je číslo pásu, $\tau$ je relaxačný čas a $m*$ je efektívna hmotnosť. Drudeho formula je odvodená z 
+BKR, teda je semiklasická, z Kubovej formuly vieme dostať jej kvantovú analógiu.
+Uvažujme disorderovaný kov napojený na zdroj napätia s periodickou časovou závislosťou
+\begin{align}
+\label{eq:03potential}
+V(t)=V\cos \omega t = -eEx \cos \omega t \mathrm{.}
+\end{align}
+
+Predpokladajme, že v čase $t=t_0$ je pole nulové. Platí bezčasová \schr
+\begin{align}
+\label{eq:03schr}
+\hat{H} \phi_j(\vr)= \epsilon_j\phi_j(\vr) \mathrm{,}
+\end{align}
+ktorej Hamiltoníán
+\begin{align}
+\label{eq:03Hamiltonian}
+\hat{H}= - \frac{\hbar^2}{2m}\laplace \vr + V_{dis}(\vr) \mathrm{,} 
+\end{align}
+kde $V_{dis}(\vr)$ je náhodný potenciál disorderu. Pre vlnovú funkciu $\Psi(\vr,t)$ v iných časoch platí. 
+\begin{align}
+\label{eq:03timeschr}
+\frac{\partial}{\partial t} \Psi(\vr,t) = (\hat{H} + V(t))\Psi(\vr,t)\mathrm{.}
+\end{align}
+
+Rovnicu \eqref{eq:03timeschr}  riešime pomocou časovej poruchovej teórie. Funkciu $\Psi(\vr,t)$ rozvinieme do stacionárnych stavov $\phi_j(\vr)$. 
+\begin{align}
+\label{eq:03stac}
+\Psi(\vr,t)=\sum_j c_{ji}(t)\phi_j(\vr)e^{-\frac{i\epsilon_j}{\hbar}} \mathrm{,}
+\end{align}
+kde $c_{ji}(t)$ je koeficient prechodu, prenásobením komplexne združeným   $c_{ji}*(t)$ dostaneme pravdepodobnosť prechodu $|c_{ji}(t)|^2$ z počiatočného stavu $i$ do nového stavu $j$. Je zrejmé, že v čase $t=t_0$ je tento koeficient rovný Kronekerovmu symbolu
+\begin{align}
+\label{eq:03cji0}
+c_{ji}(t_0)=\delta_{ji}
+\end{align}  
+%tuna to budem potrebovat lepsie vysvetlit.
+V ďalších výpočtoch budeme potrebovať koeficient prechodu medzi počiatočným stavom $i$  a finálnym stavom $f$. Ten dostaneme nasledovným spôsobom:
+
+Rozvoj \eqref{eq:03stac} dosadíme do \eqref{eq:03timeschr} obe strany prenásobíme $\phi_f(\vr)e^{\frac{i\epsilon_f}{\hbar}}$ - kde $\phi_f(\vr)$ a $\epsilon_f$ sú vlnová funkcia a energia finálneho stavu $f$ - a integrujeme cez normovaný objem $\Omega$. Rovnica \eqref{eq:03timeschr} prejde na 
+\begin{align}
+\label{eq:03timeschr_expanded}
+i\hbar\frac{\partial}{\partial t}c_{fi}(t)=\sum_j c_{ji} V_{fi}(t)e^{\frac{-i \epsilon_{fi} t}{\hbar}} \mathrm{,}
+\end{align}
+kde sme zaviedli nasledovné označenia:
+\begin{align}
+V_{fi}(t) &\equiv \int_{\Omega}d\vr \phi_f(\vr)V(t)\phi_i(\vr) \\
+\epsilon_{fi} &\equiv \epsilon_f - \epsilon_i \text{.}
+\end{align}
+Teraz použijeme Bornovu aproximáciu $c_{ij}(t)=\c_{ij}(t_0)$, čo je podľa \eqref{eq:03cji0} Kronekerov symbol, teda \eqref{eq:03timeschr_expanded} prejde na
+\begin{align}
+\label{eq:born_appr}
+i\hbar\frac{\partial}{\partial t}c_{fi}(t)=V_{fi}e^{\frac{-i\epsilon_{fi} t}{\hbar}}\mathrm{.}
+\end{align}
+Túto diferenciálnu rovnicu vieme narozdiel od \eqref{eq:03timeschr} a \eqref{eq:03timeschr_expanded} riešiť jednoducho integrovaním:
+\begin{align}
+c_{fi}(t) = \frac{1}{i\hbar} \int_0^t dt' V_{fi}(t')e^{\frac{-i\epsilon_{fi} t'}{\hbar}}
+\end{align}
