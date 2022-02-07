@@ -1,8 +1,8 @@
 import numpy as np
 from math import pi as π 
 from integrator import Newton,EPSILON
-class SelfEnergy:
-    def __init__(self,τ0=6.58e-15,qmax=None):
+class PhysFunction:
+    def __init__(self):
         self.precision=1e3
         #naboj elektronu
         self.e=1.60217662e-19
@@ -18,10 +18,14 @@ class SelfEnergy:
         self.Ef=(self.h**2*self.kf**2)/(2*self.m)
         #fermiho rychlost
         self.vf=np.sqrt((2*self.Ef)/(self.m))
-        #tau0
-        self.τ0=τ0
         #permitivita
         self.ε0=8.854187e-12
+        
+class SelfEnergy(PhysFunction):
+    def __init__(self,τ0=6.58e-15,qmax=None):
+        PhysFunction.__init__(self)
+        #tau0
+        self.τ0=τ0
         #hranica integralu
         if qmax==None:
             qmx=1/(self.τ0*self.vf)
