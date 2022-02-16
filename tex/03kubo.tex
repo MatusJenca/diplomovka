@@ -322,7 +322,7 @@ Odvodili sme Kubovu formulu a z nej Drudeho formulu. Naše odvodenia boli rýdzo
 Výsledok \eqref{eq:03divergent} sme dostali riešením \eqref{eq:03SchrDis} stacionárnou poruchovou teóriou, teraz ideme riešiť rovnaký problém nestacionárne.
 \begin{align}
 \label{eq:03SchrDis2}
-(\frac{-\hbar^2}{2m}\laplace_{\vr} + V_{dis}(\vr))\Phi_i(\vr)=\mathcal{E}_i\Phi(\vr)  \text{.}
+(\frac{-\hbar^2}{2m}\laplace_{\vr} + V_{dis}(\vr))\Phi_i(\vr)=-i\hbar \frac{\partial}{\partial t}\Phi(\vr)  \text{.}
 \end{align}
 Podobne, ako sme riešili \eqref{eq:03timeschr}, do rovnice \eqref{eq:03SchrDis2} dosadíme rozvoj 
 \begin{align}
@@ -336,7 +336,7 @@ po úpravách dostaneme
 použijeme Bornovu aproxímáciu a výsledok je
 \begin{align}
 \label{eq:03coef_nonstac}
-a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f)}-1)\text{.}
+a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f)t}-1)\text{.}
 \end{align}
 V tomto vzťahu spoznávame koeficient z nestacionárnej teórie.Finálny výsledok bude identícký, pretože náš problém nie je časovo závislý. Teraz zakomponujeme časovú  závislosť
 \begin{align}
@@ -345,6 +345,6 @@ V_{dis}(t)=V_{dis}e^{\frac{-t}{\tau}} \text{.}
 Do rovnice sme vložili konečné zapínanie poruchy v čase $\tau$. Pre koeficienty dostaneme
 \begin{align}
 \label{eq:03coef_nonstac2}
-a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)-\frac{i\hbar}{2\tau}}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f-\frac{\hbar)}{2\tau}}-1)\text{.}
+a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)-\frac{i\hbar}{2\tau}}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f-\frac{\hbar}{2\tau})t})-1\text{.}
 \end{align}
 z čoho po prenásobení komplexne združeným dostaneme lorenzián \eqref{eq:03lorenz}.
