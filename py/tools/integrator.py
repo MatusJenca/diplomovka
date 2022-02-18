@@ -1,7 +1,7 @@
 import numpy as np
 import random
 from math import pi
-EPSILON=1e-5
+EPSILON=1e-10
 #Itegrator class
 class Integrator:
     '''
@@ -69,4 +69,5 @@ class Integrator:
 #Obdlznikova metoda
 class Newton(Integrator):
     def intStep(self,x):
-        return ((self.function(x)+self.function(x+self.step))/2)*self.step
+        res=((self.function(x)+self.function(x+self.step))/2)*self.step
+        return res
