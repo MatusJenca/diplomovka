@@ -15,11 +15,11 @@ class PhysFunction:
         #tienenie
         self.ks=self.kf
         #fermiho energia
-        self.Ef=(self.h**2*self.kf**2)/(2*self.m)
+        self.Ef=(2*self.h**2*self.kf**2)/(2*self.m)
         #fermiho rychlost
         self.vf=np.sqrt((2*self.Ef)/(self.m))
         #hustotastavov na fermiho energii
-        self.rhof=(2*(self.m/self.h**2)**(3/2)*self.Ef**(1/2))/(2*π**2)
+        self.rhof=((self.m/self.h**2)**(3/2)*self.Ef**(1/2))/(2*π**2)
         #permitivita
         self.ε0=8.854187e-12
         
