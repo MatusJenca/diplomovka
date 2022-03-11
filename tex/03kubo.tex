@@ -1,4 +1,5 @@
 \section{Odvodenie Kubovej Formuly}
+\label{sec:kubo}
 V tejto kapitole odvodíme Kubovu Formulu pre optickú vodivosť, ktorú neskôr použijeme na ďalšie výpočty.
 %fakt neviem presne na ake, tuto vetu treba prepisat
 Narozdiel od štandartne používanej Boltzmanovej Kinetickej rovnice (BKR), ktorá využiva semiklasický 
@@ -165,6 +166,7 @@ kde
 \end{align}
 ktorý \eqref{eq:03Phi_i} do maticového elementu \eqref{eq:03matrix_element}. Modul maticového elementu potom bude
 \begin{align}
+\label{eq:03dfisquared}
 |D_{fi}|^2=\int_\Omega d\vr \sum_{\vk_1}a_{\vk_1}^f\phi_{\vk_1}(\vr)\frac{d}{dx}\sum_{\vk_2}a_{\vk_2}^{i*}\phi_{\vk_2}^*(\vr)\int_\Omega d\vr\ ' \sum_{\vk_3}a_{\vk_3}^{f*}\phi_{\vk_3}^*(\vr\ ')\frac{d}{dx'}\sum_{\vk_4}a_{\vk_4}^i \phi_{\vk_4}(\vr\ ')
 \end{align}
 Využijeme nasledovné vzťahy:
@@ -182,6 +184,7 @@ kde sme preznačili sumačné indexy $\vk\equiv \vk_1$ a $\vk\ '\equiv \vk_2$.
 
 Doteraz sme v tejto kapitole prezentovali presné výsledky. Teraz urobíme prvé aproximácie. Maticový element $|D_{fi}|^2$ je pre jeden konkrétny disorder, teda jedno náhodné usporiadanie porúch v kryštáli. V reálnom prípade nás zaujíma maticový element pre {\it stredný disorder}, ktorý dostaneme ako strednú hodnotu všetkých možných disorderov.
 \begin{align}
+\label{eq:03dfisq2}
 \overline{|D_{fi}|^2}=\sum_{\vk\vk\ '}\overline{a^{f*}_{\vk\ '}a^f_{\vk}a^{*i}_{\vk}a^i_{\vk\ '}}k_xk_x' \text{.} 
 \end{align}
 
@@ -191,6 +194,7 @@ Predpokladáme, že disorder je {\it slabý}, preto môžme urobiť aj druhú ap
 \end{align}
 Nakoniec predpokladáme, že stavy $\vk$ a $\vk\ '$ sú nekorelované, teda
 \begin{align}
+\label{eq:03dfisq3}
 \overline{|D_{fi}|^2}=\sum_{\vk\vk\ '}\overline{a^{f*}_{\vk\ '}a^f_{\vk}}\overline{a^{*i}_{\vk}a^i_{\vk\ '}}k_xk_x'\delta_{kk'}=\sum_{\vk}\overline{a^{f*}_{\vk}a^f_{\vk}}\overline{a^{*i}_{\vk}a^i_{\vk}}k_x^2\text{.}
 \end{align}
 

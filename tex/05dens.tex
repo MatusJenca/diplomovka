@@ -1,0 +1,45 @@
+\section{Výpočet hustoty stavov Thoulesovým ansatzom}
+V tejto kapitole vypočítame hustotu stavov pomocou Thoulesovho ansatzu. Self energiu, narozdiel od AA, nie je možné vyjadriť analyticky, preto použijeme jednoduchú obdĺžnikovú metódu integrovania. Výsledok porovnáme s AA a experimentom. Vychádzame z pre energiu elektronov v kove s disorderom a e-e interakciou \eqref{MISSING_REFERENCE}
+\begin{align}
+\label{eq:05energy} 
+ E_m=\E_m-\sum_{\forall m'} \int d\vr\' \int d\vr \phi_{m'}^*(\vr\')\phi_{m}^*(\vr)V(|\vr-\vr\ '|)\phi_{m'}(\vr)\phi_{m}(\vr\')\text{,}
+\end{align} 
+kde $\E_m$,$\phi_m$  sú riešenia \eqref{eq:01schr_dis}
+\begin{align}
+\label{eq:05schr_dis}
+[\frac{\hbar^2}{2m}\laplace+V_{dis}(\vr)]\phi_m(\vr)=\E_m\phi_m(\vr)\text{,}
+\end{align}
+a $V(|\vr -\vr\ '|)$ je Yukkavov potenciál \eqref{eq:01yukk_pot}, resp. jeho Fourierova transformácia
+\begin{align}
+\label{eq:05yukkft}
+V(|\vr - \vr\ '|) &= \frac{1}{(2\pi)^3}\int d\vq\ V(\vq)e^{i|\vr-\vr\ '|\vq} \text{.} \\
+\notag
+V(\vq)&\equiv\frac{e^2q^2}{\epsilon_0(q^2+k_s^2)} 
+\end{align}
+
+Do \eqref{eq:05energy} dosadíme \eqref{eq:05yukkft} za $V(\vr-\vr\ ')$. Pre energiu stredného disorderu dostávame
+\begin{align}
+\label{eq:05ergmeandis}
+\overline{E_m} =\overline{\E_m} - \frac{1}{(2\pi)^3}\int d\vq\ V(q) \sum_{\forall m'}\overline{|\bra{\phi_m}e^{i\vq\vr}\ket{\phi_{m'}}|}
+\end{align}
+
+Vlnovú funkciu $\phi_m(\vr)$ rozvinieme do systému rovinných vĺn
+\begin{align}
+\label{eq:05phi}
+\phi_m(\vr) = \frac{1}{\sqrt{\Omega}}\sum_{\vk}c_{\vk}^me^{i\vk\vr}\text{,}
+\end{align}
+a dosadíme do \eqref{eq:05ergmeandis}
+\begin{align}
+\notag
+\overline{E_m} = \E_m - \frac{1}{(2\pi)^3}&\int d\vq\ V(\vq)\overline{ \sum_{m'} \sum_{\vk_1} \sum_{\vk_3}\int d\vr c^{m*}_{\vk_1}c^{m'}_{\vk_3}e^{i\vq\vr}e^{i\vk\vr}e^{-i\vk_3\vr}}\\
+&\overline{\sum_{\vk_2}\sum_{\vk_4}\int d\vr\' c^{m'*}_{\vk_4}c^{m}_{\vk_2}e^{-i\vq\vr\ '}e^{-i\vk_4\vr\ '}e^{i\vk_2\vr\ '}} \text{.}
+\end{align}
+Podobne ako v kapitole \ref{sec:kubo} pre vzťah \eqref{eq:03dfisquared} vieme využiť dva Kronekerove symboly a výraz zjednodušiť na
+\begin{align}
+\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3}\int d\vq V(\vq) \sum_{m'}\sum_{\vk}\sum_{\vk\ '}\overline{c^{*m}_{\vk+\vq}c^{m}_{\vk\ '+\vq}c^{*m'}_{\vk\ '}c^{m'}_{\vk}}\text{.}
+\end{align}
+Teraz urobíme predpoklad, že koeficienty s rôznym $m$ a s rôznym $\vk$ sú nekorelované - viď. kapitolu \ref{sec:kubo}, kde sme urobili to isté pri prechode z \eqref{eq:03dfisq2} na \eqref{eq:03dfisq3}. Dostaneme výraz pre energiu
+\begin{align}
+\label{eq:05energy2}
+\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3} \int d\vq\ V(\vq) \sum_{m'}\sum_{\vk} \overline{c^{m*}_{\vk+\vq}c^{m}_{\vk+\vq}}\ \overline{c^{m*}_{\vk}c^{m}_{\vk}}
+\end{align}
