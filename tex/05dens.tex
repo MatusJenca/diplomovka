@@ -1,0 +1,16 @@
+\section{Výpočet hustoty stavov Thoulesovým ansatzom}
+V tejto kapitole vypočítame hustotu stavov pomocou Thoulesovho ansatzu. Self energiu, narozdiel od AA, nie je možné vyjadriť analyticky, preto použijeme jednoduchú obdĺžnikovú metódu integrovania. Výsledok porovnáme s AA a experimentom. Vychádzame z pre energiu elektronov v kove s disorderom a e-e interakciou \eqref{MISSING_REFERENCE}
+\begin{align}
+\label{eq:05energy} 
+ E_m=\E_m-\sum_{\forall m'} \int d\vr\' \int d\vr \phi_{m'}^*(\vr\')\phi_{m}^*(\vr)V(|\vr-\vr\ '|)\phi_{m'}(\vr)\phi_{m}(\vr\')\text{,}
+\end{align} 
+kde $\E_m$,$\phi_m$  sú riešenia \eqref{eq:01schr_dis}
+\begin{align}
+\label{eq:05schr_dis}
+[\frac{\hbar^2}{2m}\laplace+V_{dis}(\vr)]\phi_m(\vr)=\E_m\phi_m(\vr)\text{,}
+\end{align}
+a $V(|\vr -\vr\ '|)$ je Yukkavov potencíal \eqref{eq:01yukk_pot}, resp. jeho Fourierova transformácia
+\begin{align}
+V(|\vr - \vr\ '|) = \frac{1}{(2\pi)^3}
+\end{align}
+
