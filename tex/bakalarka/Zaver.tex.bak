@@ -1,0 +1,20 @@
+V práci sme skúmali vplyv e-e interakcie na hustotu elektrónových stavov v slabo neusporiadanom 3D kove. Zamerali sme sa na teóriu Altshulera-Aronova
+\cite{Altshuler1},\cite{Altshuler3},\cite{Altshuler4}, podľa ktorej interakcia spolu s disorderom potláčajú hustotu stavov pri energiách $|E-E_F| \lesssim \hbar/\tau$, a to tak že vykazuje závislosť $\propto \sqrt{|E-E_F|}$.
+Formalizmus použitý v práci Altshulera-Aronova (Greenove funkcie a diagramy) bol pre nás zatiaľ príliš náročný.
+Preto sme si dali za cieľ odvodiť výsledok Altshulera-Aronova iným
+postupom \cite{MoskovaUnpub1} ktorý má ten istý fyzikálny obsah ako AA teória, avšak je založený na terminológii základnej kvantovej mechaniky a ľahšie zvládnuteľný na bakalárskej úrovni.
+Tento cieľ sme splnili v kapitole 3. Zhrnuté stručne, prezentovali sme výpočet hustoty
+stavov v elektrónovom plyne, v ktorom elektróny interagujú cez tienenú Coulombovskú interakciu a zároveň sú rozptyľované slabým disorderom. Tak ako v AA teórii, e-e interakcia bola započítana v prvom ráde poruchovej teórie vo Fockovej aproximácii a
+vplyv disorderu na vlnové funkcie elektrónov bol zahrnutý v difúznej semiklasickej aproximácii. 
+
+V kapitole 4 sme popísali fyzikálny princíp metódy tunelovej spektroskopie, ktorá umožňuje pozorovať hustotu stavov a AA efekt.
+Ukázali sme niekoľko experimentálnych výsledkov pre AA efekt a spomenuli sme otvorené problémy, ktorým sa chceme venovať v budúcnosti v rámci diplomovej práce.
+
+Spomeňme tiež, že ešte pred tým ako sme odvodili výsledok Altshulera-Aronova, sme (v kapitole 2) diskutovali jednoduchší problém, výpočet elektrónového spektra a hustoty stavov vo voľnom elektrónovom plyne bez disorderu, v ktorom elektróny vzájomne interagujú vo Fockovej
+aproximácii cez Coulombov potenciál. Uvažovali sme holý Coulombov potenciál a tienený Coulombov potenciál. Získané výsledky, najmä naše numerické výpočty hustoty stavov, kvantitatívne demonštrovali význam tienenia. Videli sme, ako
+tienenie potláča vplyv interakcie a odstraňuje známe anomálie, spôsobené holým Coulombovym potenciálom. Tiež ale bolo vidno, že vplyv tienej interakcie na elektrónové spektrum a hustotu stavov volného plynu
+je nezanedbateľný.
+
+%Nakoniec, AA teória platí len pre $|E-E_F| \lesssim \hbar/\tau$. Preto sme mali aj ďaľší cieľ, opísať mikroskopické priblíženie, ktoré sa pre $|E-E_F| \lesssim \hbar/\tau$ redukuje na AA teóriu a pre $|E-E_F| > \hbar/\tau$ aspoň %hrubo napodobňuje tzv. stavy zachovávajúcu hustotu stavov, diskutovanú v prácach \cite{Mazur}, \cite{Moskova}. Zisťujeme, že tento cieľ kvalitatívne spĺňa mikroskopické priblíženie \cite{MoskovaUnpub2}, v ktorom je
+%elektrónová self-energia rozdelená na príspevok od energií $|E-E^{,}| < \hbar/\tau$ a príspevok od $|E-E^{,}| >  \hbar/\tau$. V prvom príspevku je maticový element e-e interakcie popísaný
+%tou istou difúznou aproximáciou ako v AA teórii, v druhom je identický s exaktným maticovým elementom pre tienenú Fockovu interakciu bez disorderu.

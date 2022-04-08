@@ -1,0 +1,143 @@
+
+\section{Hartree-Fockova aproximácia, netienená Coulombovská interakcia v modeli želé }
+
+Model voľných neinteragujúcich elektrónov z predchádzajúcej časti je užitočné ale hrubé priblíženie. V skutočnosti, elektróny v kryštalickej mriežke kovu nie sú ani voľné ani neinteragujúce, pretože v mriežke sa nachádzajú ióny a ostatné elektróny. Najväčším problémom je práve e-e interakcia, vďaka ktorej máme namiesto jednočasticového problému problém mnohočasticový.
+Uvažujme $N$-časticový Hamiltonián
+\begin{equation}
+ \label{eq:hrtf_ham}
+\hat{H}=\sum_i [ \frac{-\hbar^2}{2m}\laplace_i +U^{ion}(\vr_i)+\frac{e^2}{4\pi\epsilon_0}\sum_{j\neq i}\frac{1}{|\vr_i-\vr_j|} ]
+\end{equation}
+kde posledný člen na pravej strane popisuje Coulombovskú interakciu medzi $i$-tym elektrónom a ostatnými $N-1$ elektrónmi  a
+\begin{equation}
+ \label{eq:ion}
+ U^{ion}(\vr)=-\frac{e^2}{4\pi \epsilon_0}\sum_i{\frac{1}{|\vr-\vR_i|}} \text{ }
+\end{equation}
+popisuje Coulombovskú interakciu elektrónu s nehybnými iónmi (pre jednoduchosť uvažujeme $N$ jednonásobne ionizovaných iónov a $N$ valenčných elektrónov).
+Úloha je nájsť riešenie mnohočasticovej Schrodingerovej rovnice $\hat{H} \Psi = E \Psi$, kde $E$ je vlastná hodnota energie všetkych $N$ elektrónov a  $\Psi(\vr_1,s_1,...,\vr_N,s_N)$ je $N$-elektrónová vlnová funkcia, ktorá je funkciou polôh ($\vr$) všetkych $N$ elektrónov
+a vo všeobecnosti aj funkciou $N$ spinových súradníc ($s$).
+Cieľom Hartree-Fockovej aproximácie
+je nahradiť mnohočasticovú Schrodingerovu rovnicu jednočasticovým priblížením.
+
+Najjednoduchšie je Hartreeho jednočasticové priblíženie, ktoré najprv sformulujeme kvalitatívne.
+Potenciál iónov, $U^{ion}(\vr)$, je jednočasticový, pretože v ňom vystupuje jediná premenná $\vr$ a polohy iónov sú fixované parametre.
+Aproximovať treba e-e interakciu (posledný člen v rovnici \ref{eq:hrtf_ham}), ktorá závisí od $N$ premenných $\vr$.
+V tom prípade bude na elektrón pôsobiť efektívny jednočasticový potenciál $U(\vr)=U^{ion}(\vr)+U^{el}(\vr)$, kde $U^{el}(\vr)$ je efektívny potenciál e-e interakcie, ktorý treba navrhnúť.
+Označíme (hľadanú) jednoelektrónovú vlnovú funkciu $j$-tého elektrónu ako  $\phi_j(\vr)$ a vyjadríme hustotu náboja všetkych elektrónov v bode $\vr$ ako
+\begin{equation}
+ \label{eq:rho vsetkych}
+ \rho_{el}(\vr)=-e \sum_j |\phi_j(\vr)|^2\text{,}
+\end{equation}
+kde sumujeme cez všetky elektróny. Efektívny potenciál $U^{el}(\vr)$  tak môžeme zvoliť v tvare
+\begin{equation}
+ \label{eq:el}
+ U^{el}=-\frac{e}{4\pi \epsilon_0} \int d\vrp\ \rho_{el}(\vrp) \frac {1}{|\vr-\vrp|} \text{,}
+\end{equation}
+známom z elektrostatiky. Tým sa $N$-elektrónový problém redukuje na sústavu jednoelektrónových rovníc
+\begin{equation}
+ \label{eq:hrt}
+ -\frac{\hbar^2}{2m}\Delta \phi_i(\vr)+U^{ion}(\vr)\phi_i(\vr)+\frac{e^2}{4 \pi \epsilon_0}\sum_j{\int d \vrp |\phi_j(\vrp)|^2\frac {1}{|\vr-\vrp|}}\phi_i(\vr)=E\phi_i(\vr) , \ \ i =1, \dots N \text{,}
+\end{equation}
+známu ako Hartreeho rovnice. Potenciál \eqref{eq:el} s nábojovou hustotou \eqref{eq:rho vsetkych} sa nazýva Hartreeho potenciál. Zdôraznime, že suma cez $j$ zahrňuje elektróny oboch spinových orientácií.
+
+Teraz sa venujme Hartree-Fockovej aproximácii. Hľadajme znovu $N$-elektrónovú vlnovú funkciu  $\Psi(\vr_1,s_1,...,\vr_n,s_n)$ a $N$-elektrónovú energiu $E$. Ak sa obmedzíme na základný stav,
+tak hľadáme minimum funkcionálu
+\begin{equation}
+ \label{eq:erg_func}
+ E[\Psi^*]=\expval{H}{\Psi}\text{,}
+\end{equation}
+kde $\hat{H}$ je mnohočasticový Hamiltonián \eqref{eq:hrtf_ham}. Najjednoduchšie je navrhnúť $\Psi(\vr_1,s_1,...,\vr_n,s_n)$ ako jednoduchý súčin
+$N$ jednoelektrónových vlnových funkcií $\phi_i(\vr_i,s_i)$,
+\begin{equation}
+ \label{eq:Psi1}
+ \Psi(\vr_1,s_1,...,\vr_n,s_n)=\phi_1(\vr_1,s_1)\phi_2(\vr_2,s_2)...\phi_n(\vr_n,s_n) \text{.}
+\end{equation}
+Tento návrh však nespĺňa požiadavku antisymetrie, ktorú na mnohoelektrónovú vlnovú funkciu kladie Pauliho princíp. Presnejšie, vlnová funkcia $\Psi(\vr_1,s_1,...,\vr_n,s_n)$ musí zmeniť znamienko,
+ak v nej vzájomne vymeníme ľubovoľnú dvojicu elektrónových súradníc. Túto vlastnosť splňuje aproximácia
+\begin{equation}
+\label{eq:slatter}
+ \Psi(\vr_1,s_1,...,\vr_n,s_n)=\frac{1}{\sqrt N}
+\begin{vmatrix}
+
+\phi_1(\vr_1,s_1)& ... & \phi_1(\vr_N,s_N) \\
+  ...&  \phi_i(\vr_j,s_j)& ... \\
+ \phi_N(\vr_1,s_1)& ... & \phi_N(\vr_N,s_N)
+\end{vmatrix}
+\text{,}
+\end{equation}
+kde objekt na pravej strane je Slaterov determinant. Keď do funkcionálu $\eqref{eq:erg_func}$ dosadíme aproximáciu \eqref{eq:slatter} a funkcionál minimalizujeme variačnou metódou,
+dostaneme známe Hartree-Fockovu rovnice
+\begin{equation}
+ \label{eq:fock3}
+ (-\frac{\hbar^2}{2m}\laplace +U^{ion}(\vec{r})+U^{el}(\vec{r})-
+ {\sum'}_j{\int d\vec{r'}\frac{e^2}{4\pi \epsilon_0|\vec{r}-\vec{r'}|}
+ \phi_j^{*}(\vec{r'})\phi_i(\vec{r'})\frac{\phi_j(\vec{r})}{\phi_i(\vec{r})}})\phi_i({\vec{r}})=E_i\phi_i(\vec{r}) \text{,}
+\end{equation}
+kde potenciály $U^{ion}(\vec{r})$ a $U^{el}(\vec{r})$ sú totožné $U^{ion}(\vec{r})$ a $U^{el}(\vec{r})$ v Hartreeho rovnici \eqref{eq:hrt} a posledný člen na ľavej strane je tzv. Fockov člen.
+Zdôraznime, že sumácia vo Fockovom člene zahrňuje len elektróny jednej spinovovej orientácie, čo znázorňuje čiarka nad symbolom sumy.
+
+Keďže Hartree-Fockove rovnice idú nad rámec bakalárskeho štúdia, v dodatku B demonštrujeme naše porozumenie ich variačného odvodenia pre prípad dvoch elektrónov. Poznamenajme, že keď sa to isté
+variačné odvodenie urobí pre jednoduchšiu vlnovú funkciu $\eqref{eq:Psi1}$, dostaneme namiesto  Hartree-Fockovych rovníc $\eqref{eq:fock3}$  Hartreeho rovnice \eqref{eq:hrt}.
+
+Na tomto mieste je vhodné zaviesť model \emph{želé}. Predpokladajme, že nabité ióny generujú nábojovú hustotu $\rho_{ion}(\vr)$ ako spojitú funkciu $\vec{r}$ a vyjadrime $U^{ion}(\vec{r})$ ako
+\begin{equation}
+ \label{eq:ion_pudding}
+ U^{ion}(\vec{r}) = \frac{-e}{4\pi \epsilon_0}\int d\vrp \frac{\rho_{ion}(\vrp)}{|\vr-\vrp|} \text{.}
+\end{equation}
+Model \emph{želé} dostaneme, ak $\rho_{ion}(\vr)$, aproximujeme priestorovo homogénnou hustotou náboja $\rho_{ion}=Ne/V$, kde $V$ je objem Born von Karmánovej vzorky.
+Ak v modeli \emph{želé} dosadíme do Hartreeho rovníc \eqref{eq:hrt} vlnovú funkciu voľnej častice, $\phi(\vr)=\frac{1}{\sqrt{V}}e^{i\vk\cdot\vr}$, vidíme, že $\rho_{el}=-Ne/V$.
+To znamená, že potenciály $U^{ion}(\vec{r})$ a $U^{el}(\vec{r})$
+sú až na znamienko rovnaké a vzájomne sa nulujú. Vidíme teda, že Hartreeho rovníce \eqref{eq:hrt} sú v modeli \emph{želé} totožné so Schrodigerovou rovnicou pre voľnú časticu.
+Keď to isté urobíme v Hartree-Fockovych rovniciach $\eqref{eq:fock3}$, členz $U^{ion}(\vec{r})$ a $U^{el}(\vec{r})$ sa vzájomne vynulujú ale Fockov člen prežije. Zostane nám rovnica
+\begin{equation}
+ \label{eq:fock_final}
+ -\frac{\hbar^2}{2m}\laplace \frac{1}{\sqrt V}e^{i\vk\cdot\vr}-\frac{e^2}{V^{3/2}4\pi\epsilon_0}{\sum'}_{\vkp}\int d\vrp \frac{1}{|\vr-\vrp|} e^{-i\vkp \cdot \vrp }e^{i\vk \cdot \vrp}e^{i\vkp \cdot \vr}=E(\vk)\frac{1}{\sqrt V}e^{i\vk \cdot \vr} \text{,}
+ \end{equation}
+kde suma cez $\vkp$ beží cez všetky stavy $\vkp$ obsadené elektrónmi s jednou spinovou orientáciou.
+Po využití Laplaceovho operátora a jednoduchých úpravách dostávame vzťah pre energiu elektrónu v stave $\vk$ v tvare,
+\begin{equation}
+ \label{eq:fock_plane}
+ E(\vk)=\frac{\hbar^2 k^2}{2m}-  \frac{1}{8\pi^3} \int_{k'<k_f} d \vkp\int dr'\frac{e^2}{4\pi\epsilon_0|\vr-\vrp|} e^{i(\vkp-\vk)(\vr-\vrp)} \text{.}
+\end{equation}
+kde  suma cez $\vkp$  je už zamenená integrálom
+a predpokladá sa, že sú obsadené len stavy $|\vk|<|\vk_F|$. Člen $\frac{\hbar^2 k^2}{2m}$ je energia voľného elektrónu a druhý člen je príspevok od e-e interakcie, self-energia vo Fockovej aproximáci.
+
+Všimnime si ďalej, že integrál cez $\vrp$ je vlastne Fourierová transformácia Coulombovho potenciálu. Výpočet integrálu je jednoduchý, výsledok transformácie je $e^2/\epsilon_0|\vkp-\vk|^2$. Tak dostávame
+\begin{equation}
+ \label{eq:fock_plane2}
+  E(k)=\frac{\hbar^2 k^2}{2m}-\frac{1}{8\pi^3} \frac{e^2}{\epsilon_0} \int_{k'<k_f} d\vkp \ \frac{1}{|\vk-\vkp|^2}\text{.}
+\end{equation}
+Na pravej strane poslednej rovnice zostal trojný integrál, ktorý sa ale dá ľahko integrovať. Prichádzame k výsledku \cite{Mermin}
+\begin{equation}
+\label{eq:fock_erg}
+ E(k)=\frac{\hbar^2 k^2}{2m}-  \frac{e^2 k_f}{4\pi^2\epsilon_0} F(\frac{k}{k_f}) \text{,}
+\end{equation}
+kde
+\begin{equation}
+ \label{eq:fock_fx}
+ F(x)=\frac{1}{2}+\frac{1-x^2}{4x}\ln{\frac{|1+x|}{|1-x|}} \text{.}
+\end{equation}
+
+Na obrázku \ref{fig:hartree_erg} je disperzný zákon \eqref{eq:fock_erg} porovnaný s disperzným zákonom voľnej častice, $E(k)=\frac{\hbar^2 k^2}{2m}$, pre parametre $m = 9.109 \times 10^{-31} kg$ a $k_F = 9.07 \times 10^{9} m^{-1}$.
+Energia je normovaná na Fermiho energiu volnej častice a $k$ je normované na $k_F$.  
+Je vidno, že Fockova self-energia spôsobuje významný posun celého disperzného zákona smerom k nižším hodnotám energie a zároveň významne
+mení tvar disperzného zákona.  Napríklad, Fermiho energia resp. šírka pásu, definovaná ako  $E(k_F)-E(0)$, sa e-e interakciou zväčšila viac ako dvojnásobne.
+Všimnime si tiež, že že funkcia $F(x)$ má singulárne chovanie v bode $x=1$. Na výslednej závislosti $E(k)$ sa toto singulárne chovanie prejavuje len ako jemné zvlnenie s inflexným bodom v $k = k_F$,
+významne sa však prejaví na hustote stavov, ktorú ukazujeme na nasledujúcom obrázku.
+
+Ako sme uviedli v kapitole $1$, hustotu stavov $\rho(E)$ môžeme  pre ľubovoľný izotrópny disperzný zákon $E=E(k)$ vypočítať zo vťahu $\rho(E)=\frac{1}{\pi^2} \frac{dk}{dE} k^2$. Potrebujeme len invertovať
+disperzný zákon (nájsť $k$ ako funkciu $E$) a vypočítať $dk/dE$. V prípade disperzného zákona  $\eqref{eq:fock_erg}$ musíme $k$ ako funkciu $E$ hľadať numericky, $dk/dE$ sa však dá ľahko vypočítať 
+analyticky aj bez znalosti funkcie $k(E)$. Výslednú numericky vypočítanú hustotu stavov pre disperzný zákon $\eqref{eq:fock_erg}$ ukazujeme na obrázku \ref{fig:hartree_dos}, kde ju zároveň porovnávame s obyčajnou hustotou stavov pre parabolický disperzný
+zákon. Vidno, že e-e interakcia mení hustotu stavov dramaticky. Konkrétne, už spomínané singulárne chovanie funkcie $F(x)$ pre $x=1$ sa prejaví tak, že hustota stavov pre disperzný zákon $\eqref{eq:fock_erg}$  
+poklesne pri energiu $E=E(k_F)$ až na nulu,
+
+Na obrázku  \ref{hartree_mov} ukazujeme obe hustoty stavov z obrázku \ref{fig:hartree_dos} znovu, ibaže hustota stavov pre disperzný zákon \eqref{eq:fock_erg} je teraz posunutá tak, 
+aby jej Fermiho hladina bola na tej istej energia ako Fermiho hladina pre parabolický disperzný zákon. Takto je pekne vidno, že e-e interakcia vlastne spôsobila presunutie veľkej časti stavov
+pod dno parabolického pásu. Podotýkame, že keď obe hustoty stavov zintegrujeme od dna pásu až po Fermiho hladinu, dostaneme v oboch prípadoch rovnakú plochu rovnú elektrónovej koncentrácii. Rovnakosť
+plôch demonštruje zachovanie stavov. Počet stavov spočítaný od najnižšej energie po Fermiho hladinu sa musí zachovávať aj keď pôsobí e-e interakcia. Na obrázku  \ref{hartree_exp} ukazujeme
+rozdiel oboch hustôt. Keby sme tento rozdiel integrovali od najnižšej energie po Fermiho hladinu, výsledok by bol nula kvôli už spomenutému zachovaniu stavov.
+
+\insertgraph{hartree_erg}{Disperzný zákon \eqref{eq:fock_erg} (červená čiara) v porovnaní s parabolickým disperzným zákonom  (čierna čiara).}
+\insertgraph{hartree_dos}{Hustota stavov $\rho(E)$ vypočítaná pre disperzný zákon \eqref{eq:fock_erg} (červená čiara) v porovnaní s hustotou stavov pre parabolický disperzný zákon (čierna čiara).}
+\insertgraph{hartree_mov}{Tie isté hustoty stavov ako na predchádzajúcom obrázku, ibaže teraz je hustota stavov pre disperzný zákon \eqref{eq:fock_erg} (červená čiara)
+posunutá tak, aby sa Fermiho hladina pre Fockov výsledok nachádzala na tej istej energii ako Fermiho hladina pre neinteragujúce elektróny.}
+\insertgraph{hartree_exp}{Data z prechádzajúceho obrázku po ich vzájomnom odčítaní (červená krivka mínus čierna krivka).}

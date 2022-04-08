@@ -1,0 +1,21 @@
+\thispagestyle{empty}
+\section*{Abstract}
+
+Jenča, Matúš: Effect of the electron-electron interaction and disorder on the electron density of states in metals: Theoretical investigation [Bachelor
+Thesis], Comenius University in Bratislava, Faculty of Mathematics, Physics and Informatics, Department of Experimental Physics; Supervisor: Doc. RNDr. Martin Moško, DrSc., Bratislava, 2019, 38p.
+
+Electron-electron interaction in disordered metals is combined with the electron scattering by disorder (by a random spatial distribution of impurities). Altshuler and Aronov predicted theoretically that interplay between the interaction and disorder causes
+suppression of the electron density of states in the vicinity of the Fermi level, where vicinity means the energy range
+given as the scattering frequency due to disorder multiplied by the Planck constant. This local suppression of the density of states, known as the Altshuler-Aronov effect, was confirmed experimentally by methods of the tunneling spectroscopy and photoelectron spectroscopy. 
+%Recently, these methods also allowed to observe
+%the modifications of the density of states far from the Fermi level where the Altshuler-Aronov theory is not applicable but the modifications are still caused by interplay between interaction and disorder.
+The first goal of this bachelor thesis is to describe the derivation of the suppressed density of states in the vicinity of the Fermi level and to reproduce the result of Altshuler and Aronov.
+Unlike Altshuler and Aronov who used methods too sophisticated for the bachelor level (Green's functions and Feynmann diagrams), we describe the microscopic derivation which relies on the basic quantum mechanics.
+The second goal of our work is to describe a simple approximation which extends the applicability of the microscopic theory beyond the vicinity of the Fermi level. We hope that the extended theory
+will qualitatively mimic the experimentally observed modifications of the density of states far from the Fermi level.
+To summarize the essence, our work describes the calculation of the density of states in the electron gas in which the electrons interact with weak disorder and with each other via the weak (screened) Coulomb interaction.
+The interaction between the electrons is described in the Fock approximation.
+
+\begin{flushleft}
+  \textbf{Keywords:} electron-electron interaction, disorder, density of states, Altshuler-Aronov effect
+\end{flushleft} 

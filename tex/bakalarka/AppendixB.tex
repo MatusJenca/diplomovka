@@ -1,0 +1,86 @@
+\renewcommand{\thesection}{B.\arabic{section}}
+\renewcommand{\theequation}{B.\arabic{equation}}
+\renewcommand{\thefigure}{B.\arabic{figure}}
+\setcounter{equation}{0}
+\subsection*{Poissonova rovnica pre tienený potenciál}
+Nech náš vložený náboj má hustotu $\rho_{ext}$. Pre jeho potenciál platí:
+\begin{equation}
+ \label{eq:poisext}
+ \laplace \Phi_{ext}(\vr)=-\frac{\rho_{ext}(\vr)}{\epsilon_0} \text{.}
+\end{equation} 
+
+Pre celkový potenciál, aj po započítaní vloženého náboja bude 
+\begin{equation}
+ \label{eq:poistot}
+ \laplace \Phi_{tot}(\vr)=-\frac{\rho_{tot}(\vr)}{\epsilon_0} \text{.}
+\end{equation}
+Hustota vloženého náboja bude $\rho_{ext}(\vr)=-e\delta(\vr)$. Hustota indukovaného náboja je daná hustotou elektrónov každý má náboj $e$, teda $\rho_{ind}(\vr)=-en_{ind}(\vr)$,
+kde,
+
+\begin{equation}
+ \label{eq:n_ind}
+ n_{ind}(\vr)=n(r)-n_0 \text{,}
+\end{equation} 
+
+kde $n_0$ je pôvodná hustota elektrónov a $n(\vr)$ je hustota vzniknutých kladných častíc 
+\begin{equation}
+ \label{eq:fermidirac0}
+ n_0=2\frac{1}{(2\pi)^3}\int d\vk \frac{1}{e^{(\frac{E(\vk)-\mu}{k_BT})}+1} \text{,}
+\end{equation} 
+ z Ferami-Diracovho rozdelenia - v prípade elektrónov v kove môžme za chemický  potenciál $\mu$ dosadiť Fermiho Energiu $E_F$.
+ V prípade $n(\vr)$ za $\mu$ dosadíme $E_F-e\Phi_{tot}(\vr)$, čo bude nová Fermiho energia.
+ 
+ Veličinu $n_0$ poznáme, je to pôvodná hustota elektrónov v kove. Veličinu $n(\vr)$ vypočítame pri nulovej teplote, kde nám Fermi-Diracovo rozdelenie
+ prejde na $\Theta$-funkciu:
+ 
+ \begin{equation}
+  \label{eq:limLT}
+  \lim_{T\to 0} \frac{1}{e^{(\frac{E(\vk)-\mu}{k_BT})}+1}=\Theta(E(\vk)-\mu) \text{.}
+ \end{equation} 
+ Po prejdení do súradníc energie, a vykonaní limity \eqref{eq:limLT} nám vzťah \eqref{eq:fermidirac0} prejde na 
+ \begin{equation}
+  \label{eq:nr}
+  n(\vr)=\int_{0}^{E_F-e\Phi_{tot}{\vr}}dE \rho(E)=\int_{0}^{E_F}dE \rho(E) + \int_{E_F}^{E_F-e\Phi_{tot}{\vr}}dE \rho(E) \text{,}
+ \end{equation} 
+ kde $\rho(E)$ je hustota stavov z \eqref{eq:rho_par}. Integrál možno rozložiť na súčet, kde prvý člen je rovný $n_0$. 
+ Keďže $e\Phi_{tot}{\vr}$ je malé, môžme druhý integrál napísať ako $\rho(E_F)(-e\Phi_{tot}(\vr))$. Po dosadení do \eqref{eq:n_ind} dostaneme  
+ \begin{equation}
+  \label{eq:n_ind_final}
+n_{ind}(\vr)=\rho(E_F)(-e\Phi_{tot}(\vr))\text{.}
+ \end{equation} 
+  
+ Toto vieme dosadiť do Poisonvej rovnice \eqref{eq:poistot},
+ \begin{equation}
+  \label{eq:poistot_final}
+   \laplace \Phi_{tot}(\vr)=-\frac{\rho(E_F)(-e^2\Phi_{tot}(\vr))-e\delta(\vr)}{\epsilon_0} \text{.}
+ \end{equation} 
+ %\subsection{Riešenie Poisonvej rovnice pre tienený potenciál pomocou Fourierovej transformácie}
+ 
+ Rovnicu \eqref{eq:poistot_final} budeme riešiť pomocou Fourierovej transformácie. Obe strany transformujeme, a na ľavej strane zameníme laplace za integrál.
+ \begin{align*}
+  \laplace \ftk{\vr}{\vq}{\Phi_{tot}(\vq)}&=-\frac{\ftk{\vr}{\vq}{\rho(E_F) e^2 \Phi_{tot}(\vr)}-e\ftk{\vr}{\vq}{}}{\epsilon_0} \\
+    \ftk{\vr}{\vq}{q^2\Phi_{tot}(\vq)}&=\frac{e}{\epsilon_0}{\ftk{\vr}{\vq}{(e\rho(E_F)\Phi_{tot}(\vr)-1)}}\text{.}
+ \end{align*} 
+ Obe strany integrujeme cez celý q-priestor, teda hodnoty oboch pod integrálnych funkcií sa musia rovnať. Po vykrátení a jednoduchých algebraických operáciach viem vyjadriť
+ výsledný pretransformovaný potenciál:
+ 
+ \begin{equation}
+  \label{eq:screenpot_FT}
+  \Phi_{tot}(\vq)=\frac{-e}{\epsilon_0(q^2+k_s^2)}\text{,}
+ \end{equation} 
+kde $k_s^2=\frac{e^2 \rho(Ef)}{\epsilon_0}$ je tienenie, ktoré v typických prípadoch má hodnotu $k_s\doteq k_F$.
+
+Tu by sme mohli náš výpočet ukončiť, lebo pri výpočte cez Fockove rovnice \eqref{eq:fock_final} robíme tiež Fourierovu transformáciu,
+ale pre úplnosť riešenia môžme spätne transformovať, a dostať tak skutočný tienený potenciál. 
+Prejdením do sférických súradníc a následnou substitúciou $\cos{\theta}=z$ s dostaneme:
+ \begin{align*}
+ \Phi_{tot}(\vr)=\ftk{\vr}{\vq}{\frac{e}{\epsilon_0(q^2+k_s^2)}} &=\\ 
+ \frac{-e}{(2\pi)^3\epsilon_0} \int_0^{2\pi}d\phi \int_0^{\pi}d\theta \sin(\theta) \int_0^{\infty} dq\ q^2 e^{iqr} \frac{1}{(q^2+k_s^2)} &= \\ \notag
+ \frac{-2\pi e }{(2\pi)^3\epsilon_0} \int_0^{\pi}d\theta \sin(\theta) \int_0^{\infty} dq\ q^2 e^{iqr\cos{\theta}} \frac{1}{(q^2+k_s^2)} &= \\ \notag
+\frac{-e}{(2\pi)^2\epsilon_0} \int_0^{\infty} dq\ \frac{q^2}{q^2+k_s^2} \frac{e^{iqr}-e^{-iqr}}{iqr} \text{.}
+ \end{align*} 
+ Posledný integrál vypočítame prechodom do komplexnej roviny cez reziduovú vetu. Dostaneme vzorec pre exponenciálne zanikajúci Yukkavov potenciál.
+ \begin{equation}
+  \label{eq:yukav_pot}
+  \phi_{tot}(\vr)=\frac{-e}{4\pi\epsilon_0 |\vr| }e^{-k_s r} \text{.}
+ \end{equation} 
