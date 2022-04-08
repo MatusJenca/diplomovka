@@ -16,6 +16,7 @@ class PhysFunction:
         self.ks=self.kf
         #fermiho energia
         self.Ef=(2*self.h**2*self.kf**2)/(2*self.m)
+        print(self.Ef)
         #fermiho rychlost
         self.vf=np.sqrt((2*self.Ef)/(self.m))
         #hustotastavov na fermiho energii
@@ -64,9 +65,8 @@ class SelfEnergy(PhysFunction):
     def F(self,x,y,ετ,uf):
         a=2*np.sqrt(x*y)
         #return 1/(a)*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0))) #to povodne
-        #return self.funcAtan(x,y,uf)+self.funcLog(x,y,uf) #to z fortranu
-        return (1/(a))*(self.log(x,y,a,uf)-self.atan(x,y,a,uf)-self.log(x,y,a,0)
-            -self.atan(x,y,a,0)-self.log(x,y,-a,uf)+self.atan(x,y,-a,uf)+self.log(x,y,-a,0)+self.atan(x,y,-a,0)) #zo zosita
+        return self.funcAtan(x,y,uf)+self.funcLog(x,y,uf) #to z fortranu
+        #return (1/(a))*(self.log(x,y,a,uf)-self.atan(x,y,a,uf)-self.log(x,y,a,0)-self.atan(x,y,a,0)-self.log(x,y,-a,uf)+self.atan(x,y,-a,uf)+self.log(x,y,-a,0)+self.atan(x,y,-a,0)) #zo zosita
     def funkciaPodIntegralom(self,q,w,ετ):
         '''
         Cela funkcia pod integralom, je rozdelena na casti pretoze je dlha
@@ -104,5 +104,5 @@ class SelfEnergy(PhysFunction):
         LN=np.log(((self.kf+k)**2+self.ks**2)/((self.kf-k)**2+self.ks**2))
         ARC1=(np.arctan((self.kf+k)/(self.ks)))
         ARC2=(np.arctan((self.kf-k)/(self.ks)))
-        return -0.5*C*(F*LN-self.ks*(ARC1+ARC2)+self.kf)
+        return 0.5*C*(F*LN-self.ks*(ARC1+ARC2)+self.kf)
 

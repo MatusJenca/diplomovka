@@ -1,4 +1,5 @@
 \section{Odvodenie Kubovej Formuly}
+\label{sec:kubo}
 V tejto kapitole odvodíme Kubovu Formulu pre optickú vodivosť, ktorú neskôr použijeme na ďalšie výpočty.
 %fakt neviem presne na ake, tuto vetu treba prepisat
 Narozdiel od štandartne používanej Boltzmanovej Kinetickej rovnice (BKR), ktorá využiva semiklasický 
@@ -77,7 +78,7 @@ V_{fi}(t)&=V_{fi}(e^{i\omega t}+e^{-i\omega t})\\
 \label{eq:03Vfi}
 V_{fi}&\equiv \int_{\Omega} d\vr \Phi_f^{*}(\vr)(\frac{-eEx}{2})\Phi_i(\vr) \text{.}
 \end{align}
-V rovinici \eqref{eq:03cfi} vykonáme integrál cez čas dostaneme
+V rovnici \eqref{eq:03cfi} vykonáme integrál cez čas dostaneme
 \begin{align}
 \label{eq:03cfi_final}
 c_{fi}(t)=V_{fi}[\frac{e^{\frac{\epsilon_{fi} - \hbar\omega}{\hbar}}-1}{\frac{i}{\hbar}(\epsilon_{fi}-\hbar\omega)}+\frac{e^{\frac{\epsilon_{fi} + \hbar\omega}{\hbar}}-1}{\frac{i}{\hbar}(\epsilon_{fi}+\hbar\omega)}] \text{.}
@@ -119,10 +120,11 @@ A=2[\sum_{f,i}\hbar\omega W_{fi}^{\mathrm{ABS}}f(\epsilon_i)(1-f(\epsilon_f))-\s
 \end{align}
 Kde $f(\epsilon_i)$ sú Fermi-Diracove distribúcie a faktor 2 je kvôli spinu. Výraz \eqref{eq:03pw_quant} zjednodušíme nasledovnými úpravami
 \begin{align}
-A&=\frac{4\pi}{\hbar}[\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_{fi}-\hbar\omega)f(\epsilon_i)(1-f(\epsilon_f))-\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_{fi}+\hbar\omega) f(\epsilon_i)(1-f(\epsilon_f))]\\
-A&=\frac{4\pi}{\hbar}[\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_f-\epsilon_i-\hbar\omega)f(\epsilon_i)(1-f(\epsilon_f))-\sum_{i,f}\hbar\omega|V_{if}|^2\delta(\epsilon_i-\epsilon_f+\hbar\omega) f(\epsilon_f)(1-f(\epsilon_i))]\\
 \label{eq:03pw_quant_final}
-A&=\frac{4\pi}{\hbar}\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f))
+\notag
+A&=\frac{4\pi}{\hbar}[\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_{fi}-\hbar\omega)f(\epsilon_i)(1-f(\epsilon_f))-\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_{fi}+\hbar\omega) f(\epsilon_i)(1-f(\epsilon_f))]\\ \notag
+A&=\frac{4\pi}{\hbar}[\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_f-\epsilon_i-\hbar\omega)f(\epsilon_i)(1-f(\epsilon_f))-\sum_{i,f}\hbar\omega|V_{if}|^2\delta(\epsilon_i-\epsilon_f+\hbar\omega) f(\epsilon_f)(1-f(\epsilon_i))]\\ 
+A&=\frac{4\pi}{\hbar}\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f)) 
 \end{align}
 Kde v druhom riadku sme vymenili sčítacie indexy v druhej sume a v treťom riadku využili symetriu maticového elementu $|V_{fi}|=|V_{if}|$ a  párnosť delta funkcie $\delta(x)=\delta(-x)$. Kvantový vzťah pre prenesený výkon \eqref{eq:03pw_quant_final} porovnám s klasickým 
 \begin{align}
@@ -152,24 +154,28 @@ Teraz potrebujeme vypočítať maticový elemnt $|D_{fi}|^2$ na ktorý ale potre
 \label{eq:03SchrDis}
 (\frac{-\hbar^2}{2m}\laplace_{\vr} + V_{dis}(\vr))\Phi_i(\vr)=\mathcal{E}_i\Phi(\vr)  \text{.}
 \end{align}
-Túto rovnicu budeme riešiť poruchovou teóriou, neporušenými stavmi budú rovinné vlny
+Urobíme rozvoj do úplneho systému rovinných vĺn
 \begin{align}
 \label{eq:03Phi_i}
-\Phi_i(\vr)=\sum_{\vk}a^i_{\vk}\phi_{\vk}(\vr)\\
-\label{eq:03rov}
-\phi_{\vk}(\vr)=\frac{1}{\sqrt \Omega}e^{i\vk\vr}\text{.}
+\Phi_i(\vr)=\sum_{\vk}a^i_{\vk}\phi_{\vk}(\vr)\text{,}\\
 \end{align}
-Ešte predtým však dosadím rozvoj \eqref{eq:03Phi_i} do maticového elementu \eqref{eq:03matrix_element}. Modul maticového elementu potom bude
+kde
 \begin{align}
+\label{eq:03rov}
+\phi_{\vk}(\vr)=\frac{1}{\sqrt \Omega}e^{i\vk\vr}\text{,}
+\end{align}
+ktorý \eqref{eq:03Phi_i} do maticového elementu \eqref{eq:03matrix_element}. Modul maticového elementu potom bude
+\begin{align}
+\label{eq:03dfisquared}
 |D_{fi}|^2=\int_\Omega d\vr \sum_{\vk_1}a_{\vk_1}^f\phi_{\vk_1}(\vr)\frac{d}{dx}\sum_{\vk_2}a_{\vk_2}^{i*}\phi_{\vk_2}^*(\vr)\int_\Omega d\vr\ ' \sum_{\vk_3}a_{\vk_3}^{f*}\phi_{\vk_3}^*(\vr\ ')\frac{d}{dx'}\sum_{\vk_4}a_{\vk_4}^i \phi_{\vk_4}(\vr\ ')
 \end{align}
-Teraz využijeme nasledovné vzťahy:
-\begin{align}
-\frac{d}{dx}\phi_{\vk_2}(\vr)&=-ik_{2x}\phi_{\vk_2}(\vr)\\
-\frac{d}{dx'}\phi_{\vk_4}(\vr\ ')&=-ik_{4x}\phi_{\vk_4}(\vr\ ')\\
-\int_\Omega d\vr \phi_{\vk_1}^*(\vr)\phi_{\vk_2}(\vr)&=\delta_{\vk_1\vk_2}\\
+Využijeme nasledovné vzťahy:
+\begin{align*}
+\frac{d}{dx}\phi_{\vk_2}(\vr)&=-ik_{2x}\phi_{\vk_2}(\vr)\text{,}\\
+\frac{d}{dx'}\phi_{\vk_4}(\vr\ ')&=-ik_{4x}\phi_{\vk_4}(\vr\ ')\text{,}\\
+\int_\Omega d\vr \phi_{\vk_1}^*(\vr)\phi_{\vk_2}(\vr)&=\delta_{\vk_1\vk_2}\text{,}\\
 \int_\Omega d\vr\ '\phi_{\vk_3}^*(\vr\ ')\phi_{\vk_4}(\vr\ ')&=\delta_{\vk_3\vk_4} \text{.}
-\end{align}
+\end{align*}
 Vysumujeme cez Kroneckerove symboly, a dostaneme
 \begin{align}
 |D_{fi}|^2=\sum_{\vk\vk\ '} a^{f*}_{\vk\ '}a^f_{\vk}a^{*i}_{\vk}a^i_{\vk\ '}k_xk_x' \text{,}
@@ -178,6 +184,7 @@ kde sme preznačili sumačné indexy $\vk\equiv \vk_1$ a $\vk\ '\equiv \vk_2$.
 
 Doteraz sme v tejto kapitole prezentovali presné výsledky. Teraz urobíme prvé aproximácie. Maticový element $|D_{fi}|^2$ je pre jeden konkrétny disorder, teda jedno náhodné usporiadanie porúch v kryštáli. V reálnom prípade nás zaujíma maticový element pre {\it stredný disorder}, ktorý dostaneme ako strednú hodnotu všetkých možných disorderov.
 \begin{align}
+\label{eq:03dfisq2}
 \overline{|D_{fi}|^2}=\sum_{\vk\vk\ '}\overline{a^{f*}_{\vk\ '}a^f_{\vk}a^{*i}_{\vk}a^i_{\vk\ '}}k_xk_x' \text{.} 
 \end{align}
 
@@ -187,81 +194,17 @@ Predpokladáme, že disorder je {\it slabý}, preto môžme urobiť aj druhú ap
 \end{align}
 Nakoniec predpokladáme, že stavy $\vk$ a $\vk\ '$ sú nekorelované, teda
 \begin{align}
+\label{eq:03dfisq3}
 \overline{|D_{fi}|^2}=\sum_{\vk\vk\ '}\overline{a^{f*}_{\vk\ '}a^f_{\vk}}\overline{a^{*i}_{\vk}a^i_{\vk\ '}}k_xk_x'\delta_{kk'}=\sum_{\vk}\overline{a^{f*}_{\vk}a^f_{\vk}}\overline{a^{*i}_{\vk}a^i_{\vk}}k_x^2\text{.}
 \end{align}
-Koeficienty $a^f_{\vk}$,$a^i_{\vk}$ získame riešením \eqref{eq:03SchrDis} stacionárnou poruchovou metódou do 1 rádu. Pre $\Phi_i(\vr)$ dostávame
-\begin{align}
-\Phi_i(\vr)=\sum_{\vk}\frac{V_{\vk\vk\ '}}{\epsilon_{\vk_i}-\epsilon_{\vk_f}}\phi_{\vk}(\vr)\text{,}
-\end{align}
-čo sú presne koeficienty $a^i_{\vk}$, preto dostávame
-\begin{align}
-\label{eq:03coef}
-\overline{a^{*i}_{\vk}a^i_{\vk}}=\frac{|V_{\vk\vk_i}|^2}{(\epsilon_{\vk_i}-\epsilon_{\vk})^2}\text{.}
-\end{align}
 
-Vráťme sa teraz k BKR. 
-\begin{align}
-\dot{\vk}\nabla_{\vk}f(\vk)=<\frac{\partial f}{\partial t}>_{coll}=\frac{-f(\vk)-f_0(\vk)}{\tau_{\vk}}
-\end{align}
-kde $f_0(\vk)$ je Fermi-Diracova distribúcia a $\tau_{\vk}$ je relaxačný čas. Použitím Fermiho Zlatého Pravidla dostávame
-\begin{align}
-\label{eq:03goldenrule}
-\frac{1}{\tau_{\vk_i}}=\sum_{\vk}W_{\vk_i\vk}(1-\frac{k_x}{k_{ix}}) = \sum_{\vk}\frac{2\pi}{\hbar}|\bra{\vk}V_{dis}(\vr)\ket{\vk_i}|^2\delta(\epsilon_{\k_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}}) \text{,}
-\end{align}
-kde $\vk_i$ je iniciálny stav. Stavy $\ket{\vk}$, $\ket{\vk_i}$ sú rovinné vlny \eqref{eq:03rov}.
 
-Do \eqref{eq:03goldenrule} dosadíme bodový model disorderu.
-\begin{align}
-\label{eq:03pointdis}
-V_{dis}(\vr)=\sum_{j=1}\gamma \delta(\vr-\vec R_j^{imp})\text{,}
-\end{align}
-kde $N_{imp}$ je počet bodových porúch v kryštáli, a $\vec R^{imp}_j$ sú náhodné polohy daných bodov. Takýto model  je pre {\it slabý} disorder postačujúci. 
-\eqref{eq:03pointdis} dosadíme do \eqref{eq:03goldenrule}. Pre prehľadnosť textu sa venujeme len časti $\bra{\vk}V_{dis}(\vr)\ket{\vk_i}2$
-\begin{align}
-\bra{\vk}V_{dis}(\vr)\ket{\vk_i}&=\sum_{j=1}^{N_{imp}}\gamma\bra{\vk}\delta(\vr-\vec R^{imp}_j)\ket{\vk_i}\\
-\bra{\vk}V_{dis}(\vr)\ket{\vk_i}&=\frac{1}{\Omega^2}\sum_{j=1}^{N_{imp}}\gamma\int_{\Omega}d\vr\delta(\vr -\vec R_j^{imp})e^{i(\vk-\vk_i)}\\
-\label{eq:03vdisElement}
-\bra{\vk}V_{dis}(\vr)\ket{\vk_i}&=\frac{1}{\Omega^2}\sum_{j=1}^{N_{imp}}\gamma e^{i(\vk_i-\vk)R_j^{imp}} \text{,}
-\end{align}
-kde v poslednom riadku sme využili Fourierovu transformáciu delta funkcie. Výsledok \eqref{eq:03vdisElement} dosadíme do \eqref{eq:03goldenrule}
-\begin{align}
-\label{eq:03fgr_expanded}
-\frac{1}{\tau_{\vk_i}} = \frac{2\pi}{\Omega^2\hbar}\gamma^2\sum_{j=1}^{N_{imp}}\sum_{j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}\delta(\epsilon_{\k_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}}) \text{.}
-\end{align}
-V \eqref{eq:03fgr_expanded} napíšeme osobitne sumu pre členy, kde $j=j'$. V tejto sume dostaneme v exponente nulu, teda celý výsledok je rovný jednej. Po vysumovaní takýchto členov dostanem $N_{imp}$.
-\begin{align}
-\label{eq:03fgr_expanded2}
-\frac{1}{\tau_{\vk_i}} = \frac{2\pi}{\Omega^2\hbar}\gamma^2[N_{imp}+\sum_{j\neq j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}]\delta(\epsilon_{\k_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}}) \text{.}
-\end{align}
-Sumu $\sum_{j\neq j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}$ môžme interpretovať ako náhodnú chôdzu v komplexonom priestore. Po vysčítaní dostanem
-\begin{align}
-\sum_{j\neq j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})} =N_{imp}e^{i\alpha}\text{,}
-\end{align}
-kde $\alpha$ je náhodná fáza. Teraz znova uvedieme výpočet pre stredný disorder, pri stredovaní dostanem
-\begin{align}
-\overline{N_{imp}e^{i\alpha}}=0\text{,}
-\end{align}
-po dosadení do \eqref{eq:03fgr_expanded2}  a vystredovaní teda dostaneme 
-\begin{align}
-\label{eq:03fgr_mean}
-\frac{1}{\overline{\tau_{\vk_i}}}=\frac{2\pi}{\Omega^2\hbar}\gamma^2\sum_{\vk}N_{imp}\delta(\epsilon_{\vk_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}})\text{.}
-\end{align}
-Teraz vysumujeme \eqref{eq:03fgr_mean}. Delta funkcia je párna a druhý člen v zátvorke je nepárny. Ich súčin bude tiež nepárny, a teda po vysumovaní cez párny interval všetkých $\vk$ dostaneme nulu. Ostáva nám sumovať $\sum_{\vk}\delta(\epsilon_{\vk_i}-\epsilon_{\vk})$ čo je z definície hustota stavov $\rho(\epsilon_{\vk_i})$. Finálny výsledok pre relaxačný čas teda bude
-\begin{align}
-\label{eq:03fgr_final}
-\frac{1}{\overline{\tau_{\vk_i}}}=\frac{2\pi}{\Omega\hbar}\gamma^2n_{imp}\rho(\epsilon_{\vk_i}) \text{,}
-\end{align}
-kde sme zaviedli pojem hustoty bodového disorderu $n_{imp}=\frac{N_{imp}}{\Omega}$. Z rovníc \eqref{eq:03fgr_final} a \eqref{eq:03coef} dostaneme 
-\begin{align}
-\label{eq:03divergent}
-\overline{a_{\vk}^{i*}a_{\vk}^i}=\frac{1}{\pi\rho(\epsilon_{i})}\frac{\frac{\hbar}{2\tau}}{(\epsilon_{i}-\epsilon_{k})^2}\text{.}
-\end{align}
-Dostali sme vzťah \eqref{eq:03divergent}, ktorý je však divergentný, teda nespĺňa normalizačnú podmienku. Navrheneme teda korekciu, extra člen v menovateli $(\frac{\hbar}{2\tau})^2$, a dostaneme Lorenzián
+Koeficienty  $\overline{a_{\vk}^{i*}a_{\vk}^i}$  sú Thoulessov ansatz
 \begin{align}
 \label{eq:03lorenz}
 \overline{a_{\vk}^{i*}a_{\vk}^i}=\frac{1}{\pi\rho(\epsilon_i)}\lorenz{\epsilon_i}\text{.}
 \end{align}
-Túto korekciu vysvetlíme neskôr, teraz ju dosadíme do \eqref{eq:03sigma2}.
+V pôvodnom článku výsledok nie je odvodený, my ho odvodíme v nasledujúcej kapitole. Teraz ho považujeme za správny, a dosadíme ho do \eqref{eq:03sigma2}.
 \begin{align}
 \sigma(\omega)=&\frac{2\pi e^2\hbar^3}{m^2\Omega}\sum_{f,i}\frac{\hbar\omega}{(\epsilon_f-\epsilon_i)}\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f))\\ \notag
 &\sum_{\vk}\frac{1}{\pi\rho(\epsilon_f)}\lorenz{\epsilon_f}\frac{1}{\pi\rho(\epsilon_i)}\lorenz{\epsilon_i}k_x^2
@@ -280,23 +223,22 @@ Výsledok prvých dvoch integrálov je $\frac{1}{3}$. V poslednom integráli vie
 \begin{align}
 \frac{1}{3}\frac{1}{\pi^2\rho(\epsilon_f)\rho(\epsilon_i)}\int_0^\infty d\epsilon_k \rho^{\frac{1}{2}}(\epsilon_k)k(\epsilon_k)\rho^{\frac{1}{2}}(\epsilon_k)k(\epsilon_k)\lorenz{\epsilon_f}\lorenz{\epsilon_i}\text{.}
 \end{align}
-Teraz využijeme rovnosť $\rho(\epsilon_k)^{\frac{1}{2}}k(\epsilon_k)=\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)=\rho(\epsilon_f)^{\frac{1}{2}}k(\epsilon_f)$. Integrál teda bude
+Teraz využijeme symetrickú aproximáciu $\rho(\epsilon_k)^{\frac{1}{2}}k(\epsilon_k)\approx\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)\approx\rho(\epsilon_f)^{\frac{1}{2}}k(\epsilon_f)$. Integrál teda bude
 \begin{align}
 \label{eq:03integral}
 \frac{1}{3}\frac{\rho(\epsilon_f)^{\frac{1}{2}}k(\epsilon_f)\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)}{\pi\rho(\epsilon_f)\rho(\epsilon_i)}\int_0^\infty d\epsilon_k\lorenz{\epsilon_f}\lorenz{\epsilon_i}\approx\\ \notag
 \frac{1}{3}\frac{\rho(\epsilon_f)^{\frac{1}{2}}k(\epsilon_f)\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)(\frac{\hbar}{2\tau})^2}{\pi\rho(\epsilon_f)\rho(\epsilon_i)}\frac{4\pi(\frac{\tau}{\hbar})^3}{1+\tau^2(\frac{\epsilon_f-\epsilon_i}{2})^2}\text{.}
 \end{align}
-Tento približný výsledok platí za nasledovných predpokladov
-\begin{align}
-\label{eq:03cond1}
+Tento približný výsledok platí za  predpokladov
+\begin{align*}
 \frac{\epsilon_i}{\frac{\hbar}{\tau}} >> 1\\
-\label{eq:03cond2}
 \frac{\epsilon_f}{\frac{\hbar}{\tau}} >> 1\text{.}
-\end{align}
-Teraz sa vrátime k rovnici pre optickú vodivosť \eqref{eq:03sigma3} a za integrál cez $\vk$ dosadíme približný výsledok \eqref{eq:03integral}
+\end{align*}
+Teraz sa vrátime k rovnici pre optickú vodivosť \eqref{eq:03sigma3} a za integrál cez $\vk$ dosadíme približný výsledok \eqref{eq:03integral}:
 \begin{align}
-\sigma(\omega)=\frac{e^2}{4\pi^2\hbar}\frac{1}{3}\frac{\hbar^2}{m^2}\tau\hbar^2\frac{2\pi}{\hbar}4\pi\sum_{f,i}&\frac{1}{3}\frac{\rho(\epsilon_f)^{\frac{1}{2}}k(\epsilon_f)\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)}{\pi\rho(\epsilon_f)\rho(\epsilon_i)}\frac{\hbar}{\epsilon_f-\epsilon_i}\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f))\\ \notag
-&\frac{1}{1+\tau^2(\frac{\epsilon_f-\epsilon_i}{2})^2}
+\notag
+\sigma(\omega)&=\frac{e^2}{4\pi^2\hbar}\frac{1}{3}\frac{\hbar^2}{m^2}\tau\hbar^2\frac{2\pi}{\hbar}4\pi\\
+&\sum_{f,i}\frac{1}{3}\frac{\rho(\epsilon_f)^{\frac{1}{2}}k(\epsilon_f)\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)}{\pi\rho(\epsilon_f)\rho(\epsilon_i)}\frac{\hbar}{\epsilon_f-\epsilon_i}\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f)) \frac{1}{1+\tau^2(\frac{\epsilon_f-\epsilon_i}{2})^2}
 \text{.}
 \end{align}
 Znova prejdeme od sumy k integrálu cez energie pre $f$ a $i$. Jeden z integrálov vieme vykonať hneď kvôli delta funkcii.
@@ -317,34 +259,4 @@ kde $D(E_F)$ je difúzny koeficient
 \begin{align}
 D(E_F)=\frac{1}{3}v_F^2\tau
 \end{align}
-Odvodili sme Kubovu formulu a z nej Drudeho formulu. Naše odvodenia boli rýdzo kvantové, bez semiklasického prístupu BKR. Ostáva nám už len zdôvodniť korekciu, ktorú sme urobili pri prechode z divergentného vzťahu \eqref{eq:03divergent} na lorenzián \eqref{eq:03lorenz}.
-
-Výsledok \eqref{eq:03divergent} sme dostali riešením \eqref{eq:03SchrDis} stacionárnou poruchovou teóriou, teraz ideme riešiť rovnaký problém nestacionárne.
-\begin{align}
-\label{eq:03SchrDis2}
-(\frac{-\hbar^2}{2m}\laplace_{\vr} + V_{dis}(\vr))\Phi_i(\vr)=-i\hbar \frac{\partial}{\partial t}\Phi(\vr)  \text{.}
-\end{align}
-Podobne, ako sme riešili \eqref{eq:03timeschr}, do rovnice \eqref{eq:03SchrDis2} dosadíme rozvoj 
-\begin{align}
-\Phi_i(\vr)=\sum_{\vk}a^{\vk_i}_{\vk}(t)\phi_{\vk}(\vr)e^{\frac{\epsilon_{\vk}t}{\hbar}}\text{,}
-\end{align}
-po úpravách dostaneme
-\begin{align}
-\hbar \frac{\partial}{\partial t}a^{\vk_i}_{\vk_f}=\sum_{\vk}a^{\vk_i}_{\vk}(t)\phi_{\vk}(\vr)e^{\frac{(\epsilon_{\vk}-\epsilon_{\vk_i})t}{\hbar}}V_{fi}\text{,}
-\end{align}
-
-použijeme Bornovu aproxímáciu a výsledok je
-\begin{align}
-\label{eq:03coef_nonstac}
-a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f)t}-1)\text{.}
-\end{align}
-V tomto vzťahu spoznávame koeficient z nestacionárnej teórie.Finálny výsledok bude identícký, pretože náš problém nie je časovo závislý. Teraz zakomponujeme časovú  závislosť
-\begin{align}
-V_{dis}(t)=V_{dis}e^{\frac{-t}{\tau}} \text{.}
-\end{align}
-Do rovnice sme vložili konečné zapínanie poruchy v čase $\tau$. Pre koeficienty dostaneme
-\begin{align}
-\label{eq:03coef_nonstac2}
-a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)-\frac{i\hbar}{2\tau}}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f-\frac{\hbar}{2\tau})t})-1\text{.}
-\end{align}
-z čoho po prenásobení komplexne združeným dostaneme lorenzián \eqref{eq:03lorenz}.
+Odvodili sme Kubovu formulu a z nej Drudeho formulu. Naše odvodenia boli rýdzo kvantové, bez semiklasického prístupu BKR. 

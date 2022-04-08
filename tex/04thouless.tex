@@ -1,0 +1,113 @@
+\section{Fyzikálne odvodenie Thoulessovho ansatzu pre kov s disorderom}
+\label{sec:thouless}
+V tejto kapitole odvodíme Thoulessov ansatz. Spočiatku sa o to pokúsime čisto matematicky, kde narazíme na problém. Neskôr urobíme aj fyzikálne úvahy, s ktorých vyplynie korekcia, ktorá nám dá výsledok \eqref{eq:03lorenz}. 
+Koeficienty $a^f_{\vk}$,$a^i_{\vk}$ získame riešením \eqref{eq:03SchrDis} stacionárnou poruchovou metódou do 1 rádu. Pre $\Phi_i(\vr)$ dostávame
+\begin{align}
+\Phi_i(\vr)=\phi_{\vk_i}(\vr)+\sum_{\vk}\frac{V_{\vk\vk\ '}}{\epsilon_{\vk_i}-\epsilon_{\vk_f}}\phi_{\vk}(\vr)\text{,}
+\end{align}
+odkiaľ dostaneme koeficienty $a^i_{\vk}$
+\begin{align}
+\label{eq:04coef}
+\overline{a^{*i}_{\vk}a^i_{\vk}}=\frac{|V_{\vk\vk_i}|^2}{(\epsilon_{\vk_i}-\epsilon_{\vk})^2}\text{.}
+\end{align}
+Napíšme teraz BKR v aproximácí relaxačného času 
+\begin{align}
+\dot{\vk}\nabla_{\vk}f(\vk)=\frac{-f(\vk)-f_0(\vk)}{\tau_{\vk}}
+\end{align}
+kde $f_0(\vk)$ je Fermi-Diracova distribúcia a $f(\vk)$ je nerovnovážna distribučná funkcia. Relaxačný čas  $\tau_{\vk}$ je definovaný
+\begin{align}
+\label{eq:04goldenrule}
+\frac{1}{\tau_{\vk_i}}=\sum_{\vk}W_{\vk_i\vk}(1-\frac{k_x}{k_{ix}}) = \sum_{\vk}\frac{2\pi}{\hbar}|\bra{\vk}V_{dis}(\vr)\ket{\vk_i}|^2\delta(\epsilon_{\k_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}}) \text{,}
+\end{align}
+kde $\vk_i$ je iniciálny stav. Stavy $\ket{\vk}$, $\ket{\vk_i}$ sú rovinné vlny \eqref{eq:03rov}.
+
+Do \eqref{eq:04goldenrule} dosadíme bodový model disorderu.
+\begin{align}
+\label{eq:04pointdis}
+V_{dis}(\vr)=\sum_{j=1}^{N_{imp}}\gamma \delta(\vr-\vec R_j^{imp})\text{,}
+\end{align}
+kde $N_{imp}$ je počet bodových porúch v kryštáli s objemom $\Omega$, a $\vec R^{imp}_j$ sú náhodné polohy bodových porúch. 
+\eqref{eq:04pointdis} dosadíme do \eqref{eq:04goldenrule}. Pre prehľadnosť textu sa venujeme len časti $\bra{\vk}V_{dis}(\vr)\ket{\vk_i}2$
+\begin{align}
+\label{eq:04vdisElement}
+\notag
+\bra{\vk}V_{dis}(\vr)\ket{\vk_i}&=\sum_{j=1}^{N_{imp}}\gamma\bra{\vk}\delta(\vr-\vec R^{imp}_j)\ket{\vk_i}\\
+\notag
+&=\frac{1}{\Omega^2}\sum_{j=1}^{N_{imp}}\gamma\int_{\Omega}d\vr\delta(\vr -\vec R_j^{imp})e^{i(\vk-\vk_i)}\\
+&=\frac{1}{\Omega^2}\sum_{j=1}^{N_{imp}}\gamma e^{i(\vk_i-\vk)R_j^{imp}} \text{,}
+\end{align}
+kde v poslednom riadku sme využili Fourierovu transformáciu delta funkcie. Výsledok \eqref{eq:04vdisElement} dosadíme do \eqref{eq:04goldenrule}
+\begin{align}
+\label{eq:04fgr_expanded}
+\frac{1}{\tau_{\vk_i}} = \frac{2\pi}{\Omega^2\hbar}\gamma^2\sum_{j=1}^{N_{imp}}\sum_{j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}\delta(\epsilon_{\k_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}}) \text{.}
+\end{align}
+V \eqref{eq:04fgr_expanded} napíšeme osobitne sumu pre členy, kde $j=j'$. V tejto sume dostaneme v exponente nulu, teda celý výsledok je rovný jednej. Po vysumovaní takýchto členov dostanem $N_{imp}$.
+\begin{align}
+\label{eq:04fgr_expanded2}
+\frac{1}{\tau_{\vk_i}} = \frac{2\pi}{\Omega^2\hbar}\gamma^2[N_{imp}+\sum_{j\neq j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}]\delta(\epsilon_{\k_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}}) \text{.}
+\end{align}
+Sumu $\sum_{j\neq j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}$ môžme interpretovať ako náhodnú chôdzu v komplexonom priestore. Po vysčítaní dostanem
+\begin{align}
+\sum_{j\neq j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})} =N_{imp}e^{i\alpha}\text{,}
+\end{align}
+kde $\alpha$ je náhodná fáza. Teraz znova uvedieme výpočet pre stredný disorder, pri stredovaní dostanem
+\begin{align}
+\overline{N_{imp}e^{i\alpha}}=0\text{,}
+\end{align}
+po dosadení do \eqref{eq:04fgr_expanded2}  a vystredovaní teda dostaneme 
+\begin{align}
+\label{eq:04fgr_mean}
+\frac{1}{\overline{\tau_{\vk_i}}}=\frac{2\pi}{\Omega^2\hbar}\gamma^2\sum_{\vk}N_{imp}\delta(\epsilon_{\vk_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}})\text{.}
+\end{align}
+Teraz vysumujeme \eqref{eq:04fgr_mean}. Delta funkcia je párna a druhý člen v zátvorke je nepárny. Ich súčin bude tiež nepárny, a teda po vysumovaní cez párny interval všetkých $\vk$ dostaneme nulu. Ostáva nám sumovať $\sum_{\vk}\delta(\epsilon_{\vk_i}-\epsilon_{\vk})$ čo je z definície hustota stavov $\rho(\epsilon_{\vk_i})$. Finálny výsledok pre relaxačný čas teda bude
+\begin{align}
+\label{eq:04fgr_final}
+\frac{1}{\overline{\tau_{\vk_i}}}=\frac{2\pi}{\Omega\hbar}\gamma^2n_{imp}\rho(\epsilon_{\vk_i}) \text{,}
+\end{align}
+kde sme zaviedli pojem hustoty bodového disorderu $n_{imp}=\frac{N_{imp}}{\Omega}$. Z rovníc \eqref{eq:04fgr_final} a \eqref{eq:04coef} dostaneme 
+\begin{align}
+\label{eq:04divergent}
+\overline{a_{\vk}^{i*}a_{\vk}^i}=\frac{1}{\pi\rho(\epsilon_{i})}\frac{\frac{\hbar}{2\tau}}{(\epsilon_{i}-\epsilon_{k})^2}\text{.}
+\end{align}
+
+Tento výsledok ale nemôže byť správny, pretože nespĺňa normalizačnú podmienku 
+\begin{align}
+\overline{|a_{\vk}^{i*}a_{\vk}^i|^2}=1\text{.}
+\end{align}
+Je však podobný Thoulessovmu lorenziánu
+\begin{align}
+\label{eq:04lorenz}
+\overline{a_{\vk}^{i*}a_{\vk}^i}=\frac{1}{\pi\rho(\epsilon_i)}\lorenz{\epsilon_i}\text{,}
+\end{align}
+až na korekciu v menovateli $(\frac{\hbar}{2\tau})^2$, ktorú teraz odvodíme.
+
+Výsledok \eqref{eq:04divergent} sme dostali riešením \eqref{eq:03SchrDis} stacionárnou poruchovou teóriou, teraz ideme riešiť rovnaký problém nestacionárne.
+\begin{align}
+\label{eq:04SchrDis2}
+(\frac{-\hbar^2}{2m}\laplace_{\vr} + V_{dis}(\vr))\Phi_i(\vr)=-i\hbar \frac{\partial}{\partial t}\Phi(\vr)  \text{.}
+\end{align}
+Podobne, ako sme riešili \eqref{eq:03timeschr}, do rovnice \eqref{eq:04SchrDis2} dosadíme rozvoj 
+\begin{align}
+\Phi_i(\vr)=\sum_{\vk}a^{\vk_i}_{\vk}(t)\phi_{\vk}(\vr)e^{\frac{\epsilon_{\vk}t}{\hbar}}\text{,}
+\end{align}
+po úpravách dostaneme
+\begin{align}
+\hbar \frac{\partial}{\partial t}a^{\vk_i}_{\vk_f}=\sum_{\vk}a^{\vk_i}_{\vk}(t)\phi_{\vk}(\vr)e^{\frac{(\epsilon_{\vk}-\epsilon_{\vk_i})t}{\hbar}}V_{fi}\text{,}
+\end{align}
+
+použijeme Bornovu aproxímáciu a výsledok je
+\begin{align}
+\label{eq:04coef_nonstac}
+a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f)t}-1)\text{.}
+\end{align}
+V tomto vzťahu spoznávame koeficient z nestacionárnej teórie.Finálny výsledok bude identícký, pretože náš problém nie je časovo závislý. Teraz zakomponujeme časovú  závislosť
+\begin{align}
+V_{dis}(t)=V_{dis}e^{\frac{-t}{\tau}} \text{.}
+\end{align}
+Do rovnice sme vložili konečné zapínanie poruchy v čase $\tau$. Pre koeficienty dostaneme
+\begin{align}
+\label{eq:04coef_nonstac2}
+a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)-\frac{i\hbar}{2\tau}}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f-\frac{\hbar}{2\tau})t})-1\text{.}
+\end{align}
+z čoho po prenásobení komplexne združeným dostaneme lorenzián \eqref{eq:04lorenz}.
+
