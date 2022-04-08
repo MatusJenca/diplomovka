@@ -16,9 +16,10 @@ if __name__=='__main__':
     plt.xlabel(r"$\frac{ε}{E_{Fermi}}$[ 1 ]")
     plt.ylabel(r"$Σ_{self}$ [ J ]")
     plt.xlim(0,1.5)
-    
+    print(Σ100/test)
     plt.plot(Erg,Σ,linewidth=1,label="τ=τ0")
     plt.plot(Erg,Σ100,linewidth=1,label="τ=$\infty$")
     plt.plot(Erg,test,linewidth=1,label="test")
     plt.legend() 
-    plt.show()
+    #plt.show()
+    plt.savefig('../img/self_energy_comp')

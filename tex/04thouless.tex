@@ -1,5 +1,6 @@
 \section{Fyzikálne odvodenie Thoulessovho ansatzu pre kov s disorderom}
 \label{sec:thouless}
+V tejto kapitole odvodíme Thoulessov ansatz. Spočiatku sa o to pokúsime čisto matematicky, kde narazíme na problém. Neskôr urobíme aj fyzikálne úvahy, s ktorých vyplynie korekcia, ktorá nám dá výsledok \eqref{eq:03lorenz}. 
 Koeficienty $a^f_{\vk}$,$a^i_{\vk}$ získame riešením \eqref{eq:03SchrDis} stacionárnou poruchovou metódou do 1 rádu. Pre $\Phi_i(\vr)$ dostávame
 \begin{align}
 \Phi_i(\vr)=\phi_{\vk_i}(\vr)+\sum_{\vk}\frac{V_{\vk\vk\ '}}{\epsilon_{\vk_i}-\epsilon_{\vk_f}}\phi_{\vk}(\vr)\text{,}
@@ -18,7 +19,7 @@ kde $f_0(\vk)$ je Fermi-Diracova distribúcia a $f(\vk)$ je nerovnovážna distr
 \label{eq:04goldenrule}
 \frac{1}{\tau_{\vk_i}}=\sum_{\vk}W_{\vk_i\vk}(1-\frac{k_x}{k_{ix}}) = \sum_{\vk}\frac{2\pi}{\hbar}|\bra{\vk}V_{dis}(\vr)\ket{\vk_i}|^2\delta(\epsilon_{\k_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}}) \text{,}
 \end{align}
-kde $\vk_i$ je iniciálny stav. Stavy $\ket{\vk}$, $\ket{\vk_i}$ sú rovinné vlny \eqref{eq:04rov}.
+kde $\vk_i$ je iniciálny stav. Stavy $\ket{\vk}$, $\ket{\vk_i}$ sú rovinné vlny \eqref{eq:03rov}.
 
 Do \eqref{eq:04goldenrule} dosadíme bodový model disorderu.
 \begin{align}

@@ -15,7 +15,7 @@ if __name__=="__main__":
     print("ρ2:",ρ2)
     print("pomer:",ρ/ρ2)
     plt.plot(Erg,ρ,linewidth=1,label=r"hustota stavov analyticka derivacia")
-    #plt.plot(Erg,ρ2,linewidth=1,label=r"hustota stavov numericka derivacia")
+    plt.plot(Erg,ρ2,linewidth=1,label=r"hustota stavov numericka derivacia")
     plt.xlabel(r"$\frac{E}{E_{fermi}}$")
     plt.ylabel(r"ρ")
     plt.legend()

@@ -13,7 +13,9 @@ class DensityOfStates:
         def diff(x):
             return self.seFunc(x,taucoef=100) - self.seFunc(x,taucoef=1)
         #return diff(ε)/self.seFunc.Ef
-        return derivative(diff,ε,self.DELTA)/self.seFunc.Ef
+        res=derivative(diff,ε,self.DELTA)/self.seFunc.Ef
+        print(res)
+        return res
 class DOSDirect(SelfEnergy):
     def __init__(self,τ0=6.58e-16,qmax=None):
         SelfEnergy.__init__(self,τ0,qmax)
