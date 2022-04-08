@@ -11,6 +11,8 @@ class PhysFunction:
         self.h = 1.0545718e-34
         # hmotnost elektronu
         self.m = 9.109534e-31
+        # relaxacny cas
+        self.tau0 = 6.58e-15
         # fermiho polomer
         self.kf = 1.6e10
         # tienenie
@@ -25,5 +27,5 @@ class PhysFunction:
         # permitivita
         self.permitivity = 8.854187e-12
 
-    def __call__(self, x):
-        print(f"Empty physics function (input ={x})")
+    def __call__(self, *args, **kwargs):
+        print(f"Empty physics function \n input:{args}\n{kwargs}")
