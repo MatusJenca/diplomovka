@@ -102,6 +102,6 @@ class SelfEnergy(PhysFunction):
             /
             self.ks
         )
-        return const * (frac * ln - self.ks * (arc_plus + arc_minus) + self.kf)
+        return 0.5*const * (frac * ln - self.ks * (arc_plus + arc_minus) + self.kf)
 
 
