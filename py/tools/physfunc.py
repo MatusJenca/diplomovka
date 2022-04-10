@@ -18,8 +18,12 @@ class PhysFunction:
         # tienenie
         self.ks = self.kf
         # fermiho energia
-        self.Ef = (2 * self.h ** 2 * self.kf ** 2) / (2 * self.m)
-        print(self.Ef)
+        self.Ef = (
+                    (self.h ** 2 * self.kf ** 2)
+                    /
+                    (2 * self.m)
+                 )
+        print(self.Ef/self.e)
         # fermiho rychlost
         self.vf = np.sqrt((2 * self.Ef) / (self.m))
         # hustotastavov na fermiho energii
