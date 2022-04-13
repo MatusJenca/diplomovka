@@ -4,8 +4,7 @@ sys.path.append('./tools')
 import numpy as np
 import matplotlib.pyplot as plt
 from integrator import Newton, EPSILON
-from selfenergy import SelfEnergy
-from math import pi as π
+from self_energy_plot import SelfEnergy
 
 seFunc = SelfEnergy(qmax=10)
 if __name__ == '__main__':
@@ -15,7 +14,7 @@ if __name__ == '__main__':
     test = np.array([seFunc.test(eps) for eps in Erg])
     plt.xlabel(r"$\frac{ε}{E_{Fermi}}$[ 1 ]")
     plt.ylabel(r"$Σ_{self}$ [ J ]")
-    plt.xlim(0, 1.5)
+    #plt.xlim(0, 1.5)
     print(Σ100 / test)
     plt.plot(Erg, Σ, linewidth=1, label="τ=τ0")
     plt.plot(Erg, Σ100, linewidth=1, label="τ=$\infty$")
