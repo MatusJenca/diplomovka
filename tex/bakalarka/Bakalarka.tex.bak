@@ -19,8 +19,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[slovak]{babel}
-%\usepackage[IL2]{fontenc}
-%\usepackage{comment}
+\usepackage{comment}
 
 \usepackage{xcolor}
 \usepackage{graphicx,amsmath,amssymb, amsthm, multicol}
@@ -42,7 +41,7 @@
 \theoremstyle{comment}
 \newtheorem{com}{\textit{Poznámka}}
 
-\usepackage{hyperref}                                     
+\usepackage{hyperref}
 \hypersetup{%  http://www.tug.org/applications/hyperref/
 bookmarksnumbered,
 pdfstartview={FitH},
@@ -88,45 +87,46 @@ plainpages=false
  % \newpage
  % \listoffigures
  % \newpage
- % \listoftables  
+ % \listoftables
  % \newpage
- % \section*{Zoznam použitých symbolov} 
+ % \section*{Zoznam použitých symbolov}
  %   \input{ZoznamPouzitychSymbolov}
  %   \addcontentsline{toc}{section}{Zoznam použitých symbolov}
   \newpage
 
-    \section*{Úvod}	          
-    \markboth{ÚVOD}{ÚVOD}  
+    \section*{Úvod}	
+    \markboth{ÚVOD}{ÚVOD}
     \addcontentsline{toc}{section}{Úvod}
-    
-    \input{Uvod} 
-	%\input{01Altschuler} 
-	\input{bakalarka/Bakalarka.tex}
-	\input{02experiment}
-	\input{03kubo}
-	\input{04thouless}
-	\input{05dens}
+
+    \input{Uvod}
+	\input{01freeElectrons}
+	\input{02HartreeFock}
+    \input{03screening}
+%	\input{04Altschuler}
+%	\input{05experiment}
+
 	\newpage
   \section*{Záver}
     \addcontentsline{toc}{section}{Záver}
-    \markboth{ZÁVER}{ZÁVER} 
+    \markboth{ZÁVER}{ZÁVER}
     \input{Zaver}
-  
+
   \renewcommand{\refname}{Zoznam použitej literatúry}
-  \include{Literatura}
+  %\include{Literatura}
   \bibliography{literatura}
-\bibliographystyle{ieeetr} 
-  
+\bibliographystyle{ieeetr}
+
+
 	\newpage
   \appendix
-  %\section*{Dodatok A} 
-    %\addcontentsline{toc}{section}{Dodatok A}
-    %\markboth{Dodatok A}{Dadatok A}
-  %  \input{AppendixA}
-  %\section*{Dodatok B} 
-   % \addcontentsline{toc}{section}{Dodatok B}
-   % \markboth{Dodatok B}{Dodatok B}
-    %\input{AppendixB}
+  \section*{Dodatok A}
+    \addcontentsline{toc}{section}{Dodatok A}
+    \markboth{Dodatok A}{Dadatok A}
+    \input{AppendixA}
+  \section*{Dodatok B}
+    \addcontentsline{toc}{section}{Dodatok B}
+    \markboth{Dodatok B}{Dodatok B}
+    %\\input{AppendixB}
     %\begin{comment}
 %\end{comment}
 \end{document}

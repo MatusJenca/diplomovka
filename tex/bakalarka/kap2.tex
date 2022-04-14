@@ -1,0 +1,86 @@
+\section{Príklad členenia kapitol}
+V práci sa môžu vyskytovať okrem slovného textu aj informácie vyjadrené v obrazovej forme a symbolmi.
+
+\subsection{Ilustrácie}
+\label{Ilustracie}
+\textbf{Ilustrácie} sú obrázky obsahujúce {\bf grafy, diagramy, mapy, schémy} a pod. Nie je potrebné rozlišovať rozličné typy ilustrácií, stačí, ak sa všetky označia ako \uv{Obrázok}. Všetky ilustrácie musia byť očíslované súvislým radom číslic v celej práci a musia mať titulky (názov obrázku) pri každom obrázku. Text titulku musí byť pochopiteľný aj bez kontextu. Majú sa zaradiť bezprostredne za textom, kde sa spomínajú po prvýkrát (najlepšie na tej istej strane). Obrázok by mal byť podľa možnosti centrovaný. Pri odkazovaní na daný obrázok v texte treba použiť krížové odkazy na obrázok (napr. Obr. \ref{obrazok}). Obrázky a tabuľky vkladáme v tejto šablóne takto:
+
+\begin{figure}[h]
+\centering
+	\includegraphics[scale=0.5]{logoUK.jpg}
+	\caption{Tu je názov obrázku}
+	\label{obrazok}
+\end{figure}
+
+Na obrázky v texte sa odvolávame pomocou \ref{obrazok} (teda \texttt{$\textbackslash$ref\{\}}). 
+
+Ak by ste prácu píslali v angličtine použite príkaz \autoref{obrazok} (teda \texttt{$\backslash$autoref\{\}}). Rovnako sa potom môžete odvolávať aj na  tabuľky, či dokonca kapitoly a podkapitoly, ale potom je potrebné označovať kapitoly nasledovne:
+\begin{verbatim}
+\section{Názov kapitoly}
+\label{section:Nazovkapitoly}
+\end{verbatim}
+
+\subsection{Tabuľky}
+Tabuľky prezentujú myšlienky a tvrdenia popisované v práci. Akýkoľvek tabuľkový materiál, ktorý sa skladá z viac než štyroch alebo piatich riadkov, by mal byť spracovaný do formy tabuľky Tab. 2. Popis a záhlavie tabuľky má byť zrozumiteľné samostatne bez odkazu na text. Záhlavia majú vyjadrovať druh veličiny a typy jednotiek vo forme \uv{veličina/jednotka}, je potrebné používať rovnaké symboly a skratky ako v texte. Každá tabuľka musí mať poradové číslo a titulok, umiestnený zvyčajne nad tabuľkou. Tabuľka by mala mať rovnakú orientáciu, ako text práce.
+
+\begin{table}[h]
+\label{tabulka1}
+\caption{Názov tabuľky}
+	\centering
+		\begin{tabular}{||c||c|c||}
+		\hline
+		\hline 
+		 & PP - 01 & PP - 05 \\
+		\hline 
+		\hline
+		$C 10^8 (s^{-2})$ & 10,1 & 10,0 \\
+		\hline
+		$t_0 10^{-14} (s)$ & 2,63	& 1,44 \\
+		\hline
+		\hline 		
+		\end{tabular}
+\end{table}
+
+\subsubsection{Rovnice, vzorce}
+
+\begin{align}
+\label{rov1}
+a+b&=c \\
+\label{rov2}
+a&=c-d
+\end{align}
+
+Na rovnice sa odvolávame potom takto: Podľa rovnice (\ref{rov1}) je ... a podľa (\ref{rov2}) ...
+
+Prípadne ak máme sústavu rovníc
+\begin{align}
+\label{sus1}
+\begin{split}
+a+b&=c \\
+a&=c-d
+\end{split}
+\end{align}
+
+Potom sa môžeme odvolať na sústavu (\ref{sus1}).
+
+{\it 
+Dodržiavame pravidlá slovenského pravopisu! V prípade, že neovládate pravopis, dajte si ho niekomu skontrolovať!  Najčastejšie chyby v sklonovaní slova: model \\
+Model, dva modely, ale v tomto modeli, o tomto modeli (spelček túto chybu neodhalí);\\
+Pisanie veľkých a malých písmen v názvoch-nenázvoch: spoločná európska mena je euro (malé e).
+
+Vzorce sú súčasťou gramatických viet a na takéto vety sa viažu pravidlá slovenského pravopisu. Týka sa to hlavne písania čiarok a bodky za vetou. Vyhýbame sa schematickému zápisu pomocou rozličných skratiek, symbolov implikácie, ekvivalencie a i.  najmä v bežnom texte. Pripúšťa sa to v centrovaných vzorcoch, pokiaľ to slúži prehľadnosti zápisu. Zložitejšie matematické výrazy umiestňujeme vždy ako centrovaný výraz na nový riadok. Rovnice a vzorce číslujeme.  Uľahčuje to odvolávanie sa na konkrétne vzťahy nielen autorovi, ale aj oponentovi.  Napr. (1),...(59), resp. (1.1), (1.2),  (2.19), umiestňujeme na pravý okraj príslušného riadku. 
+
+Matematické vety označujeme ako Veta, Tvrdenie, Lema, Dôsledok a číslujeme, napr. Veta 1, Veta 2,  Dôsledok 1 a pod.  Znenia viet sa píšu kurzívou. Za vetou nasleduje dôkaz, alebo odkaz na dôkaz. Za dôkazom symbol ukončenia dôkazu: prázdny štvorček.
+
+Používajte príkazy v nastavení dokumentu
+\begin{verbatim}
+\newtheorem{internal name}{external name}[in_counter]  
+\end{verbatim}
+
+Prostedie  potom v texte (v dokumente) voláte nasledovne
+\begin{verbatim}
+\begin{internal name}[nejaký text, ktorý môže špecifikovať názov]
+...
+\end{internal name}
+\end{verbatim}
+}

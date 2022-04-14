@@ -16,6 +16,8 @@ syntax: glob
 *.out
 *.so
 *.dll
+*.toc
+*.pdf
 *.layout
 *.depend
 *.aux

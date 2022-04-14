@@ -1,0 +1,26 @@
+\newcommand{\bra}[1]{<#1|}
+\newcommand{\ket}[1]{|#1>}
+\newcommand{\expval}[2]{<#2|#1|#2>}
+\newcommand{\laplace}{\Delta}
+\newcommand{\diag}{\text{diag}}
+\newcommand{\ftk}[3]{\frac{1}{(2\pi)^3}\int d#2\ #3 e^{i#2#1}}
+\newcommand{\ftkvec}[3]{\frac{1}{(2\pi)^3}\int d#2\ #3 e^{i#1\cdot#2}}
+\newcommand{\ftr}[3]{\int d#2\ #3 e^{-i(#1\cdot#2)}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\vR}{\vec{R}}
+\newcommand{\vq}{\vec{q}}
+\newcommand{\vk}{\vec{k}}
+\newcommand{\vrp}{\vec{r'}}
+\newcommand{\vkp}{\vec{k'}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\dos}{N}
+\newcommand{\insertgraph}[2]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[angle=-90,origin=c,scale=0.5,trim={1cm 0 1cm 0},clip]{grafy/#1}
+        \vspace{-22mm}
+        \caption{#2}
+        \label{fig:#1}
+    \end{figure}
+}
+

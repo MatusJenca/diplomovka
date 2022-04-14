@@ -1,0 +1,38 @@
+\thispagestyle{empty}
+\begin{center}
+{\large \bf UNIVERZITA KOMENSKÉHO V BRATISLAVE \\
+FAKULTA MATEMATIKY, FYZIKY A INFORMATIKY}
+\end{center}
+%\begin{titlepage}
+%    \rmfamily
+%    \begin{center}
+%      \LARGE\scshape
+%      \theuniversity\\
+%      \Large\upshape
+%      \thefaculty\\
+%      \large
+%      \thedepartment
+%    \end{center}
+%
+
+\vspace{2cm}
+\begin{figure}[!h]
+   \centering
+     \includegraphics[width=3.5cm]{logoUK.jpg}
+\end{figure}
+
+\vspace{1cm}
+\begin{center}
+{\large \bf Vplyv elektrón-elektrónovej interakcie na hustotu elektrónových stavov v kove \\
+\vspace{3cm}
+BAKALÁRSKA PRÁCA}
+\end{center}
+
+\vfill
+%
+\begin{multicols}{2}
+{\bf
+\begin{flushleft} 2017 \end{flushleft}
+\begin{flushright} Matúš Jenča \end{flushright}
+}
+\end{multicols}

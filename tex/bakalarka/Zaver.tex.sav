@@ -1,0 +1,43 @@
+V závere je potrebné v stručnosti zhrnúť dosiahnuté výsledky vo vzťahu k stanoveným cieľom.
+Vzhľadom na to, že v práci už boli definované všetky potrebné pojmy, možno byť v závere omnoho konkrétnejší ako v úvode.
+Pri argumentovaní o splnení cieľov je žiaduce odkazovať na konkrétne očíslované alebo inak pomenované časti práce
+(odseky, algoritmy, metódy, vzorce, vzťahy, vety a ich dôkazy a pod.).
+
+
+Altshuler a Aronov (AA) ukázali teoreticky \cite{Altshuler1},\cite{Altshuler3},\cite{Altshuler4}, že elektrón-elektrónová (e-e) interakcia v slabo neusporiadanom trojrozmernom (3D) kove potláča jednoelektrónovú hustotu
+ stavov v okolí Fermiho energie ($E_F$). 
+ 
+Táto práca bola venovaná analýze vplyvu e-e interakcie na hustotu stavov v slabo neusporiadanom kove, ktorú publikovali vo svojich pionierských článkoch Altshuler a Aronov. Cieľom práce bolo 
+bolo   
+ 
+ Stručne, v teórii \cite{Altshuler1},\cite{Altshuler3},\cite{Altshuler4} ide o kvantový výpočet hustoty
+stavov v elektrónovom plyne, v ktorom elektróny interagujú cez tienenú Coulombovskú interakciu a zároveň sú vystavené pôsobeniu slabého
+náhodného potenciálu pochádzajúceho od disorderu. Konkrétnejšie, e-e interakcia je započítana v prvom ráde poruchovej teórie vo Fockovej aproximácii a
+vplyv disorderu na vlnové funkcie elektrónov je zahrnutý v difúznej semiklasickej aproximácii.
+
+ AA teória \cite{Altshuler1},\cite{Altshuler3},\cite{Altshuler4} predpovedá, že hustota stavov závisí od energie elektrónu ($E$) ako $\sqrt{|E-E_F|}$, kde $|E-E_F| \lesssim U_{co}$ a $U_{co}$ je charakteristická korelačná energia. (Ako uvidíme neskôr, v typických kovoch s Fermiho energiou rádove jednotky elektrónvoltov je $U_{co} \simeq \hbar/\tau$, kde $\hbar$ je Planckova konštanta a $1/\tau$ je frekvencia elastických elektrónových zrážok s disorderom.) Hustota stavov $\propto \sqrt{|E-E_F|}$ pre energie $|E-E_F| \lesssim U_{co}$ bola pozorovaná metódami tunelovej spektroskopie \cite{Abeles},\cite{Dynes},\cite{McMillan2}
+\cite{ImryOvadyahu}, \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero}, \cite{Teizer}, \cite{Mazur},\cite{Luna2014}, \cite{Luna2015} a fotoelektrónovej spektroskopie \cite{Kobayashi}.
+
+
+V niektorých experimentálnych prácach \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero},\cite{Mazur}, \cite{Kobayashi} bola pozorovaná interakciou a disorderom modifikovaná hustota stavov aj pre energie $|E-E_F| > U_{co}$, teda aj pre energie kde AA teória už neplatí. Cieľom práce \cite{Mazur} bolo ukázať experimentálne, že hustota stavov v prítomnosti AA javu vykazuje pre $|E-E_F| > U_{co}$ tzv. stavy zachovávajúcu závislosť od energie, podobnú tej ktorá sa pozoruje po oboch stranách
+energetickej medzery v supravodiči. Experiment \cite{Mazur} naozaj ukázal,
+že stavy vypudené AA efektom z oblasti $|E-E_F| \lesssim U_{co}$ majú tendenciu sa nakopiť hneď nad energiou $U_{co}$ v oblasti veľkosti dva a až tri krát $U_{co}$.
+
+Pozorovaná \cite{Mazur} stavy zachovávajúca hustota stavov však nebola porovnaná s teóriou, pretože známe teórie  \cite{Altshuler1}, \cite{Altshuler3}, \cite{Altshuler4}, \cite{LeeRamakrishnan}, \cite{Imry} sú obmedzené
+na AA efekt pri energiách $|E-E_F| \lesssim U_{co}$.
+Nedávno bolo ukázané \cite{Moskova}, že stavy zachovávajúca hustota stavov pozorovaná v práci \cite{Mazur} bola prítomná (nepovšimnutá) aj v starších experimentoch \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero}.
+Bola odvodená aj stavy zachovávajúca hustota stavov \cite{Moskova}, avšak odvodenie bolo len heuristické, bez základov v mikrosopickej teórii.
+
+Prvým cieľom tejto bakalárskej práce je
+opísať odvodenie hustoty stavov pre $|E-E_F| \lesssim U_{co}$ a zreprodukovať výsledok Altshulera-Aronova. Na rozdiel od Altshulera a Aronova ktorí použili metódu Greenových funkcií a Feynmannových diagramov,
+v tejto práci budeme prezentovať iné odvodenie \cite{MoskovaUnpub1}, ktoré je založené na základnej kvantovej mechanike a zvládnuteľné na bakalárskej úrovni.
+
+Druhým cieľom našej práce bude opísať istú aproximáciu \cite{MoskovaUnpub2}, vďaka ktorej sa
+mikroskopická teória stáva aspoň hrubo použiteľnou aj pre energie $|E-E_F| > U_{co}$. Úspechom bude, keď takto rozšírená mikroskopická teória kvalitatívne napodobní stavy zachovávajúcu hustotu stavov, pozorovanú vo vyššie spomenutých experimentoch.
+
+Text práce je zostavený nasledovne. Kapitola 1 je venovaná najjednoduchšiemu modelu vodivostných elektrónov v kove, volnému neinteragujúcemu elektrónovému plynu.
+S interagujúcimi elektrónmi sa prvý krát stretneme v kapitole 2, ktorá obsahuje úvod do Hartree-Fockovej aproximácie a odvodenie Fockovej aproximácie pre elektrónové spectrum voľného elektrónového plynu interagujúceho
+cez holý Coulombov potenciál. Interakciu cez tienený Coulombov potenciál vezmeme do úvahy v kapitole 3, opäť vo Fockovej aproximácii. Získané spektrum energie a hustotu stavov
+porovnáme s výsledkami pre holú Coulombovu interakciu a s výsledkami pre neinteragujúci plyn. Kľúčové časti práce sú kapitoly 4 a 5, v ktorých
+tienená e-e interakcia koexistuje s interakciou s disorderom, vďaka čomu vzniká jav Altshulera-Aronova. V kapitole 4 opíšeme mikroskopické odvodenie pôvodného výsledku Altshulera-Aronova, platné pre energie $|E-E_F| \lesssim U_{co}$. V kapitole 5 opíšeme aproximáciu \cite{MoskovaUnpub2}, ktorá mikroskopický
+model AA javu rozširuje na energie  $|E-E_F| > U_{co}$. Na konci textu je zaradených niekoľko dodatkov, ktoré obsahujú technické detaily. 

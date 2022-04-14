@@ -1,0 +1,133 @@
+\section{Elektróny v kovovej mriežke ako voľné neinteragujúce častice}
+\label{sec:free_electrons}
+Najjednoduchšou aproximáciou pre vodivostné elektróny v kove je aproximácia voľných neinteragujúcich elektrónov, ktorú teraz predstavíme
+s dôrazom na fakty, na ktoré sa budeme neskôr odvolávať.
+Stav častice v kvantovej mechanike popisuje vlnová funkcia $\Psi(\vec r,t)$. 
+Pomocou vlnovej funkcie je definovaná hustota pravdepodobnosti výskytu častice
+\begin{equation}
+\label{eq:fp2}
+ \rho(\vec r, t)=\Psi(\vec r, t)\Psi^\ast(\vec r, t)\text{.}
+\end{equation}
+Táto hustota pravdepodobnosti musí spĺňať normalizačnú podmienku
+\begin{equation}
+\label{eq:norm}
+ \int_{V} d \vec r  \  \rho(\vec r,t) = 1 \ ,
+\end{equation}
+kde $V$ je objem priestoru, v ktorom sa častica s istotou nachádza.
+Vlnová funkcia pre voľnú časticu má tvar
+\begin{equation}
+\label{eq:fp}
+ \Psi(\vec r,t)=Ae^{i(\vec k\cdot\vec r-\frac{E(k)t}{\hbar})} \text{,}
+\end{equation}
+kde $A$ je normovacia konštanta, $\hbar \vec k= \vec p = m \vec v$ je hybnosť voľnej častice, a
+\begin{equation}
+ \label{eq:fp_erg}
+ E(k)=\frac{\hbar k^2}{2 m} \text{}
+\end{equation}
+je energia voľnej častice. Pre voľnú časticu dostaneme z rovníc \eqref{eq:fp}, \eqref{eq:fp2} a \eqref{eq:norm} rovnicu 
+\begin{equation}
+ \label{eq:norm_fp}
+ \int_{-\infty}^\infty  \int_{-\infty}^\infty  \int_{-\infty}^\infty dx dy dz  AA^\ast = 1\text{,}
+\end{equation}
+ktorá určuje normovaciu konštantu $A$.
+V tejto rovnici je objem $V$ z definície nekonečný, nakoľko sa jedná o voľnú časticu. Preto sa rovnica dá splniť len pre nulové $A$,
+čím sa vlnová funkcia triviálne vynuluje. Tomuto problému sa dá vyhnúť použitím Born von Karmanových podmienok. 
+Uvažujeme priestor rozdelený na kvádre so stranami $L_x$, $L_y$ a $L_z$ a predpokladáme, že v každom kvádri sa nachádza elektrón s tou istou vlnovou funkciou ako v tých ostatných. Tento predpoklad
+vyjadrujú Born von Karmanove podmienky
+\begin{align*}
+ \Psi(x,y,z,t)&=\Psi(x+L_x,y,z,t)\\
+ \Psi(x,y,z,t)&=\Psi(x,y+L_y,z,t)\\
+ \Psi(x,y,z,t)&=\Psi(x,y,z+L_z,t)\text{.}
+\end{align*}
+Vďaka nim sa normovacia podmienka \eqref{eq:norm_fp} zmení na 
+\begin{equation}
+\label{eq:norm_bvk}
+ \int_{0}^{L_x}  \int_{0}^{L_y}  \int_{0}^{L_z} dx dy dz  AA^\ast = 1\text{.}
+\end{equation}
+Z poslednej rovnice dostaneme
+\begin{equation}
+ \label{eq:A}
+ A=\sqrt{\frac{1}{L_xL_yL_z}}e^{i\phi} \text{,}
+\end{equation}
+kde $\phi\in<0,2\pi)$  je ľubovoľná fáza.
+Pred použitím Born von Karmanových podmienok mohla hybnosť častice $\hbar \vec k$ vo vlnovej funkcii \eqref{eq:fp} nadobúdať spojité hodnoty. Ak vlnovú funkciu \eqref{eq:fp} dosadíme do Born von Karmanových podmienok, vidíme, že
+sú splnené len pre diskrétne hodnoty $\vec k$,
+\begin{align*}
+ k_x&=\frac{2\pi}{L_x}n_x , \ \ \  n_x=0,\pm 1 \pm 2, ...\\
+ k_y&=\frac{2\pi}{L_y}n_y , \ \ \  n_y=0,\pm 1 \pm 2, ...\\
+ k_z&=\frac{2\pi}{L_z}n_z , \ \ \  n_z=0,\pm 1 \pm 2, ...\ \text{.}
+\end{align*}
+Tieto diskrétne hodnoty sú  kvantové čísla priestorovej časti vlnovej funkcie a daná trojica ${k_x, k_y, k_z}$ predstavuje jeden dostupný kvantový stav. Tento stav je vektor v trojrozmernom kartézskom $\vec k$ priestore. Je vidno, že na jeden takýto stav  pripadá objem 
+\begin{equation}
+\label{eq:V}
+\Delta =\frac{8\pi^3}{L_xL_yL_z}\text{.}
+\end{equation}
+Otočením posledného vzťahu získame dôležitú veličinu, hustototu stavov v $\vec k$ priestore, 
+\begin{equation}
+\label{eq:V otocene}
+1/\Delta =\frac{L_xL_yL_z}{8\pi^3}  \text{.}
+\end{equation}
+Uvažujme kovovú vzorku veľkosti Born von Karmanovho kvádra, v ktorej sa nachádza $N$ vodivostných elektrónov. 
+Elektrón má okrem orbitálneho pohybu aj spin, ktorého priemet ${s_z}$ na vybranú os ${z}$ môže nadobúdať  dve možné hodnoty, $s_z = \pm \hbar/2$. Elektrón je teda fermión a platí preň Pauliho princíp, podľa ktorého
+orbitál ($k_x, k_y, k_z, s_z$) môže byť obsadený nanajvýš jednym elektrónom. Stredný počet elektrónov, ktorý sa nachádza na orbitáli ${k_x, k_y, k_z, s_z}$ v termodynamickej rovnováhe, je daný Fermiho Diracovou funkciou
+$f(\vec k, s_z)$. Musí platiť, že
+\begin{equation}
+ \label{eq:N}
+ N = 2 \sum_{\vec k} f(\vec k)  \text{,}
+\end{equation}
+kde sa sumuje cez všetky možné hodnoty ${k_x, k_y, k_z}$ dané vyššie a suma cez ${s_z}$ sa redukuje na násobenie faktorom $2$. Pre dostatočne veľké ${L_x, L_y, L_z}$ môžeme sumovanie cez
+${k_x, k_y, k_z}$ nahradiť integrálom
+\begin{equation}
+ \label{eq:N integral}
+ N = 2 \frac{L_xL_yL_z}{8\pi^3} \int d \vec k f(\vec k)  \text{,}
+\end{equation}
+v ktorom je zohľadnené, že počet stavov v Newtonovom diferenciálnom objeme $d \vec k$ je daný ako hustota stavov $\frac{L_xL_yL_z}{8\pi^3}$ krát $d \vec k$.
+Prejdeme od kartézskych súradníc ${k_x, k_y, k_z}$ k sférickým súradniciam ${k, \phi, \theta}$. Dostaneme vzťah,
+\begin{equation}
+ \label{eq:N integral sfercky}
+ n_e \equiv \frac{N}{L_xL_yL_z} = 2 \frac{1}{8\pi^3} \int_0^{2\pi} d\phi \int_0^{\pi}  d\theta \sin{\theta} \int_0^{\infty} dk\ k^2 f(k)  \text{,}
+\end{equation}
+kde $n_e$ je elektrónová koncentrácia. Vzťah  \eqref{eq:N integral sfercky} po preintegrovaní cez premenné $\phi$ a $\theta$ prejde na vzťah
+\begin{equation}
+ \label{eq:N integral sfer k}
+ n_e =   \frac{1}{\pi^2} \int_0^{\infty} dk \ k^2 \ f(k)  \text{.}
+\end{equation}
+a po zámene premennej $k$ energiou $E$ na vzťah
+\begin{equation}
+ \label{eq:N integral sfer energ}
+ n_e =   \int_0^{\infty} dE \frac{1}{\pi^2}  \frac{dk}{dE} \ k^2 \ f(E)  \text{.}
+\end{equation}
+
+V poslednej rovnici identifikujeme hustotu energetických hladín $\rho(E)$ danú vzťahom
+\begin{equation}
+\label{eq:rho}
+ \rho(E)=\frac{1}{\pi^2} \frac{dk}{dE} k^2  \ \text{,}
+\end{equation}
+ktorá platí nielen pre parabolický disperzný zákon $E = k^2/2m$, ale aj pre ľubovoľný iný izotropný disperzný zákon $E(k)$. 
+Častejšie ako hustota energetických hladín sa pre $\rho(E)$ používa termín hustota stavov, ktorý ďalej požívame aj my. 
+Pre $E = k^2/2m$ dostaneme z rovnice \eqref{eq:rho}
+dobre známu hustotu stavov pre voľné neinteragujúce častice,
+\begin{equation}
+ \label{eq:rho_par}
+ \rho(E)=\frac{1}{2\pi^2}{(2 m_e/\hbar^2)}^{3/2} \sqrt{E} \text{.}
+\end{equation}
+
+
+Vráťme sa k rovnici \eqref{eq:N integral sfer k} a predpokladajme teplotu absolútnej nuly. Vtedy $f(k)=1$ pre $k \leq k_F$ a $f(k)=0$ pre $k > k_F$, kde $k_F$ je polomer Fermiho gule. V tomto prípade sa rovnica \eqref{eq:N integral sfer k} zjednoduší na
+\begin{equation}
+ \label{eq:N integral sfer k nula}
+ n_e =   \frac{1}{\pi^2} \int_0^{k_F} dk \ k^2  = \frac{1}{\pi^2} \frac{{k_F}^3}{3} \ \text{.}
+\end{equation}
+Posledná rovnica nám umožňuje vyjadrit $k_F$ ako funkciu koncentrácie $n_e$,
+\begin{equation}
+ \label{eq:kf}
+ k_F=(3\pi^2 n_e)^{\frac{1}{3}}\text{.}
+\end{equation}
+Posledný vzťah platí nielen pre parabolický disperzný zákon $E = k^2/2m$, ale aj pre ľubovoľný iný izotropný disperzný zákon $E=E(k)$. 
+Fermiho energia $E_F=E(k_F)$ je energia elektrónov, ktoré obsadzujú stavy na povrchu Fermiho gule. Pre $E = k^2/2m$
+dostávame
+\begin{equation}
+ \label{eq:ef}
+ E_f=\frac{\hbar^2 k_f^2}{2m_e}=\frac{\hbar^2(3\pi^2 n_e)^{\frac{2}{3}}  }{2m_e} \text{.}
+\end{equation}
+

@@ -1,0 +1,166 @@
+\renewcommand{\thesection}{A.\arabic{section}}
+\renewcommand{\theequation}{A.\arabic{equation}}
+\renewcommand{\thefigure}{A.\arabic{figure}}
+\setcounter{equation}{0}
+\subsection*{Odvodenie Hartree-Fockovej rovnice z variačného princípu}
+Potenciál $U(r)$ si znova rozdelíme na elektrónovú a iónovú časť. Tak isto si pre elektróny zavedieme nové súradnice $\tau$ ktoré v sebe zahŕňajú aj spin.
+Keď budeme integrovať cez $d\tau$ myslíme tým integrál cez $dr$ a sumu cez jednotlivé spiny.
+
+Najskôr si určíme strednú hodnotu Hamiltoniánu pre dva elektróny. Hamiltonián sa dá potom napísať ako
+\begin{equation}
+\label{eq:hm}
+\hat H =\hat h_1+ \hat h_2 + V_{12} \text{,}
+\end{equation}
+
+kde $\hat h_i$ popisujú kinetickú energiu a potenciál od iónov pre jednotlivé elektróny a $V_{12}$ ich vzájomnú interakciu:
+\begin{align}
+ \hat h_i&=-\frac{\hbar}{2m}\Delta_{i}+U^{ion}(r_i) \\ \notag
+ V_{12} &= \frac {e^2}{4\pi \epsilon_0|\vr-\vrp|} \text{,}
+\end{align}
+
+Teraz ideme minimalizovať strednú hodnotu hamiltoniánu:
+\begin{equation}
+ \label{eq:mvh}
+ <H>=\int{d\tau_1d\tau_2\Psi^*(\tau_1,\tau_2)\hat H\Psi(\tau_1,\tau_2)} \text{.}
+\end{equation}
+
+
+
+Do \eqref{eq:mvh} dosadíme Slatterov determinant pre dve funkcie:
+\begin{equation}
+ \label{eq:Psi2}
+ \Psi(\tau_1,\tau_2)=\frac{1}{\sqrt{2}}({\phi_1(\tau_1)\phi_2(\tau_2)-\phi_2(\tau_1)\phi_1(\tau_2)}) \text{,}
+\end{equation}
+\begin{equation}
+ \label{eq:mvh2}
+ <H>=\int{d\tau_1d\tau_2\bigl( \phi_1(\tau_1)\phi_2(\tau_2)-\phi_2(\tau_1)\phi_1(\tau_2)\bigr)^*\hat H(\phi_1(\tau_1)\phi_2(\tau_2)-\phi_2(\tau_1)\phi_1(\tau_2))} \text{.}
+\end{equation}
+Teraz dosadíme dosadíme \eqref{eq:hm} za $\hat H$ a roznásobíme. Dostaneme 12 členov.
+\begin{align}
+<H>=&\\ \notag
+ &\frac{1}{2}\int{d\tau_1 d\tau_2 \phi^*_1(1)\phi^*_2(2)\hat h_1\phi_1(1)\phi_2(2)}+\\ \notag
+ &\frac{1}{2}\int{d\tau_1 d\tau_2 \phi^*_1(1)\phi^*_2(2)\hat h_2\phi_1(1)\phi_2(2)}- \notag
+ &\frac{1}{2}\int{d\tau_1 d\tau_2 \phi^*_1(2)\phi^*_2(1)\hat h_1\phi_1(1)\phi_2(2)}-\\ \notag
+ &...\\ \notag
+  &\frac{1}{2}\int{d\tau_1 d\tau_2 \phi^*_1(1)\phi^*_2(2)V_{12}\phi_1(1)\phi_2(2)}- \notag
+  &\frac{1}{2}\int{d\tau_1 d\tau_2 \phi^*_1(2)\phi^*_2(1)V_{12}\phi_1(1)\phi_2(2)}-\\ \notag
+  &\frac{1}{2}\int{d\tau_1 d\tau_2 \phi^*_1(1)\phi^*_2(2)V_{12}\phi_1(2)\phi_2(1)}+ \notag
+   &\frac{1}{2}\int{d\tau_1 d\tau_2 \phi^*_1(2)\phi^*_2(1)V_{12}\phi_1(2)\phi_2(1)} \notag \text{.}
+\end{align}
+Integrály obsahujúce $\hat h_1$ a $\hat h_2$ budú rovnaké, pretože sa líšia len zámenou premenných. Členy z $V_{12}$ sa dajú prepísať na sumy
+\begin{align}
+ \label{eq:sumij}
+ &\frac{1}{2} \sum_{i=1}^2{\sum_{i\neq j}^2 \int d\tau_a d\tau_b\phi_i(a)\phi_j(b)V_{ab}\phi_i(a)\phi_j(b)}-\\
+ &\frac{1}{2} \sum_{i=1}^2{\sum_{i\neq j}^2 \int d\tau_a d\tau_b\phi_i(a)\phi_j(b)V_{ab}\phi_i(b)\phi_j(a)} \notag \text{.}
+\end{align}
+
+V tvare sumy sa potom dá napísať celé $<H>$:
+\begin{align}
+  \label{eq:hsum}
+ &\sum_i^2 \int d\tau_a \phi^*_i(a)\hat h_a \phi_i(a) +\\
+ &\frac{1}{2} \sum_{i=1}^2{\sum_{i\neq j}^2 \int d\tau_a d\tau_b\phi_i^*(a)\phi_j^*(b)V_{ab}\phi_i(a)\phi_j(b)}- \notag \\
+ &\frac{1}{2} \sum_{i=1}^2{\sum_{i\neq j}^2 \int d\tau_a d\tau_b\phi_i^*(a)\phi_j^*(b)V_{ab}\phi_i(b)\phi_j(a)} \notag \text{.}
+\end{align}
+
+Teraz je vhodné sa zbaviť spinovej súradnice. V prvom a v druhom člene \eqref{eq:hsum} dostaneme integrovaním cez spiny 1, lebo tvoria ortogonálnu bázu.
+V poslednom člene nám s rovnakých dôvodov   prežijú len paralelné spiny.
+
+\begin{align}
+ \label{eq:hsum}
+ &\sum_i^2 \int d\vr_a \phi^*_i(a)\hat h_a \phi_i(a) +\\ \notag
+ &\frac{1}{2} \sum_{i=1}^2{\sum_{i\neq j}^2 \int d\vr_a d\vr_b\phi_i^*(a)\phi_j^*(b)V_{ab}\phi_i(a)\phi_j(b)}-\\ \notag
+ &\frac{1}{2} \sum_{i=1}^2{\sum_{i\neq j;cez || spiny}^2 \int d\vr_a d\vr_b\phi_i^*(a)\phi_j^*(b)V_{ab}\phi_i(b)\phi_j(a)} \text{,} \notag
+\end{align}
+Tento výsledok možno zovšeobecniť na viac elektrónov.
+
+Teraz ideme nájsť funkcie $\phi_i^*$ ktoré minimalizujú funkcionál $E[\phi^*_i]=<H>$, v Diracovej notácí:
+\begin{equation}
+ \label{eq:e_func}
+ E[\Psi^*]=\expval{H}{\Psi} \text{.}
+\end{equation}
+
+V minime funkcionálu musí byť variácia nulová $\delta E[\Psi^*]=0$ , kde
+\begin{equation}
+ \label{eq:e_var}
+ \delta E=\bra{\Psi+\delta \Psi}H\ket{\Psi}-\expval{H}{\Psi} \text{.}
+\end{equation}
+
+\newpage
+Toto však nieje jediná podmienka pre minimum. Funkcia $\Psi$ musí navyše spĺňať väzobnú podmienku ortogonality:
+
+\begin{equation}
+ \label{eq:ortho}
+ \bra{\Psi}\ket{\Psi}=1 \text{.}
+\end{equation}
+
+Táto podmienka platí aj pre jednotlivé $\phi_i$ a dá sa prepísať do integrálneho tvaru.
+\begin{equation}
+ \label{eq:ortho_2}
+ \int{ d\vr\ \phi^*_j\phi_i }-\delta_{ij}=0 \text{.}
+ \end{equation}
+Rovnicu \eqref{eq:ortho_2} vynásobíme Lagrangeovým multiplikátorom $\lambda_{ij}$. Potom odpočítame od \ref{eq:e_func} a dostaneme
+\begin{equation}
+ \label{eq:lagr}
+ L[\phi]=\expval{H}{\Psi}-\lambda_{ij}( \int{ d\vr\ \phi^*_j\phi_i }-\delta_{ij})\text{.}
+\end{equation}
+
+Lagrangián \eqref{eq:lagr} bude rovný funkcionálu \eqref{eq:e_func} pretože sme od neho odčítali nulový člen. Ak položím variáciu $\delta L$ rovnú nule,
+dostanem minimum funkcionálu \eqref{eq:e_func} ktoré navyše spĺňa väzobnú podmienku \eqref{eq:ortho}.
+
+Teraz za $H$ dosadíme hamiltonián \eqref{eq:hm} a za $\Psi$ Slatterov determinant \eqref{eq:Psi2} pre dve funkcie.
+
+Všimnime si, že varírovaním prvého člena sme dostali
+\begin{equation}
+ \label{eq:var1}
+ \sum_i^2 \int d\vr_a \delta\phi^*_i(a)\hat h_a \phi_i(a)\text{,}
+\end{equation}
+pretože od $L[\Psi+\delta\Psi]$ sa členy s $\phi^*_i+\delta\phi^*_i$ sa nám odčítajú s pôvodnými členmi $L[\Psi]$.
+
+Pri druhom a treťom člene máme roznásobiť $(\phi^*_i+\delta\phi^*_i)(\phi^*_j+\delta\phi^*_j)$. Tu nám prežijú len dva členy $\phi^*_i\delta\phi^*_j + \phi^*_i\delta\phi^*_j$
+pretože člen s dvoma deltami je druhého rádu, čo pri variácii neuvažujeme, a člen bez delty sa znova odčíta s $L[\Psi]$. Teda suma bude vyzerať nasledovne
+\begin{equation}
+ \label{eq:part_sum}
+ \frac{1}{2} \sum_{i=1}^2{\sum_{i\neq j}^2 \int d\vr_a d\vr_b\delta\phi^*_i(a)\phi^*_j(b)Vab\phi_i(a)\phi_j(b)+ \int d\vr_a d\vr_b\phi^*_i(a)\delta\phi^*_j(b)Vab\phi_i(a)\phi_j(b)} \text{.}
+\end{equation}
+
+
+Vidíme však, že tieto dva členy sa líšia len integračnými premennými, preto ich môžem napísať ako jeden, čím sa faktor $\frac{1}{2}$ stratí. Veľmi podobne viem zredukovať tretí člen.
+Posledne po odčítaní $L[\Psi]$ časti nám člen s Lagrangeovým multiplikátorom prejde na
+\begin{equation}
+ \label{eq:part_lagr}
+ \sum_j{\lambda_{ij}\phi_j(a)} \text{.}
+\end{equation}
+
+Celková variácia lagrangiánu $L[\Psi]$ bude
+\begin{align}
+ \label{eq:var_final}
+ &\delta L=\int d\vr_a\delta\phi_i^*(a) \\ \notag
+ &\bigl(\sum_i\hat h_a \phi_i(a) +
+ \sum_{j\neq i} |\phi_j(a)|^2V_{ab}\phi_i(a)+
+ \sum_{j \neq i || sp}\int d\vr_b \phi_i(b)^*V_{ab}\phi_i(b)\phi_j(a)-
+ \sum_j \lambda_{ij} \phi_j(a)\bigr)=0 \text{.}
+\end{align}
+
+%\subsection{Hartree-Fockove rovnice}
+Z nulovosti integrálu vyplýva nulovosť podinitegrálnej funkcie
+Rovnosť \eqref{eq:var_final} musí platiť pre ľubovoľné malé $\delta \phi_i^*(a)$, teda
+členy v zátvorke musia byť nulové.
+
+\begin{equation}
+ \label{eq:fock1}
+ \hat{h_a}\phi_i{a}+\sum_{j=1}^2\int{d\vec{r_b}}|\phi_j(b)|^2V_{ab}|\phi_i(a)^2|-\sum_{j=1}^2\int{d\vec{r_b}}\phi_i(b)^*V_{ab}\phi_i(b)\phi_j(a)=\sum_j{\lambda_{ij}\phi_j(a)}\text{.}
+\end{equation}
+
+Ľavá strana rovnice sa dá napísať ako operátor pôsobiaci na vlnovú funkciu (Fockov operátor) $\hat{\mathcal{F}}\phi_i$ . Pravá strana je vlastne násobenie maticou $\Lambda$. Keby sme vedeli maticu
+diagonalizovať, úloha prejde na hľadanie vlastných hodnôt Fockovho operátora.
+
+Nech $C$ je unitárna transformácia ($CC^\dagger=I$). Taká, že $C\Lambda C^\dagger=\diag(E_1,E_2)$. Fockovu rovnicu vieme jednoducho upraviť na
+\begin{equation}
+ \label{eq:fock2}
+\hat{\mathcal{F}}\phi_i'=E_i\phi_i' \text{,}
+\end{equation}
+kde $\phi'_i$ je nová báza.
+
+Po rozpísaní $\hat{\mathcal {F}}$ dostaneme Hartree-Fockovu rovnicu \eqref{eq:fock3}, v ktorej už píšeme iba $\phi_i$.
+
+

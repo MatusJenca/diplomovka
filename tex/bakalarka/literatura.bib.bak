@@ -1,0 +1,241 @@
+@article{Altshuler1,
+ author = {B. L. Altshuler and  A. G.  Aronov },
+ journal = {Solid State Communications},
+ volume = {30},
+ pages = {115-117},
+title={Zero bias anomaly in tunnel resistance and electron-electron interaction},
+ year = {1979}
+}
+
+
+@article{Altshuler3,
+  author={B. L. Altshuler and  A. G.  Aronov },
+  journal={Solid State Communications},
+  volume={46},
+  pages={429-435},
+  title={Fermi-liquid theory of the electron-electron interaction effects in disordered metals},
+  year={1983}
+}
+
+
+
+
+@incollection{Altshuler4,
+author = {B. L. Altshuler and  A. G.  Aronov },
+editor = {A. L. Efros  and   M. Pollak },
+title = {Electron-Electron Interactions in Disordered Systems},
+booktitle = {},
+year = {1985},
+publisher = {Elsevier},
+location = {Amsterdam},
+pages = {1}
+}
+@article{Abeles,
+author = { B.   Abeles  and  Ping   Sheng  and  M. D.   Coutts  and  Y.   Arie },
+journal = {Advances in Physics},
+title = {Structural and electrical properties of granular metal films},
+volume = {24},
+pages = {407-461},
+year  = {1975}
+}
+
+
+
+
+
+
+
+@article{Dynes,
+  author={R. C.    Dynes  and   J. P. Garno },
+  journal={Physical Review Letters},
+  volume={46},
+  title={Metal-Insulator Transition in Granular Aluminum},
+  pages={137-140},
+  year={1981}
+}
+
+
+@article{McMillan2,
+  author={W. L.  McMillan  and   J.  Mochel },
+  journal={Physical Review Letters},
+  volume={46},
+  pages={556-557},
+  title={Electron Tunneling Experiments on Amorphous {$Ge_{1-x}Au_x$}},
+  year={1981}
+}
+
+
+
+@article{ImryOvadyahu,
+  author={Y. Imry   and  Z. Ovadyahu },
+  journal={Physical Review Letters},
+  title={Density-of-States Anomalies in a Disordered Conductor: A Tunneling Study},
+  volume={49},
+  pages={841-844},
+  year={1982}
+}
+
+@article{Schmitz1,
+  author={S. Schmitz    and S. Ewert },
+  journal={Solid State Communications},
+  title={Electron density of states anomalies in disordered gold, silver and indium films},
+  volume={74},
+  pages={1067-1070},
+  year={1990}
+}
+
+
+@article{Schmitz2,
+  author={S. Schmitz   and S. Ewert },
+  title={Electron tunneling experiments on amorphous {$Ti_{x}Te_{1-x}$} films},
+  journal={Solid state communications},
+  volume={79},
+  pages={525-529},
+  year={1991}
+}
+
+
+@article{Escudero,
+  author={R. Escudero    and J. C. Lasjaunias    and Y. Calvayrac   and M. Boudard },
+  title={Tunnelling and point contact spectroscopy of the density of states in quasicrystalline alloys},
+  journal={Journal of Physics: Condensed Matter},
+  volume={11},
+  pages={383-404},
+  year={1999}
+}
+
+
+
+@article{Teizer,
+  author={W. Teizer  and    F. Hellman  and   R. C. Dynes },
+  journal={Physical Review Letters},
+  volume={85},
+  title={Density of States of Amorphous {$Gd_{x}Si_{1-x}$} at the Metal-Insulator Transition},
+  pages={848-851},
+  year={2000}
+}
+
+
+
+@article{Mazur,
+  author={D. Mazur  and K. E. Gray  and J. F. Zasadzinski  and   L. Ozyuzer  and  I. S. Beloborodov  and  H. Zheng  and  J. F. Mitchel },
+  journal={Physical Review B},
+  title={Redistribution of the density of states due to Coulomb interactions in {$La_{2-2x}Sr_{1+2x}Mn_{2}O_{7}$}},
+  volume={76},
+  pages={193102-1-4},
+  year={2007}
+}
+
+
+@article{Luna2014,
+  author={ K. Luna   and P. Giraldo-Gallo  and T. Geballe   and I. Fisher  and  M. Beasley },
+  journal={Physical Review Letters},
+  title={Disorder Driven Metal-Insulator Transition in {$BaPb_{1-x}Bi_{x}O_{3}$} and Inference of Disorder-Free Critical Temperature},
+  volume={113},
+  pages={177004-1-5},
+  year={2014}
+}
+
+
+@article{Luna2015,
+  author={K. Luna  and    P.  M.  Wu  and  J. S. Chen  and  E. Morosan  and  M. Beasley },
+  journal={Physical Review B},
+  volume={91},
+  pages={094509-1-4},
+  year={2015},
+  title={Point-contact tunneling spectroscopy measurement of {$Cu_{x}Ti_{1-x}Se_{2}$}: Disorder-enhanced Coulomb effects}
+}
+
+@article{Kobayashi,
+  author={M. Kobayashi   and   K. Tanaka   and  A. Fujimori  and S. Ray and  D. D. Sarma },
+  title={Critical Test for Altshuler-Aronov Theory: Evolution of the Density of States Singularity in Double Perovskite {$Sr_{2}FeMoO_{6}$} with Controlled Disorder},
+  journal={Physical Review Letters},
+  volume={98},
+  pages={246401-1-4},
+  year={2007}
+}
+
+
+@article{LeeRamakrishnan,
+  author={P. A. Lee  and  T. V. Ramakrishnan },
+  title={Disordered electronic systems},
+  journal={Reviews of Modern Physics},
+  volume={57},
+  pages={287-337},
+  year={1985}
+}
+
+@book{Imry,
+  title={Introduction to Mesoscopic Physics},
+  author={Y. Imry},
+  number={2},
+  ISBN={978-0-19-850738-3},
+  year={2002},
+  publisher={Oxford University Press}
+}
+
+
+@article{Chen,
+  author={H-Y. Chen and  W. A. Atkinson and R. Wortis },
+  journal={Physical Review B},
+  title={Effect of nonlocal interactions on the disorder-induced zero-bias anomaly in the {Anderson-Hubbard} model},
+  volume={85},
+  pages={235139-1-8},
+  year={2012}
+}
+
+
+
+@MastersThesis{Rabatin,
+    author     =     {B.  Rabatin},
+    title     =     {},
+    school     =     {Comenius University Bratislava},
+    address     =     {},
+    year     =     {2017}
+    }
+
+@book{Mermin,
+  title={Solid State Physics},
+  author={Mermin N.W, Ashcroft,N.D.},
+  number={2},
+  ISBN={0-03-083993-9},
+  year={1976},
+  publisher={Cengage Learning}
+}
+
+
+
+
+@article{Moskova,
+  author={A. Mošková and  M. Moško },
+  journal={Solid State Communications},
+  title={States-conserving density of states for {Altshuler-Aronov} effect: {Heuristic} derivation},
+  volume={284-286},
+  pages={56-61},
+  year={2018}
+}
+
+
+
+@MastersThesis{MoskovaUnpub1,
+    author     =     {A. Mošková and  M. Moško },
+    title     =     {Elementárne odvodenie javu  {Altshulera Aronova}},
+    school     =     {nepublikované},
+    address     =     {},
+    year     =     {2019}
+}
+
+
+@MastersThesis{MoskovaUnpub2,
+    author     =     {A. Mošková and  M. Moško },
+    title     =     {Stavy zachovávajúca hustota stavov pre jav  {Altshulera Aronova}:{Mikroskopický} model},
+    school     =     {nepublikované},
+    address     =     {},
+    year     =     {2019}
+}
+
+
+
+
+
+...........................................................................

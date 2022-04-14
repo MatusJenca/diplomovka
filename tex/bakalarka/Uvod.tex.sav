@@ -1,0 +1,64 @@
+
+
+
+Altshuler a Aronov (AA) ukázali teoreticky \cite{Altshuler1},\cite{Altshuler3},\cite{Altshuler4}, že elektrón-elektrónová (e-e) interakcia v slabo neusporiadanom trojrozmernom (3D) kove potláča jednoelektrónovú hustotu
+ stavov v okolí Fermiho energie ($E_F$). Konkrétnejšie, AA teória predpovedá, že hustota stavov závisí od energie elektrónu ($E$) ako $\sqrt{|E-E_F|}$, kde $|E-E_F| \lesssim U_{co}$ a $U_{co}$ je charakteristická korelačná energia. (Ako uvidíme neskôr, v typických kovoch s Fermiho energiou rádove jednotky elektrónvoltov je $U_{co} \simeq \hbar/\tau$, kde $\hbar$ je Planckova konštanta a $1/\tau$ je frekvencia elastických elektrónových zrážok s disorderom.) Hustota stavov $\propto \sqrt{|E-E_F|}$ pre energie $|E-E_F| \lesssim U_{co}$ bola pozorovaná metódami tunelovej spektroskopie \cite{Abeles},\cite{Dynes},\cite{McMillan2}
+\cite{ImryOvadyahu}, \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero}, \cite{Teizer}, \cite{Mazur},\cite{Luna2014}, \cite{Luna2015} a fotoelektrónovej spektroskopie \cite{Kobayashi}. 
+
+
+Niektoré experimentálne práce \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero},\cite{Mazur}, \cite{Kobayashi} pozorovali interakciou a disorderom modifikovanú hustotu stavov aj pre energie $|E-E_F| > U_{co}$, teda za hranicami platnosti AA teórie. Konkrétne, cieľom práce \cite{Mazur} bolo ukázať experimentálne, že hustota stavov v prítomnosti AA javu vykazuje tzv. stavy zachovávajúcu závislosť od energie podobnú tej, ktorá sa pozoruje po oboch stranách
+energetickej medzery v supravodiči. Experiment \cite{Mazur} naozaj ukázal,
+že stavy vypudené AA efektom z oblasti $|E-E_F| \lesssim U_{co}$ majú tendenciu sa nakopiť hneď nad energiou $U_{co}$ v oblasti veľkosti dva a až tri krát $U_{co}$. 
+Pozorovaná stavy zachovávajúca hustota stavov \cite{Mazur} však nebola porovnaná s teóriou, pretože známe teórie  \cite{Altshuler1}, \cite{Altshuler3}, \cite{Altshuler4}, \cite{LeeRamakrishnan}, \cite{Imry} sa obmedzovali
+na AA efekt pri energiách $|E-E_F| \lesssim U_{co}$. 
+
+V práci MoskovaMosko bolo ukázané, že stavy zachovávajúca hustota stavov pozorovaná v práci \cite{Mazur} bola prítomná (nepovšimnutá) aj v iných experimentoch we study the AA effect beyond the low energy limit theoretically. We consider the model (3), (17) in which the electrons interact via the statically screened Coulomb interaction and the modification of the DOS is due to the Fock part of the self-energy. We derive the states-conserving DOS which is in qualitative accord with experimental observations at energies above Uco and which reproduces the AA theory at low energies. We show that, besides the direct experimental study of the states-conserving DOS [12], such DOS was present (but not noticed) also in other experiments [[8], [9], [10]].
+
+
+
+Test citacie 
+\cite{Altshuler1}
+\cite{Altshuler3}
+\cite{Altshuler4}
+\cite{Abeles}
+\cite{Dynes}
+\cite{McMillan2}
+\cite{ImryOvadyahu}
+\cite{Schmitz1}
+\cite{Schmitz2}
+\cite{Escudero}
+\cite{Teizer}
+\cite{Mazur}
+\cite{Luna2014}
+\cite{Luna2015}
+\cite{Kobayashi}
+\cite{LeeRamakrishnan}
+\cite{Imry}
+\cite{Chen}
+\cite{Rabatin}
+\cite{Mermin}
+
+Elektrón-elektrónová interakcia v kombinácii s elektrónovými zrážkami s disorderom (s náhodnou priestorovou distribúciou prímesí) spôsobuje
+v kovoch potlačenie elektrónovej hustoty stavov v blízkom okolí Fermiho
+energie. Toto lokálne zmenšenie hustoty stavov v okolí Fermiho energie (pod okolím sa rozumie energetický interval daný ako frekvencia zrážok s disorderom násobená Planckovou konštantou)
+prvý krát teoreticky predpovedali Altshuler a Aronov. Jav, nazývaný jav Altshulera-Aronova, bol experimentálne pozorovaný metódami tunelovej
+spektroskopie a fotoelektrónovej spektroskopie. Pomocou týchto metód sa v posledných rokoch podarilo pozorovať aj zmeny hustoty stavov mimo
+blízkeho okolia Fermiho energie, teda za hranicami platnosti teórie Altshulera-Aronova. Prvým cieľom tejto bakalárskej práce je
+opísať odvodenie hustoty stavov blízko Fermiho energie a zreprodukovať výsledok Altshulera-Aronova. Na rozdiel od Altshulera a Aronova ktorí použili metódu Greenových funkcií a Feynmannových diagramov,
+v tejto práci budeme prezentovať mikroskopické odvodenie založené na elementárnej kvantovej mechanike, zvládnuteľné na bakalárskej úrovni. Druhým cieľom našej práce bude opísať istú aproximáciu, vďaka ktorej sa
+mikroskopická teória stane použiteľná aj mimo blízke okolie Fermiho energie. Úspechom bude, keď takto rozšírená teória vystihne experimentálne pozorovania mimo blízke okolie Fermiho energie aspoň kvalitatívne. Stručne zhrnuté, v našej práci ide o kvantovomechanický výpočet hustoty
+stavov v elektrónovom plyne, v ktorom elektróny interagujú vzájomne cez slabú
+(tienenú) Coulombovskú interakciu vo Fockovej aproximácii a zároveň sú vystavené pôsobeniu slabého
+náhodného potenciálu prímesí.
+
+
+Rozsah úvodu je  1 až 1,5 strany.  Úvod spravidla obsahuje:
+\begin{itemize}
+\item vymedzenie problematiky BP v kontexte aplikácií matematiky;
+\item zdôvodnenie aktuálnosti danej témy;
+\item charakterizácia stavu poznania alebo praxe (odkazy na literatúru);
+\item nastolenie problémov, ktoré chce autor v BP riešiť;
+\item vytýčenie cieľov, ktoré majú byť v BP dosiahnuté;
+\item uvedenie použitých metód a postupov riešenia;
+\item stručný náčrt obsahu jednotlivých kapitol BP.
+\end{itemize}

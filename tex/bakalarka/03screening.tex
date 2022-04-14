@@ -1,0 +1,95 @@
+\section{Tienenie Coulombovskej interakcie, vplyv na Fockovu self-energiu }
+
+
+V predchádzajúcej kapitole sme videli, že Coulombovská e-e interakcia vo Fockovej aproximácii má na disperzný zákon a hustotu stavov výrazný vplyv. Zistenie, že hustota stavov na Fermiho hladine je vďaka e-e interakcii
+nulová, však ukazuje, že získaný výsledok pre Fockovu self-energiu je v rozpore s realitou. Vodivosť kovu je totiž úmerná hustote stavov na Fermiho hladine, takže nulová hustota stavov na Fermiho hladine by znamenala, že kov
+s interagujúcimi elektrónmi je izolant. To samozrejme nie je pravda. Ukazuje sa, že Fockova aproximácia dá oveľa rozumnejší výsledok, ak vezmeme do úvahy, že Coulombova interakcia medzi elektrónmi
+je v skutočnosti tienená. 
+
+Vložme do elektrónového plynu externý náboj s nábojovou hustotu $\rho_{ext}(\vr)$. Keby nebolo elektrónového plynu, externý náboj by vytváral len potenciál
+ $\Phi_{ext}(\vr)$ daný Poissonovou rovnicou $\laplace \Phi_{ext}(\vr)=-\rho_{ext}(\vr)/\epsilon_0$. Externý náboj však svojim elektrickým poľom zmení koncentráciu elektrónového plynu z pôvodnej konštantnej hodnoty $n_0$ na
+hodnotu $n(\vr)$. Tým spôsobí vznik indukovaného náboja s nábojovou hustotou $\rho_{ind}(\vr) =-e(n(\vr)-n_0)$, ktorá k externému potenciálu pridá svoj vlastný. Vznikne tak celkový potenciál $\Phi_{tot}(\vr)$, ktorý je daný
+Poissonovou rovnicou 
+\begin{equation}
+ \label{eq:poistot}
+ \laplace \Phi_{tot}(\vr)=-\frac{\rho_{ext}(\vr)+\rho_{ind}(\vr)}{\epsilon_0} \text{.}
+\end{equation}
+Hľadáme $\rho_{ind}(\vr)$. Pôvodnú koncentráciu voľného elektrónového plynu, $n_0$, vyjadríme vzťahom
+\begin{equation}
+ \label{eq:fermidirac0}
+ n_0=2\frac{1}{(2\pi)^3}\int d\vk \frac{1}{e^{(\frac{E(\vk)-E_F}{k_BT})}+1} \text{,}
+\end{equation}
+kde $E_F$ je chemický potenciál elektrónového plynu (aproximovaný ako Fermiho energia) predtým ako bol vložený externý náboj. V aproximácii Thomasa-Fermiho predpokladáme, že vložením externého náboja sa chemický potenciál
+zmení z hodnoty $E_F$ na hodnotu $E_F-e\Phi_{tot}(\vr)$. Zmenenú elektrónovú koncentráciu $n(\vr)$ dostaneme tak, že vo vzťahu \eqref{eq:fermidirac0} zmeníme $E_F$ na $E_F-e\Phi_{tot}(\vr)$. Ak potom využijeme limitu
+ \begin{equation}
+  \label{eq:limLT}
+  \lim_{T\to 0} \frac{1}{e^{(\frac{E(\vk)-E_F}{k_BT})}+1}=\Theta(E(\vk)-E_F) \text{,}
+ \end{equation}
+ kde $\Theta(x)$ je $\Theta$ funkcia, a prejdeme od integrovania cez $\vec k$ k integrovaniu cez $E$, dostaneme
+ \begin{equation}
+  \label{eq:nr}
+  n(\vr)=\int_{0}^{E_F-e\Phi_{tot}{(\vr)}}dE \rho(E)=\int_{0}^{E_F}dE \rho(E) + \int_{E_F}^{E_F-e\Phi_{tot}{(\vr)}}dE \rho(E) \text{,}
+ \end{equation}
+ kde $\rho(E)$ je hustota stavov \eqref{eq:rho_par}. Na pravej strane poslednej rovnice je výsledok zapísaný ako súčet dvoch členov. Prvý z týchto dvoch členov
+ je očividne $n_0$ a druhý sa v limite $E_F \gg |-e\Phi_{tot}|$ zjednoduší na tvar $-e\Phi_{tot}(\vr)\rho(E_F)$.
+Tak dostaneme indukovaný náboj 
+ \begin{equation}
+  \label{eq:n_ind_final}
+\rho_{ind}(\vr)=-e(n(\vr)-n_0)=e^2\Phi_{tot}(\vr)\rho(E_F) \text{,}
+ \end{equation}
+ktorý dosadíme do Poissonovej rovnice \eqref{eq:poistot}  spolu s externým nábojom $\rho_{ext}(\vr)=-e\delta(\vr)$. Poissonova rovnica tak získa tvar
+ \begin{equation}
+  \label{eq:poistot_final}
+   \laplace \Phi_{tot}(\vr)=-\frac{e^2\rho(E_F)\Phi_{tot}(\vr)-e\delta(\vr)}{\epsilon_0} \text{.}
+ \end{equation}
+ ktorý sa dá vyriešiť pomocou Fourierovej transfromácie. Dosadíme za funkcie $\Phi_{tot}(\vr)$ a $\delta(\vr)$ príslušné Fourierove integrály a dostaneme  
+ \begin{equation}
+  \laplace \ftk{\vr}{\vq}{\Phi_{tot}(\vq)}=-\frac{e^2 \rho(E_F) \ftk{\vr}{\vq}{ \Phi_{tot}(\vq)}-e\ftk{\vr}{\vq}{}}{\epsilon_0} 
+    \text{.}
+ \end{equation}
+ Po aplikácii Laplaceovho operátora a ďaľšícj jednoduchých výpočtoch dostaneme
+ \begin{equation}
+  \label{eq:screenpot_FT}
+  \Phi_{tot}(\vq)=\frac{-e}{\epsilon_0(q^2+k_s^2)}\text{,}
+ \end{equation}
+kde $k_s^2=\frac{e^2 \rho(Ef)}{\epsilon_0}$. Pre typické kovy nájdeme, že $k_s \simeq k_F$.
+Do reálneho priestoru sa dá vrátiť spätnou transformáciou
+ \begin{equation}
+ \Phi_{tot}(\vr)=\ftk{\vr}{\vq}{\frac{-e}{\epsilon_0(q^2+k_s^2)}} \text{,}
+ \end{equation}
+ktorá dá po jednoduchých výpočtoch exponenciálne tienený Coulombov potenciál
+ \begin{equation}
+  \label{eq:yukav_pot}
+  \phi_{tot}(\vr)=\frac{-e}{4\pi\epsilon_0 |\vr| }e^{-k_s r} \text{.}
+ \end{equation}
+ 
+ Teraz sa vrátime k Fockovej aproximácii z predchádzajúcej kapitoly a holý Coulombov potenciál v nej nahradíme tieneným Coulombovym potenciálom, ktorý sme diskutovali vyššie. Konkrétne, stačí, keď sa Fourierov obraz holej Coulombovej interakcie, $e^2/\epsilon_0|\vkp-\vk|^2$, nahradí vo výsledku \eqref{eq:fock_plane2}
+ Fourierovym obrazom tienenej Coulombovej interakcie, $e^2/\epsilon_0(|\vkp-\vk|^2+k_s^2)$.
+Výsledná elektrónová energia vo Fockovej aproximácia tak nadobudne tvar
+ \begin{equation}
+  \label{eq:fock_screen}
+  E(\vec{k})=\frac{\hbar^2 k^2}{2m} - \frac{1}{8\pi^3}  \frac{e^2}{\epsilon_0}  \int d\vec{k} \frac{1}{|\vec{k}-\vec{k'}|^2+k_s^2} \text{,}
+ \end{equation}
+ ktorý sa dá upraviť až na konečnú analytickú formulu
+ \begin{equation}
+  \label{eq:fock_screen_final}
+  E(\vec{k})=\frac{\hbar^2 k^2} {2m} - \frac{e^2}{(2\pi)^2\epsilon_0} \biggl(
+    \frac{k_F^2-k^2+k_s^2}{4k} \ln{\frac{(k_F+k)^2+k_s^2}{(k_F-k)^2+k_s^2}}-k_s\bigl(\arctan{\frac{k_F+k}{k_s}}+\arctan{\frac{k_F+k}{k_s}}\bigr)+k_F\biggr) \text{.}
+ \end{equation}
+ Ak v poslednom výsledku položíme $k_s = 0$, dostaneme naspäť formulu \eqref{eq:fock_erg}. 
+ 
+ Na obrázku \ref{fig:screening_erg} je disperzný zákon \eqref{eq:fock_screen_final} porovnaný s disperzným zákonom voľnej častice, $E(k)=\frac{\hbar^2 k^2}{2m}$, pre parametre $m = 9.109 \times 10^{-31} kg$ a $k_F = 9.07 \times 10^{9} m^{-1}$, a $k_s = k_F$. Vidno že tienená Fockova self-energia (druhý člen na pravej strane rovnice \ref{eq:fock_screen_final}) stále hrá nezanedbateľnú úlohu, avšak jej kvantitatívny vplyv na energiu častice je oveľa menší ako
+ v prípade bez tienenia na obrázku \ref{fig:hartree_erg}.
+ 
+ Hustotu stavov pre disperzný zákon \eqref{eq:fock_screen_final} sme vypočítali numericky tým istým spôsobom ako sme to robili pre netienenú Fockovu self-energiu v kapitole 2. Získaný výsledok je ukázaný na obrázku \ref{fig:screening_dos}, kde je porovnaný s hustotou stavov pre voľné neinteragujúce elektróny. Keď výsledky na obrázku \ref{fig:screening_dos} porovnáme s výsledkami pre netienenú Coulombovskú interakciu na obrázku  \ref{fig:hartree_dos}, vidíme, že tienenie úplne odstránilo nefyzikálne vynulovanie hustoty stavov na Fermiho hladine, pozorované v netienenom prípade. 
+ 
+
+Výsledky pre hustotu stavov  z obrázku \ref{fig:screening_dos} ukazujeme ešte raz na obrázku \ref{fig:screening_mov}, ibaže na obrázku \ref{fig:screening_mov} je hustota stavov pre disperzný zákon \eqref{eq:fock_screen_final} posunutá tak, aby jej Fermiho hladina bola na tej istej energii ako Fermiho hladina pre voľnú časticu. Vidno, že aj tienená e-e interakcia spôsobuje presunutie určitej časti stavov
+pod dno parabolického pásu, avšak oveľa menej ako netienená. Konečne, na obrázku \ref{fig:screening_exp} sú ukázané data z obrázku \ref{fig:screening_mov} po ich vzájomnom odčítaní (červená krivka mínus čierna krivka).
+Keby sme krivku na obrázku \ref{fig:screening_exp}  zintegrovali od najnižšej energie po Fermiho hladinu, výsledok by bol nula kvôli zachovaniu stavov.
+
+%\insertgraph{screening_erg}{Disperzný zákon \eqref{eq:fock_screen_final} (červená čiara) v porovnaní s parabolickým disperzným zákonom  (čierna čiara).}
+%\insertgraph{screening_dos}{Hustota stavov $\rho(E)$ vypočítaná pre disperzný zákon \eqref{eq:fock_screen_final} (červená čiara) v porovnaní s hustotou stavov pre parabolický disperzný zákon (čierna čiara).}
+%\insertgraph{screening_mov}{Tie isté hustoty stavov ako na predchádzajúcom obrázku, avšak teraz je hustota stavov pre disperzný zákon \eqref{eq:fock_screen_final} (červená čiara)
+%posunutá tak, aby sa Fermiho hladina pre Fockov výsledok nachádzala na tej istej energii ako Fermiho hladina pre neinteragujúce elektróny.}
+%\insertgraph{screening_exp}{Data z prechádzajúceho obrázku po ich vzájomnom odčítaní (červená krivka mínus čierna krivka).}
