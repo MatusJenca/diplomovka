@@ -10,14 +10,12 @@ class DensityOfStates:
         self.seFunc = seFunc
         self.DELTA = 1e-3
 
+    def diff(self, x):
+        return self.seFunc(x, taucoef=100) - self.seFunc(x, taucoef=1)
+
     def __call__(self, ε, taucoef=100):
-        ετ0 = (self.seFunc.h) / (2 * self.seFunc.τ0)
-        ετ = (self.seFunc.h) / (2 * self.seFunc.τ0 * taucoef)
-
         def diff(x):
-            return self.seFunc(x, taucoef=100) - self.seFunc(x, taucoef=1)
-
-        # return diff(ε)/self.seFunc.Ef
+            return self.diff(x)
         res = derivative(diff, ε, self.DELTA) / self.seFunc.Ef
         print(res)
         return res

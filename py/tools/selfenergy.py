@@ -18,7 +18,7 @@ class PhysFunction:
         self.ks = self.kf
         # fermiho energia
         self.Ef = (self.h ** 2 * self.kf ** 2) / (2 * self.m)
-        print(self.Ef)
+        print(self.Ef/self.e)
         # fermiho rychlost
         self.vf = np.sqrt((2 * self.Ef) / (self.m))
         # hustotastavov na fermiho energii
@@ -79,7 +79,7 @@ class SelfEnergy(PhysFunction):
         a = 2 * np.sqrt(x * y)
         # return 1/(a)*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0))) #to povodne
         return self.funcAtan(x, y, uf) + self.funcLog(x, y, uf)  # to z fortranu
-        # return (1/(a))*(self.log(x,y,a,uf)-self.atan(x,y,a,uf)-self.log(x,y,a,0)-self.atan(x,y,a,0)-self.log(x,y,-a,uf)+self.atan(x,y,-a,uf)+self.log(x,y,-a,0)+self.atan(x,y,-a,0)) #zo zosita
+        #return (1/(a))*(self.log(x,y,a,uf)-self.atan(x,y,a,uf)-self.log(x,y,a,0)-self.atan(x,y,a,0)-self.log(x,y,-a,uf)+self.atan(x,y,-a,uf)+self.log(x,y,-a,0)+self.atan(x,y,-a,0)) #zo zosita
 
     def funkciaPodIntegralom(self, q, w, ετ):
         '''
