@@ -1,0 +1,7 @@
+title: "Hustota Stavov"
+xaxis: |
+  $\frac{E}{E_{Fermi}}$
+yaxis: |
+  $\frac{\rho(E)-\rho_0(E)}{\rho_0(E)}$
+plot:
+  label: "Hustota stavov"

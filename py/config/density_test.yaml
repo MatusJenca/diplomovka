@@ -1,0 +1,17 @@
+title: "Test Hustoty stavov"
+xaxis: |
+  $\frac{E}{E_{Fermi}}$
+yaxis: |
+  $\frac{\rho(E)-\rho_0(E)}{\rho_0(E)}$
+dos_tau_1:
+  label: |
+    $\tau_0=6.58 x 10^{-15}$
+  color: "tab:blue"
+dos_tau_10.0:
+  label: |
+    $\tau_0=6.58 x 10^{-14}$
+  color: "tab:orange"
+dos_tau_0.1:
+  label: |
+    $\tau_0=6.58 x 10^{-16}$
+  color: "tab:green"
