@@ -1,0 +1,8 @@
+title: 'Plot'
+xaxis: x
+yaxis: y
+legend: false
+plot:
+  width: 1
+  color: null
+  label: ""

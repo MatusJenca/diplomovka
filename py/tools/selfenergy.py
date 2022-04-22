@@ -1,6 +1,6 @@
 import numpy as np
 from math import pi as π
-from integrator import Newton, EPSILON
+from tools.integrator import Newton, EPSILON
 
 
 class PhysFunction:
@@ -20,28 +20,30 @@ class PhysFunction:
         self.Ef = (self.h ** 2 * self.kf ** 2) / (2 * self.m)
         print(self.Ef)
         # fermiho rychlost
-        self.vf = np.sqrt((2 * self.Ef) / (self.m))
+        self.vf = np.sqrt((2 * self.Ef) / self.m)
         # hustotastavov na fermiho energii
         self.rhof = ((self.m / self.h ** 2) ** (3 / 2) * self.Ef ** (1 / 2)) / (2 * π ** 2)
         # permitivita
-        self.ε0 = 8.854187e-12
+        self.perm = 8.854187e-12
+        # zakladne tau 0
+        self.base_tau0 = 6.58e-15
 
 
 class SelfEnergy(PhysFunction):
-    def __init__(self, τ0=6.58e-15, qmax=None):
+    def __init__(self, tau0=6.58e-15, qmax=None):
         PhysFunction.__init__(self)
         # tau0
-        self.τ0 = τ0
+        self.tau0 = tau0
         # hranica integralu
         if qmax == None:
-            qmx = 1 / (self.τ0 * self.vf)
+            qmx = 1 / (self.tau0 * self.vf)
             self.qmax = qmx / self.ks
         else:
             self.qmax = qmax
         # konstanta pred integralom
-        self.CONST = (self.e ** 2 * self.ks) / (8 * π ** 3 * self.ε0)
+        self.CONST = (self.e ** 2 * self.ks) / (8 * π ** 3 * self.perm)
 
-    def εq(self, q):
+    def epsilon_q(self, q):
         return (self.h ** 2 * q ** 2) / (2 * self.m)
 
     def log(self, x, y, pm, u):
@@ -75,36 +77,36 @@ class SelfEnergy(PhysFunction):
     def Fpart(self, x, y, pm, u):
         return self.log(x, y, pm, u) + self.atan(x, y, pm, u)
 
-    def F(self, x, y, ετ, uf):
+    def F(self, x, y, epsilon_tau, uf):
         a = 2 * np.sqrt(x * y)
         # return 1/(a)*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0))) #to povodne
         return self.funcAtan(x, y, uf) + self.funcLog(x, y, uf)  # to z fortranu
         # return (1/(a))*(self.log(x,y,a,uf)-self.atan(x,y,a,uf)-self.log(x,y,a,0)-self.atan(x,y,a,0)-self.log(x,y,-a,uf)+self.atan(x,y,-a,uf)+self.log(x,y,-a,0)+self.atan(x,y,-a,0)) #zo zosita
 
-    def funkciaPodIntegralom(self, q, w, ετ):
-        '''
+    def funkciaPodIntegralom(self, q, w, epsilon_tau):
+        """
         Cela funkcia pod integralom, je rozdelena na casti pretoze je dlha
-        '''
+        """
 
         # bezrozmerna fermiho energia
-        uf = (self.Ef) / (ετ)
+        uf = (self.Ef) / (epsilon_tau)
         # vysledok analytickeho integralu
-        return ((q ** 2) / (q ** 2 + 1)) * self.F(w, self.εq(q * self.ks) / (ετ), ετ, uf)
+        return ((q ** 2) / (q ** 2 + 1)) * self.F(w, self.epsilon_q(q * self.ks) / (epsilon_tau), epsilon_tau, uf)
 
-    def __call__(self, ε, taucoef=1):
+    def __call__(self, erg, taucoef=1):
         # tau
-        τ = taucoef * self.τ0
+        tau = taucoef * self.tau0
         # energia epsilon_tau
-        ετ = (self.h) / (2 * τ)
+        epsilon_tau = (self.h) / (2 * tau)
         # bezrozmerna energia
-        w = (ε * self.Ef) / (ετ)
+        w = (erg * self.Ef) / (epsilon_tau)
 
         '''
         funkcia pod integralom s konkretnymi parametrami
         '''
 
         def integrant(q):
-            return self.funkciaPodIntegralom(q, w, ετ)
+            return self.funkciaPodIntegralom(q, w, epsilon_tau)
 
         '''
         vypocet self enerie
@@ -115,9 +117,9 @@ class SelfEnergy(PhysFunction):
         return self.CONST * (prim[-1] - prim[0])
         # testovacia self energia
 
-    def test(self, ε):
-        k = (np.sqrt(2 * self.m * ε * self.Ef)) / (self.h)
-        C = (self.e ** 2) / ((2 * π) ** 2 * self.ε0)
+    def test(self, erg):
+        k = (np.sqrt(2 * self.m * erg * self.Ef)) / (self.h)
+        C = (self.e ** 2) / ((2 * π) ** 2 * self.perm)
         F = (self.kf ** 2 - k ** 2 + self.ks ** 2) / (4 * k)
         LN = np.log(((self.kf + k) ** 2 + self.ks ** 2) / ((self.kf - k) ** 2 + self.ks ** 2))
         ARC1 = (np.arctan((self.kf + k) / (self.ks)))

@@ -1,0 +1,7 @@
+title: "Self energia s cut-offom"
+xaxis: |
+  $\frac{E}{E_{Fermi}}$
+yaxis: |
+  $\Sigma_{self}$ [ J ]$
+plot:
+  label: "Self Energia"
