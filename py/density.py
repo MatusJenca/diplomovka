@@ -1,6 +1,6 @@
 import numpy as np
-from tools.density import DensityOfStates
-from tools.selfenergy import SelfEnergy
+from tools.density import DensityOfStates, DensityOfStatesScipy
+from tools.selfenergy import SelfEnergyScipy
 import argparse, json
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -11,15 +11,16 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     suffix = str(args.taumultiplier)
-    sefunc = SelfEnergy()
+    sefunc = SelfEnergyScipy()
     sefunc.tau0 = sefunc.base_tau0*args.taumultiplier
     print(sefunc.tau0)
-    dfunc = DensityOfStates(sefunc)
+    dfunc = DensityOfStatesScipy(sefunc)
     erg = np.linspace(args.min, args.max, args.steps)
     dens = [dfunc(e) for e in erg]
     data = {
         'x': [e for e in erg],
-        'y': dens
+        'y': [d[0] for d in dens],
+        'errors': [d[1] for d in dens]
     }
     print(data)
     with open("data/"+"DOS_TAU_"+suffix+".json", "w") as output:

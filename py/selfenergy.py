@@ -3,7 +3,7 @@ import json
 
 import numpy as np
 
-from tools.selfenergy import SelfEnergy, DoubleSelfEnergyScipy
+from tools.selfenergy import SelfEnergyScipy, DoubleSelfEnergyScipy
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compute selfenergy")
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         sefunc = DoubleSelfEnergyScipy(qmax=args.qmax)
         suffix += '2L_'
     else:
-        sefunc = SelfEnergy(qmax=args.qmax)
+        sefunc = SelfEnergyScipy(qmax=args.qmax)
     if qmax == -1:
         qmax = None
         suffix += 'Q_VF_'
@@ -34,22 +34,21 @@ if __name__ == "__main__":
 
     erg = np.linspace(args.min, args.max, args.steps)
     if args.taucoef == -1:
-        se = [sefunc.test(e) for e in erg]
+        se = [[sefunc.test(e), 0] for e in erg] #error is always 0
         suffix += 'TAU_INF'
     else:
-        if args.double:
-            se = [sefunc(e, taucoef=args.taucoef)[0] for e in erg]
-        else:
-            se = [sefunc(e, taucoef=args.taucoef) for e in erg]
+        se = [sefunc(e, taucoef=args.taucoef) for e in erg]
         suffix += 'TAU_'+str(args.taucoef)
     data = {
         'x': [e for e in erg],
-        'y': se
+        'y': [s[0] for s in se],
+        'error':[s[1] for s in se]
     }
     print(data)
     if not args.dry_run:
         o = args.output
         if o is None:
+            print(f"Using default output file name data/{suffix}.json")
             o = suffix
         with open("data/"+o+".json", "w") as output:
             output.write(json.dumps(data))

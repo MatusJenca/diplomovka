@@ -13,7 +13,7 @@ def lst(f1, f2):
 
 
 def diff(f1, f2):
-    print(f"Ratio values for {f1[0]} and {f2[0]}")
+    print(f"Differnce values for {f1[0]} and {f2[0]}")
     print(100 * "_")
     diffs = []
     for i in range(len(f1[1]['x'])):
@@ -26,7 +26,7 @@ def diff(f1, f2):
 
 
 def ratio(f1, f2):
-    print(f"Differnce values for {f1[0]} and {f2[0]}")
+    print(f"Ratio values for {f1[0]} and {f2[0]}")
     print(100 * "_")
     ratios = []
     for i in range(len(f1[1]['x'])):

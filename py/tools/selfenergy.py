@@ -1,7 +1,7 @@
 import numpy as np
 from math import pi as π
 from tools.integrator import Newton, DoubleNewton, EPSILON
-from scipy.integrate import dblquad
+from scipy.integrate import quad, dblquad
 
 
 class PhysFunction:
@@ -91,7 +91,8 @@ class SelfEnergy(PhysFunction):
         # bezrozmerna fermiho energia
         uf = (self.Ef) / (epsilon_tau)
         # vysledok analytickeho integralu
-        return ((q ** 2) / (q ** 2 + 1)) * self.F(w, self.epsilon_q(q * self.ks) / (epsilon_tau), epsilon_tau, uf)
+        return self.CONST * ((q ** 2) / (q ** 2 + 1)) * self.F(w, self.epsilon_q(q * self.ks) / (epsilon_tau),
+                                                               epsilon_tau, uf)
 
     def __call__(self, erg, taucoef=1):
         # tau
@@ -114,7 +115,7 @@ class SelfEnergy(PhysFunction):
         # self energia
 
         prim = [_ for _ in Newton(integrant, EPSILON, self.qmax, int(self.precision)).integrate()]
-        return self.CONST * (prim[-1] - prim[0])
+        return prim[-1] - prim[0]
         # testovacia self energia
 
     def test(self, erg):
@@ -161,26 +162,45 @@ class DoubleSelfEnergy(SelfEnergy):
             return self.funkciaPodIntegralom(x, q, w, epsilon_tau)
 
         start = np.array(2 * [EPSILON])
-        end = np.array([INFTY, self.qmax])
+        end = np.array([np.inf, self.qmax])
         num = np.array([int(1e3), int(1e3)])
         ret = DoubleNewton(integrant, start, end, num).integral_value()
         print(ret)
         return ret
 
 
-class DoubleSelfEnergyScipy(DoubleSelfEnergy):
+class SelfEnergyScipy(SelfEnergy):
     def __call__(self, erg, taucoef=1):
-
         # tau
         tau = taucoef * self.tau0
         # energia epsilon_tau
         epsilon_tau = (self.h) / (2 * tau)
         # bezrozmerna energia
         w = (erg * self.Ef) / (epsilon_tau)
+        return quad(
+            self.funkciaPodIntegralom,
+            a=0,
+            b=self.qmax,
+            args=(w, epsilon_tau),
+            epsabs=1e-30,
+            epsrel=1e-20
+        )
+
+
+class DoubleSelfEnergyScipy(DoubleSelfEnergy):
+    def __call__(self, erg, taucoef=1):
+        # tau
+        tau = taucoef * self.tau0
+        # energia epsilon_tau
+        epsilon_tau = (self.h) / (2 * tau)
+        # bezrozmerna energia
+        w = (erg * self.Ef) / (epsilon_tau)
+        print(f"computing 2d integral for: E = {erg}")
         return dblquad(self.funkciaPodIntegralom,
                        args=(w, epsilon_tau),
                        a=0,
                        b=np.inf,
                        gfun=lambda x: 0,
                        hfun=lambda x: self.qmax,
+                       epsabs=1e-30
                        )
