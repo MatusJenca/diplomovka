@@ -70,8 +70,49 @@ class Integrator:
             raise ValueError("too few valid samples to compute integral")
 
 
+class DoubleIntegral:
+    """
+    class na dvojny integral (teoreticky sa da prerobit na viacrozmerny)
+    """
+
+    def __init__(self, function, start, end, num):
+        self.function = function
+        self.num = num
+        linspaces = [np.linspace(start[i], end[i], num[i], retstep=True) for i in range(len(start))]
+        self.samples = [ls[0] for ls in linspaces]
+        self.steps = [ls[1] for ls in linspaces]
+        # print(self.samples)
+
+    def intStep(self, x, y):
+        """
+
+        Returns
+        -------
+        int
+        """
+        return
+
+    def integrate(self):
+        result = 0
+        for i in range(self.num[0]):
+            for j in range(self.num[1]):
+                result += self.intStep(self.samples[0][i], self.samples[1][j])
+                yield result
+
+    def integral_value(self):
+        prim = [_ for _ in self.integrate()]
+        return prim[-1] - prim[0]
+
+
 # Obdlznikova metoda
 class Newton(Integrator):
     def intStep(self, x):
         res = ((self.function(x) + self.function(x + self.step)) / 2) * self.step
+        return res
+
+
+class DoubleNewton(DoubleIntegral):
+    def intStep(self, x, y):
+        #print(x,y)
+        res = self.function(x, y)*self.steps[0]*self.steps[1]
         return res

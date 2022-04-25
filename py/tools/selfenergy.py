@@ -1,6 +1,7 @@
 import numpy as np
 from math import pi as π
-from tools.integrator import Newton, EPSILON
+from tools.integrator import Newton, DoubleNewton, EPSILON
+from scipy.integrate import dblquad
 
 
 class PhysFunction:
@@ -11,14 +12,13 @@ class PhysFunction:
         # htrans
         self.h = 1.0545718e-34
         # hmotnost elektronu
-        self.m = 9.109534e-31
-        # fermiho polomer
+        self.m = 9.109534e-31  # fermiho polomer
         self.kf = 1.6e10
         # tienenie
         self.ks = self.kf
         # fermiho energia
         self.Ef = (self.h ** 2 * self.kf ** 2) / (2 * self.m)
-        print(self.Ef/self.e)
+        print(self.Ef / self.e)
         # fermiho rychlost
         self.vf = np.sqrt((2 * self.Ef) / self.m)
         # hustotastavov na fermiho energii
@@ -67,7 +67,7 @@ class SelfEnergy(PhysFunction):
 
     def funcAtan(self, x, y, uf):
         return (-1 / (np.sqrt(4 * x * y))) * (
-                    (self.fup1(x, y, uf) - self.fup2(x, y, uf)) - (self.fdown1(x, y) - self.fdown2(x, y)))
+                (self.fup1(x, y, uf) - self.fup2(x, y, uf)) - (self.fdown1(x, y) - self.fdown2(x, y)))
 
     def funcLog(self, x, y, uf):
         return 0.5 * ((1) / (np.sqrt(4 * x * y))) * (np.log(
@@ -81,7 +81,7 @@ class SelfEnergy(PhysFunction):
         a = 2 * np.sqrt(x * y)
         # return 1/(a)*((self.Fpart(x,y,a,uf)-self.Fpart(x,y,-a,uf))-(self.Fpart(x,y,a,0)-self.Fpart(x,y,-a,0))) #to povodne
         return self.funcAtan(x, y, uf) + self.funcLog(x, y, uf)  # to z fortranu
-        #return (1/(a))*(self.log(x,y,a,uf)-self.atan(x,y,a,uf)-self.log(x,y,a,0)-self.atan(x,y,a,0)-self.log(x,y,-a,uf)+self.atan(x,y,-a,uf)+self.log(x,y,-a,0)+self.atan(x,y,-a,0)) #zo zosita
+        # return (1/(a))*(self.log(x,y,a,uf)-self.atan(x,y,a,uf)-self.log(x,y,a,0)-self.atan(x,y,a,0)-self.log(x,y,-a,uf)+self.atan(x,y,-a,uf)+self.log(x,y,-a,0)+self.atan(x,y,-a,0)) #zo zosita
 
     def funkciaPodIntegralom(self, q, w, epsilon_tau):
         """
@@ -125,3 +125,62 @@ class SelfEnergy(PhysFunction):
         ARC1 = (np.arctan((self.kf + k) / (self.ks)))
         ARC2 = (np.arctan((self.kf - k) / (self.ks)))
         return 0.5 * C * (F * LN - self.ks * (ARC1 + ARC2) + self.kf)
+
+
+df = 0
+
+
+class DoubleSelfEnergy(SelfEnergy):
+    def funkciaPodIntegralom(self, x, q, w, epsilon_tau):
+        lorenz = (  # lorenzian, ktory bol nahradeny delta funkciou
+                1
+                /
+                ((x - w) ** 2 + 1)
+        )
+
+        # bezrozmerna fermiho energia
+        uf = (self.Ef) / (epsilon_tau)
+        # vysledok analytickeho integralu
+        return (
+                self.CONST
+                * ((q ** 2) / (q ** 2 + 1))  # zlomok pred lorenzianmi
+                * lorenz
+                * self.F(x, self.epsilon_q(q * self.ks) / (epsilon_tau), epsilon_tau, uf)  # funkcia F(x,y)
+        )
+
+    def __call__(self, erg, taucoef=1):
+        print(erg)
+        # tau
+        tau = taucoef * self.tau0
+        # energia epsilon_tau
+        epsilon_tau = (self.h) / (2 * tau)
+        # bezrozmerna energia
+        w = (erg * self.Ef) / (epsilon_tau)
+
+        def integrant(x, q):
+            return self.funkciaPodIntegralom(x, q, w, epsilon_tau)
+
+        start = np.array(2 * [EPSILON])
+        end = np.array([INFTY, self.qmax])
+        num = np.array([int(1e3), int(1e3)])
+        ret = DoubleNewton(integrant, start, end, num).integral_value()
+        print(ret)
+        return ret
+
+
+class DoubleSelfEnergyScipy(DoubleSelfEnergy):
+    def __call__(self, erg, taucoef=1):
+
+        # tau
+        tau = taucoef * self.tau0
+        # energia epsilon_tau
+        epsilon_tau = (self.h) / (2 * tau)
+        # bezrozmerna energia
+        w = (erg * self.Ef) / (epsilon_tau)
+        return dblquad(self.funkciaPodIntegralom,
+                       args=(w, epsilon_tau),
+                       a=0,
+                       b=np.inf,
+                       gfun=lambda x: 0,
+                       hfun=lambda x: self.qmax,
+                       )
