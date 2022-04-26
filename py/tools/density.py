@@ -16,7 +16,7 @@ class DensityOfStates:
 
         res = derivative(diff, erg, self.DELTA) / self.seFunc.Ef
         print(res)
-        return res
+        return res, None
 
 
 class DensityOfStatesScipy(DensityOfStates):
