@@ -43,12 +43,15 @@ def common_args(p, mn, mx, steps):
 
 def calc_selfenergy(args):
     erg = np.linspace(args.min, args.max, args.steps)
+    qmax = args.qmax
+    if qmax == -1:
+        qmax = None
     try:
         sefunc = {
-            'square': SelfEnergy(qmax=args.qmax),
-            'dsquare': DoubleSelfEnergy(qmax=args.qmax),
-            'quad': SelfEnergyScipy(qmax=args.qmax),
-            'dquad': DoubleSelfEnergyScipy(qmax=args.qmax),
+            'square': SelfEnergy(qmax=qmax),
+            'dsquare': DoubleSelfEnergy(qmax=qmax),
+            'quad': SelfEnergyScipy(qmax=qmax),
+            'dquad': DoubleSelfEnergyScipy(qmax=qmax),
         }[args.int_method]
     except KeyError:
         print(f"invalid integration method {args.int_method}, type dos_calc -h for help")

@@ -8,7 +8,12 @@ def lst(f1, f2):
     print(f"{f1[0]} x\t{f1[0]} \t y{f2[0]} x\t{f2[0]} y")
     print(100 * "_")
     for i in range(len(f1[1]['x'])):
-        print(f"{f1[1]['x'][i]}\t{f1[1]['y'][i]}\t{f2[1]['x'][i]}\t{f2[1]['y'][i]}\t")
+        f1 = f"{f1[1]['x'][i]}\t{f1[1]['y'][i]}\t"
+        try:
+            f2 = f"{f2[1]['x'][i]}\t{f2[1]['y'][i]}\t"
+        except IndexError:
+            f2 = ""
+        print(f1, f2, sep='\t')
     print(100 * "_")
 
 
@@ -40,19 +45,33 @@ def ratio(f1, f2):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('files', metavar='file', type=str, nargs=2, help="a file acumulator")
+    parser.add_argument('files', metavar='file', type=str, nargs='+', help="a file acumulator")
+    parser.add_argument('-v', '--value', type=str)
     parser.add_argument('-m', '--method', default='list', type=str, help=
     '''
         a comparing method valid values:
             list
             diff
             ratio
+            value
         defult: list
     ''')
     args = parser.parse_args()
-    d1, d2 = [(f, json.loads(open('data/' + f.upper() + '.json', 'r').read())) for f in args.files]
-    {
-        'list': lst,
-        'diff': diff,
-        'ratio': ratio
-    }[args.method](d1, d2)
+    if args.method == 'value':
+        if args.value is not None:
+            f = args.files[0]
+            file = json.loads(open('data/' + f.upper() + '.json', 'r').read())
+            v, eps = [float(x) for x in args.value.split(':')]
+            print(f"File {f}: \n value: x={v} +- {eps}")
+            print(100 * '_')
+            for i, x in enumerate(file['x']):
+                if v-eps < x < v+eps:
+                    print(f"{x}\t{file['y'][i]}")
+            print(100 * "_")
+    else:
+        d1, d2 = [(f, json.loads(open('data/' + f.upper() + '.json', 'r').read())) for f in args.files]
+        {
+            'list': lst,
+            'diff': diff,
+            'ratio': ratio
+        }[args.method](d1, d2)

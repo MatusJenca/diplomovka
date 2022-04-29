@@ -162,8 +162,8 @@ class DoubleSelfEnergy(SelfEnergy):
             return self.funkciaPodIntegralom(x, q, w, epsilon_tau)
 
         start = np.array(2 * [EPSILON])
-        end = np.array([10, self.qmax])
-        num = np.array([int(1e3), int(1e3)])
+        end = np.array([self.Ef+30*epsilon_tau, self.qmax])
+        num = np.array([int(2e4), int(1e3)])
         ret = DoubleNewton(integrant, start, end, num).integral_value()
         print(ret)
         return ret
