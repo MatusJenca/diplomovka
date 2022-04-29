@@ -27,7 +27,8 @@ if __name__ == "__main__":
     parser.add_argument('files', metavar='file', type=str, nargs='+', help="a file acumulator")
     parser.add_argument('-d', '--datadir', help='the data directry (default "data" )', default='data', type=str)
     parser.add_argument('-o', '--output', help='output file (default: show the figure instead)')
-    parser.add_argument('-c', '--config', help='Configuration YAML file (defult)')
+    parser.add_argument('-c', '--config', help='Configuration YAML file (defult: default.yaml)')
+    parser.add_argument('-m','--metadata', help='display metadata over the plot')
     args = parser.parse_args()
     if args.config is not None:
         with open(fill_path(args.config, 'config', '.yaml')) as stream:

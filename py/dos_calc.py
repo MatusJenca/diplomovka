@@ -1,30 +1,44 @@
 import argparse
 import json
 import sys
+import datetime
 
 import numpy as np
 from tools.selfenergy import SelfEnergy, SelfEnergyScipy, DoubleSelfEnergy, DoubleSelfEnergyScipy
 from tools.density import DensityOfStates, DensityOfStatesScipy
+from tools.altschuler import Altschuler
 
 
-# Evil Yanderedev be like
 def output_name(args):
-    name = '_'.join([
-        {
-            'selfenergy': 'SE',
-            'density': 'DOS'
-        }[args.calculation],
-        {
+    name = {
+               'selfenergy': 'SE',
+               'density': 'DOS',
+               'altschuler': 'AA'
+           }[args.calculation]
+    if args.calculation != 'altschuler':
+        name += '_' + {
             'square': '1LS',
             'ssquare': '2LS',
             'quad': '1LQ',
             'dquad': '2LQ'
         }[args.int_method]
-    ])
+
     if args.calculation == 'selfenergy':
         name += f'_Q_{args.qmax}'
-    name += f'_TAU_{args.taucoef}'
+    if args.taucoef != -1:
+        name += f'_TAU_{args.taucoef}'
+    else:
+        name += '_TAU_INF'
     return name
+
+
+def common_args(p, mn, mx, steps):
+    p.add_argument('-mn', '--min', nargs='?', help='minimum of the interval', default=mn, type=float)
+    p.add_argument('-mx', '--max', nargs='?', help='minimum of the interval', default=mx, type=float)
+    p.add_argument('-s', '--steps', nargs='?', help="number of linspace steps", default=steps, type=int)
+    p.add_argument('-t', '--taucoef', nargs='?',
+                   help='Tau Coef',
+                   default=1, type=float)
 
 
 def calc_selfenergy(args):
@@ -75,7 +89,17 @@ def calc_dos(args):
     }
 
 
+def calc_altschuler(args):
+    erg = np.linspace(args.min, args.max, args.steps)
+    afunc = Altschuler(taucoef=args.taucoef)
+    return {
+        'x': [e for e in erg],
+        'y': [afunc(e) for e in erg]
+    }
+
+
 if __name__ == "__main__":
+
     # Arg Parse
 
     # Global
@@ -96,30 +120,33 @@ if __name__ == "__main__":
                         )
     # Self Energy
     se_parser = subparser.add_parser('selfenergy')
-    se_parser.add_argument('-t', '--taucoef', nargs='?',
-                           help='Coeficient before tau0, set to -1 for the test self energy',
-                           default=1, type=float)
+    common_args(se_parser, 0.01, 1.5, 100)
     se_parser.add_argument('-q', '--qmax',
                            help='q integration cutoff, (default: 10 (infinite), set to -1 to 1/(vf*tau))',
                            default=10, type=int)
-    se_parser.add_argument('-mn', '--min', nargs='?', help='minimum of the interval', default=0.01, type=float)
-    se_parser.add_argument('-mx', '--max', nargs='?', help='minimum of the interval', default=1.5, type=float)
-    se_parser.add_argument('-s', '--steps', nargs='?', help="number of linspace steps", default=100, type=int)
+
     # Density of states
     dos_parser = subparser.add_parser('density')
-    dos_parser.add_argument('-mn', '--min', nargs='?', help='minimum of the interval', default=0.95, type=float)
-    dos_parser.add_argument('-mx', '--max', nargs='?', help='minimum of the interval', default=1.05, type=float)
-    dos_parser.add_argument('-s', '--steps', nargs='?', help="number of linspace steps", default=100, type=int)
-    dos_parser.add_argument('-t', '--taucoef', help='base tau0 multiplier ', default=1, type=float)
+    common_args(dos_parser, 0.95, 1.05, 100)
+    # Altschuler
+    altschuler_parser = subparser.add_parser('altschuler')
+    common_args(altschuler_parser, 0.95, 1.05, 100)
     args = parser.parse_args()
     try:
         data = {
             'selfenergy': calc_selfenergy,
             'density': calc_dos,
+            'altschuler': calc_altschuler
         }[args.calculation](args)
     except KeyError:
         parser.print_usage()
         sys.exit()
+    metadata = {
+        'calculation': args.calculation,
+        'integration method': args.int_method,
+        'date': str(datetime.datetime.now())
+    }
+    data['metadata'] = metadata
     print(data)
     if not args.dry_run:
         o = args.output
