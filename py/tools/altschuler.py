@@ -15,23 +15,24 @@ class Altschuler(PhysFunction):
 
     def __call__(self, erg):
         E = erg * self.Ef
+        Ui=(
+            (self.e**2)
+            /
+            (4*pi**self.perm*self.ks**(-1))
+        )
+        Uco=2*self.h*self.D*self.ks**2
         return (
                 (
-                    -self.ks
+                    (4*Ui)
                     /
-                    (2 * pi ** 2 * self.h * self.D * self.rhof)
+                    (pi**2*Uco*self.l*self.ks)
                 )
-                * (
-                    np.arctan(
-                        self.c
-                        /
-                        (self.l * self.ks)
-                    )
+                +
+                (
+                    (2*Ui)
+                    /
+                    (pi*Uco*np.sqrt(2*self.h*self.D*self.ks**2))
                 )
-                + (
-                        1
-                        /
-                        (np.sqrt(2) * 4 * pi ** 2 * (self.h * self.D) ** (3 / 2) * self.rhof)
-                )
-                * np.sqrt(np.abs(E - self.Ef))
-        )
+                * np.sqrt(np.abs(erg-self.Ef))
+            )
+
