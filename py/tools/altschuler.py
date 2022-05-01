@@ -33,6 +33,6 @@ class Altschuler(PhysFunction):
                     /
                     (pi*Uco*np.sqrt(2*self.h*self.D*self.ks**2))
                 )
-                * np.sqrt(np.abs(erg-self.Ef))
+                * np.sqrt(np.abs(E-self.Ef))
             )
 
