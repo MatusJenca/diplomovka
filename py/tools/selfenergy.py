@@ -6,19 +6,18 @@ from scipy.integrate import quad, dblquad
 
 
 class SelfEnergy(PhysFunction):
-    def __init__(self, tau0=6.58e-15, qmax=None):
+    def __init__(self, tau0=6.58e-15, qmax=None, c=1):
         PhysFunction.__init__(self)
         # tau0
         self.tau0 = tau0
         # hranica integralu
         if qmax is None:
             qmx = 1 / (self.tau0 * self.vf)
-            self.qmax = qmx / self.ks
+            self.qmax = c*qmx / self.ks
         else:
             self.qmax = qmax
         # konstanta pred integralom
         self.CONST = (self.e ** 2 * self.ks) / (8 * pi ** 3 * self.perm)
-
     def epsilon_q(self, q):
         return (self.h ** 2 * q ** 2) / (2 * self.m)
 
@@ -68,7 +67,7 @@ class SelfEnergy(PhysFunction):
         # bezrozmerna fermiho energia
         uf = (self.Ef) / (epsilon_tau)
         # vysledok analytickeho integralu
-        return self.CONST * ((q ** 2) / (q ** 2 + 1)) * self.F(w, self.epsilon_q(q * self.ks) / (epsilon_tau),
+        return -self.CONST * ((q ** 2) / (q ** 2 + 1)) * self.F(w, self.epsilon_q(q * self.ks) / (epsilon_tau),
                                                                epsilon_tau, uf)
 
     def __call__(self, erg, taucoef=1):
@@ -102,7 +101,7 @@ class SelfEnergy(PhysFunction):
         LN = np.log(((self.kf + k) ** 2 + self.ks ** 2) / ((self.kf - k) ** 2 + self.ks ** 2))
         ARC1 = (np.arctan((self.kf + k) / (self.ks)))
         ARC2 = (np.arctan((self.kf - k) / (self.ks)))
-        return 0.5 * C * (F * LN - self.ks * (ARC1 + ARC2) + self.kf)
+        return -0.5 * C * (F * LN - self.ks * (ARC1 + ARC2) + self.kf)
 
 
 df = 0

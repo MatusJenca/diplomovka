@@ -1,0 +1,24 @@
+altc1:
+  color: blue
+altc2:
+  color: red
+altc3:
+  color: green
+dosc1:
+  color: blue
+dosc2:
+  color: red
+dosc3:
+  color: green
+altc1_d:
+  color: blue
+altc2_d:
+  color: red
+altc3_d:
+  color: green
+dosc1_d:
+  color: blue
+dosc2_d:
+  color: red
+dosc3_d:
+  color: green

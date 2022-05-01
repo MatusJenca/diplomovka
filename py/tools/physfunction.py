@@ -19,7 +19,20 @@ class PhysFunction:
         # fermiho rychlost
         self.vf = np.sqrt((2 * self.Ef) / self.m)
         # hustotastavov na fermiho energii
-        self.rhof = ((self.m / self.h ** 2) ** (3 / 2) * self.Ef ** (1 / 2)) / (2 * pi ** 2)
+        self.rhof = (
+                0.5 * (
+                    1
+                    /
+                    (2*pi**2)
+                )
+                *
+                (
+                    (2*self.m)
+                    /
+                    (self.h**2)
+                )**(3/2)
+                * np.sqrt(self.Ef)
+        )
         # permitivita
         self.perm = 8.854187e-12
         # zakladne tau 0

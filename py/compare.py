@@ -54,6 +54,7 @@ if __name__ == "__main__":
             diff
             ratio
             value
+            yvalue
         defult: list
     ''')
     args = parser.parse_args()
@@ -67,6 +68,17 @@ if __name__ == "__main__":
             for i, x in enumerate(file['x']):
                 if v-eps < x < v+eps:
                     print(f"{x}\t{file['y'][i]}")
+            print(100 * "_")
+    if args.method == 'yvalue':
+        if args.value is not None:
+            f = args.files[0]
+            file = json.loads(open('data/' + f.upper() + '.json', 'r').read())
+            v, eps = [float(x) for x in args.value.split(':')]
+            print(f"File {f}: \n value: y={v} +- {eps}")
+            print(100 * '_')
+            for i, y in enumerate(file['y']):
+                if v-eps < y < v+eps:
+                    print(f"{file['x'][i]}\t{y}")
             print(100 * "_")
     else:
         d1, d2 = [(f, json.loads(open('data/' + f.upper() + '.json', 'r').read())) for f in args.files]

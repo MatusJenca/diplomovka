@@ -11,10 +11,10 @@ from tools.altschuler import Altschuler
 
 def output_name(args):
     name = {
-               'selfenergy': 'SE',
-               'density': 'DOS',
-               'altschuler': 'AA'
-           }[args.calculation]
+        'selfenergy': 'SE',
+        'density': 'DOS',
+        'altschuler': 'AA'
+    }[args.calculation]
     if args.calculation != 'altschuler':
         name += '_' + {
             'square': '1LS',
@@ -24,7 +24,10 @@ def output_name(args):
         }[args.int_method]
 
     if args.calculation == 'selfenergy':
-        name += f'_Q_{args.qmax}'
+        if args.qmax != -1:
+            name += f'_Q_{args.qmax}'
+        else:
+            name += '_Q_VF'
     if args.taucoef != -1:
         name += f'_TAU_{args.taucoef}'
     else:
@@ -74,7 +77,7 @@ def calc_dos(args):
     erg = np.linspace(args.min, args.max, args.steps)
     try:
         dfunc = {
-            'square': DensityOfStates(SelfEnergy()),
+            'square': DensityOfStates(SelfEnergy(c=args.cfit)),
             'dsquare': DensityOfStates(DoubleSelfEnergy()),
             'quad': DensityOfStatesScipy(SelfEnergyScipy()),
             'dquad': DensityOfStatesScipy(DoubleSelfEnergyScipy()),
@@ -94,7 +97,7 @@ def calc_dos(args):
 
 def calc_altschuler(args):
     erg = np.linspace(args.min, args.max, args.steps)
-    afunc = Altschuler(taucoef=args.taucoef)
+    afunc = Altschuler(taucoef=args.taucoef, c=args.const)
     return {
         'x': [e for e in erg],
         'y': [afunc(e) for e in erg]
@@ -131,9 +134,11 @@ if __name__ == "__main__":
     # Density of states
     dos_parser = subparser.add_parser('density')
     common_args(dos_parser, 0.95, 1.05, 100)
+    dos_parser.add_argument("-c", "--cfit", default=1, type=int)
     # Altschuler
     altschuler_parser = subparser.add_parser('altschuler')
     common_args(altschuler_parser, 0.95, 1.05, 100)
+    altschuler_parser.add_argument("-c", "--const", default=1, type=int)
     args = parser.parse_args()
     try:
         data = {

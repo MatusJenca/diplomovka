@@ -113,6 +113,6 @@ class Newton(Integrator):
 
 class DoubleNewton(DoubleIntegral):
     def intStep(self, x, y):
-        #print(x,y)
+        print(x,y)
         res = self.function(x, y)*self.steps[0]*self.steps[1]
         return res
