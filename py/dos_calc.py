@@ -134,11 +134,11 @@ if __name__ == "__main__":
     # Density of states
     dos_parser = subparser.add_parser('density')
     common_args(dos_parser, 0.95, 1.05, 100)
-    dos_parser.add_argument("-c", "--cfit", default=1, type=int)
+    dos_parser.add_argument("-c", "--cfit", default=1, type=float)
     # Altschuler
     altschuler_parser = subparser.add_parser('altschuler')
     common_args(altschuler_parser, 0.95, 1.05, 100)
-    altschuler_parser.add_argument("-c", "--const", default=1, type=int)
+    altschuler_parser.add_argument("-c", "--const", default=1, type=float)
     args = parser.parse_args()
     try:
         data = {

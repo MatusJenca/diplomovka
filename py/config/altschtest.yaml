@@ -8,6 +8,9 @@ dosc1:
   color: blue
 dosc2:
   color: red
+doscc:
+  color: orange
+
 dosc3:
   color: green
 altc1_d:

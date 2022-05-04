@@ -19,7 +19,7 @@ class Altschuler(PhysFunction):
                 (
                     -self.ks
                     /
-                    (2 * pi ** 2 * self.h * self.D * self.rhof)
+                    (2 * pi ** 3 * self.h * self.D * self.rhof)
                 )
                 * (
                     np.arctan(

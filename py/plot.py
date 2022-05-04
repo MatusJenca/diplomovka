@@ -76,6 +76,8 @@ if __name__ == "__main__":
     if load_value('legend'):
         plt.legend()
     plt.xlabel(load_value('xaxis'))
+    if load_value('draw_x'):
+        plt.axhline(y=0, color='black', linestyle='-', linewidth=1)
     plt.ylabel(load_value('yaxis'))
     plt.title(load_value('title'))
     if args.output is None:

@@ -17,7 +17,7 @@ class DensityOfStates(PhysFunction):
         print('rho_f:', self.rhof)
 
     def diff(self, x):
-        return -(self.seFunc(x, taucoef=1))
+        return (self.seFunc(x, taucoef=100))
 
     def __call__(self, erg, taucoef=100):
         def diff(x):

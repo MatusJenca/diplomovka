@@ -2,6 +2,7 @@ title: 'Plot'
 xaxis: x
 yaxis: y
 legend: false
+draw_x: true
 plot:
   width: 1
   color: null
