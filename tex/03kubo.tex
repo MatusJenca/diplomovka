@@ -134,7 +134,7 @@ A=\frac{1}{T}\int_0^T\sigma(\omega)E^2\cos^2(\omega t)dt=\frac{1}{2}\sigma(\omeg
 kde $\sigma(\omega)$ je optická vodivosť. Po dosadení za maticový element podľa \eqref{eq:03Vfi} môžme optickú vodivosť vyjadriť ako
 \begin{align}
 \label{eq:03sigma}
-\sigma(\omega)&=\frac{2\pi}{\hbar \Omega}\sum_{f,i}\hbar\omega|v_{fi}|^2\delta(\epsilon_f-\epsilon_i-h\omega)(f(\epsilon_i)-f(\epsilon_f))\\
+\sigma(\omega)&=\frac{2\pi e^2}{\hbar \Omega}\sum_{f,i}\hbar\omega|v_{fi}|^2\delta(\epsilon_f-\epsilon_i-h\omega)(f(\epsilon_i)-f(\epsilon_f))\\
 v_{fi}&\equiv \int_{\Omega}d\vr \Phi_f^*(\vr)x\Phi_i(\vr)
 \end{align}
 Nový maticový element je lepšie prepísať využitím komutačného vzťahu $[x,H]=\frac{i\hbar}{m}\hat{p_x}$ ako
@@ -171,9 +171,9 @@ ktorý \eqref{eq:03Phi_i} do maticového elementu \eqref{eq:03matrix_element}. M
 \end{align}
 Využijeme nasledovné vzťahy:
 \begin{align*}
-\frac{d}{dx}\phi_{\vk_2}(\vr)&=-ik_{2x}\phi_{\vk_2}(\vr)\text{,}\\
+\frac{d}{dx}\phi_{\vk_2}^*(\vr)&=-ik_{2x}\phi_{\vk_2}^*(\vr)\text{,}\\
 \frac{d}{dx'}\phi_{\vk_4}(\vr\ ')&=-ik_{4x}\phi_{\vk_4}(\vr\ ')\text{,}\\
-\int_\Omega d\vr \phi_{\vk_1}^*(\vr)\phi_{\vk_2}(\vr)&=\delta_{\vk_1\vk_2}\text{,}\\
+\int_\Omega d\vr \phi_{\vk_1}(\vr)\phi_{\vk_2}^*(\vr)&=\delta_{\vk_1\vk_2}\text{,}\\
 \int_\Omega d\vr\ '\phi_{\vk_3}^*(\vr\ ')\phi_{\vk_4}(\vr\ ')&=\delta_{\vk_3\vk_4} \text{.}
 \end{align*}
 Vysumujeme cez Kroneckerove symboly, a dostaneme

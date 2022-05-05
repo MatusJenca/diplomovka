@@ -28,13 +28,14 @@ V_{dis}(\vr)=\sum_{j=1}^{N_{imp}}\gamma \delta(\vr-\vec R_j^{imp})\text{,}
 \end{align}
 kde $N_{imp}$ je počet bodových porúch v kryštáli s objemom $\Omega$, a $\vec R^{imp}_j$ sú náhodné polohy bodových porúch. 
 \eqref{eq:04pointdis} dosadíme do \eqref{eq:04goldenrule}. Pre prehľadnosť textu sa venujeme len časti $\bra{\vk}V_{dis}(\vr)\ket{\vk_i}2$
+% tu musia byt len prve mocniny omegy, pretoze vo vztahu 04fgr_expanded je norma na druhu. Potom by tam musela byt omega na stvrtu, co by sa nekratilo dalej 
 \begin{align}
 \label{eq:04vdisElement}
 \notag
 \bra{\vk}V_{dis}(\vr)\ket{\vk_i}&=\sum_{j=1}^{N_{imp}}\gamma\bra{\vk}\delta(\vr-\vec R^{imp}_j)\ket{\vk_i}\\
 \notag
-&=\frac{1}{\Omega^2}\sum_{j=1}^{N_{imp}}\gamma\int_{\Omega}d\vr\delta(\vr -\vec R_j^{imp})e^{i(\vk-\vk_i)}\\
-&=\frac{1}{\Omega^2}\sum_{j=1}^{N_{imp}}\gamma e^{i(\vk_i-\vk)R_j^{imp}} \text{,}
+&=\frac{1}{\Omega}\sum_{j=1}^{N_{imp}}\gamma\int_{\Omega}d\vr\delta(\vr -\vec R_j^{imp})e^{i(\vk-\vk_i)}\\
+&=\frac{1}{\Omega}\sum_{j=1}^{N_{imp}}\gamma e^{i(\vk_i-\vk)R_j^{imp}} \text{,}
 \end{align}
 kde v poslednom riadku sme využili Fourierovu transformáciu delta funkcie. Výsledok \eqref{eq:04vdisElement} dosadíme do \eqref{eq:04goldenrule}
 \begin{align}
@@ -44,7 +45,7 @@ kde v poslednom riadku sme využili Fourierovu transformáciu delta funkcie. Vý
 V \eqref{eq:04fgr_expanded} napíšeme osobitne sumu pre členy, kde $j=j'$. V tejto sume dostaneme v exponente nulu, teda celý výsledok je rovný jednej. Po vysumovaní takýchto členov dostanem $N_{imp}$.
 \begin{align}
 \label{eq:04fgr_expanded2}
-\frac{1}{\tau_{\vk_i}} = \frac{2\pi}{\Omega^2\hbar}\gamma^2[N_{imp}+\sum_{j\neq j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}]\delta(\epsilon_{\k_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}}) \text{.}
+\frac{1}{\tau_{\vk_i}} = \frac{2\pi}{\Omega^2\hbar}\gamma^2[N_{imp}+\sum_{j\neq j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}]\delta(\epsilon_{\vk_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}}) \text{.}
 \end{align}
 Sumu $\sum_{j\neq j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}$ môžme interpretovať ako náhodnú chôdzu v komplexonom priestore. Po vysčítaní dostanem
 \begin{align}
@@ -88,26 +89,26 @@ Výsledok \eqref{eq:04divergent} sme dostali riešením \eqref{eq:03SchrDis} sta
 \end{align}
 Podobne, ako sme riešili \eqref{eq:03timeschr}, do rovnice \eqref{eq:04SchrDis2} dosadíme rozvoj 
 \begin{align}
-\Phi_i(\vr)=\sum_{\vk}a^{\vk_i}_{\vk}(t)\phi_{\vk}(\vr)e^{\frac{\epsilon_{\vk}t}{\hbar}}\text{,}
+\Phi_i(\vr)=\sum_{\vk}a^{\vk_i}_{\vk}(t)\phi_{\vk}(\vr)e^{-\frac{\epsilon_{\vk}t}{\hbar}}\text{,}
 \end{align}
 po úpravách dostaneme
 \begin{align}
 \hbar \frac{\partial}{\partial t}a^{\vk_i}_{\vk_f}=\sum_{\vk}a^{\vk_i}_{\vk}(t)\phi_{\vk}(\vr)e^{\frac{(\epsilon_{\vk}-\epsilon_{\vk_i})t}{\hbar}}V_{fi}\text{,}
 \end{align}
 
-použijeme Bornovu aproxímáciu a výsledok je
+použijeme Bornovu aproximáciu a výsledok je
 \begin{align}
 \label{eq:04coef_nonstac}
 a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f)t}-1)\text{.}
 \end{align}
-V tomto vzťahu spoznávame koeficient z nestacionárnej teórie.Finálny výsledok bude identícký, pretože náš problém nie je časovo závislý. Teraz zakomponujeme časovú  závislosť
+V tomto vzťahu spoznávame koeficient z nestacionárnej teórie.Finálny výsledok bude identický, pretože náš problém nie je časovo závislý. Teraz zakomponujeme časovú  závislosť
 \begin{align}
 V_{dis}(t)=V_{dis}e^{\frac{-t}{\tau}} \text{.}
 \end{align}
 Do rovnice sme vložili konečné zapínanie poruchy v čase $\tau$. Pre koeficienty dostaneme
 \begin{align}
 \label{eq:04coef_nonstac2}
-a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)-\frac{i\hbar}{2\tau}}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f-\frac{\hbar}{2\tau})t})-1\text{.}
+a^{\vk_i}_{\vk_f}=\frac{-V_{fi}}{(\epsilon_f-\epsilon_i)-\frac{i\hbar}{2\tau}}(e^{\frac{i}{\hbar}(\epsilon_i-\epsilon_f)t-\frac{t}{2\tau}}-1)\text{.}
 \end{align}
 z čoho po prenásobení komplexne združeným dostaneme lorenzián \eqref{eq:04lorenz}.
 

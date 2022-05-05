@@ -1,18 +1,19 @@
 title: "Test self energie"
+draw_x: false
 xaxis: |
   $\frac{E}{E_{Fermi}}$
 yaxis: |
   $\Sigma_{self}$ [ J ]
 legend: true
-se_q_10_tau_inf:
+se_1ls_q_10_tau_inf:
   label: |
-    $\tau = \infty$
+    $\Sigma_{screen}$
   color: "red"
-se_q_10_tau_1:
+se_1ls_q_10_tau_1:
   label: |
     $\tau = \tau_0$
   color: "blue"
-se_q_10_tau_0.1:
+se_1ls_q_10_tau_0.1:
   label: |
     $\tau = 0.1 \tau_0$
   color: "green"

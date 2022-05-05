@@ -2,7 +2,7 @@
 V tejto kapitole vypočítame hustotu stavov pomocou Thoulesovho ansatzu. Self energiu, narozdiel od AA, nie je možné vyjadriť analyticky, preto použijeme jednoduchú obdĺžnikovú metódu integrovania. Výsledok porovnáme s AA a experimentom. Vychádzame z pre energiu elektronov v kove s disorderom a e-e interakciou \eqref{MISSING_REFERENCE}
 \begin{align}
 \label{eq:05energy} 
- E_m=\E_m-\sum_{\forall m'} \int d\vr\' \int d\vr \phi_{m'}^*(\vr\')\phi_{m}^*(\vr)V(|\vr-\vr\ '|)\phi_{m'}(\vr)\phi_{m}(\vr\')\text{,}
+ E_m=\E_m-\sum_{\forall m'} \int d\vr\ ' \int d\vr \phi_{m'}^*(\vr\ ')\phi_{m}^*(\vr)V(|\vr-\vr\ '|)\phi_{m'}(\vr)\phi_{m}(\vr\ ')\text{,}
 \end{align} 
 kde $\E_m$,$\phi_m$  sú riešenia \eqref{eq:01schr_dis}
 \begin{align}
@@ -31,18 +31,17 @@ Vlnovú funkciu $\phi_m(\vr)$ rozvinieme do systému rovinných vĺn
 a dosadíme do \eqref{eq:05ergmeandis}
 \begin{align}
 \notag
-\overline{E_m} = \E_m - \frac{1}{(2\pi)^3}&\int d\vq\ V(\vq)\overline{ \sum_{m'} \sum_{\vk_1} \sum_{\vk_3}\int d\vr c^{m*}_{\vk_1}c^{m'}_{\vk_3}e^{i\vq\vr}e^{i\vk_1\vr}e^{-i\vk_3\vr}}\\
-&\overline{\sum_{\vk_2}\sum_{\vk_4}\int d\vr\' c^{m'*}_{\vk_4}c^{m}_{\vk_2}e^{-i\vq\vr\ '}e^{-i\vk_4\vr\ '}e^{i\vk_2\vr\ '}} \text{.}
+\overline{E_m} = \E_m - \frac{1}{(2\pi)^3}&\int d\vq\ V(\vq)\overline{ \sum_{m'} \sum_{\vk_1} \sum_{\vk_3}\int d\vr c^{m*}_{\vk_1}c^{m'}_{\vk_3}e^{i\v\cdot q\vr}e^{i\vk_1\cdot \vr}e^{-i\vk_3\cdot \vr}}\\
+&\overline{\sum_{\vk_2}\sum_{\vk_4}\int d\vr\' c^{m'*}_{\vk_4}c^{m}_{\vk_2}e^{-i\vq\cdot \vr\ '}e^{-i\vk_4\cdot \vr\ '}e^{i\vk_2\cdot \vr\ '}} \text{.}
 \end{align}
-Podobne ako v kapitole \ref{sec:kubo} pre vzťah \eqref{eq:03dfisquared} vieme využiť nasledovné vzťahy
-Využijeme nasledovné vzťahy:
+Podobne ako v kapitole \ref{sec:kubo} pre vzťah \eqref{eq:03dfisquared} vieme využiť nasledovné vzťahy:
 \begin{align*}
-\int d\vr\ e^{i(\vk+\vq-\vk)\vr}=\delta(\vk_3-\vk_1-\vq)
-\int d\vr\ e^{i(\vk_2+\vq-\vk_4)\vr}=\delta(\vk_3-\vk_1-\vq)
+\int d\vr\ e^{i(\vk_3+\vq-\vk_1)\vr}=\delta(\vk_3-\vk_1-\vq)\\ 
+\int d\vr\ ' e^{i(\vk_2+\vq-\vk_4)\vr\ '}=\delta(\vk_2-\vk_4-\vq)
 \end{align*}
 Vysumujeme cez Kroneckerove symboly, a dostaneme
 \begin{align}
-\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3}\int d\vq V(\vq) \sum_{m'}\sum_{\vk}\sum_{\vk\ '}\overline{c^{*m}_{\vk+\vq}c^{m}_{\vk\ '+\vq}c^{*m'}_{\vk\ '}c^{m'}_{\vk}}\text{.}
+\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3}\int d\vq\ V(\vq) \sum_{m'}\sum_{\vk}\sum_{\vk\ '}\overline{c^{*m}_{\vk+\vq}c^{m}_{\vk\ '+\vq}c^{*m'}_{\vk\ '}c^{m'}_{\vk}}\text{.}
 \end{align}
 Uvažujeme {\it slabý} disorder, koeficienty s rôznym $m$ a s rôznym $\vk$ sú nekorelované  - viď. kapitolu \ref{sec:kubo}, kde sme urobili to isté pri prechode z \eqref{eq:03dfisq2} na \eqref{eq:03dfisq3}. Dostaneme výraz pre energiu
 \begin{align}
@@ -58,7 +57,7 @@ Teraz môžme aplikovať Thoulessov ansatz:
 Zavedieme nasledovné označenia
 \begin{align*}
 \epsilon_\tau &\equiv \frac{\hbar}{2\tau} \\
-\epsilon_{|\vk+\vq|}&\equiv\frac{\hbar^2|\vk+vq|^2}{2m}
+\epsilon_{|\vk+\vq|}&\equiv\frac{\hbar^2|\vk+\vq\ |^2}{2m}
 \end{align*}
 %+
 Po dosadení Thoulesovho ansatzu \eqref{eq:05thouless} do \eqref{eq:05energy2} dostaneme  
@@ -92,7 +91,7 @@ y=\frac{\epsilon_q}{\epsilon_\tau}
 Po vykonaní oboch analytických integrálov dostaneme vzťah pre selfenergiu
 \begin{align}
 \label{eq:05selfenergy}
-\Sigma(w)=\frac{e^2}{8\pi^4\epsilon_0 k_s^{-1}} \int_0^{\bar y_{max}} d\bar{y}\ \frac{\bar{y}^2}{1+\bar{y}^2}\int_0^{\infty} dx \frac{1}{(x-w)^2+1}\sqrt{\frac{\epsilon_\tau}{E_F}}F(x,y) \text{,}
+\Sigma(w)=-\frac{e^2}{8\pi^4\epsilon_0 k_s^{-1}} \int_0^{\bar y_{max}} d\bar{y}\ \frac{\bar{y}^2}{1+\bar{y}^2}\int_0^{\infty} dx \frac{1}{(x-w)^2+1}\sqrt{\frac{\epsilon_\tau}{E_F}}F(x,y) \text{,}
 \end{align}
 kde $k_s\approx k_F$ je recipročná tieniaca dĺžka, $\bar{y}=\frac{q}{k_s}$  a $F(x,y)$ je výsledok analytických integrálov
 \begin{align*}
@@ -113,9 +112,26 @@ Numerické riešenie \eqref{eq:05selfenergy} zjednodušíme poslednou aproximác
 Finálny vzťah pre energiu, ktorý budeme počítať numericky, bude nasledovný
 \begin{align}
 \label{eq:05selfenergy2}
-\Sigma(w)=\frac{e^2}{8\pi^4\epsilon_0 k_s^{-1}} \int_0^{\bar y_{max}} d\bar{y}\ \frac{\bar{y}^2}{1+\bar{y}^2}\sqrt{\frac{\epsilon_\tau}{E_F}}F(w,y) \text{,}
+\Sigma(w)=-\frac{e^2}{8\pi^4\epsilon_0 k_s^{-1}} \int_0^{\bar y_{max}} d\bar{y}\ \frac{\bar{y}^2}{1+\bar{y}^2}\sqrt{\frac{\epsilon_\tau}{E_F}}F(w,y) \text{,}
 \end{align} 
-\begin{figure}
-\includegraphics[scale=0.9]{../img/final_data_1k.pdf}
-\caption{\lipsum[3]}
-\end{figure}
+
+Keď už máme vzťah pre self energiu, vieme určiť hustotu stavov. Podobne ako pri odvodení Altschuler-Aronovej formuly, vychádzame zo vzťahu:
+\begin{align}
+\frac{d\tilde{E}}{dn}=\frac{d\E}{dn} + \frac{d\Sigma}{dn} \text{,}
+\end{align}
+
+Narozdiel od Altschulera za neaproximujeme $\E$ parabolickým disperzným zákonom, ale dosadíme Fockovu tienenú elektrónovú interakciu bez disorderu, teda
+\begin{align}
+\E(\vk)=\frac{\hbar^2k^2}{2m}+\Sigma_{Screen}(\vk)\text{.}
+\end{align}
+ Použitím vety o derivácii zloženej funkcie dostávame
+\begin{align}
+\frac{d\tilde{E}}{dn}&=\frac{dE}{dn}(\frac{d\E(E)}{dE}+\frac{d\Sigma(E)}{dE}) \text{.} 
+\end{align}
+Po invertovaní a aplikovaní Taylorovho rozvoja do prvého rádu dostávame hustotu stavov:
+\begin{align}
+\label{eq:05rho_final}
+\rho(E) = \rho_0(E_F)(1-\frac{d\Sigma_{screen}}{dE}+\frac{d\Sigma(E)}{dE})
+\end{align}
+
+ 

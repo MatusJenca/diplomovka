@@ -1,7 +1,7 @@
 title: "Hustota Stavov"
 xaxis: |
-  $\frac{E}{E_{Fermi}}$
+  $E/E_{Fermi}$
 yaxis: |
-  $\frac{\rho(E)-\rho_0(E)}{\rho_0(E)}$
+  $(\rho(E)-\rho_0(E_F))/\rho_0(E_F)$
 plot:
   label: "Hustota stavov"

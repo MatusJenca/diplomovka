@@ -33,6 +33,7 @@
 \usepackage{ifthen}
 \usepackage{float}
 \usepackage{lipsum}
+\usepackage{siunitx}
 \newtheorem{defin}{Definícia}[section]
 \newtheorem{thm}[defin]{Veta}
 \newtheorem{prop}[defin]{Tvrdenie}
@@ -106,6 +107,7 @@ plainpages=false
 	\input{03kubo}
 	\input{04thouless}
 	\input{05dens}
+	\input{06vysledky}
 	\newpage
   \section*{Záver}
     \addcontentsline{toc}{section}{Záver}
@@ -113,10 +115,8 @@ plainpages=false
     \input{Zaver}
   
   \renewcommand{\refname}{Zoznam použitej literatúry}
-  \include{Literatura}
-  \bibliography{literatura}
-\bibliographystyle{ieeetr} 
-  
+  \input{literatura}
+
 	\newpage
   \appendix
   %\section*{Dodatok A} 
