@@ -1,7 +1,7 @@
 \section{Výsledky numerického výpočtu hustoty stavov}
 V tejto kapitole vyhodnotíme vzťah \eqref{eq:05rho_final} a výsledok prepojíme s teóriou Altschulera-Aronova, a porovnáme s experimentálnymi hodnotami. 
 
-Ešte predtým ako urobíme finálny výpočet si musíme byť istý, že naša teória je správna. Vychádzame zo vzťahu \eqref{eq:05energy2}. Pri integrovaní cez $d\bar{y}$ zvolíme zatial $\bar{y}_{max}=\infty$, teda nebudeme orezávať v recipročnom priestore. Naša nová teória musí byť konzistentná s už existujúcou teóriou pre self energiu Fockovej tienenej interakcie. Preto musí platiť
+Ešte predtým ako urobíme finálny výpočet si musíme byť istý, že naša teória je správna. Vychádzame zo vzťahu \eqref{eq:05energy2}. Pri integrovaní cez $d\bar{y}$ zvolíme zatiaľ $\bar{y}_{max}=\infty$, teda nebudeme orezávať v recipročnom priestore. Naša nová teória musí byť konzistentná s už existujúcou teóriou pre self energiu Fockovej tienenej interakcie. Preto musí platiť
 \begin{align}
 \label{eq:06consistency}
 \lim_{\tau\to\infty}\Sigma(E) = \Sigma_{screen}(E) \text{,}
@@ -29,7 +29,7 @@ Altschuler-Aronovova teória v tomto tvare je
 \frac{\rho(E)-\rho(E_F)}{\rho(E_F)}= -\frac{1}{2\pi^3\hbar D l \rho_0(E_F)}+\frac{1}{\sqrt{2}(2\pi)^2(\hbar D)^\frac{3}{2}\rho(E_F)}\sqrt{|E-E_F|}
 \end{align}
 
-Pri vzťahu \eqref{eq:06densplot} ako aj teste konzistencie \eqref{eq:06consistency} vužijeme obdĺžnikovú metódu integrovania:
+Pri vzťahu \eqref{eq:06densplot} ako aj teste konzistencie \eqref{eq:06consistency} využijeme obdĺžnikovú metódu integrovania:
 \begin{align}
 \int_a^b g(x)dx &\approx G(b)-G(a)\\
 G(x) &= \sum_0^N \frac{g(x)-g(x+dx)}{2}\\
@@ -49,7 +49,7 @@ Deriváciu self energie budeme tak isto počítať numericky a to z definície d
 
 Pri numerických výpočtoch použijeme nasledovné hodnoty:
 
-Náboj elektrónu $e = \SI{1.60217662e-19}{\joule}$, redukovaná Planckova konštanta $\hbar = \SI{1.0545718e-34}{\joule\second}$, hmotnost elektronu
+Náboj elektrónu $e = \SI{1.60217662e-19}{\joule}$, redukovaná Planckova konštanta $\hbar = \SI{1.0545718e-34}{\joule\second}$, hmotnosť elektrónu
  $m = \SI{9.109534e-31}{\kilo\gram}$, Fermiho vlnový vektor $k_F = \SI{1.6e10}{\per\meter}$, recipročná tieniaca dĺžka $k_s=k_F$, permitivita
  $ \epsilon_0 = \SI{8.854187e-12}{\farad\per\meter}$, doba života elektrónu $\tau_0 = \SI{6.58e15}{\second}$. Počet krokov integrovania $N=1000$
 \begin{figure}[H]
@@ -69,7 +69,7 @@ pre $q_{max}=\frac{1}{v_F \tau_0}$ resp. $\bar{y}_{max}=\frac{1}{v_F \tau_0 ks}$
 \end{figure}
 Z grafu na obrázku je na prvý pohľad zrejmé, že nesedí s experimentom v blízkom okolí Fermiho energie. To sme však očakávali, pretože naša teória je pre energie ďalej od Fermiho energie. V okolí Fermiho energie máme k dispozícii Altschulera Aronova. 
 
- Našu teóriu z Altschuler-Aronovovou teóriou. Funkcie jednoducho "zošijeme" v bodoch kde krivka Altschulerovej hustoty stavov \eqref{eq:06altschuler} pretína našu krivku \eqref{eq:06densplot}, teda priebeh nebude hladký. Spojiť funkcie hladko je nad rámec tejto práce. V okolí Fermiho energie použijeme výsledok Altschuler-Aronova, a v bodoch ďalej od Fermiho energie použijeme náš výsledok. Pre ďalšiu analýzu výsledkov skúmame aj vplyv oboch členov \eqref{eq:06densplot} osobitne. Tak isto predvedieme aj vplyv druhého člena na štandartný postup pri výpočte hustoty stavov, teda spojenie Altschuler-Aronova s parabolickou hustotou stavov. Druhý $\rho_{corr}(E)=-\frac{d\Sigma_{\infty}}{dE}$  znamená zarátanie Fockovej tienenej interakcie.
+ Našu teóriu z Altschuler-Aronovovou teóriou. Funkcie jednoducho "zošijeme" v bodoch kde krivka Altschulerovej hustoty stavov \eqref{eq:06altschuler} pretína našu krivku \eqref{eq:06densplot}, teda priebeh nebude hladký. Spojiť funkcie hladko je nad rámec tejto práce. V okolí Fermiho energie použijeme výsledok Altschuler-Aronova, a v bodoch ďalej od Fermiho energie použijeme náš výsledok. Pre ďalšiu analýzu výsledkov skúmame aj vplyv oboch členov \eqref{eq:06densplot} osobitne. Tak isto predvedieme aj vplyv druhého člena na štandardný postup pri výpočte hustoty stavov, teda spojenie Altschuler-Aronova s parabolickou hustotou stavov. Druhý $\rho_{corr}(E)=-\frac{d\Sigma_{\infty}}{dE}$  znamená zarátanie Fockovej tienenej interakcie.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{grafy/plot_tau_1_c_1}
@@ -77,8 +77,8 @@ Z grafu na obrázku je na prvý pohľad zrejmé, že nesedí s experimentom v bl
 \label{fig:results}
 \end{figure}
 
-Finálny výsledok je na obrázku \ref{fig:results} {\it d)}. Vidíme, že výsledok kvalitatívne pripomína experimentálne výsledky. Pozoruhodné sú hlavne dve lokálne maximá, ktoré pri štandartnom postupe nevidíme. Tieto maximá sú práve nahromadené stavy nad energiou $U_{co}$ z experimentu, ktoré spôsobia zvýšenie hustoty stavov oproti čistému kovu. 
+Finálny výsledok je na obrázku \ref{fig:results} {\it d)}. Vidíme, že výsledok kvalitatívne pripomína experimentálne výsledky. Pozoruhodné sú hlavne dve lokálne maximá, ktoré pri štandardnom postupe nevidíme. Tieto maximá sú práve nahromadené stavy nad energiou $U_{co}$ z experimentu, ktoré spôsobia zvýšenie hustoty stavov oproti čistému kovu. 
 
-Pozoruhodné je aj to, že maximá dostaneme aj vtedy, keď započítame iba druhý člen  $\rho_{corr}(E)=-\frac{d\Sigma_{\infty}}{dE}$ ako opravu hustoty stavov pre čistý kov dopňenú Altschuler-Aronovom.
+Pozoruhodné je aj to, že maximá dostaneme aj vtedy, keď započítame iba druhý člen  $\rho_{corr}(E)=-\frac{d\Sigma_{\infty}}{dE}$ ako opravu hustoty stavov pre čistý kov doplnenú Altschuler-Aronovom.
 
 Výsledky nám zatiaľ nesedia kvantitatívne s experimentom. Dajú sa však nafitovať menením $\tau_0$ a cutoffu $q_{max}$.

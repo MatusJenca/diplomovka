@@ -2,7 +2,7 @@
 \label{sec:kubo}
 V tejto kapitole odvodíme Kubovu Formulu pre optickú vodivosť, ktorú neskôr použijeme na ďalšie výpočty.
 %fakt neviem presne na ake, tuto vetu treba prepisat
-Narozdiel od štandartne používanej Boltzmanovej Kinetickej rovnice (BKR), ktorá využiva semiklasický 
+Narozdiel od štandardne používanej Boltzmanovej Kinetickej rovnice (BKR), ktorá využíva semiklasický 
 formalizmus vlnových balíkov, v Kubovej formule uvažujeme čisto kvantový prístup. V tejto kapitole 
 ukážeme, že v istom priblížení výsledok pre vodivosť z Kubovej formuly korešponduje s Drudeho formulou:
 \begin{align}
@@ -17,7 +17,7 @@ Uvažujme disorderovaný kov napojený na zdroj napätia s periodickou časovou 
 V(t)=V\cos \omega t = -eEx \cos \omega t \mathrm{.}
 \end{align}
 
-Predpokladajme, že v čase $t=t_0$ je pole nulové. Platí bezčasová \schr
+Predpokladajme, že v čase $t=t_0$ je pole nulové. Platí bez časová \schr
 \begin{align}
 \label{eq:03schr}
 \hat{H} \Phi_j(\vr)= \epsilon_j\Phi_j(\vr) \mathrm{,}
@@ -38,7 +38,7 @@ Rovnicu \eqref{eq:03timeschr}  riešime pomocou časovej poruchovej teórie. Fun
 \label{eq:03stac}
 \Psi(\vr,t)=\sum_j c_{ji}(t)\Phi_j(\vr)e^{-\frac{i\epsilon_j}{\hbar}} \mathrm{,}
 \end{align}
-kde $c_{ji}(t)$ je koeficient prechodu, prenásobením komplexne združeným   $c_{ji}*(t)$ dostaneme pravdepodobnosť prechodu $|c_{ji}(t)|^2$ z počiatočného stavu $i$ do nového stavu $j$. Je zrejmé, že v čase $t=t_0$ je tento koeficient rovný Kronekerovmu symbolu
+kde $c_{ji}(t)$ je koeficient prechodu, prenásobením komplexne združeným   $c_{ji}*(t)$ dostaneme pravdepodobnosť prechodu $|c_{ji}(t)|^2$ z počiatočného stavu $i$ do nového stavu $j$. Je zrejmé, že v čase $t=t_0$ je tento koeficient rovný Kroneckerovmu symbolu
 \begin{align}
 \label{eq:03cji0}
 c_{ji}(t_0)=\delta_{ji}
@@ -61,7 +61,7 @@ V_{fi}(t) &\equiv \int_{\Omega}d\vr \Phi_f(\vr)V(t)\Phi_i(\vr) \\
 \epsilon_{fi} &\equiv \epsilon_f - \epsilon_i \text{.}
 \end{align}
 
-Teraz použijeme Bornovu aproximáciu $c_{ij}(t)=\c_{ij}(t_0)$, čo je podľa \eqref{eq:03cji0} Kronekerov symbol, teda \eqref{eq:03timeschr_expanded} prejde na
+Teraz použijeme Bornovu aproximáciu $c_{ij}(t)=\c_{ij}(t_0)$, čo je podľa \eqref{eq:03cji0} Kroneckerov symbol, teda \eqref{eq:03timeschr_expanded} prejde na
 \begin{align}
 \label{eq:03born_appr}
 i\hbar\frac{\partial}{\partial t}c_{fi}(t)=V_{fi}e^{\frac{-i\epsilon_{fi} t}{\hbar}}\mathrm{.}
@@ -111,7 +111,7 @@ W_{fi}&=\frac{2\pi}{\hbar}|V_{fi}|^2[\delta(\epsilon_{fi}-\hbar\omega)+\delta(\e
 W_{fi}^{\mathrm{ABS}}&=\frac{2\pi}{\hbar}|V_{fi}|^2\delta(\epsilon_{fi}-\hbar\omega)\\
 W_{fi}^{\mathrm{EMIS}}&=\frac{2\pi}{\hbar}|V_{fi}|^2\delta(\epsilon_{fi}+\hbar\omega)\text{,}
 \end{align}
-kde sme zadefinovali pravdepodobnosti zvlášť pre absorbciu a emisiu $W_{fi}^{\mathrm{ABS}}$ a $W_{fi}^{\mathrm{EMIS}}$.
+kde sme zadefinovali pravdepodobnosti zvlášť pre absorpciu a emisiu $W_{fi}^{\mathrm{ABS}}$ a $W_{fi}^{\mathrm{EMIS}}$.
 
 Odvodili sme kvantovú pravdepodobnosť prechodu medzi stavmi, z ktorej vieme určiť prenesený výkon, ako rozdiel absorbovaného a emitovaného výkonu vysumovaný cez všetky počiatočné a konečné stavy
 \begin{align}
@@ -149,12 +149,12 @@ Vzťah \eqref{eq:03sigma} bude teda
 \sigma(\omega)=\frac{2\pi\hbar e^2}{m^2\Omega} \sum_{f,i}\frac{\hbar\omega}{(\epsilon_f-\epsilon_i)^2}|D_{fi}|^2\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f))\text{.}
 \end{align}
 
-Teraz potrebujeme vypočítať maticový elemnt $|D_{fi}|^2$ na ktorý ale potrebujeme vlnové funkcie $\Phi_i(\vr)$. Preto musíme riešiť Schr\"odingerovu rovnicu pre elektrón v kove s disorderom
+Teraz potrebujeme vypočítať maticový element $|D_{fi}|^2$ na ktorý ale potrebujeme vlnové funkcie $\Phi_i(\vr)$. Preto musíme riešiť Schr\"odingerovu rovnicu pre elektrón v kove s disorderom
 \begin{align}
 \label{eq:03SchrDis}
 (\frac{-\hbar^2}{2m}\laplace_{\vr} + V_{dis}(\vr))\Phi_i(\vr)=\mathcal{E}_i\Phi(\vr)  \text{.}
 \end{align}
-Urobíme rozvoj do úplneho systému rovinných vĺn
+Urobíme rozvoj do úplného systému rovinných vĺn
 \begin{align}
 \label{eq:03Phi_i}
 \Phi_i(\vr)=\sum_{\vk}a^i_{\vk}\phi_{\vk}(\vr)\text{,}\\
@@ -215,7 +215,7 @@ Prejdeme od sumy cez $\vk$ k integrálu
 \sigma(\omega)=&\frac{2\pi e^2\hbar^3}{m^2(2\pi)^3}\sum_{f,i}\frac{\hbar\omega}{(\epsilon_f-\epsilon_i)}\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f))\\ \notag
 &\int_{\Omega}d\vk\frac{1}{\pi\rho(\epsilon_f)}\lorenz{\epsilon_f}\frac{1}{\pi\rho(\epsilon_i)}\lorenz{\epsilon_i}k_x^2\text{,}
 \end{align}
- Kvôli prehladnosti sa ideme venvať len integrálu cez $\vk$. Prejdeme do sférických súradníc, dostaneme
+ Kvôli prehľadnosti sa ideme venovať len integrálu cez $\vk$. Prejdeme do sférických súradníc, dostaneme
 \begin{align}
 \int_0^{2\pi}d\phi\int_0^\pi d\theta \frac{\sin(\theta)cos^2(\theta)\sin^2(\theta)}{4\pi} \frac{\Omega}{2\pi} \int_0^\infty dk k^2 \frac{1}{\pi\rho(\epsilon_f)}\lorenz{\epsilon_f} \frac{1}{\pi\rho(\epsilon_i)}\lorenz{\epsilon_i} 
 \end{align}
