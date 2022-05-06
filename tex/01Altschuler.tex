@@ -1,141 +1,106 @@
-\section{Elektróny v kovovej mriežke s disorderom : Altshuler-Aronovova aproximácia}
-V tejto kapitole si zavedieme základné pojmy týkajúce sa problému elektrónov v kove s  
-disorderom. 
+\section
+{Interagujúce elektróny v kove s disorderom : Altshuler-Aronovova aproximácia}
 
-Elektrón v kovovej mriežke popisujeme vlnovou funkciou $\phi(\vr,t) $.
- Hamiltonián problému rozdelíme na tri časti:
+ Doteraz sme sa zaoberali elektrónmi v ideálnej kryštalickej mriežke v rámci modelu {\it želé}, v rámci ktorého boli náboje iónov mriežky aproximované
+ priestorovo homogénnym nábojom. V reálnom kove však existujú aj rôzne odchýľky od ideálnej kryštalickej mriežky, ktoré sa zvyknú nazývať disorder. Vo veľkých 3D vzorkách
+ ide najmä o náhodne rozmiestnené atómy prímesí. Tie vytvárajú náhodný potenciál $V_{dis}(\vr)$, ktorý elektróny rozptyľuje. V zhode s AA aproximáciou budeme predpokladať tzv. slabý disorder, pre ktorý
+ platí, že $k_F l \gg 1$, kde $l$ je elektrónová stredná voľná dráha, spôsobená elektrónovými zrážkami s disorderom.
+Ak neuvažujeme e-e interakciu, elektrón interagujúci s disorderom je v rámci modelu {\it želé} popísaný Schrodingerovou rovnicou
 \begin{equation}
-\label{eq:01Hamiltonian}
-\hat H=\hat H_0+\hat H_{int}+\hat H_{dis} \text{,}
+\label{eq:schr_dis}
+\bigl(-\frac{\hbar^2}{2m}\laplace + V_{dis}(\vr)\bigr)\phi_m^{(0)}(\vr)=\E_m\phi_m^{(0)}(\vr) \text{,}
 \end{equation}
-kde $H_0=\frac{-\hbar}{2m}\laplace$ je hamiltonián voľnej častice,
-$H_{int}$ popisuje interakciu z iónmi v mriežke, ako aj elektrón elektrónovú (ee) interakciu
-a $H_{dis}$ popisuje disorder. 
-
-Ak uvažujeme elektrón ako voľnú časticu $H_0$, dostaneme najhrubšiu aproximáciu, kde vieme nájsť bázové funkcie $\phi(\vr)$. 
-Použitím Born von Karmanovej periodickej okrajovej podmienky (PBC) dostávame  
+kde index $(0)$ na vlnovej funkcii $\phi_m^{(0)}(\vr)$ zdôrazňuje absenciu e-e interakcie. Posledná rovnica je exaktne riešiteľná len numericky, aj to len pre jeden špecifický náhodný potenciál  $V_{dis}(\vr)$.
+Keď do rovnice \eqref{eq:schr_dis} zahrnieme e-e interakciu v Hartree-Fockovej aproximácii a Hartreeho interakciu vynecháme, dostaneme sústavu Fockovych rovníc v tvare
 \begin{equation}
-\phi(\vr)=\frac{1}{\sqrt{V}}e^{i(\vec k\cdot\vec r-\frac{\E(k)t}{\hbar})} \text{,}
+ \label{eq:fock_dis}
+ \bigl(-\frac{\hbar^2}{2m}\laplace + V_{dis}(\vr) \bigr)\phi_m(\vr)-\sum_{\forall m'} \int d\vrp \phi^*_{m'}(\vr)\phi_{m}(\vrp)V(\vr-\vrp)\phi_m'(\vr)=E_m\phi_m(\vr) \text{.}
 \end{equation}
-kde $V$ je Born von Karmanov objem. Energia takejto vlnovej funkcie je
+v ktorej $\phi_m(\vr)$ a $E_m$ sú vlnové funkcie a vlastné energie elektrónov vo Fockovej aproximácii a $V(\vr-\vrp)$ je potenciálna energia e-e interakcie. Poznamenajme, že na rozdiel od modelu {\it želé} bez disorderu, teraz sa Hartreeho člen
+nenuluje presne, takže jeho zanedbanie je aproximácia. V článkoch Alshulera a Aronova je ukázané, že Hartreeho príspevok k interakcii je v porovnaní s Fockovym príspevkom naozaj malý.
+Opäť, presné riešenie Fockových rovníc \eqref{eq:fock_dis} je možné len numericky. V zhode s AA aproximáciou ich tu budeme riešiť v prvom ráde poruchovej teórie za predpokladu, že
+interakcia $V(\vr-\vrp)$ je slabá.
+
+Najprv vynásobíme Fockovu rovnicu \eqref{eq:fock_dis} zľava vlnovou funkciou $\phi^*_{m'}(\vr)$, potom na obe strany rovnice aplikujeme integrál $\int d \vr$ a zintegrujeme cez celý priestor.
+Takto získaná rovnica (nepíšeme ju explicitne) je ešte stále presná vo Fockovej aproximácii. Keď v tejto rovnici nahradíme všetky vlnové funkcie v prvom ráde poruchovej teórie aproximáciou
+$\phi_m(\vr) \simeq \phi_m^{(0)}(\vr)$, rovnica po jednoduchej úprave nadobudne tvar
 \begin{equation}
-\E(k)=\frac{\hbar k^2}{2m}
+ \label{eq:fock_dis_erg}
+ E_m=\E_m-\sum_{\forall m'} \int d\vrp \int d\vr\ \phi^*_{m'}(\vrp) \phi_{m}(\vrp)\phi^*_{m'}(\vr)\phi_{m'}(\vr)V(\vr-\vrp) \text{,}
 \end{equation}
-
-Použitím PBC dostávame diskrétne hodnoty vektora $\vk$ (vektory recipročnej mriežky). 
-Elektróny sú fermióny, a v recipročnom priestore tvoria guľu. Polomer tejto gule nazývame Fermiho polomerom. Ak poznáme elektrónovú koncentráciu, vieme určiť Fermiho Polomer
+ktorý vyjadruje Fockovu energiu $E_m$ ako energiu $\E_m$ neinteragujúceho problému \eqref{eq:schr_dis} plus Fockova oprava v prvom ráde poruchovej teórie. Zdôraznime, že funkcie
+$\phi_m^{(0)}(\vr)$ sú v rovnici $\eqref{eq:fock_dis_erg}$  kvôli jednoduchosti preznačené na $\phi_m(\vr)$. Odteraz už teda symbol $\phi_m(\vr)$
+označuje presné riešenie neinteragujúceho problému \eqref{eq:schr_dis}.
+Keď do rovnicu \eqref{eq:fock_dis_erg} dosadíme Fourierovu transformáciu
 \begin{equation}
- \label{eq:kf}
- k_F=(3\pi^2 n_e)^{\frac{1}{3}}\text{.}
+ \label{eq:V_ft}
+ V(\vr-\vrp)=\ftkvec{(\vr-\vrp)}{\vq}{V(\vq)}\text{,}
 \end{equation}
- 
-Energia elektrónov na Fermiho polomeri nazývame Fermiho energiou
+dostaneme rovnicu
 \begin{equation}
-\E_{F}=\frac{\hbar k_F^2}{2m}
+\label{eq:erg_V_ft}
+ E_m=\E_m-\sum_{\forall m'} \int d\vq\ V(\vq) \ |\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2 \text{.}
 \end{equation}
-
-Pri integrovaní cez Fermiho guľu vieme zameniť súradnicu polomeru $k$ za energiu.
-Jakobián takejto zámeny súradníc dáva dôležitú veličinu: hustotu stavov.
-
-Vzťah pre hustotu stavov všeobecného systému budeme v ďalšom písať ako
+Posledná rovnica platí pre jednu vzorku s jednou konkrétnou konfiguráciou disorderu. Vystredujeme túto rovnicu cez štatistický súbor vzoriek, z ktorých
+každá má makroskopický rovnaký ale mikroskopický rôzny disorder. Dostaneme
 \begin{equation}
-\label{eq:01rho}
- \rho(E)=\frac{1}{\pi^2} \frac{dk}{dE} k^2  \ \text{.}
-\end{equation}  
-
-Druhý člen v \eqref{eq:01Hamiltonian}  popisuje Hartree-Fockova teória, ktorá je štandartne pokrytá v učebniciach, preto ju v tejto práci nebudeme rozoberať.
-Uvedieme len toľko, že výpočet hustoty stavov nám pre interakciu cez Coulombovský potenciál $V(\vr_1, \vr_2)=\frac{e^2}{4\pi \epsilon_{\infty}|\vr-\vrp|}$ nám na fermiho hladine dá nulovú hustotu stavov, čo je v rozpore s realitou. Preto musíme použiť Yukkavov tienený potenciál.  
-\begin{equation}
-\label{eq:01yukk_pot}
-V(\vr_1, \vr_2)=\frac{e^2}{4\pi \epsilon_{\infty}|\vr-\vrp|}exp^{-k_sr}\text{,}
-\end{equation}
-kde $k_s$ je recipročná tieniaca dĺžka. Pre náš výpočet je dôležitá jeho Fourierova transformácia
-\begin{equation}
-\label{eq:01pot3D}
-V_3(\vq)=\frac{1}{4\pi\epsilon_0}\frac{4\pi e^2}{q^2+k_{s}^{2} }
-\end{equation}
-
-Posledný člen popisuje disorder, náhodný potenciál od prímesí. Práve jemu sa 
-budeme podrobne venovať.  Bez ee interakcie máme Schr\"odingerovu rovnicu 
-\begin{equation}
-\label{eq:01schr_dis}
-\bigl(-\frac{\hbar^2}{2m}\laplace + V_{dis}(\vr)\bigr)\phi_m(\vr)=\E_m\phi_m(\vr) \text{.}
-\end{equation} 
-
-Altschuler a Aronov (AA) riešili problém pomocou Greenových funkcii, ktoré sú nad rámec 
-magisterského štúdia. Preto použijeme štandardný formalizmus vlnových funkcii.
-
-Problém AA budeme riešiť poruchovou metódou, kde \eqref{eq:01schr_dis}bude 
-neporušený problém a porucha zapríčinená interakciou bude 
-\begin{equation}
- \label{eq:01porucha}
- \hat{H'}=\sum_{\forall m'} \int d\vrp \ \phi^*_{m'}(\vr)\phi_{m}(\vrp)V(|\vr-\vrp|)
- \phi_m'(\vr) \text{.}
-\end{equation} 
-Riešime teda $\hat H=\hat H_0+\hat H'$ v nultom ráde poruchovej teórie, takže dosádzame rovno vlnové funkcie neporušeného problému $\phi_m(r)$, $\phi_m'(r)$ a ich vlastné hodnoty $\E_m$ .  V poruchovo člene \eqref{eq:01porucha} je vhodné urobiť Fourierovu transformáciu a zaviesť $\vq=\vk-\vkp$. Po algebraických úpravách dostávame
-\begin{equation}
-\label{eq:01erg_V_ft} 
- E_m=\E_m-\sum_{\forall m'} \int d\vq\ V(|\vq|) |\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2 \text{.}
-\end{equation} 
-Samotný charakter $V_{dis}(\vr)$ naznačuje že úloha nie je analyticky riešiteľná. Ide
-náhodný potenciál závisiaci od porúch v kryštalickej mriežke. Pre každú mriežku môžme 
-mať  iné $V_{dis}(\vr)$ 
-, preto aj iné vlastné vektory $\phi_m(r)$, $\phi_m'(r)$ a vlastné hodnoty $\E_m$. Je teda 
-vhodné zaviesť 
-štatistický súbor disorderov a hodnôt kvantového čísla $m$.
-
-\begin{equation}
-\label{eq:01erg_meandis} 
+\label{eq:erg_meandis}
  \overline{E_m}=\overline{\E_m}-\sum_{\forall m'} \int d\vq\ V(|\vq|) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2} \text{.}
-\end{equation} 
-Maticový element vieme vypočítať aj bez znalosti vlnových funkcii pomocou aproximácie 
-elektrónu vlnovým balíkom.
-
-Elektrón považujeme za klasickú časticu. Disorder vieme aproximovať náhodnými bodmi 
-na ktoré bude častica elasticky narážať. Ide teda o Brownov pohyb, a pravdepodobnosť výskytu častice popisuje difúzna rovnica
+\end{equation}
+kde $\overline{X_m}$ označuje strednú hodnotu veličiny $X_m$, získanú vyššie spomenutým vystredovaním. Pre slabý disorder je rozumné predpokladať, že približne platí $\overline{\E_m}= \hbar^2 \vk_m^2/2m$.
+Vzťah \eqref{eq:erg_meandis} obsahuje však aj vlnové funkcie
+$\phi_m(\vr)$, ktoré nepoznáme. Našťastie,
+ani ich poznať nemusíme, pretože nám stačí vypočítať strednú hodnotu štvorca maticového elementu $M_{mm'}$,
 \begin{equation}
- \label{eq:01diffusion}
+\label{eq:aa_matrix_element}
+\overline{| M_{mm'}|^2} =\overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2} \text{.}
+\end{equation}
+Výpočet urobíme v semiklasickej difúznej aproximácii, na ktorú sa spolieha aj AA teória.
+
+Analýza vodivosti kovov so slabým disorderom ukazuje, že k vodivosti kovu prispievajú najmä elektróny z Fermiho hladiny a jej blízkeho okolia veľkosti $k_BT$, pričom tieto elektróny sa pohybujú podobne ako difundujúce klasické častice. Konkrétne, elektrón sa pohybuje rýchlosťou blízkou Fermiho rýchlosti $v_F=\sqrt{\frac{2\E_F}{m}}$ a v priemere raz za čas $\tau$ sa elasticky rozptýli v náhodnom smere. Taký elektrón má strednú voľnú dráhu
+$l=v_F\tau$ a na jeho pohyb sa dá nazerať ako na difúziu klasickej Brownovskej časti, teda náhodné kráčanie s dĺžkou kroku $l$.
+Ak sa taká Brownovská častica v čase $t=0$ nachádza v polohe $\vec r = \vec r_0$, potom pravdepodobnosť, že časticu nájdeme v čase $t$ v polohe $\vec r$, je daná známym vzťahom
+\begin{equation}
+ \label{eq:diffusion}
  P(\vr,t)=\frac{1}{(4\pi Dt)^{3/2}}e^{-\frac{|\vr-\vr_0|^2}{4Dt}} \text{,}
-\end{equation} 
-kde $D$ je difúzny koeficient úmerný Fermiho energii. 
-
-Z vyššie uvedenej úvahy vyplýva, že môžme postulovať 
+\end{equation}
+kde $D =\frac{1}{3}v_Fl $ je difúzny koeficient častice.
+Nech $\psi(\vr,t)$ je nestacionárna vlnová funkcia častice, ktorá difunduje v jednom špecifickom disorderi. Ako sme uviedli v kapitole 1, kvantovomechanická pravdepodobnosť výskytu kvantovomechanickej častice v čase
+$t$ v bode $\vr$, je
 \begin{equation}
- \label{eq:01postulate}
-\psi^*(\vr,t)\psi(\vr,t)\simeq\frac{1}{(4\pi Dt)^{3/2}}e^{-\frac{|\vr-\vr_0|^2}{4Dt}} \text{,}
-\end{equation} 
-kde $\psi(\vr,t)$  je vlnový balík častice, ktorý vieme vyjadriť v báze vlastných funkcii nášho 
-skúmaného systému
+ \label{eq:aa_pravd}
+ P(\vr,t)=\psi^*(\vr,t)\psi(\vr,t) \text{.}
+\end{equation}
+Semiklasická difúzna aproximácia spočíva v postulovaní rovnice
 \begin{equation}
- \label{eq:01psi_sum}
- \psi(\vr,t)=\frac{1}{\sqrt{N}}\sum_m \phi_m^*(\vr_0)\phi_m(\vr)e^{-i\frac{E_m}{\hbar}t} \text{.}
-\end{equation} 
-
-Postulát \eqref{eq:01postulate} platí len za určitých predpokladov.
-Prísne vzaté, rovnosť \eqref{eq:01postulate} nemôže platiť, pretože 
-porovnáva klasickú časticu s ostrou hodnotou energie s vlnovým 
-balíkom (preto je v rovnici znak $\simeq$).  Preto sa v sume
- \eqref{eq:01psi_sum} obmedzíme na také stavt $\phi_m$ pre ktoré 
- platí $E=\E_F +\Delta E$ kde $\Delta E$ je rozumne malé. 
-
-Dosadíme teda rozklad \eqref{eq:01psi_sum} do \eqref{eq:01postulate} 
+ \label{eq:aa_postulate}
+ \overline{\psi^*(\vr,t)\psi(\vr,t)}=\frac{1}{(4\pi Dt)^{3/2}}e^{-\frac{|\vr-\vr_0|^2}{4Dt}} \text{,}
+\end{equation}
+kde na ľavej strane je $\psi^*(\vr,t)\psi(\vr,t)$ vystredované cez disorder. Ako ešte upresníme, aproximácia \eqref{eq:aa_postulate} platí rozumne pre dostatočne dlhý čas $t$.
+Nestacionárny stav $\psi(\vr,t)$ sa dá rozvinúť do stacionárnych stavov $\phi_m(\vr)$ ako
 \begin{equation}
- \label{eq:01matrix_element_eq}
- \frac{1}{N}\sum_m \sum_{m'} \phi_m^*(\vr_0)\phi^*_{m'}(\vr)\phi_m(\vr)\phi_{m'}(\vr_0)e^{-i\frac{E_m-E_{m'}}{\hbar}t}=\frac{1}{(4\pi Dt)^{3/2}}e^{-\frac{|\vr-\vr_0|^2}{4Dt}}\text{,}
-\end{equation} 
-kde vydelením počtom členov sumy $N$ sme dostali stednú hodnotu cez $m$.  Z rovnice \eqref{eq:01matrix_element_eq} vyjadriť z nej maticový element .
+ \label{eq:aa_psi_sum}
+ \psi(\vr,t)=\frac{1}{\sqrt{N}}\sum_m \phi_m^*(\vr_0)\phi_m(\vr)e^{-i\frac{\E_m}{\hbar}t} \text{,}
+\end{equation}
+kde $N$ je počet stavov cez ktoré sa sumuje a sumovanie beží iba cez stavy $m$, ktorých energie $\E_m$ sa nachádzajú v intervale $\Delta \E$ okolo energie, ktorú má zodpovedajúca klasická častica.
+Keďže častica začína náhodné kráčanie počnúc prvou zrážkou, vlnový balík \eqref{eq:aa_psi_sum} môže popisovať difúziu iba ak $t > \tau$. Energia častice popísanej
+vlnovým balíkom s dobou života $t$ má neurčitosť $\hbar/t$, takže maximálna neurčitosť počas difúzie je $\Delta \E=\hbar/\tau$.
 
-Úpravy sú však netriviálne, preto ich uvedieme detailnejšie. Pre väčšiu prehľadnosť textu budeme riešiť ľavú a
-pravú stranu rovnice osobitne. 
- 
- Vezmime najprv ľavú stranu rovnice \eqref{eq:01matrix_element_eq}. Násobime ju výrazom $e^{-i\vq(\vr-\vr_0)}$, integrujeme cez $\int d\vr$ a $\int d\vr_0$, a ešte násobíme $\frac{1}{V}$, kde V je integračný objem. 
+
+Rozvoj  \eqref{eq:aa_psi_sum} dosadíme do postulátu \eqref{eq:aa_postulate}. Dostaneme
+\begin{equation}
+ \label{eq:aa_matrix_element_eq}
+ \frac{1}{N}\sum_m \sum_{m'} \overline{\phi_m^*(\vr_0)\phi^*_{m'}(\vr)\phi_m(\vr)\phi_{m'}(\vr_0)e^{-i\frac{\E_m-\E_{m'}}{\hbar}t}}=\frac{1}{(4\pi Dt)^{3/2}}e^{-\frac{|\vr-\vr_0|^2}{4Dt}}\text{.}
+\end{equation}
+
+Vezmime najprv ľavú stranu rovnice \eqref{eq:aa_matrix_element_eq}. Násobime ju výrazom $e^{-i\vq(\vr-\vr_0)}$, integrujeme cez $\int d\vr$ a $\int d\vr_0$, a ešte násobíme $\frac{1}{V}$, kde V je integračný objem.
 Stredovaciu čiaru na chvíľu vynecháme a upravujeme.
 \begin{align*}
 &\frac{1}{NV}\sum_m \sum_{m'} \int d\vr_0  \phi_m^*(\vr_0)\phi_{m'}(\vr_0) e^{i\vq\vr_0} \int d\vr e^{-i\vq\vr}\phi_m(\vr)\phi_{m'}(\vr)e^{-i\frac{\E_m-\E_{m'}}{\hbar}t} \\
 =&\frac{1}{NV}\sum_m \sum_{m'}|\int d\vr e^{-i\vq\vr}\phi_m(\vr)\phi_{m'}(\vr)|^2 e^{-i\frac{\E_m-\E_{m'}}{\hbar}t}\\
 =&\frac{1}{NV}\sum_m \sum_{m'} |M_{mm'}|^2 e^{-i\frac{\E_m-\E_{m'}}{\hbar}t} \text{.}
 \end{align*}
-kde nám už vznikol štvorec maticového elementu $|M_{mm'}|^2$, ktorý chceme vypočítať. Teraz ešte na posledný riadok aplikujme Fourierovu transformáciu 
+kde nám už vznikol štvorec maticového elementu $|M_{mm'}|^2$, ktorý chceme vypočítať. Teraz ešte na posledný riadok aplikujme Fourierovu transformáciu
 v tvare $Re (\int_0^{\infty} dt e^{i\omega t})$. Dostaneme
 \begin{equation}
  \label{eq:aa_matrix_LHS semifinal}
@@ -157,7 +122,7 @@ kde sme už vrátili stredovanie cez disorder. Tento výraz môžeme ľahko inte
 \begin{equation}
  \frac{\pi \hbar}{N}\sum_m  \overline{\int d\E_{m'} \rho(\E_{m'}) \delta(\E_m-\E_{m'}+\hbar \omega) |M_{mm'}|^2} =\frac{\pi \hbar}{N}\sum_m \rho(\E_{m}+\hbar\omega)\overline{|M_{(\E_m)(\E_m+\hbar\omega)}|^2} \text{,}
 \end{equation}
-kde $\rho(\E)$ je hustota stavov, ktorú pre slabý disorder môžeme približne považovať za hustotu stavov voľných elektrónov a vyňať ju zo stredovania. Konečne, sumu $N^{-1}\sum_m$ môžeme chápať ako stredovanie cez stavy $m$ a 
+kde $\rho(\E)$ je hustota stavov, ktorú pre slabý disorder môžeme približne považovať za hustotu stavov voľných elektrónov a vyňať ju zo stredovania. Konečne, sumu $N^{-1}\sum_m$ môžeme chápať ako stredovanie cez stavy $m$ a
 dostávame záverečný výsledok
 \begin{equation}
  \label{eq:aa_matrix_LHS vysledok}
@@ -166,7 +131,7 @@ dostávame záverečný výsledok
 ktorý chápeme ako vystredovaný cez $m$.
 
 
-Teraz tým istým spôsobom upravíme pravú stranu rovnice \eqref{eq:01matrix_element_eq}. Násobime ju výrazom $e^{-i\vq(\vr-\vr_0)}$, integrujeme cez $\int d\vr$ a $\int d\vr_0$, a násobíme $\frac{1}{V}$. Dostaneme 
+Teraz tým istým spôsobom upravíme pravú stranu rovnice \eqref{eq:aa_matrix_element_eq}. Násobime ju výrazom $e^{-i\vq(\vr-\vr_0)}$, integrujeme cez $\int d\vr$ a $\int d\vr_0$, a násobíme $\frac{1}{V}$. Dostaneme
 \begin{equation}
 \label{eq:aa_matrix_RHS begin}
  \frac{1}{(4\pi Dt)^{3/2}}\frac{1}{V} \int d\vr \int d\vr_0 e^{-\frac{|\vr-\vr_0|^2}{4Dt}}e^{-i\vq(\vr-\vr_0)} =
@@ -178,7 +143,7 @@ pravú stranu môžeme faktorizovať na súčin troch rovnakých integrálov v p
   \frac{1}{\sqrt{4\pi Dt}}\int_{-\infty}^{\infty} dx e^{-\frac{(x-2iq_xt)^2}{4Dt}-q_x^2Dt}&=\\
   \frac{1}{\pi}\int_{-\infty}^{\infty} ds e^{-s^2} e^{-q_x^2Dt}&= e^{-q_x^2Dt}\text{.}
 \end{align*}
-a analogicky pre $y$ a $z$.  Týmto sa pravá strana rovnice \eqref{eq:01matrix_element_eq} pretransformovala na tvar $e^{-q^2Dt}$,
+a analogicky pre $y$ a $z$.  Týmto sa pravá strana rovnice \eqref{eq:aa_matrix_element_eq} pretransformovala na tvar $e^{-q^2Dt}$,
 ktorý ešte stransformujeme Fourierovou transformáciou cez čas:
 \begin{equation}
 \label{eq:aa_matrix_RHS}
@@ -190,12 +155,12 @@ Posledný výsledok je rovný výrazu \eqref{eq:aa_matrix_LHS vysledok}, odkiaľ
  \overline{|M_{mm'}|^2}=\frac{\hbar D q^2}{\rho(E_m')(E_m-E_{m'})^2+(\hbar Dq^2)^2}\text{.}
 \end{equation}
 
-Vezmime vzťah \eqref{eq:01erg_meandis} a vystredujme ho cez všetky energie $\E_m = \E$. Dostaneme
+Vezmime vzťah \eqref{eq:erg_meandis} a vystredujme ho cez všetky energie $\E_m = \E$. Dostaneme
 \begin{equation}
  \label{eq:aa_energy}
  \tilde E(E)=\overline\E+E_{self}(E)\text{,}
 \end{equation}
-kde $\overline\E$ je rovné energii voľnej častice selfenergia má tvar
+kde $\overline\E$ je rovné energii voľnej častice podľa kapitoly \ref{sec:free_electrons} a self=energia má tvar
 \begin{equation}
  \label{eq:aa_self_energy}
  E_{self}=-\int_{0}^{E_F}dE' \int \frac{d\vq}{8\pi^3}V(q)\frac{\rho(E)\hbar D q^2}{(\hbar D q^2)+(E-E')}\text{,}
@@ -214,7 +179,7 @@ Keďže hustota stavov je derivácia počtu stavov podľa energie, pre hustotu s
  \label{eq:aa_dos1}
  \rho(E)=\rho_0(E)\frac{1}{1+\frac{dE_{self}(E)}{dE}} \text{,}
  \end{equation}
- kde $\rho_0(E)$ je hustota stavov pre voľný elektrón \eqref{eq:01rho}.
+ kde $\rho_0(E)$ je hustota stavov pre voľný elektrón \eqref{eq:rho_par}.
  Pre malé $\frac{dE_{self}(E)}{dE}$ urobíme Taylorov rozvoj:
 \begin{equation}
  \label{eq:aa_dos2}
@@ -242,13 +207,102 @@ Z definície derivácie potom vieme vyjadriť deriváciu self energie ako
  \label{eq:aa_selfenergy_der}
  \frac{dE_{self}(\epsilon)}{d\epsilon}=\int \frac{d\vq}{8\pi^3}V(\vq)\frac{\hbar D q^2}{(\hbar Dq^2)^2+(\epsilon)^2}\text{.}
 \end{equation}
-Týmto sme vyriešili jeden integrál, ostáva nám integrovať cez $d\vq$.  Prejdeme do sférických súradnic:
+Týmto sme vyriešili jeden integrál, ostáva nám integrovať cez $d\vq$. Za potenciál $V(q)$ dosadíme tienený Coulombov potenciál
+z kapitoly 3 a prejdeme do sférických súradnic:
 \begin{equation}
- \frac{dE_{self}(\epsilon)}{d\epsilon}= \frac{4\pi}{8\pi^3} \int_0^\infty dq q^2V(q)\frac{\hbar D q^2}{(\hbar Dq^2)^2+(\epsilon)^2} \text{.}
+ \frac{dE_{self}(\epsilon)}{d\epsilon}= \frac{4\pi}{8\pi^3} \int_0^\infty dq q^2 \frac{e^2}{\epsilon_0(q^2+k_s^2)}\frac{\hbar D q^2}{(\hbar Dq^2)^2+(\epsilon)^2} \text{.}
 \end{equation}
-%%%%%%%%
+Zavedieme substitúcie substitúciou $x=\frac{q}{k_s}$ a $a=\sqrt{\frac{|\epsilon|}{\hbar D k_s^2}}$, a pravú stranu poslednej rovnice rozložíme na zlomky:
+\begin{equation}
+\label{eq:aa_selfenergy_der_subst1}
+\frac{e^2}{4\pi^2 \epsilon_0 \hbar D k_s^{-1}}[1+\frac{|\epsilon|^2}{\hbar^2D^2k_s^4}]\frac{2}{\pi}\int dx(\frac{1}{1+x^2}-
+\frac{1}{1+(\frac{x}{a})^4}+\frac{x^2}{1+(\frac{x}{a})^4})\text{.}
+\end{equation}
+Jednotlivé integrály vieme vypočítať napríklad prechodom do komplexnej roviny.
+Pre prvý integrál dostaneme
+\begin{equation}
+ \label{eq:aa_int1}
+ \frac{2}{\pi}\int_0^{\infty}\frac{dx}{1+x^2}=1\text{,}
+\end{equation}
+pre druhý
+\begin{equation}
+ \label{eq:aa_int2}
+ \frac{2}{\pi}\int_0^{\infty}\frac{dx}{1+(\frac{x}{a})^4}=\frac{a}{\sqrt{2}}=\sqrt{\frac{|\epsilon|}{\hbar D k_s^2}} \frac{1}{\sqrt{2}}\text{.}
+\end{equation}
+a napokon pre tretí
+\begin{equation}
+ \label{eq:aa_int3}
+ \frac{2}{\pi}\int_0^{\infty}dx\frac{x^2}{1+(\frac{x}{a})^4}=\frac{a^3}{\sqrt{2}}\text{.}
+\end{equation}
 
-%%%%%%%%%
+Integrály však nemôžme rátať s nekonečnou hornou hranicou. Dôvodom je semiklasický postulát \eqref{eq:aa_postulate}
+použitý na výpočet maticového elementu \eqref{eq:aa_matrix_element_final}, vďaka ktorému je maticový element \eqref{eq:aa_matrix_element_final} platný len pre $q < 1/l$.
+Hornú hranicu integrovania cez $q$ preto musíme obmedziť
+na $q_{max}=\frac{1}{l}$.
+
+Po substitúcii $x=\frac{q}{k_s}$ hranica prejde na  $x_{max}=\frac{1}{k_sl}$ a teda prvý integrál prejde na:
+\begin{equation}
+ \label{eq:aa_int1_capped}
+ \frac{2}{\pi}\int_0^{(l k_s)^{-1}}dx \ \frac{1}{1+x^2}= \frac{2}{\pi}\arctan\bigl((lk_s)^{-1}\bigr)\doteq \frac{2}{\pi k_s l}\text{,}
+\end{equation}
+kde sme v poslednom kroku sme využili Taylorov rozvoj $\arctan{x}\doteq x$ pre  $x<<1$.
+
+
+Pri počítaní druhého integrálu je vhodné urobiť substitúciu $y=\frac{x}{a}$, hranica prejde na $y_{max}=\frac{1}{k_sla}$.
+Pripomeňme vzťahy pre difúzny koeficient, $D=\frac{1}{3}v_F^2 \tau$, a pre strednú voľnú dráhu , $l=v_F \tau$.
+Hornú hranicu potom vieme prepísať na $y_{max}=\sqrt\frac{\hbar}{3\tau \epsilon}$. Druhý integrál je teda:
+
+\begin{equation}
+ \label{eq:aa_int2_capped}
+ \frac{2}{\pi}a\int_0^{\sqrt\frac{\hbar}{3\tau \epsilon}} dy \frac{1}{1+y^4}=aF(\sqrt\frac{\hbar}{3\tau \epsilon})=aF(y_{max})\text{,}
+\end{equation}
+
+kde $F(y)$ je primitívna funkcia:
+\begin{equation}
+ \label{eq:aa_primitive_func}
+ F(y)=\frac{1}{4\sqrt 2}[ \ln(y^2+\sqrt 2 y+1)-\ln(y^2-\sqrt 2 y+1) + 2\arctan(1+\sqrt 2 y ) - 2\arctan(1-\sqrt 2 y)]\text{.}
+\end{equation}
+Funkciu $F(y)$ rozvinieme do Taylorovho radu v nekonečne. Pre jednotlivé členy dostaneme:
+\begin{align*}
+ \arctan(\sqrt 2 y+1)&=\frac{\pi}{2}-\frac{1}{\sqrt 2 y}+\frac{1}{2 y^2}-\frac{1}{3 \sqrt 2 y^3} ... \\
+ \arctan(\sqrt 2 y -1)&= -\frac{\pi}{2}+\frac{1}{\sqrt 2 y}+\frac{1}{2 y^2}+\frac{1}{3 \sqrt 2 y^3} ...\\
+ \ln(y^2+\sqrt 2 y+1)&=  2 \ln y + \frac{\sqrt 2} {y}-\frac{\sqrt 2}{3y^3} ...\\
+ \ln(y^2-\sqrt 2 y+1)&= 2 \ln y - \frac{\sqrt 2} {y}+\frac{\sqrt 2}{3y^3}...\ \text{.}
+\end{align*}
+Pre celý rozvoj $F(y)$ dostávame:
+\begin{equation}
+ \label{eq:aa_primitive_func_taylor}
+F(y)\doteq \frac{1}{2\sqrt2\pi} - \frac{1}{3y^3}\text{.}
+\end{equation}
+Za $y$ dosadíme $y_{max}=\sqrt\frac{\hbar}{3\tau \epsilon}$ v našom prípade uvažujeme $\epsilon$ len do prvého rádu,
+teda členy $\frac{1}{3y^3}$ a vyššie zanedbáme.
+
+Pre \eqref{eq:aa_int2_capped} sme dostali rovnaký výsledok  ako pre \eqref{eq:aa_int2}:
+\begin{equation}
+ \label{eq:aa_int2_capped_final}
+  \frac{2}{\pi}a\int_0^{\sqrt\frac{\hbar}{3\tau \epsilon}} dy \frac{1}{1+y^4}=\sqrt{\frac{|\epsilon|}{\hbar D k_s^2}} \frac{1}{\sqrt{2}}\text{.}
+\end{equation}
+
+ Pre tretí integrál dostaneme:
+ \begin{equation}
+  \label{eq:aa_int3_capped}
+  \frac{2a^3}{\pi}\int_0^{(k_sl)^{-1}}\frac{y^2}{1+y^4}=a^3G(x)\text{.}
+ \end{equation}
+
+Primitívnu funkciu $G(x)$ vieme vypočítať podobne ako \eqref{eq:aa_primitive_func}. Prenásobením $a^3$ však dostaneme všetky členy rádu $\epsilon^{\frac{3}{2}}$ a vyššie, teda celý tretí integrál zanedbáme.
+
+Po zavedení ďalších substitúcii pre $U_{co}=2\hbar D k_s^2$ a $U_i=\frac{e^2}{4\pi \epsilon_0 k_s^{-1}}$ vzťah
+\eqref{eq:aa_selfenergy_der_subst1} prejde na:
+\begin{equation}
+\label{eq:aa_selfenergy_der_final}
+\frac{dE_{self}}{d\epsilon}=\frac{2 U_i}{\pi U_{co}}[1+\frac{4 \epsilon^2}{U_{co}^2}]^{-1}\frac{2}{\pi l k_s}[1-l k_s \frac{\pi\sqrt\epsilon}{2\sqrt{2\hbar D k_s^2}}]\text{,}
+\end{equation}
+kde členy vyššieho rádu ako $\epsilon^{\frac{1}{2}}$ zanedbáme, teda platí
+\begin{equation}
+\label{eq:aa_selfenergy_der_final}
+\frac{dE_{self}}{d\epsilon}=\frac{2 U_i}{\pi U_{co}}\frac{2}{\pi l k_s}[1-l k_s \frac{\pi\sqrt\epsilon}{2\sqrt{2\hbar D k_s^2}}]\text{.}
+\end{equation}
+Výraz  \eqref{eq:aa_selfenergy_der_final} dosadíme do rovnice pre hustotu stavov \eqref{eq:aa_dos2}.
 \begin{equation}
  \label{eq:aa_dos3}
  \rho(E)=\rho_0(E_F)[1-\frac{4 U_i}{\pi^2 U_{co} lk_s}+\frac{2U_i }{\pi U_{co} \sqrt{2\hbar Dk_s^2}}\sqrt\epsilon ]\text{.}
@@ -267,117 +321,5 @@ Zostáva nám už len vyjadriť si substituované členy. Po dosadení za substi
 $k_s=\sqrt{\frac{e^2 \rho_0(E_F)}{\epsilon_0}}$ dostaneme finálny Altshuler-Aronovovov vzťah pre hustotu stavov
 \begin{equation}
  \label{eq:aa_dos_final}
- \rho_3(E)=\rho(E_F)+\frac{\sqrt{|E-E_F|}}{4\sqrt 2 \pi^2 (\hbar D)^{3/2}}\text{.}
+ \rho(E)=\rho(E_F)+\frac{\sqrt{|E-E_F|}}{4\sqrt 2 \pi^2 (\hbar D)^{3/2}}\text{.}
 \end{equation}
-
-
-%%%%%% POTENCIALY %%%%%%%%
-Vypočítali sme hustotu stavov v disorderovanom systéme v 3D priestore. V nasledujúcich 
-kapitolách budeme potrebovať aj 2D a 1D prípady. 
-
-Aproximácia cez difúznu rovnicu a maticový element, na základe ktorého sme vypočítali 3D  
-prípad platí aj  v iných dimenziách. Jeden rozdiel vo výpočtoch hustoty stavov 2D a 1D však bude v integračných 
-súradniciach a jakobiánoch. Druhý rozdiel bude vo fourierových transformáciach 
-Yukkavovského potenciálu. Tieto transformácie, vzhľadom na zdĺhavosť výpočtov nebudeme odvodzovať, iba ich uvedieme: \cite{Altshuler4}
-
-
-\begin{equation}
-\label{eq:01pot2D}
-V_2(\vq)=\frac{1}{2\epsilon_0}\frac{e^2}{|q|+|k_2|}
-\end{equation}
-\begin{equation}
-\label{eq:01pot1D}
-V_1(q)=\frac{1}{4\pi\epsilon_0}\frac{e^2}{e^2\rho_0+ln^{-1}(\frac{1}{q^2a^2})}
-\end{equation}
-Kde  $k_2=2\pi e^2 \rho_0$  je recipro4n8 tieniaca dĺžka v 2D.  
-
-V oboch prípadoch môžme pri dostatočne malom ohraničení intehrálu cez $d\vq$ 
-uvažovať limitu $q \to 0$, čo dáva vo všetkých prípadochako konštantný potenciál 
-\begin{equation}
-\label{eq:01potAppr}
-V(q)=\frac{1}{\rho_0} \text{.}
-\end{equation}
-
-Teraz nám už zostáva iba riešiť rovnicu \eqref{eq:aa_selfenergy_der} dosadením potenciálu
-\eqref{eq:01potAppr} za $V(\vq)$. Najskôr počítame pre 2D
-\begin{equation}
- \frac{dE_{self}(\epsilon)}{d\epsilon}= \frac{\hbar D}{2\pi^2}\frac{1}{\rho_0} \int_0^{\frac{\sqrt{2}}{l}} dq \frac{ q^3}{(\hbar Dq^2)^2+(\epsilon)^2} \text{.}
-\end{equation}
-Tento integrál je ľahko vyčísliteľný , stačí použiť substitúciu $x=\hbar^2D^2q^4$. Dostaneme výsledok
-\begin{equation}
-\label{eq:01dE2D_1}
-\frac{dE_{self}(\epsilon)}{d\epsilon}= \frac{1}{8\pi^2 \rho_0 \hbar D} ln (\frac{1+(\frac{\epsilon}{\epsilon_0})^2}{(\frac{\epsilon}
- {\epsilon_0})^2})\text{,}
-\end{equation}
-kde $\epsilon_0=\hbar D \frac{\sqrt 2}{l}$. Pre malé $\epsilon$, teda pre energie v okolí 
-Fermiho energie, môžme člen $(\frac{\epsilon}{\epsilon_0})^2$ v čitateli  
-\eqref{eq:01dE2D_1} zanedbať. Potom vieme exponent vyňať pred logaritmu a dostaneme
-\begin{equation}
-\label{eq:01dE2D_2}
-\frac{dE_{self}(\epsilon)}{d\epsilon}= -\frac{1}{4\pi^2 \rho_0 \hbar D} ln(\frac{\epsilon}
-{\epsilon_0})\text{.}
-\end{equation}
-Teraz nám stačí len dosadiť za $\epsilon_0$ a následne upraviť \eqref{eq:01dE2D_2}
- pomocou vzťahov $l=v_F\tau$ a $D=\frac{1}{2}v_F l$. Dostaneme finálny vzťah
- \begin{equation}
- \label{eq:01dE2Dfinal}
- \frac{dE_{self}(\epsilon)}{d\epsilon}= -\frac{1}{4\pi^2 \rho_0 \hbar D} ln(\frac{\tau\epsilon}
-{\hbar})\text{.}
- \end{equation}
- 
- Hustota stavov podľa rovnice \eqref{eq:aa_dos2} bude
- \begin{equation}
- \label{eq:01dos__2D} 
- \rho_2(E)=\rho_{02}(E_F)[1-\frac{1}{4\pi^2 \rho_0 \hbar D} ln(\frac{\tau(|E-E_F|)}
-{\hbar})]
- \end{equation}
- Na rozdiel od 3D prípadu \eqref{eq:aa_dos_final}, kde sme dostali odmocninovú závislosť, 
-v 2D prípade  \eqref{eq:01dE2Dfinal} máme logaritmickú závislosť.
-
-V 1D prípade nemusíme zamieňať súradnice, integrujeme rovno cez jednorozmernú 
-premennú $q$.
-
-\begin{equation}
- \label{eq:aa_selfenergy_der}
- \frac{dE_{self}(\epsilon)}{d\epsilon}=\frac{\hbar D}{2\pi}\int_0^\infty dq\frac{ q^2}{(\hbar Dq^2)^2+(\epsilon)^2}\text{.}
-\end{equation}
-
-Tento integrál nieje až tak triviálny ako v 2D prípade. Vieme ho upraviť do tvaru:
-
-\begin{equation}
-\frac{1}{2\pi^2\epsilon_0 q_0 \rho_0}\int_0^{1} dx \frac{x^2}{x^4+\alpha^2}
-\end{equation}
-kde $\epsilon_0=\sqrt{\frac{\hbar D}{\epsilon}}$ a $\alpha=\frac{\epsilon}{\epsilon_0}$. Určíme primitívnu funkciu
-\begin{equation}
-\label{eq:01prim}
-P(x)=\frac{1}{2\pi^2\epsilon_0 q_0 \rho_0}\frac{1}{4\sqrt {2 \alpha} }[ F(x)-G_1(x)+G_2(x)] \text{,}
-\end{equation}
-kde
-\begin{align}
-F(x)&=\ln(\frac { x^2+\alpha-\sqrt{2\alpha}x }{ x^2+\alpha+\sqrt{2\alpha}x })\\
-G_1(x)&=2\arctan(1+\sqrt{\frac{2}{ \alpha}}x)\\
-G_1(x)&=2\arctan(1-\sqrt{\frac{2}{ \alpha}}x) \text{.}
-\end{align}
- Teraz vyhodnotíme primitívnu funkciu \eqref{eq:01prim}.
- 
-  Vidíme, že $P(0)=0$ pretože funkcia  $F$ má nulovú hodnotu  a $G_1$ a $G_2$ sa odčítajú na nulu. 
-  
-  Pre $P(1)$ môžme urobiť nasledovnú aproximáciu. Stále sme v oblasti v okolí Fermiho 
-  energie, teda $\epsilon << 1$ a taktiež $\alpha<<1$. Môžme preto predpokladať $F(1)=0$.
-Zostáva teda vyčísliť funkcie $G_1$ a $G_2$. Tie môžme pre $\alpha$ idúce do nuly napísať ako $G_1=2\pi$ a $G_2=-2\pi$. Z toho dostávame 
-
-\begin{equation}
-\label{eq:01primApprox}
-P(1)=\frac{1}{2\pi^2\epsilon_0 q_0 \rho_0}\frac{1}{4\sqrt {2 \alpha} } 4\pi
-\end{equation}    
-
-Po aritmetických úpravách a dosadeniach dostávame.
-\begin{equation}
-\frac{dE_{self}(\epsilon)}{d\epsilon}=\frac{1}{2\sqrt{2}\pi \sqrt{\hbar D\epsilon}}
-\end{equation}
-Znova dosadíme do \eqref{eq:aa_dos2} a dostaneme
-\begin{equation}
-\label{eq:01dos2D}
-\rho_1(E)=\rho_{01}[1-\frac{1}{2\sqrt{2}\pi \sqrt{\hbar D|E-E_F|}}]
-\end{equation}
- 

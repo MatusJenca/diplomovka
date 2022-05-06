@@ -1,2 +1,62 @@
 
-Úvod
+V teoretických prácach Altshulera a Aronova \cite{Altshuler1},\cite{Altshuler3},\cite{Altshuler4} bolo ukázané,
+ že elektrón-elektrónová (e-e) interakcia v trojrozmernej (3D) kovovej vzorke obsahujúcej slabý prímesný disorder spôsobuje potlačenie jednoelektrónovej hustoty
+ stavov v okolí Fermiho energie ($E_F$) v porovnaní s hustotou stavov v čistom kove. Konkrétne, Altshuler a Aronov \cite{Altshuler1},\cite{Altshuler3},\cite{Altshuler4} urobili kvantovomechanický výpočet hustoty
+stavov v degenerovanom plyne elektrónov, ktoré interagujú navzájom prostredníctvom tienenej Coulombovskej interakcie a naviac interagujú aj 
+s náhodným potenciálom pochádzajúcim od prímesného disorderu. E-e interakciu vzali do úvahy vo Fockovom priblížení v prvom ráde poruchovej teórie a
+vplyv disorderu na vlnové funkcie elektrónov započítali tak, aby vlnová funkcia elektrónu v disorderi popisovala semiklasickú elektrónovú difúziu na časových škálach oveľa dlhšich ako je čas
+$\tau$, za ktorý elektrón absolvuje jednu pružnú zrážku s prímesným disorderom.    
+ 
+
+
+ Výpočty Altshulera a Aronova \cite{Altshuler1},\cite{Altshuler3},\cite{Altshuler4} ukázali,
+ že potlačená hustota stavov v okolí $E_F$ závisí od energie elektrónu $E$ ako $\sqrt{|E-E_F|}$ pre $|E-E_F| \lesssim U_{co}$, kde $U_{co}$
+ je charakteristická korelačná energia. (Neskôr budeme vidieť, že v kove s $E_F \simeq 10$ $eV$ a $\hbar/\tau \ll E_F$ je
+ $U_{co}$ zhruba  $\hbar/\tau$.)
+ Hustota stavov $\propto \sqrt{|E-E_F|}$ pre energie $|E-E_F| \lesssim U_{co}$ bola experimentálne potvrdená tunelovou spektroskopiou \cite{Abeles},\cite{Dynes},\cite{McMillan2}
+\cite{ImryOvadyahu}, \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero}, \cite{Teizer}, \cite{Mazur},\cite{Luna2014}, \cite{Luna2015} a fotoelektrónovou spektroskopiou \cite{Kobayashi}.
+
+V niektorých experimentoch \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero},\cite{Mazur}, \cite{Kobayashi}
+bola interakciou a disorderom modifikovaná hustota stavov pozorovaná aj pre energie $|E-E_F| > U_{co}$, teda aj pre energie, kde teória Alshulera a Aronova už neplatí. Experiment v práci \cite{Mazur} ukázal, že hustota stavov v prítomnosti AA javu vykazuje pre $|E-E_F| > U_{co}$ tzv. stavy zachovávajúcu závislosť od energie, podobnú tej ktorá sa pozoruje po oboch stranách
+energetickej medzery v supravodiči. Inými slovami \cite{Mazur},
+stavy vypudené AA efektom z oblasti $|E-E_F| \lesssim U_{co}$ majú tendenciu sa nakopiť hneď nad energiou $U_{co}$ v oblasti veľkosti dva a až tri krát $U_{co}$.
+To znamená, že pre $|E-E_F| > U_{co}$ hustota stavov najprv hodnotu v čistom kove
+výrazne prevýši a až následne k nej skonverguje zvrchu \cite{Mazur}.
+
+Experimentálne pozorovaná \cite{Mazur} stavy zachovávajúca hustota stavov pre energie $|E-E_F| > U_{co}$  však nebola porovnaná s teóriou, nakoľko Altshuler-Aronovova teória  \cite{Altshuler1}, \cite{Altshuler3}, \cite{Altshuler4},  \cite{LeeRamakrishnan}, \cite{Imry} platí len pre $|E-E_F| \lesssim U_{co}$. Pre $|E-E_F| > U_{co}$ teoretici \cite{hlubina} zvyčajne hustotu stavov nahrádzajú jej hodnotou v čistom kove, alebo prípadne ukazujú \cite{rabatin}, že potlačená hustota stavov pre
+$|E-E_F| > U_{co}$ konverguje k svojej hodnote v čistom kove zospodu. Vyssie spomenutý experiment \cite{Mazur} vsak ukazuje, ze hustota stavov pre $|E-E_F| > U_{co}$ najprv hodnotu v čistom kove
+prevýši a potom sa k nej blíži zvrchu. 
+
+Experiment \cite{Mazur} nie je ojedinelý. 
+Nedávno bolo ukázané \cite{Moskova}, že stavy zachovávajúca hustota stavov pozorovaná v práci \cite{Mazur} bola prítomná (ale zostala nepovšimnutá) aj v starších experimentoch \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero}. V praci \cite{Moskova} bola teoreticky odvodená aj stavy zachovávajúca hustota stavov, odvodenie však bolo len heuristické - nevychádzalo z mikroskopickej teórie.
+
+V tejto práci chceme teoreticky skúmať vplyv e-e interakcie a disorderu na
+hustotu elektrónových stavov v kove práve pre stavy s energiami $|E-E_F| > U_{co}$, pre ktoré teória Altshulera-Aronova neplatí a hustota stavov sa aproximuje konštantou zodpovedajúcou hustote stavov v čistom kove. Altshuler a Aronov vo svojej teórii použili elektrónovú vlnovú funkciu, ktorá pohyb elektrónu v disorderi popisuje ako semiklasickú difúziu na časoch oveľa dlhších ako zrážkový čas $\tau$. Práve toto  obmedzilo platnosť ich teórie na energie $|E-E_F| \lesssim U_{co}$, kde $U_{co} \simeq \hbar/\tau$.
+ 
+ V našom výpočte hustoty stavov vezmeme vplyv disorderu na vlnovú funkciu elektrónu do úvahy v selfkonzistentnej Bornovej aproximácii, ktorá platí pre časy kratšie ako čas $\tau$ a teda pre energie $|E-E_F|  \gtrsim \hbar/\tau$. Novým bude aj spôsob, akým do hustoty stavov započítame stavy pre $q > 1/l$, kde $l = v_F \tau$ je stredná volná dráha pre zrážky s prímesami a $q$ je zmena vlnového vektora spôsobená e-e interakciou. Príspevok od stavov pre $q > 1/l$  započítame
+ explicitne ako príspevok od stavov v čistom kove s Fockovou tienenou e-e interakciou. 
+ 
+  Na záver náš výpočet hustoty stavov pre energie $|E-E_F|  \gtrsim \hbar/\tau$ skombinujeme s Alshuler-Aronovovou teóriou pre $|E-E_F|  \lesssim \hbar/\tau$. Dostaneme výsledky, ktoré sú v rozumnej a systematickej zhode so stavy zachovávajúcou hustotou stavou pozorovanou experimentálne \cite{Mazur}, \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero}, \cite{Moskova}. Experimentálny fakt \cite{Mazur}, že stavy vypudené AA efektom z oblasti $|E-E_F| \lesssim U_{co}$ majú tendenciu sa nakopiť hneď nad energiou $U_{co}$ v oblasti veľkosti dva a až tri krát $U_{co}$, sa ukáže byť generickou vlastnosťou našej teórie.
+
+
+Text našej práce je zostavený nasledovne. Kapitola 1 obsahuje úvod do Hartree-Fockovej aproximácie pre interagujúce
+ elektróny v kovovom kryštali, zavedenie modelu želé a odvodenie jednoelektrónového disperzného zákona pre degenerovaný plyn voľných elektrónov interagujúcich vo Fockovej aproximácii. 
+ Fockov disperzný zákon je odvodený pre holú coulombovskú e-e interakcie a tienenú coulombovskú e-e interakciu, sú ukázané príslušné hustoty stavov.
+ 
+ V kapitole 2 začíname diskutovať otázku ako vplýva na hustotu elektrónových stavov e-e interakcia a disorder a prezentujeme v nej odvodenie výsledkov 
+ Altshulera-Aronova \cite{Altshuler1},\cite{Altshuler3},\cite{Altshuler4}. 
+ Na rozdiel Altshulera a Aronova, ktorí používali metódu Greenových funkcií, používame len elementárnu kvantovú mechaniku.
+ 
+Poznamenajme, že kapitoly 1 a 2 sú zostručnenou a vyčistenou verziou našej bakalárskej práce \cite{}. Obsahujú viac menej známe výsledky, poskytujú však nevyhnutne potrebný fyzikálny úvod ku našim
+vlastným výpočtom v kapitolách 3-4, kde sa na ne často odvolávame. 
+
+Nový príspevok našej práce k súčasnému stavu problematiky je uvedený v kapitolách 3-4. V kapitole 3 odvádzame hustotu stavov pre degenerované elektróny, ktoré interagujú navzájom cez Fockovu tienenú coulombovskú interakciu
+a s disorderom v self-konzistnentnej Bornovej aproximácii. Self-konzistentná Bornova aproximácia je platná pre energie $|E-E_F| \gtrsim \hbar/\tau $, čo znamená, že naše odvodenie je komplementárne k teórii Altshulera a Aronova, ktorá platí pre $|E-E_F| \lesssim \hbar/\tau $. Príspevok od stavov pre $q > 1/l$  započítavame
+ako príspevok od stavov v čistom kove, pričom berieme explicitne do úvahy Fockovu tienenú e-e interakcu. 
+
+V kapitole 4 náš výpočet hustoty stavov pre energie $|E-E_F|  \gtrsim \hbar/\tau$ kombinujeme s Altshuler-Aronovovou teóriou pre $|E-E_F|  \lesssim \hbar/\tau$ a získané
+numerické výsledky prezentujeme graficky. Konštatujeme ich rozumný súhlas s experimentom. 
+
+V závere našej práce je zaradený obsiahly dodatok, v ktorom je ukázané, ako sa z Kubovej-Greenwoodovej kvantovej vodivosti dá odvodiť klasická Drudeho vodivosť. 
+Kvantová vodivosť dáva klasickú vodivosť vtedy, keď sa vlnová funkcia elektrónu interagujúceho s disorderom uvažuje v self-konzistentnej Bornovej aproximácii.
+Odvodenie Drudeho vodivosti uvedené v dodatku  nás inšpirovalo k využitiu self-konzistentnej Bornovej aproximácie pri výpočte hustoty stavov v kapitole 3, ktoré je technicky podobné. 
