@@ -2,11 +2,11 @@
 \contentsline {paragraph}{Poďakovanie}{5}{section*.1}%
 \contentsline {section}{Úvod}{8}{section*.5}%
 \contentsline {section}{\numberline {1}Interagujúce elektróny v čistom kove: Hartreeho - Fockova aproximácia pre model želé}{11}{section.1}%
-\contentsline {section}{\numberline {2}Interagujúce elektróny v kove s disorderom : Altshuler-Aronovova aproximácia}{22}{section.2}%
-\contentsline {section}{\numberline {3}Experimentálne meranie hustoty stavov v disorderovanom kove}{29}{section.3}%
+\contentsline {section}{\numberline {2}Elektrón-elektrónová interakcia v kove s disorderom : Jav Altshulera - Aronovova}{22}{section.2}%
+\contentsline {section}{\numberline {3}Experimentálne meranie hustoty stavov v disorderovanom kove}{27}{section.3}%
 \contentsline {section}{\numberline {4}Odvodenie Kubovej Formuly}{32}{section.4}%
 \contentsline {section}{\numberline {5}Fyzikálne odvodenie Thoulessovho ansatzu pre kov s disorderom}{39}{section.5}%
 \contentsline {section}{\numberline {6}Výpočet hustoty stavov Thoulesovým ansatzom}{42}{section.6}%
 \contentsline {section}{\numberline {7}Výsledky numerického výpočtu hustoty stavov}{46}{section.7}%
-\contentsline {section}{Záver}{51}{section*.15}%
-\contentsline {section}{Zoznam použitej literatúry}{51}{section*.16}%
+\contentsline {section}{Záver}{51}{section*.17}%
+\contentsline {section}{Zoznam použitej literatúry}{51}{section*.18}%

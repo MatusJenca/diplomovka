@@ -138,9 +138,53 @@ kde sme v poslednom riadku zanedbali závislosť transmisného koeficientu $t(k_
 Takto upravené vzťahy dosadíme do rovnice pre celkový prúd prechádzajúci sústavou \eqref{eq:02current} a dostaneme 
 \begin{equation}
 \label{eq:02current2}
-I=e\frac{4\pi|t^2|}{\hbar}\int_{E_{cl}}^\infty dE_l\rho_l(E_l)\rho_r(E_l)(f_l(E_l)-f_r(E_l)) \text{,}
+I=e\frac{4\pi|t|^2}{\hbar}\int_{E_{cl}}^\infty dE_l\rho_l(E_l)\rho_r(E_l)(f_l(E_l)-f_r(E_l)) \text{,}
 \end{equation}
 kde sme navyše využili $\delta$-funkciu a zbavili sa integrovania cez $E_r$. 
 
 
 V limite nízkych teplôt $T \simeq 0$ Fermi-Diracove funkcie prejdú na $\Theta$-funkcie. Preto dostávame
+\begin{align}
+I=e\frac{4\pi|t|^2}{\hbar}[\int_{E_{cl}}^{\mu_l}dE_l-\int_{E_{cl}}^{\mu_r}dE_l\rho_r(E_l)\rho_l(E_l)]\text{,}
+\end{align}
+Chemické potenciály na ľavej a pravej strane bariéry $\mu_r$ a $\mu_l$ sa líšia o $-Ue$ teda integrál napíšeme ako
+\begin{align}
+\label{eq:02current3}
+I = e \frac{4\pi|t|^2}{\hbar}\int_{\mu_r}^{\mu_r-Ue}dE_l\rho_r(E_l)\rho_l(E_l)\text{.}
+\end{align}
+ Na ľavej strane bariéry je známy kov bez disorderu. Jeho hustota stavov sa v okolí Fermiho energie dá aproximovať konštantou. Fermiho energia (a teda aj chemický potenciál naľavo $\mu_l$ i napravo $\mu_r$ )je rádovo $E_F\sim\SI{10}{\eV}$ a rozdiel enregí je rádovo $eU\sim \SI{100}{\milli\eV}$, teda na celom intervale integrálu v
+\eqref{eq:02current3} možno nahradiť hustotu stavov $\rho_l(E_l)$ konštantou $\rho_1(\mu_l)$, čiže hustotou stavov na Fermiho hladine. Konštantu vyjmeme pred integrál a dostaneme
+\begin{align}
+I = e \frac{4\pi|t|^2}{\hbar}\rho_l(\mu_l)\int_{\mu_r}^{\mu_r-Ue}dE_l\rho_r(E_l)\text{,}
+\end{align}
+teda pre diferenciálnu vodivosť dostaneme
+\begin{align}
+\label{eq:02diff}
+\frac{d I}{d U}=e\frac{4\pi|t|^2}{\hbar}\rho_l(\mu_l)\rho_r(\mu_r-Ue)
+\end{align}
+Diferenciálnu vodivosť vieme experimentálne merať, a to určením voltampérovej charakteristiky. Preto z \eqref{eq:02diff} vyjaderíme jedinú neznámu veličinu, hustotu stavov skúmaného kovu napravo. Dostaneme priamu úmernosť medzi difernciálnou vodivosťou a hustotou stacvov 
+\begin{align}
+\rho_r(\mu_r-Ue)=\alpha \frac{d I}{d U} \text{,}
+\end{align}
+kde $\alpha=\frac{\hbar}{4\pi|t|^2e}$ je konštanta úmernosti. 
+
+Hustotu stavov meriame určením voltampérovej charakteristiky sústavy {\it známy} kov - bariéra (izolant) - {\it skúmaný} kov, ktorá je po prenásobení konštantou $\alpha$ hustota stavov. {\it Známy} kov musí byť čistý (bez disorderu) aby sme v okolí Fermiho energie mohli použiť parabolický disperzný zákon a týmpádom aproximáciu $\rho_l(E_l)\approx\rho_l(\mu_l)$. 
+
+Pri meraní vložíme najskôr na obe strany čistý kov, a určíme jeho diferenciálnu vodivosť, ktorú označíme  $G_0(U)$. Potom meriame diferenciálnu vodivosť sústavy s disorderovaným kovom napravo $G(U)=\frac{dI(U)}{dU}$. 
+
+Pre hustotu stavov skúmaného kovu dostaneme:
+\begin{align}
+\frac{\rho_r(E)}{\rho_l(E_F)} = \frac{G(U)}{G_0(U)}
+\end{align}
+
+Kde $\rho_l(E_F)$ je daná parabolickým disperzným zákonom.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{grafy/DOS-cropped}
+\caption{Meranie hustoty stavov tunelovou spektroskopiou. V experimente máme "čistý" a "disorderovaný" kov oddelené tenkou vrstvou izolantu. Meraná veličina je difernciálna vodivosť $\frac{d I}{d U}$}. 
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{grafy/B2}
+\caption{Výsledky merania hustoty stavov tunelovou spektroskopiou pre rôzne zliatiny. Vo výsledných grafoch môžme vidieť pokles hustoty stavov v okolí Fermiho Energie, podľa predpovedí Altschulera-Aronova. Zároveň vidíme  nárast hustoty stavov v oblasti ďalej od $E_F$.}
+\end{figure}
