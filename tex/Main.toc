@@ -7,6 +7,6 @@
 \contentsline {section}{\numberline {4}Odvodenie Kubovej Formuly}{32}{section.4}%
 \contentsline {section}{\numberline {5}Fyzikálne odvodenie Thoulessovho ansatzu pre kov s disorderom}{39}{section.5}%
 \contentsline {section}{\numberline {6}Výpočet hustoty stavov Thoulesovým ansatzom}{42}{section.6}%
-\contentsline {section}{\numberline {7}Výsledky numerického výpočtu hustoty stavov}{46}{section.7}%
-\contentsline {section}{Záver}{51}{section*.17}%
-\contentsline {section}{Zoznam použitej literatúry}{51}{section*.18}%
+\contentsline {section}{\numberline {7}Výsledky numerického výpočtu hustoty stavov}{48}{section.7}%
+\contentsline {section}{Záver}{54}{section*.17}%
+\contentsline {section}{Zoznam použitej literatúry}{54}{section*.18}%
