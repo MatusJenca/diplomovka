@@ -1,0 +1,648 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%dodatky
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newpage
+  \appendix
+  \section*{Dodatok A}
+  \addcontentsline{toc}{section}{Dodatok A}
+  \markboth{Dodatok A}{Dadatok A}
+  %  \input{AppendixA}
+
+\section{Kubova-Greenwoodova formula}
+\label{sec:kubo A}
+
+V tomto dodatku odvodíme Kubovu Greenwoodovu formulu pre kvantovú vodivosť kovu s disorderom. Uvažujme kovovú vzorku. Nech na elektróny vo vzorke pôsobí časovo závislá porucha
+\begin{align}
+\label{eq:03potential}
+V(t)=V\cos \omega t = -eEx \cos \omega t \mathrm{,}
+\end{align}
+kde $E$ je elektrické pole pôsobiace v smere $x$. Predpokladajme, že porucha začala pôsobiť v čase $t=t_0$.
+V neprítomnosti poruchy sú elektrónové stavy opísané stacionárnou Schrodingerovou rovnicou
+\begin{align}
+\label{eq:03schr}
+\hat{H} \Phi_j(\vr)= \epsilon_j\Phi_j(\vr) \mathrm{,}
+\end{align}
+ktorej Hamiltonián
+\begin{align}
+\label{eq:03Hamiltonian}
+\hat{H}= - \frac{\hbar^2}{2m}\laplace \vr + V_{dis}(\vr) \mathrm{}
+\end{align}
+obsahuje náhodný potenciál disorderu $V_{dis}(\vr)$. Po zapnutí poruchy \eqref{eq:03potential}
+bude vlnová funkcia elektrónu $\Psi(\vr,t)$ v časoch $t>t_0$ opísaná časovo závislou Schrodingerovou rovnicou
+\begin{align}
+\label{eq:03timeschr}
+i\hbar\ \frac{\partial}{\partial t} \Psi(\vr,t) = (\hat{H} + V(t))\Psi(\vr,t)\mathrm{.}
+\end{align}
+Rovnicu \eqref{eq:03timeschr} riešime pomocou časovo závislej poruchovej teórie. Funkciu $\Psi(\vr,t)$ rozvinieme do stacionárnych stavov $\phi_j(\vr)$:
+\begin{align}
+\label{eq:03stac}
+\Psi(\vr,t)=\sum_j c_{ji}(t)\Phi_j(\vr)e^{-\frac{i}{\hbar}\epsilon_jt} \mathrm{,}
+\end{align}
+kde $c_{ji}(t)$ je amplitúda pravdepodobnosti, že elektrón, ktoý bol v čase $t=t_0$ v stacionárnom stave $\phi_i(\vr)$, sa v čase $t=t_0$ bude nachádzať v stave $\phi_j(\vr)$. V čase $t=t_0$ teda platí
+\begin{align}
+\label{eq:03cji0}
+c_{ji}(t_0)=\delta_{ji}
+\end{align}
+Rozvoj \eqref{eq:03stac} dosadíme do rovnice \eqref{eq:03timeschr}, obe strany rovnice prenásobíme $\Phi^{\ast}_f(\vr)e^{\frac{i}{\hbar}\epsilon_f t}$, kde $\Phi_f(\vr)$ a $\epsilon_f$ sú vlnová funkcia a energia finálneho stavu $f$, a integrujeme cez normalizačný objem $\Omega$.
+Dostaneme
+\begin{align}
+\label{eq:03timeschr_expanded}
+i\hbar\frac{\partial}{\partial t}c_{fi}(t)=\sum_j c_{ji}(t) V_{fj}(t)e^{-\frac{i }{\hbar}\epsilon_{fj} t} \mathrm{,}
+\end{align}
+kde $\epsilon_{fj} \equiv \epsilon_f - \epsilon_j$ a
+\begin{equation}
+V_{fj}(t) \equiv \int_{\Omega}d\vr \Phi_f^{\ast}(\vr)V(t)\Phi_j(\vr)  \text{.}
+\end{equation}
+V prvom ráde poruchovej teórie robíme na pravej strane rovnice  \eqref{eq:03timeschr_expanded} aproximáciu $c_{ji}(t) \simeq c_{ji}(t_0) = \delta_{ji}$,
+takže rovnica \eqref{eq:03timeschr_expanded} nadobudne tvar
+\begin{align}
+\label{eq:03born_appr}
+i\hbar\frac{\partial}{\partial t}c_{fi}(t)=V_{fi}(t)e^{-\frac{i}{\hbar}\epsilon_{fi} t}\mathrm{.}
+\end{align}
+Integrovaním cez čas dostaneme
+\begin{align}
+\label{eq:03cfi}
+c_{fi}(t) = \frac{1}{i\hbar} \int_0^t dt' V_{fi}(t')e^{\frac{-i}{\hbar}\epsilon_{fi} t'} \text{.}
+\end{align}.
+Maticový element $V_{fi}(t)$ prepíšeme ako $V_{fi}(t)=V_{fi}(e^{i\omega t}+e^{-i\omega t})$, kde
+\begin{equation}
+\label{eq:03Vfi}
+V_{fi} \equiv \int_{\Omega} d\vr \Phi_f^{*}(\vr)(\frac{-eEx}{2})\Phi_i(\vr) \text{.}
+\end{equation}
+Po integrácii cez čas dostaneme
+\begin{align}
+\label{eq:03cfi_final}
+c_{fi}(t)=\frac{1}{i\hbar}V_{fi}\left[\frac{e^{\frac{i}{\hbar}(\epsilon_{fi} - \hbar\omega)t}-1}{\frac{i}{\hbar}(\epsilon_{fi}-\hbar\omega)}+\frac{e^{\frac{i}{\hbar}(\epsilon_{fi} + \hbar\omega)t}-1}{\frac{i}{\hbar}(\epsilon_{fi}+\hbar\omega)}\right] \text{.}
+\end{align}
+Prenásobením \eqref{eq:03cfi_final} komplexne združeným $c_{fi}(t)$  dostaneme
+\begin{align}
+\label{eq:03prob}
+|c_{fi}(t)|^2=c_{fi}(t)c_{fi}^*(t)
+&
+=\mid V_{fi}\mid^{2}\ \frac{t^{2}}{\hbar^{2}}
+\left[
+\sinc^{2}\left\lbrace\frac{(\epsilon_{fi}-\hbar\omega)t}{2\hbar}\right\rbrace
++\sinc^{2}\left\lbrace\frac{(\epsilon_{fi}+\hbar\omega)t}{2\hbar}\right\rbrace
+\right.
+\\
+&
+\left.
++2
+\cos(\omega t)
+ \sinc\left\lbrace\frac{(\epsilon_{fi}-\hbar\omega)t}{2\hbar}\right\rbrace
+ \sinc\left\lbrace\frac{(\epsilon_{fi}-\hbar\omega)t}{2\hbar}\right\rbrace
+\right]
+\text{,} \notag
+\end{align}
+kde sme zaviedli označenie
+\begin{align}
+\sinc(x)=\frac{\sin(x)}{x}\text{.}
+\end{align}
+Hľadáme pravdepodobnosť prechodu za jednotku času z $f$ do $i$, $\frac{|c_{fi}(t)|^2}{t}$, v limite dlhých časov,
+\begin{align}
+\label{eq:03wfi}
+W_{fi}=\lim_{t\to \infty} \frac{|c_{fi}(t)|^2}{t} \text{.}
+\end{align}
+Keď dosadíme \eqref{eq:03prob} do  \eqref{eq:03wfi}, získame rovnicu, ktorá má na prave strane tri členy.
+Tretí člen je v limite $t\to \infty$ nulový, prvé dva členy upravíme pomocou vzťahu
+\begin{align}
+t^{2}\ \sinc^{2}\left\lbrace\frac{(\epsilon_{fi}\pm \hbar\omega)t}{2\hbar}\right\rbrace
+\to
+2\pi\hbar t \ \delta(\epsilon_{fi}\pm \hbar\omega)
+\text{.}
+\end{align}
+Dostávame výsledok
+\begin{equation}
+W_{fi}=
+\frac{2\pi}{\hbar}|V_{fi}|^2[\delta(\epsilon_{i}-\epsilon_{i}-\hbar\omega)
++\delta(\epsilon_{f}-\epsilon_{i}+\hbar\omega)]\\
+\end{equation}
+kde
+\begin{equation}
+W_{fi}^{\mathrm{ABS}} =\frac{2\pi}{\hbar}|V_{fi}|^2\delta(\epsilon_{f}-\epsilon_{i}-\hbar\omega)
+\end{equation}
+je pravdepodobnosť prechodu z $f$ do $i$ absorpciou kvanta $\hbar\omega$ a
+\begin{equation}
+W_{fi}^{\mathrm{EMIS}}=\frac{2\pi}{\hbar}|V_{fi}|^2\delta(\epsilon_{f}-\epsilon_{fi}+\hbar\omega)\text{}
+\end{equation}
+je pravdepodobnosť prechodu z $f$ do $i$ emisiou kvanta $\hbar\omega$.
+
+Celkový výkon $A$, ktorý od striedavého elektrického poľa získajú za jednotku času všetky  elektróny vo vzorke s objemom $\Omega$,
+môžeme vyjadriť kvantovomechanicky vzťahom
+\begin{align}
+\label{eq:03pw_quant}
+A=2\left[
+\sum_{f,i}\hbar\omega W_{fi}^{\mathrm{ABS}}f(\epsilon_i)(1-f(\epsilon_f))-\sum_{f,i}\hbar\omega W_{fi}^{\mathrm{EMIS}}f(\epsilon_i)(1-f(\epsilon_f))
+\right] \
+\end{align}
+kde $f(\epsilon_i)$ sú Fermi-Diracove distribúcie a faktor 2 je kvôli spinu. Ten istý výkon vyjadrený
+klasicky je $\Omega\frac{1}{T}\int_0^T\sigma(\omega)E^2\cos^2(\omega t)dt=\Omega\frac{1}{2}\sigma(\omega)E^2$, kde
+$\sigma(\omega)$ je merná elektrónová vodivosť, ktorú chceme vypočítať kvantovomechanicky. Môžme tak urobiť s použitím rovnice
+\begin{equation}
+\label{rovnostvykonov}
+\Omega\frac{1}{2}\sigma(\omega)E^2 = A \text{.}
+\end{equation}
+Urobíme úpravy
+\begin{align}
+\label{eq:03pw_quant_final}
+\notag
+A&=\frac{4\pi}{\hbar}
+\left[
+\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_{fi}-\hbar\omega)f(\epsilon_i)(1-f(\epsilon_f))-\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_{fi}+\hbar\omega) f(\epsilon_i)(1-f(\epsilon_f))
+\right]\\ \notag
+&=\frac{4\pi}{\hbar}
+\left[\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_f-\epsilon_i-\hbar\omega)f(\epsilon_i)(1-f(\epsilon_f))-\sum_{i,f}\hbar\omega|V_{if}|^2\delta(\epsilon_i-\epsilon_f+\hbar\omega) f(\epsilon_f)(1-f(\epsilon_i))
+\right]\\
+&=\frac{4\pi}{\hbar}\sum_{f,i}\hbar\omega|V_{fi}|^2\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f))
+\end{align}
+kde v druhom riadku sme vymenili sčítacie indexy v druhej sume a v treťom riadku sme využili symetriu $|V_{fi}|=|V_{if}|$, a párnosť delta funkcie $\delta(x)=\delta(-x)$.
+Upravený vzťah \eqref{eq:03pw_quant_final} dosadíme za $A$ do rovnice \eqref{rovnostvykonov}. Keď ešte dosadíme za maticový element $V_{fi}$  vzťah \eqref{eq:03Vfi}, po malých úpravách dostaneme vzťah pre vodivosť,
+\begin{equation}
+\label{eq:03sigma}
+\sigma(\omega)=\frac{2\pi}{\hbar \Omega}\sum_{f,i}\hbar\omega|v_{fi}|^2\delta(\epsilon_f-\epsilon_i-h\omega)(f(\epsilon_i)-f(\epsilon_f)) \text{,}
+\end{equation}
+kde
+\begin{equation}
+\label{eq:03sigma matic}
+v_{fi} \equiv \int_{\Omega}d\vr \Phi_f^*(\vr)x\Phi_i(\vr) \text{.}
+\end{equation}
+Maticový element \eqref{eq:03sigma matic} sa dá prepísať využitím komutačného vzťahu $[x,H]=\frac{i\hbar}{m}\hat{p_x}$ ako
+\begin{equation}
+v_{fi}=-\frac{\hbar^{2}}{m(\epsilon_f-\epsilon_i)}D_{fi} \text{,}
+\end{equation}
+kde
+\begin{equation}
+\label{eq:03matrix_element}
+D_{fi} \equiv \int_{\Omega}d\vr\Phi_f^*(\vr)\frac{d}{dx}\Phi_i(\vr) \text{.}
+\end{equation}
+Vzťah \eqref{eq:03sigma} sa tým upraví na finálny tvar známy ako Kubova-Greenwoodova formula:
+\begin{align}
+\label{eq:03sigma2}
+\sigma(\omega)=
+\frac{2\pi}{\hbar}\frac{\hbar^{4}}{m^2}\frac{e^2}{\Omega}
+\sum_{f,i}\frac{\hbar\omega}{(\epsilon_f-\epsilon_i)^2}|D_{fi}|^2\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f))\text{.}
+\end{align}
+
+
+
+  \section*{Dodatok B}
+  \addcontentsline{toc}{section}{Dodatok B}
+  \markboth{Dodatok B}{Dadatok B}
+  %  \input{AppendixA}
+
+\section{Od kvantovej vodivosti Kuba Greenwooda ku klasickej Drudeho vodivosti}
+\label{sec:kubo B}
+
+
+V tomto dodatku odvodíme z Kubovej-Greenwoodovej formuly \eqref{eq:03sigma2} klasickú Drudeho vodivosť.
+ Odvodenie robíme podľa prednášok školiteľa a pôvodnej práce  Thoulessa \cite{Thouless}.
+ Potrebujeme vypočítať maticový elemnt $|D_{fi}|^2$, na ktorý  potrebujeme vlnové funkcie $\Phi_i(\vr)$.
+ Preto musíme riešiť Schr\"odingerovu rovnicu pre elektrón v kove s disorderom
+\begin{align}
+\label{eq:03SchrDis}
+(\frac{-\hbar^2}{2m}\laplace_{\vr} + V_{dis}(\vr))\Phi_i(\vr)=\mathcal{E}_i\Phi_i(\vr)  \text{.}
+\end{align}
+Urobíme rozvoj do rovinných vĺn
+\begin{equation}
+\label{eq:03Phi_i}
+\Phi_i(\vr)=\sum_{\vk}a^i_{\vk}\phi_{\vk}(\vr)\text{,}
+\end{equation}
+kde $\phi_{\vk}(\vr)=\frac{1}{\sqrt \Omega}e^{i\vk\vr}$.
+Dosadíme \eqref{eq:03Phi_i} do \eqref{eq:03matrix_element} a počítame modul
+\begin{align}
+\label{eq:03dfisquared}
+|D_{fi}|^2=\int_\Omega d\vr \sum_{\vk_1}a_{\vk_1}^f\phi_{\vk_1}(\vr)\frac{d}{dx}\sum_{\vk_2}a_{\vk_2}^{i*}\phi_{\vk_2}^*(\vr)\int_\Omega d\vr\ ' \sum_{\vk_3}a_{\vk_3}^{f*}\phi_{\vk_3}^*(\vr\ ')\frac{d}{dx'}\sum_{\vk_4}a_{\vk_4}^i \phi_{\vk_4}(\vr\ ')
+\end{align}
+Využijeme vzťahy $\frac{d}{dx}\phi^{\ast}_{\vk_2}(\vr)=-ik_{2x}\phi^{\ast}_{\vk_2}(\vr)$ a $\frac{d}{dx'}\phi_{\vk_4}(\vr\ ')=ik_{4x}\phi_{\vk_4}(\vr\ ')$, a potom vzťahy
+$\int_\Omega d\vr \phi_{\vk_1}(\vr)\phi^*_{\vk_2}(\vr)=\delta_{\vk_1\vk_2}$ a $\int_\Omega d\vr\ '\phi_{\vk_3}^*(\vr\ ')\phi_{\vk_4}(\vr\ ')=\delta_{\vk_3\vk_4}$
+Vysumujeme pomocou Kroneckerovych symbolov a dostaneme
+\begin{align}
+|D_{fi}|^2=\sum_{\vk\vk\ '} a^{f*}_{\vk\ '}a^f_{\vk}a^{*i}_{\vk}a^i_{\vk\ '}k_xk_x' \text{,}
+\end{align}
+kde sme preznačili sumačný index $\vk_1$ na $\vk$ a sumačný index  $\vk_2$ na $\vk\ '$.
+Vystredovaním cez súbor makroskopicky rovnakých vzoriek s makroskopicky rôznym disorderom dostaneme
+\begin{align}
+\label{eq:03dfisq2}
+\overline{|D_{fi}|^2}=\sum_{\vk\vk\ '}\overline{a^{f*}_{\vk\ '}a^f_{\vk}a^{*i}_{\vk}a^i_{\vk\ '}}k_xk_x' \text{.}
+\end{align}
+
+Predpokladajúc nekorelovanosť stavov $i$ a $f$ môžeme urobiť zjednodušenie
+\begin{align}
+\overline{|D_{fi}|^2}=\sum_{\vk\vk\ '}
+\
+\overline{a^{f*}_{\vk\ '}a^f_{\vk}}
+\
+\overline{a^{*i}_{\vk}a^i_{\vk\ '}}k_xk_x'
+\end{align}
+Nakoniec predpokladáme, že aj stavy $\vk$ a $\vk\ '$ sú nekorelované, t.j.
+\begin{align}
+\label{eq:03dfisq3}
+\overline{|D_{fi}|^2}=\sum_{\vk\vk\ '}
+\ \overline{a^{f*}_{\vk\ '}a^f_{\vk}}
+\ \overline{a^{*i}_{\vk}a^i_{\vk\ '}}k_xk_x'
+\ \delta_{kk'}=
+\sum_{\vk}\ \overline{a^{f*}_{\vk}a^f_{\vk}}
+\ \overline{a^{*i}_{\vk}a^i_{\vk}}k_x^2
+\ \ \text{.}
+\end{align}
+Thouless \cite{Thouless} prijal pre  $\overline{a_{\vk}^{i*}a_{\vk}^i}$  ansatz v tvare Lorentziánu
+\begin{align}
+\label{eq:03lorenz}
+\overline{a_{\vk}^{i*}a_{\vk}^i}=\frac{1}{\pi\rho(\epsilon_i)}\lorenz{\epsilon_i}\text{,}
+\end{align}
+kde $\tau$ je stredná doba medzi dvomi elektrónovými zrážkami s disorderom.
+V nasledujúcom dodatku ukážeme, že vzťah \eqref{eq:03lorenz} je výsledkom tzv. self-konzistentnej Bornovej aproximácie. Teraz vzťah \eqref{eq:03lorenz} prijmeme ako je a dosadíme ho do \eqref{eq:03sigma2}. Dostaneme
+\begin{align}
+\sigma(\omega)=&
+\frac{2\pi}{\hbar}\frac{\hbar^{4}}{m^2}\frac{e^2}{\Omega}
+\sum_{f,i}\frac{\hbar\omega}{(\epsilon_f-\epsilon_i)}\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f))\\ \notag
+&\sum_{\vk}\frac{1}{\pi\rho(\epsilon_f)}\lorenz{\epsilon_f}\frac{1}{\pi\rho(\epsilon_i)}\lorenz{\epsilon_i}k_x^2
+\end{align}
+Prejdeme od sumy cez $\vk$ k integrálu
+\begin{align}
+\label{eq:03sigma3}
+\sigma(\omega)=&
+\frac{2\pi}{\hbar}\frac{\hbar^{4}}{m^2}\frac{e^2}{\Omega}
+\sum_{f,i}\frac{\hbar\omega}{(\epsilon_f-\epsilon_i)}\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f))\\ \notag
+&\int_{\Omega}d\vk\frac{1}{\pi\rho(\epsilon_f)}\lorenz{\epsilon_f}\frac{1}{\pi\rho(\epsilon_i)}\lorenz{\epsilon_i}k_x^2\text{,}
+\end{align}
+ Kvôli prehladnosti sa ideme venovať len integrálu cez $\vk$. Prejdeme v ňom do sférických súradníc a máme
+\begin{align}
+\int_0^{2\pi}d\phi\int_0^\pi d\theta \frac{\sin(\theta)cos^2(\theta)\sin^2(\theta)}{4\pi} \frac{4\pi\Omega}{(2\pi)^{3}}
+\int_0^\infty dk k^2 \frac{k^{2}}{\pi^{2}\rho(\epsilon_f)}\rho(\epsilon_i)
+\lorenz{\epsilon_f} \lorenz{\epsilon_i}
+\end{align}
+Výsledok prvých dvoch integrálov je $\frac{1}{3}$, v treťom integráli prejdeme do energetických súradníc. Dostaneme
+\begin{align}
+\frac{\Omega}{3\pi^2\rho(\epsilon_f)\rho(\epsilon_i)}\int_0^\infty d\epsilon_k \rho^{\frac{1}{2}}(\epsilon_k)k(\epsilon_k)\rho^{\frac{1}{2}}(\epsilon_k)k(\epsilon_k)\lorenz{\epsilon_f}\lorenz{\epsilon_i}\text{.}
+\end{align}
+Využitím symetrickej aproximácie $\rho(\epsilon_k)^{\frac{1}{2}}k(\epsilon_k)\approx\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)\approx\rho(\epsilon_f)^{\frac{1}{2}}k(\epsilon_f)$ sa zostávajúci integrál zjednoduší
+a dá sa dopočítať nasledovne:
+\begin{align}
+\label{eq:03integral}
+\frac{\Omega}{3}\frac{\rho(\epsilon_f)^{\frac{1}{2}}k(\epsilon_f)\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)}{\pi^{2}\rho(\epsilon_f)\rho(\epsilon_i)}\int_0^\infty d\epsilon_k\lorenz{\epsilon_f}\lorenz{\epsilon_i}\approx\\ \notag
+\frac{\Omega}{3}\frac{\rho(\epsilon_f)^{\frac{1}{2}}k(\epsilon_f)\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)(\frac{\hbar}{2\tau})^2}{\pi^{2}\rho(\epsilon_f)\rho(\epsilon_i)}\frac{4\pi(\frac{\tau}{\hbar})^3}{1+\tau^2(\frac{\epsilon_f-\epsilon_i}{\hbar})^2}\text{.}
+\end{align}
+Posledný výsledok platí za  predpokladov
+\begin{equation}
+\frac{\epsilon_i}{\frac{\hbar}{\tau}} >> 1 \  \  , \ \ \   \frac{\epsilon_f}{\frac{\hbar}{\tau}} >> 1  \text{.}
+\end{equation}
+Vráťme sa k rovnici pre vodivosť \eqref{eq:03sigma3}
+a za integrál cez $\vk$ dosaďme výsledok \eqref{eq:03integral}. Dostaneme výsledok
+\begin{align}
+\notag
+\sigma(\omega)&=
+2\frac{e^{2}\tau}{3}\frac{\hbar^{2}}{m^{2}}
+\\
+&\sum_{f,i}\frac{\rho(\epsilon_f)^{\frac{1}{2}}k(\epsilon_f)\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)}{\rho(\epsilon_f)\rho(\epsilon_i)}
+\frac{\hbar\omega}{(\epsilon_f-\epsilon_i)^{2}}\delta(\epsilon_f-\epsilon_i-\hbar\omega)(f(\epsilon_i)-f(\epsilon_f)) \frac{1}{1+\tau^2(\frac{\epsilon_f-\epsilon_i}{\hbar})^2}
+\text{.}
+\end{align}
+Dvojitú sumu  $\sum_{f,i}$ zameníme za dvojitý integrál $\int_0^\infty d\epsilon_i\rho(\epsilon_i) \int_0^\infty d\epsilon_f\rho(\epsilon_f)$. Jeden z integrálov môžeme zintegrovať hneď vďaka
+$\delta$-funkcii. Dostávame
+\begin{align}
+\sigma(\omega)=
+\frac{e^{2}\tau}{3}\frac{\hbar^{2}}{m^{2}}
+\frac{2}{1+\tau^2\omega^2}\
+\frac{1}{\hbar\omega}
+\int_0^\infty d\epsilon_i\rho^{\frac{1}{2}}(\epsilon_i)k(\epsilon_i)\rho^{\frac{1}{2}}(\epsilon_i+\hbar\omega)k(\epsilon_i+\hbar\omega)(f(\epsilon_i)-f(\epsilon_i+\hbar\omega))\text{.}
+\end{align}
+V limite nulovej teploty sa Fermi-Diracove rozdelenia $f(\epsilon_i)$ a $f(\epsilon_i+\hbar\omega)$ zmenia na skokové $\Theta$ funkcie. Vďaka tomu sa posledná rovnica dá upraviť na tvar
+\begin{equation}
+\label{eq:03kubo}
+\sigma(\omega)=
+e^2\ 2\rho(E_F)\ \frac{\hbar^{2}k_{F}^{2}}{m^{2}}\ \frac{\tau}{3}\
+\frac{1}{1+\tau^2\omega^2} F(\omega)
+\end{equation}
+kde
+\begin{equation}
+\label{eq:Fomega}
+F(\omega)\equiv\frac{1}{\hbar\omega}\int_{E_F-\hbar\omega}^{E_F}d\epsilon_i \frac{\rho(\epsilon_i)^{\frac{1}{2}}k(\epsilon_i)\rho(\epsilon_i+\hbar\omega)^{\frac{1}{2}}k(\epsilon_i+\hbar\omega)}{\rho(E_F)k_F^2}
+\end{equation}
+Zadefinujeme $N(E_F)=2\rho(E_F)$, kde $N(E_F)$ je hustota stavov pre obidve orientácie spinu. Ďalej,
+spomenieme si, že
+\begin{align}
+D(E_F)=\frac{1}{3}v_F^2\tau = \frac{\hbar^{2}k_{F}^{2}}{m^{2}}\ \frac{\tau}{3}
+\end{align}
+je elektrónový difúzny koeficient. A nakoniec, položíme $F(\omega) \simeq 1$, čo nemusí byť v poriadku pre veľké frekvencie. Dostávame klasickú elektrónovú vodivosť Drudeho - Lorentza:
+\begin{equation}
+\label{eq:03kubofinal}
+\sigma(\omega)=
+e^2\ N(E_F) D(E_F)\ \
+\frac{1}{1+\tau^2\omega^2} \text{.}
+\end{equation}
+
+
+
+
+%%%%koniec dodatok  A   %%%%%%
+
+
+
+
+ \section*{Dodatok C}
+ \addcontentsline{toc}{section}{Dodatok C}
+ \markboth{Dodatok C}{Dadatok C}
+
+%%%%%%NOVY THOULES
+\section{Vlnová funkcia elektrónu v prímesnom disorderi: Self-konzistentná Bornova aproximácia}
+\label{sec:thouless}
+
+
+Hľadáme riešenie stacionárnej Schrodingerovej rovnice
+\begin{equation}
+\label{eq:04SchrDis2stac}
+\left(\frac{-\hbar^2}{2m}\laplace_{\vr} + V_{dis}(\vr)\right)\Phi_i(\vr) = \E_i \Phi_{i}(\vr)
+  \text{,}
+\end{equation}
+kde $V_{dis}(\vr)$ je náhodný potenciál, ktorým na elektrón pôsobí primesový disorder. Pre jednoduchosť prijmeme jednoduchý model bodových porúch,
+\begin{align}
+\label{eq:04pointdis}
+V_{dis}(\vr)=\sum_{j=1}^{N_{imp}}\gamma \delta(\vr-\vec R_j^{imp})\text{,}
+\end{align}
+kde $N_{imp}$ je počet bodových porúch v kryštáli s objemom $\Omega$, a $\vec R^{imp}_j$ sú náhodné polohy bodových porúch.
+Za predpokladu, že disorder je slabý, môžeme vyskúšať riešenie v najnižšom ráde stacionárnej poruchovej teórie,
+\begin{align}
+\label{nulta}
+\Phi_i(\vr)=\phi_{\vk_i}(\vr)+\sum_{\vk} a^i_{\vk} \phi_{\vk}(\vr)\text{,}
+\end{align}
+kde
+\begin{equation}
+\label{eq:04SchrDis2stac}
+a^i_{\vk} = \frac{V_{\vk\vk_i}}{\epsilon_{\vk_i}-\epsilon_{\vk}}
+\end{equation}
+je sú koeficienty poruchového rozvoja. Potom
+\begin{align}
+\label{eq:04coef}
+\overline{a^{*i}_{\vk}a^i_{\vk}}=
+\frac{\overline{|V_{\vk\vk_i}|^2}}{(\epsilon_{\vk_i}-\epsilon_{\vk})^2}
+\ \text{.}
+\end{align}
+Na chvíľku teraz odbočme a uvažujme Boltzmannovu kinetickú rovnicu v aproximácí relaxačného času,
+\begin{align}
+\dot{\vk}\nabla_{\vk}f(\vk)=-\frac{f(\vk)-f_0(\vk)}{\tau_{\vk}}
+\end{align}
+kde $f_0(\vk)$ je Fermi-Diracova distribúcia a $f(\vk)$ je nerovnovážna distribučná funkcia. Relaxačný čas  $\tau_{\vk}$ je definovaný ako
+\begin{align}
+\label{eq:04goldenrule}
+\frac{1}{\tau_{\vk_i}}=\sum_{\vk}W_{\vk_i\vk}(1-\frac{k_x}{k_{ix}}) = \sum_{\vk}\frac{2\pi}{\hbar}|\bra{\vk}V_{dis}(\vr)\ket{\vk_i}|^2\delta(\epsilon_{\vk_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{xi}}) \text{,}
+\end{align}
+kde $|\bra{\vk}V_{dis}(\vr)\ket{\vk_i}|^2=|V_{\vk\vk_i}|^2$,
+ stavy $\ket{\vk}$ a $\ket{\vk_i}$ sú rovinné vlny  a  $\vk_i$ je iniciálny stav.
+Do \eqref{eq:04goldenrule} dosadíme náhodný potenciál \eqref{eq:04pointdis}
+Počítame maticový element
+\begin{align}
+\label{eq:04vdisElement}
+\notag
+\bra{\vk}V_{dis}(\vr)\ket{\vk_i}&=\sum_{j=1}^{N_{imp}}\gamma\bra{\vk}\delta(\vr-\vec R^{imp}_j)\ket{\vk_i}\\
+\notag
+&=\frac{1}{\Omega^2}\sum_{j=1}^{N_{imp}}\gamma\int_{\Omega}d\vr\delta(\vr -\vec R_j^{imp})e^{i(\vk-\vk_i)\vec{r}}\\
+&=\frac{1}{\Omega^2}\sum_{j=1}^{N_{imp}}\gamma e^{i(\vk-\vk_i)R_j^{imp}} \text{,}
+\end{align}
+ Keď výsledok \eqref{eq:04vdisElement} dosadíme do \eqref{eq:04goldenrule}, máme
+\begin{align}
+\label{eq:04fgr_expanded}
+\frac{1}{\tau_{\vk_i}} = \frac{2\pi}{\hbar} \frac{\gamma^2}{\Omega^2}
+\sum_{\vk}\ \sum_{j=1}^{N_{imp}}\ \sum_{j'=1}^{N_{imp}}e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}\delta(\epsilon_{k_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{xi}}) \text{.}
+\end{align}
+V \eqref{eq:04fgr_expanded} napíšeme osobitne sumu pre členy, kde $j=j'$. V tejto sume dostaneme v jednotlivých členoch v exponente nulu, teda každý člen je rovný jednej.
+Po vysumovaní týchto členov dostaneme $N_{imp}$ a máme
+\begin{align}
+\label{eq:04fgr_expanded2}
+\frac{1}{\tau_{\vk_i}} = \frac{2\pi}{\hbar} \frac{\gamma^2}{\Omega^2}
+\left[
+N_{imp}+\sum_{j\neq j'=1}^{N_{imp}}\ \sum_{j'=1}^{N_{imp}} \
+e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})}
+\right]
+\delta(\epsilon_{k_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}}) \text{.}
+\end{align}
+Druhý člen v hranatej zátvorky rovnice
+\eqref{eq:04fgr_expanded2}
+ môžeme interpretovať ako náhodnú chôdzu v komplexnom priestore,
+ takže po vysčítaní dostaneme
+\begin{align}
+\label{nahodne spocitane}
+\sum_{j\neq j'=1}^{N_{imp}} \ \sum_{j'=1}^{N_{imp}} \
+e^{i(\vk-\vk_i)(\vec R^{imp}_j-\vec R^{imp}_{j'})} = \
+N_{imp}\  Re\lbrace e^{i\alpha}\rbrace
+\ \text{,}
+\end{align}
+kde $\alpha$ je náhodná fáza.
+To po vystredovaní \eqref{nahodne spocitane} cez disorder bude
+\begin{align}
+\label{nahodne vystredovane}
+\overline{N_{imp} Re\lbrace e^{i\alpha}\rbrace}
+\ = \ 0
+\ \text{,}
+\end{align}
+Ak teraz  rovnicu  \eqref{eq:04fgr_expanded2} stredujem cez disorder
+ a využjem \eqref{nahodne vystredovane}, dostanem
+\begin{align}
+\label{eq:04fgr_mean}
+\frac{1}{\tau_{\vk_i}}= \frac{2\pi}{\hbar} \frac{\gamma^2}{\Omega^2}\
+ \sum_{\vk}N_{imp}\delta(\epsilon_{\vk_i}-\epsilon_{\vk})(1-\frac{k_x}{k_{ix}})\text{.}
+\end{align}
+Teraz vykonáme sumu v \eqref{eq:04fgr_mean}.
+Delta funkcia je párna funkcia $k_x$ zatiaľčo člen $\propto k_x$ v zátvorke je nepárny, takže príspevok od tohto člena po vysumovaní cez všetky $\vk$ vymizne.
+V prvom člene máme
+ $\sum_{\vk}\delta(\epsilon_{\vk_i}-\epsilon_{\vk}) = \Omega\rho(\epsilon_{\vk_i})$, kde $\rho(\epsilon_{\vk_i})$ hustota stavov na jednotku objemu a $\Omega$ je objem.
+Konečný výsledok pre relaxačný čas je
+\begin{align}
+\label{eq:04fgr_final}
+\frac{1}{\tau_{\vk_i}}
+=\
+\frac{2\pi}{\hbar}\gamma^2n_{imp}\rho(\epsilon_{\vk_i})
+=\
+\frac{2\pi}{\hbar}\rho(\epsilon_{\vk_i})\overline{|V_{\vk\vk_i}|^2}
+ \text{,}
+\end{align}
+kde $n_{imp}=\frac{N_{imp}}{\Omega}$ je hustota bodového disorderu. Odtiaľ
+\begin{equation}
+\label{maticelement fi}
+\overline{|V_{\vk\vk_i}|^2}  = \frac{1}{\pi\rho(\epsilon_{\vk_i})} \frac{\hbar}{2\tau} \text{,}
+\end{equation}
+kde zanedbávame závislosť $ \tau$ od energie. S využitím posledného vzťahu môžeme vzťah \eqref{eq:04coef} zapísať v tvare
+\begin{align}
+\label{eq:04divergent}
+\overline{a_{\vk}^{i*}a_{\vk}^i}=\frac{1}{\pi\rho(\epsilon_{\vk_i})}
+\frac{\frac{\hbar}{2\tau}}{(\epsilon_{\vk_i}-\epsilon_{\vk})^2}
+\ \text{.}
+\end{align}
+Tento výsledok sa od Thoulessovho Lorentziánu z dodatku B,
+\begin{align}
+\label{eq:04lorenz}
+\overline{a_{\vk}^{i*}a_{\vk}^i}=\frac{1}{\pi\rho(\epsilon_i)}
+\frac{\frac{\hbar}{2\tau}}
+{
+(\epsilon_{\vk_i}-\epsilon_{\vk})^2
++ (\frac{\hbar}{2\tau})^2
+}
+\ \text{,}
+\end{align}
+líši absenciou člena $(\frac{\hbar}{2\tau})^2$ v menovateli.
+Preto pre $\vk$ blízke $\vk_i$  diverguje a nespĺňa normalizačnú podmienku
+\begin{align}
+\sum_{\vk} \overline{|a_{\vk}^{i*}a_{\vk}^i|^2}=1\text{.}
+\end{align}
+Aby sme splnili normalizačnú podmienku, korekciu $(\frac{\hbar}{2\tau})^2$ by sme mohli do menovateľa vzťahu \label{eq:04divergent} doplniť rukou.
+V nasledujúcom ukážeme, že korekcia $(\frac{\hbar}{2\tau})^2$ má aj svoje fyzikálne opodstatnenie.
+
+Budeme riešiť nestacionárnu Schrodingerovu rovnicu
+\begin{equation}
+\label{eq:04SchrDis2}
+i\hbar \frac{\partial}{\partial t}\Phi_{i}(\vec{r} ,t)
+\ = \
+\left(\frac{-\hbar^2}{2m}\laplace_{\vr} + V_{dis}(\vr)\right)
+\Phi_i(\vec{r} ,t)
+  \text{.}
+\end{equation}
+v ktorej predpokladáme, že potenciál $V_{dis}(\vr)$ začal na elektrón pôsobiť v čase $t =0$. 
+Do rovnice \eqref{eq:04SchrDis2} dosadíme rozvoj
+\begin{equation}
+\label{casovy rozvoj}
+\Phi_i(\vr,t)=
+\sum_{\vk}a^{\vk_i}_{\vk}(t)\phi_{\vk}(\vr)
+\ e^{-\frac{i}{\hbar}\epsilon_{\vk}t}\text{,}
+\end{equation}
+kde $\phi_{\vk}(\vr)$ a $\epsilon_{\vk}$ sú rovinné vlny a k nim prislúchajuce energie.
+Potom rovnicu prenásobíme výrazom $ \phi^{\ast}_{\vk_f}(\vr)
+\ e^{\frac{i}{\hbar}\epsilon_{\vk_f}t}$ a preintegrujeme
+cez normovací objem. Po úpravách dostaneme
+\begin{align}
+\label{casova1}
+i\hbar \frac{\partial}{\partial t}\ a^{\vk_i}_{\vk_f}(t)=\sum_{\vk}
+\ \ a^{\vk_i}_{\vk}(t)e^{-\frac{i}{\hbar}(\epsilon_{\vk}-\epsilon_{\vk_f})t}
+\ \int d\vec{r} \phi^{\ast}_{\vec{k_f}}(\vec{r})\ V_{dis}(\vec{r})
+\phi_{\vec{k}}(\vec{r})
+\ \text{,}
+\end{align}
+V Bornovej aproximácii
+ $a^{\vk_i}_{\vk}(t) \simeq a^{\vk_i}_{\vk}(0) =\delta_{\vec{k},\vec{k_i}}$
+ rovnica  \eqref{casova1}
+prejde na
+\begin{equation}
+\label{casova2}
+i\hbar \frac{\partial}{\partial t}\ a^{\vk_i}_{\vk_f}=
+\ V_{fi}
+\ e^{-\frac{i}{\hbar}(\epsilon_{\vk_i}-\epsilon_{\vk_f})t}
+\ \text{,}
+\end{equation}
+kde $V_{fi}\equiv \int d\vec{r} \phi^{\ast}_{\vec{k_f}}(\vec{r})\ V_{dis}(\vec{r})
+\phi_{\vec{k_i}}(\vec{r})$.
+Preintegrovanim cez čas od $0$ po $t$ dostaneme
+\begin{align}
+\label{eq:04coef_nonstac}
+a^{\vk_i}_{\vk_f}=\frac{V_{fi}}{(\epsilon_i-\epsilon_f)}
+\left(
+e^{-\frac{i}{\hbar}(\epsilon_i-\epsilon_f)t}-1
+\right)
+\ \text{.}
+\end{align}
+V tomto vzťahu spoznávame výsledok stacionárnej poruchovej teórie násobený komplexným fázovým faktorom periodickým v čase.
+Aby sme sa dostali ďalej, uvažujme znovu časovo závislú rovnicu \eqref{eq:04SchrDis2}, avšak
+poruchu $V_{dis}(\vr)$ nahraďme časovo závislo poruchou
+\begin{align}
+V_{dis}(\vr,t)=V_{dis}(\vr) \ e^{-\delta t} \text{,}
+\end{align}
+kde $\delta$ je kladná reálna konštanta a faktor  $e^{-\delta t}$ poruchu s narastajúcim časom tlmí.
+Rovnica \eqref{casova2}  sa tým zmení na rovnicu
+\begin{equation}
+\label{casova3}
+i\hbar \frac{\partial}{\partial t}\ a^{\vk_i}_{\vk_f}=
+\ V_{fi} e^{-\frac{i}{\hbar}(\epsilon_{\vk_i}-\epsilon_{\vk_f})t-\delta t}
+\ \text{,}
+\end{equation}
+ktorá po integrovaní cez čas dáva
+ \begin{align}
+\label{eq:04coef_nonstac2}
+a^{\vk_i}_{\vk_f} \ = \
+\frac{V_{fi}}{\epsilon_i-\epsilon_f-i\hbar\delta}
+\ \left(
+e^{-\frac{i}{\hbar}(\epsilon_i-\epsilon_f- i\hbar\delta)t}-1
+\right)
+\ \text{.}
+\end{align}
+V \eqref{eq:04coef_nonstac2} urobíme limitu $ t \to \infty $   a dostaneme
+\begin{equation}
+\label{limita t nekonecno}
+a^{\vk_i}_{\vk_f} \ = \
+\frac{V_{fi}}{\epsilon_f-\epsilon_i+ i\hbar\delta}
+\ \text{,}
+\end{equation}
+a odtiaľ
+\begin{equation}
+\label{a s hviezdickou a}
+{a^{\ast}}^{\vk_i}_{\vk_f} a^{\vk_i}_{\vk_f} \
+\ = \
+\frac{\mid V_{fi} \mid^{2}}
+{(\epsilon_f-\epsilon_i)^{2}+(\hbar\delta)^{2}}
+\ \text{.}
+\end{equation}
+Konečne, posledný vzťah vystredujeme cez disorder
+\begin{equation}
+\label{a s hviezdickou a vystredovany}
+\overline{
+{a^{\ast}}^{\vk_i}_{\vk_f} a^{\vk_i}_{\vk_f} \
+}
+\ = \
+\frac{
+\overline{\mid V_{fi} \mid^{2}}
+}
+{(\epsilon_f-\epsilon_i)^{2}+(\hbar\delta)^{2}}
+\ \text{.}
+\end{equation}
+Z formuly \eqref{maticelement fi} vyplýva, že
+\begin{equation}
+\label{vfi na druhu}
+\overline{\mid V_{fi} \mid^{2}}
+\ = \
+\frac{\hbar} {2\pi \rho(\epsilon_i) \tau}
+\ \text{.}
+\end{equation}
+Keď teda dosadíme  \eqref{vfi na druhu}
+do \eqref{a s hviezdickou a vystredovany},
+dostaneme
+\begin{equation}
+\label{a s hviezdickou a final}
+\overline{
+{a^{\ast}}^{\vk_i}_{\vk_f} a^{\vk_i}_{\vk_f} \
+}
+\ = \
+\frac{1}{\pi \rho(\epsilon_i)} \
+\frac{ \frac{\hbar}{2\tau}}
+{(\epsilon_f-\epsilon_i)^{2}+(\hbar\delta)^{2}}
+\ \text{.}
+\end{equation}
+Aby sa splnila normalizačná podmienka
+\begin{equation}
+\label{normalizacia}
+\sum_{\vec{k_i}}
+\overline{
+{a^{\ast}}^{\vk_i}_{\vk_f} a^{\vk_i}_{\vk_f} \
+}
+\ = \
+1
+\end{equation}
+musí byť splnené $\delta =1/2\tau$
+a teda
+\begin{equation}
+\label{thoules ansatz final}
+\overline{
+{a^{\ast}}^{\vk_i}_{\vk_f} a^{\vk_i}_{\vk_f} \
+}
+\ = \
+\frac{1}{\pi \rho(\epsilon_i)}
+\frac{ \frac{\hbar}{2\tau}}
+{(\epsilon_f-\epsilon_i)^{2}+(\frac{\hbar}{2\tau})^{2}}
+\ \text{,}
+\end{equation}
+čo je Lorentzián \eqref{eq:04lorenz}. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%koniec novy thoules%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%

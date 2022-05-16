@@ -23,7 +23,7 @@ kde $C$ je konštanta, $\hbar \vec k$ je hybnosť častice, a
  E(k)=\frac{\hbar^2 k^2}{2 m} \text{}
 \end{equation}
 je energia častice. Rovinná vlna sa dá normalizovať na konečný objem $V = L_xL_yL_z$,
-ak uvažujeme priestor rozdelený na kvádre so stranami $L_x$, $L_y$ a $L_z$ a predpokladáme 
+ak uvažujeme priestor rozdelený na kvádre so stranami $L_x$, $L_y$ a $L_z$ a predpokladáme
 periodické Born vonKarmanove okrajové podmienky
 \begin{equation}
  \Psi(x,y,z)=\Psi(x+L_x,y,z)\\, \\\ \Psi(x,y,z)=\Psi(x,y+L_y,z)\\, \\\ \Psi(x,y,z)=\Psi(x,y,z+L_z) \text{.}
@@ -108,7 +108,7 @@ hustota stavov pre neinteragujúce voľné častice,
 \end{equation}
 
 
-V ďaľšom texte 
+V ďaľšom texte
 budeme vačšinou predpokladať nulovú teplotu.
 Pri nulovej teplote máme $f(k)=1$ pre $k \leq k_F$ a $f(k)=0$ pre $k > k_F$,
 kde $k_F$ je polomer Fermiho sféry. Vtedy môžeme rovnicu \eqref{eq:N integral sfer k} upraviť na tvar
@@ -128,7 +128,7 @@ Fermiho energia $E_F=E(k_F)$ je energia elektrónov v stavoch na povrchu Fermiho
  E_f=\frac{\hbar^2 k_f^2}{2m_e}=\frac{\hbar^2(3\pi^2 n_e)^{\frac{2}{3}}  }{2m_e} \text{.}
 \end{equation}
 
-Uvažujme ďalej realistickejší kovový model popísaný $N$-časticovým Hamiltoniánom  
+Uvažujme ďalej realistickejší kovový model popísaný $N$-časticovým Hamiltoniánom
 \begin{equation}
 \label{eq:hrtf_ham}
 \hat{H}=\sum_i [ \frac{-\hbar^2}{2m}\laplace_i  -\sum_j\frac{e^2}{4\pi \epsilon_0}{\frac{1}{|\vr_i-\vR_j|}} +\frac{1}{2}\sum_{j\neq i}\frac{e^2}{4\pi\epsilon_0}\frac{1}{|\vr_i-\vr_j|} ]
@@ -136,10 +136,10 @@ Uvažujme ďalej realistickejší kovový model popísaný $N$-časticovým Hami
 kde druhý člen na pravej strane je energia Coulombovskej interakcie $i$-tého elektrónu s nehybnými iónmi a tretí člen je energia Coulombovskej interakcie $i$-tého elektrónu s ostatnými $N-1$ elektrónmi (faktor $\frac{1}{2}$ kompenzuje dvojité započítanie interakcie
 medzi $i$ a $j$, ktoré nastane pri vysumovaní cez $i$ a $j$).
 
-Potrebujeme vyriešiť mnohočasticovú Schrodingerovu rovnicu 
+Potrebujeme vyriešiť mnohočasticovú Schrodingerovu rovnicu
 \begin{equation}
 \label{eq:mohocasticovaschr}
-\hat{H} \Psi = E \Psi, 
+\hat{H} \Psi = E \Psi,
 \end{equation}
 kde $\Psi(\vr_1,s_1,...,\vr_N,s_N)$ je $N$-elektrónová vlnová funkcia, ktorá závisí od polôh ($\vr$) všetkych $N$ elektrónov
 a aj od ich spinových súradníc ($s$), a $E$ je vlastná hodnota energie $N$ elektrónov. Uvedieme krátko riešenie v Hartree-Fockovej aproximácii.
@@ -151,7 +151,7 @@ Hartreeho-Fockova aproximácia nahrádza mnohočasticovú Schrodingerovu rovnicu
 Interakciu elektrónu s iónmi v Hamiltoniáne \eqref{eq:hrtf_ham} môžeme zobrať tak ako je, pretože je jednočasticová.
 Aproximovať jednoelektrónovým priblížením potrebujeme e-e interakciu popísanú tretím členom v rovnici \ref{eq:hrtf_ham}), pretože závisí od $N$ premenných $\vr$.
 Predpokladajme, že sme také jednoelektrónové priblíženie už našli, čo znamená, že $i$-tý elektrón popisuje jednočasticová vlnová funkcia
-$\phi_i(\vr_i,s_i)$. Keďže sme pri absolútnej nule, chceme vypočítať $\Psi(\vr_1,s_1,...,\vr_n,s_n)$ a $E$  v základnom stave. 
+$\phi_i(\vr_i,s_i)$. Keďže sme pri absolútnej nule, chceme vypočítať $\Psi(\vr_1,s_1,...,\vr_n,s_n)$ a $E$  v základnom stave.
 V Hartreeho aproximácii sa $\Psi(\vr_1,s_1,...,\vr_n,s_n)$ aproximuje ako jednoduchý súčin
 \begin{equation}
 \label{eq:Psi1}
@@ -185,7 +185,7 @@ dostaneme efektívnu jednočasticovú rovnicu pre $\phi$,
 \label{eq:fock3}
 (-\frac{\hbar^2}{2m}\laplace -\sum_j\frac{e^2}{4\pi \epsilon_0}{\frac{1}{|\vr-\vR_j|}} -\frac{e}{4\pi \epsilon_0} \int d\vrp\ \rho_{el}(\vrp) \frac {1}{|\vr-\vrp|})\phi_i({\vec{r}})=E_i\phi_i(\vec{r}), \text{,}
 \end{equation}
-kde 
+kde
 \begin{equation}
 \label{eq:rho vsetkych}
 \rho_{el}(\vr)=-e \sum_j |\phi_j(\vr)|^2 \text{.}
@@ -209,7 +209,7 @@ kde $i = 1, 2, \dots N$, členy
 U^{el}(\vec{r}) = -\frac{e}{4\pi \epsilon_0} \int d\vrp\ \rho_{el}(\vrp) \frac {1}{|\vr-\vrp|} \ \  \text{a} \ \  U^{ion}(\vec{r}) = -\sum_j\frac{e^2}{4\pi \epsilon_0}{\frac{1}{|\vr-\vR_j|}}
 \end{equation}
 sú tie isté ako interakčné členy v Hartreeho rovnici \eqref{eq:fock3} a tretí člen na ľavej strane rovnice \eqref{eq:fock3}
-je Fockova e-e interakcia (čiarka na sumou cez $j$ vo Fockovom člene znamená, že sa sumuje iba cez stavy $j$ s jednou orientáciou spinu, suma ide až po stavy na Fermiho hladine). 
+je Fockova e-e interakcia (čiarka na sumou cez $j$ vo Fockovom člene znamená, že sa sumuje iba cez stavy $j$ s jednou orientáciou spinu, suma ide až po stavy na Fermiho hladine).
 
 Ďaľšou aproximáciou bude model \emph{želé}. Predpokladajme,
  že náboj od všetkych iónov je popísaný hustotou náboja $\rho_{ion}(\vr)$. Potom $U^{ion}(\vec{r})$ môžeme vyjadriť ako
@@ -228,7 +228,7 @@ ale Fockov člen zostane a Hartreeho-Fockove rovnice nadobudnú tvar
 -\frac{\hbar^2}{2m}\laplace \frac{1}{\sqrt V}e^{i\vk\cdot\vr}-\frac{e^2}{V^{3/2}4\pi\epsilon_0}{\sum'}_{\vkp}\int d\vrp \frac{1}{|\vr-\vrp|} e^{-i\vkp \cdot \vrp }e^{i\vk \cdot \vrp}e^{i\vkp \cdot \vr}=E(\vk)\frac{1}{\sqrt V}e^{i\vk \cdot \vr} \text{,}
 \end{equation}
 kde suma ide cez všetky stavy $\vkp$ s jednou orientáciou spinu. Z poslednej rovnice dostaneme po jednoduchých úpravách
-jednoelektrónovú energiu $E(\vk)$ 
+jednoelektrónovú energiu $E(\vk)$
 \begin{equation}
 \label{eq:fock_plane}
 E(\vk)=\frac{\hbar^2 k^2}{2m}- \frac{1}{8\pi^3} \int_{k'<k_f} d \vkp\int dr'\frac{e^2}{4\pi\epsilon_0|\vr-\vrp|} e^{i(\vkp-\vk)(\vr-\vrp)} \text{.}
@@ -236,11 +236,11 @@ E(\vk)=\frac{\hbar^2 k^2}{2m}- \frac{1}{8\pi^3} \int_{k'<k_f} d \vkp\int dr'\fra
 kde sumu cez $\vkp$ sme zamenili integrálom, v ktorom integrujeme cez $|\vk|<|\vk_F|$. Prvý člen
 na pravej strane rovnice \eqref{eq:fock_plane} je energia voľného elektrónu a druhý člen je self-energia vo Fockovom priblížení,
 pochádzajúca od e-e interakcie.
-Vidno, že integrál cez $\vrp$ je Fourierová transformácia Coulombovej interakcie. Výsledkom integrácie je Fourierov obraz $e^2/\epsilon_0|\vkp-\vk|^2$, takže vzťah 
+Vidno, že integrál cez $\vrp$ je Fourierová transformácia Coulombovej interakcie. Výsledkom integrácie je Fourierov obraz $e^2/\epsilon_0|\vkp-\vk|^2$, takže vzťah
 \eqref{eq:fock_plane} nadobudne tvar
 \begin{equation}
 \label{eq:fock_plane2}
-E(k)=\frac{\hbar^2 k^2}{2m}-\frac{1}{8\pi^3} \frac{e^2}{\epsilon_0} \int_{k'<k_f} d\vkp \ \frac{1}{|\vk-\vkp|^2}\text{.}
+E(k)=\frac{\hbar^2 k^2}{2m}-\frac{1}{8\pi^3}  \int_{k'<k_f} d\vkp \ \frac{e^2}{\epsilon_0|\vk-\vkp|^2}\text{.}
 \end{equation}
 Trojný integrál v poslednej rovnici sa dá integrovať analyticky a prichádzame k známemu výsledku \cite{Mermin}
 \begin{equation}
@@ -253,90 +253,67 @@ kde
 F(x)=\frac{1}{2}+\frac{1-x^2}{4x}\ln{\frac{|1+x|}{|1-x|}} \text{.}
 \end{equation}
 
-Na obrázku \ref{fig:hartree_erg} je energia \eqref{eq:fock_erg} vyplotovaná spolu s energiou volného elektrónu.
-V porovnaní s energiou voľného elektrónu vidno, že Fockova self-energia spôsobuje výrazný posuv energie $E(k)$ smerom nadol a tiež výrazne ovplyvňuje sklon $E(k)$.
+Na obrázku \ref{fig:hartree_erg} je energia \eqref{eq:fock_erg} vyplotovaná spolu s parabolickým disperzným zákonom neinteragujúceho volného elektrónu.
+V porovnaní s parabolickým disperzným zákonom vidno, že Fockova self-energia vo vzťahu \ref{fig:hartree_erg} spôsobuje výrazný posuv energie $E(k)$ smerom nadol a tiež výrazne ovplyvňuje sklon $E(k)$.
 
-\insertgraph{hartree_erg}{text k obrazku.}
-
+\insertgraph{hartree_erg}{Disperzný zákon \eqref{eq:fock_erg} (červená čiara) pre parametre $m = 9.109 \times 10^{-31} kg$ a $k_F = 9.07 \times 10^{9} m^{-1}$. Čierna čiara ukazuje parabolický disperzný zákon.
+Energia je normovaná na Fermiho energiu $E_F$ neinteragujúcej voľnej častice, vektor $k$ je normovaný na $k_F$.}
+\insertgraph{hartree_dos_NEW}{Hustota stavov $\rho(E)$ pre disperzný zákon \eqref{eq:fock_erg} (červená čiara) v porovnaní s hustotou stavov pre parabolický disperzný zákon (čierna čiara).}
 
 
 Keď energiu \eqref{eq:fock_erg} zderivujeme podľa $k$, nájderme, že $(dE(k)/dk)_{k=k_F}=\infty$. Divergencia
-$(dE(k)/dk)_{k=k_F}=\infty$ je však len logaritmická a preto na na obrázku \ref{fig:hartree_erg} nie je nejako výrazne viditeľná. Zásadným spôsobom sa však prejaví 
+$(dE(k)/dk)_{k=k_F}=\infty$ je však len logaritmická a preto na obrázku \ref{fig:hartree_erg} nie je nejako výrazne viditeľná. Zásadným spôsobom sa však prejaví
  na výslednej hustote stavov, ktorú získame, keď energiu \eqref{eq:fock_erg} dosadíme
 do vzťahu \eqref{eq:rho}. Vo vzťahu \eqref{eq:rho} totiž vystupuje otočená derivácia $(dk/E(k)$, ktorá (keď sa vypočíta pre energiu \eqref{eq:fock_erg}) je v bode $k=k_F$ nulová.
-To znamená že výsledná hustota stavov je na Fermiho hladine nulová, čo je pekne vidno, keď sa graf hustoty stavov vyplotuje numericky (pozri obrázok \ref{fig:hartree_dos}).
+To znamená že výsledná hustota stavov je na Fermiho hladine nulová, čo je pekne vidno, keď sa graf hustoty stavov vyplotuje numericky (pozri obrázok \ref{fig:hartree_dos_NEW}).
 Nulová hustota stavov na Fermiho hladine však znamená, že kov je pri absolútnej nule izolant, čo je v zrejmom rozpore s realitou.
-
 Tento rozporuplný výsledok je dôsledkom toho, že v prípade Coulombovskej interakcie medzi elektrónmi Fockova aproximácia nie je postačujúca a je potrebné
-vziať do úvahy aj Coulombovské korelácie. Našťastie, ako je známe \cite{Mermin}, toto sa dá urobiť aj v rámci Fockovej aproximácie, keď holú Coulombovskú interakciu nahradíme
-tienenou Coulombovskou interakciou.  
+vziať do úvahy aj Coulombovské korelácie.
 
+ Našťastie, ako je známe \cite{Mermin}, Coulombovské korelácie sa dajú v rozumnom príblížení  započítať aj v rámci Fockovej aproximácie, a to tak, že holú Coulombovskú interakciu nahradíme
+tienenou Coulombovskou interakciou.
+Konkrétne, vo výsledku \eqref{eq:fock_plane2} nahradíme Fourierov obraz holej Coulombovej interakcie, $e^2/\epsilon_0|\vkp-\vk|^2$,
+Fourierovym obrazom staticky tienenej Coulombovej interakcie $e^2/\epsilon_0(|\vkp-\vk|^2+k_s^2)$, kde $k_s$ je reciproká tieniaca dĺžka. Pre $k_s$ platí vzťah
+\begin{equation}
+  \label{eq:screeningvector}
+  k_s^2 = \frac{e^2 \rho(E_F)}{\epsilon_0} \text{,}
+ \end{equation}
+kde $\rho(E_F)$ je hustota stavov na Fermiho hladine pre parabolický disperzný zákon (vzťah \eqref{eq:rho_par}). Pre typické kovy približne platí $k_s \simeq k_F$.
 
-
-
-
-\insertgraph{hartree_dos}{Hustota stavov elektrónov v kove podla Hartree-Fockových rovníc (červená čiara) v porovnaní s \eqref{eq:rho}.}
 %\insertgraph{hartree_mov}{Hustota stavov elektrónov v kove podla Hartree-Fockových rovníc s posunutou
 %Fermiho hladinou(červená čiara) v porovnaní s \eqref{eq:rho}.}
 %\insertgraph{hartree_exp}{Hustota stavov podľa Hartree-Fockových rovníc od ktorej je odčítaná parabolická hustota stavov.}
 
 
-
-
-Konkrétne, stačí, keď vo výsledku \eqref{eq:fock_plane2} nahradíme Fourierov obraz holej Coulombovej interakcie, $e^2/\epsilon_0|\vkp-\vk|^2$, 
-Fourierovym obrazom staticky tienenej Coulombovej interakcie $e^2/\epsilon_0(|\vkp-\vk|^2+k_s^2)$, kde $k_s$ je reciproká tieniaca dĺžka. Pre  $k_s$ platí vzťah
-\begin{equation}
-  \label{eq:screeningvector}
-  k_s^2) = \frac{e^2 \rho(E_F)}{\epsilon_0} \text{,}
- \end{equation}
-kde $\rho(E_F)$ je hustota stavov na Fermiho hladine pre parabolický disperzný zákon (vzťah \eqref{eq:rho_par}). 
-
 Výsledná elektrónová energia vo Fockovej aproximácia tak nadobudne tvar
  \begin{equation}
   \label{eq:fock_screen}
-  E(\vec{k})=\frac{\hbar^2 k^2}{2m} - \frac{1}{8\pi^3}  \frac{e^2}{\epsilon_0}  \int d\vec{k} \frac{1}{|\vec{k}-\vec{k'}|^2+k_s^2} \text{,}
+  E(\vec{k})=\frac{\hbar^2 k^2}{2m} - \frac{1}{8\pi^3}  \frac{e^2}{\epsilon_0}  \int d\vec{k'} \frac{1}{|\vec{k}-\vec{k'}|^2+k_s^2} \text{,}
  \end{equation}
- ktorý sa dá upraviť až na konečnú analytickú formulu
- 
- 
- 
- 
- 
- 
-
+ ktorý sa dá dointegrovať až na analytický výsledok
  \begin{equation}
   \label{eq:fock_screen_final}
   E(\vec{k})=\frac{\hbar^2 k^2} {2m} - \frac{e^2}{(2\pi)^2\epsilon_0} \biggl(
     \frac{k_F^2-k^2+k_s^2}{4k} \ln{\frac{(k_F+k)^2+k_s^2}{(k_F-k)^2+k_s^2}}-k_s\bigl(\arctan{\frac{k_F+k}{k_s}}+\arctan{\frac{k_F-k}{k_s}}\bigr)+k_F\biggr) \text{.}
  \end{equation}
- 
- 
- 
- 
- Ak v poslednom výsledku položíme $k_s = 0$, dostaneme naspäť formulu \eqref{eq:fock_erg}.
+ Keď v poslednom výsledku položíme $k_s = 0$, dostaneme naspäť formulu \eqref{eq:fock_erg}.
 
- Na obrázku \ref{fig:screening_erg} je disperzný zákon \eqref{eq:fock_screen_final} porovnaný s disperzným zákonom voľnej častice,
- $E(k)=\frac{\hbar^2 k^2}{2m}$, pre parametre $m = 9.109 \times 10^{-31} kg$ a $k_F = 9.07 \times 10^{9} m^{-1}$, a $k_s = k_F$. Vidno že tienená Fockova self-energia (druhý člen na pravej strane rovnice \ref{eq:fock_screen_final}) stále hrá nezanedbateľnú úlohu, avšak jej kvantitatívny vplyv na energiu častice je oveľa menší ako
- v prípade bez tienenia na obrázku \ref{fig:hartree_erg}.
+\insertgraph{screening_erg}{Disperzný zákon \eqref{eq:fock_screen_final} (červená čiara) v porovnaní s parabolickým disperzným zákonom (čierna čiara) pre parametre $m = 9.109 \times 10^{-31} kg$, $k_F = 9.07 \times 10^{9} m^{-1}$, a $k_s = k_F$. Energia je normovaná na Fermiho energiu $E_F$ neinteragujúcej voľnej častice, vlnový vektor $k$ je normovaný na $k_F$.}
 
- Hustotu stavov pre disperzný zákon \eqref{eq:fock_screen_final} sme vypočítali numericky tým istým spôsobom ako sme to robili
- pre netienenú Fockovu self-energiu v kapitole 2. Získaný výsledok je ukázaný na obrázku \ref{fig:screening_dos}, kde je porovnaný
+ Na obrázku \ref{fig:screening_erg} porovnávame disperzný zákon \eqref{eq:fock_screen_final} s disperzným zákonom pre voľnú časticu,
+ $E(k)=\frac{\hbar^2 k^2}{2m}$.  pre parametre $m = 9.109 \times 10^{-31} kg$ a $k_F = 9.07 \times 10^{9} m^{-1}$, a $k_s = k_F$. Vidno že tienená Fockova self-energia (druhý člen na pravej strane rovnice \ref{eq:fock_screen_final}) má stále kvantitatívny vpyv, je však oveľa menší ako
+ v prípade netienenej coulombovskej interakcie na obrázku \ref{fig:hartree_erg}.
+
+
+ Hustotu stavov pre disperzný zákon \eqref{eq:fock_screen_final} sme vypočítali zo vzťahu \eqref{eq:rho} numericky podobným spôsobom ako sme to urobili pre
+ pre disperzný zákon \eqref{eq:fock_screen_final}. Získaný výsledok je ukázaný na obrázku \ref{fig:screening_dos}, kde je porovnaný
  s hustotou stavov pre voľné neinteragujúce elektróny. Keď výsledky na obrázku \ref{fig:screening_dos} porovnáme s výsledkami pre netienenú Coulombovskú interakciu na obrázku
-  \ref{fig:hartree_dos}, vidíme, že tienenie úplne odstránilo nefyzikálne vynulovanie hustoty stavov na Fermiho hladine, pozorované v netienenom prípade.
+  \ref{fig:hartree_dos_NEW}, vidíme, že tienenie úplne odstránilo nefyzikálne vynulovanie hustoty stavov na Fermiho hladine, pozorované v netienenom prípade.
 
-
-Výsledky pre hustotu stavov  z obrázku \ref{fig:screening_dos} ukazujeme ešte raz na obrázku \ref{fig:screening_mov},
-ibaže na obrázku \ref{fig:screening_mov} je hustota stavov pre disperzný zákon \eqref{eq:fock_screen_final} posunutá tak,
-aby jej Fermiho hladina bola na tej istej energii ako Fermiho hladina pre voľnú časticu. Vidno, že aj tienená e-e interakcia spôsobuje presunutie určitej časti stavov
-pod dno parabolického pásu, avšak oveľa menej ako netienená. Konečne, na obrázku \ref{fig:screening_exp} sú ukázané data z obrázku
-\ref{fig:screening_mov} po ich vzájomnom odčítaní (červená krivka mínus čierna krivka).
-Keby sme krivku na obrázku \ref{fig:screening_exp}  zintegrovali od najnižšej energie po Fermiho hladinu, výsledok by bol nula kvôli zachovaniu stavov.
-
-\insertgraph{screening_erg}{Disperzný zákon \eqref{eq:fock_screen_final} (červená čiara) v porovnaní s parabolickým disperzným zákonom  (čierna čiara).}
 \insertgraph{screening_dos}{Hustota stavov $\rho(E)$ vypočítaná pre disperzný zákon \eqref{eq:fock_screen_final} (červená čiara) v porovnaní s hustotou stavov pre parabolický disperzný zákon (čierna čiara).}
-\insertgraph{screening_mov}{Tie isté hustoty stavov ako na predchádzajúcom obrázku, avšak teraz je hustota stavov pre disperzný zákon \eqref{eq:fock_screen_final} (červená čiara)
-posunutá tak, aby sa Fermiho hladina pre Fockov výsledok nachádzala na tej istej energii ako Fermiho hladina pre neinteragujúce elektróny.}
-\insertgraph{screening_exp}{Data z prechádzajúceho obrázku po ich vzájomnom odčítaní (červená krivka mínus čierna krivka).}
+%\insertgraph{screening_mov}{Tie isté hustoty stavov ako na predchádzajúcom obrázku, avšak teraz je hustota stavov pre disperzný zákon \eqref{eq:fock_screen_final} (červená čiara)
+%posunutá tak, aby sa Fermiho hladina pre Fockov výsledok nachádzala na tej istej energii ako Fermiho hladina pre neinteragujúce elektróny.}
+%\insertgraph{screening_exp}{Data z prechádzajúceho obrázku po ich vzájomnom odčítaní (červená krivka mínus čierna krivka).}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -344,16 +321,3 @@ posunutá tak, aby sa Fermiho hladina pre Fockov výsledok nachádzala na tej is
  % 	\input{04Altschuler}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- % 	\input{05experiment}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%časť diplomovka
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\input{02experiment}

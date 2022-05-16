@@ -1,4 +1,3 @@
-
 \section
 {Elektrón-elektrónová interakcia v kove s disorderom : Jav Altshulera - Aronovova}
 
@@ -52,9 +51,9 @@ dostaneme rovnicu
 
 Na tomto mieste musíme poruchový výsledok \eqref{eq:erg_V_ft} skorigovať. Poruchové riešenie
 $\phi_m(\vr) \simeq \phi_m^{(0)}(\vr)$ môžeme na rovnicu  \eqref{eq:fock_dis} aplikovať len vtedy,
-keď je interakcia $V(\vr-\vrp)$ slabá v porovnaní s interakcou s disorderom.
+keď je interakcia $V(\vr-\vrp)$ slabá v porovnaní s interakcou s disorderom, alebo opačne, keď interakcia s disorderom dominuje nad e-e interakciou.
 To je pravda pre medzielektrónové vzdialenosti $|\vr-\vrp| \gtrsim l$, pretože na vzdialenostiach $>l$ sa už interakcia s disorderom uplatňuje,
-zatiaľčo interakcia $V(\vr-\vrp)$ je exponenciálne zatienená už na vzdialenosti $|\vr-\vrp| \simeq k_F^{-1} \ll l$.
+zatiaľčo interakcia $V(\vr-\vrp)$ je exponenciálne zatienená už na vzdialenosti $|\vr-\vrp| \simeq k_s^{-1} \simeq k_F^{-1} \ll l$.
 Keď však dva elektróny navzájom interagujú vo vzdialenosti $|\vr-\vrp| \lesssim l$, interakcia s disorderom sa nestihne uplatniť.
 To znamená že interakcia $V(\vr-\vrp)$ na vzdialenostich $|\vr-\vrp| \lesssim l$ nie je v porovnaní s disorderom slabá porucha.
 Intuitívne je jasné, že správny poruchový ansatz v tomto prípade musí byť rovinná vlna
@@ -63,7 +62,7 @@ $\phi_m(\vr) \simeq \frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$, ktorá je správnym ri
 To vedie k nasledovnej korekcii výsledku \eqref{eq:erg_V_ft}. Integračný interval premennej $q$ rozdelíme na interval $(0, q_{max})$ a interval $q > q_{max}$, kde $q_{max}=A/l$ a $A$ je číslo blízke jednotke.
 Pre $q < q_{max}$ ostáva pravá strana rovnice \eqref{eq:erg_V_ft} bez zmeny, pretože $q \lesssim 1/l$ zodpovedá medzielektrónovým vzdialenostiam $|\vr-\vrp| \gtrsim l$.
 Pre $q > q_{max}$  však do pravej strany rovnice \eqref{eq:erg_V_ft} vstúpia vlnové funkcie $\phi_m(\vr) \simeq \frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$, pretože $q \gtrsim 1/l$
-zodpovedá v reálnom prestore vzdialenostiam $|\vr-\vrp| \lesssim l$. Túto korekciu teraz explicitne nedosadíme, ale budeme si ju pamätať a použijeme ju neskôr.
+zodpovedá v reálnom priestore vzdialenostiam $|\vr-\vrp| \lesssim l$. Túto korekciu terat explicitne nedosadíme, ale budeme si ju pamätať a použijeme ju neskôr.
 
 Rovnica \eqref{eq:erg_V_ft} popisuje jednu kovovú vzorku so špecifickým náhodným potenciálom disorderu. Vystredujeme ju cez mnoho vzoriek s makroskopicky rovnakým ale mikroskopicky rôznym disorderom a dostaneme
 \begin{equation}
@@ -109,7 +108,7 @@ klasickú difúziu častice s energiou $\E$, musí platiť, že $\Delta \E \ll \
  \label{eq:obmedzenia}
  \Delta \E \lesssim \hbar/\tau \ \ , \ \  \hbar/\tau \ll E_F
 \end{equation}
-Obmedzenie $\Delta \E \lesssim \hbar/\tau$ znamená, že difúzna aproximácia \eqref{eq:aa_postulate} je spoľahlivá len pre časy $t >> \tau$. Na tieto obmedzenia ešte v našom texte
+Obmedzenie $\Delta \E \lesssim \hbar/\tau$ znamená, že difúzna aproxímícia \eqref{eq:aa_postulate} je spoľahlivá len pre časy $t >> \tau$. Na tieto obmedzenia ešte v našom texte
 veľa krát narazíme.  Obmedzenie $\hbar/\tau \ll E_F$ je ekvivalentné podmienke slabého disorderu $k_Fl \gg 1$.
 
 Keď rozvoj  \eqref{eq:aa_psi_sum} dosadíme do rovnice \eqref{eq:aa_postulate}, dostaneme
@@ -182,10 +181,158 @@ pre štvorec maticového elementu,
 \end{equation}
 platný pre $q \gtrsim 1/l$ a pre $|\E-\E'| \ll \hbar/ \tau$.
 
-Vezmime vzťah \eqref{eq:erg_meandis} a aplikujme naň operáciu $\frac{1}{\rho(\E)}\sum_{m} \delta(\E-\E_{m})$, kde suma ide cez všetky možné $m$. Táto operácia
-zmení $\E_{m}$ na $\E$. Potom vo vťahu \eqref{eq:erg_meandis} prejdime od premennej $m'$ k premennej $\E_{m'}$, sumu $\sum_m'$ nahraďme integrálom
-$\int_{0}^{\E_F} d\E_{m'} \rho(\E_{m'})$ a nakoniec preznačme $\E_{m'}$ na $\E'$. Vzťah \eqref{eq:erg_meandis} tak nadobudne tvar
+Teraz upravíme vzťah \eqref{eq:erg_meandis}. Aplikujme naň operáciu $\frac{1}{\rho(\E)}\sum_{\forall m} \delta(\E-\E_{m})$, kde suma ide cez všetky možné $m$. Táto operácia
+zmení $\E_{m}$ na $\E$. Sumu $\sum_{m'}$, ktorá ide cez všetky $m'$ s energiami $\E_{m'} \leq \E_{F}$, vykonáme nasledovným spôsobom,
+Najpr vystredujeme výraz pod sumou aplikovaním operácie $\frac{1}{\rho(\E')}\sum_{\forall m'} \delta(\E'-\E_{m'})$ (táto operácia zmení $\E_{m'}$ na $\E'$) a potom
+aplikujeme integrál  $\int_{0}^{\E_F} d\E' \rho(\E')$.
+Vzťah \eqref{eq:erg_meandis} tak nadobudne tvar
 \begin{equation}
 \label{eq:erg_meandis modif}
  \overline{E(\E})=\overline{\E}-\int_{0}^{\E_F} d\E' \rho(\E') \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) \overline{|\bra{\phi_{\E}}e^{i\vq\cdot\vr}\ket{\phi_{\E'}}|^2} \text{.}
 \end{equation}
+Vo vzťahu \eqref{eq:erg_meandis modif} je dvakrát použité stredovanie $\frac{1}{\rho(\E)}\sum_{\forall m} \delta(\E-\E_{m})$. Poznamenajme, že v prípade voľných častíc, keď $m = \vk$ a $\E_{m} = \E_{\vk} = \hbar^2k^2/2m$, je toto stredovanie ekvivalentné stredovaniu cez priestorový uhol $4 \pi$.
+
+Ideme odvodiť hustotu stavov, postupujeme pritom podobne ako dodatok H v práci \cite{Imry}. Zapíšeme vzťah \eqref{eq:erg_meandis modif} v tvare
+\begin{equation}
+ \label{eq:aa_energy}
+ \overline{E(\E})=\overline\E+E_{self}(\E)\text{,}
+\end{equation}
+kde
+\begin{equation}
+ \label{eq:aa_self_energy vseobec}
+ E_{self}(\E)=-\int_{0}^{\E_F} d\E' \rho(\E') \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) \overline{|\bra{\phi_{\E}}e^{i\vq\cdot\vr}\ket{\phi_{\E'}}|^2} \text{.}
+\end{equation}
+je self-energia spôsobená e-e interakciou elektrónov pohybujúcich sa v disorderi.
+Derivujeme rovnicu \eqref{eq:aa_energy} podľa počtu stavov $n$, stredovaciu čiaru nad $E$ a $\E$ v ďaľšom vynechávame:
+\begin{equation}
+  \frac{d E(\E)}{dn}=\frac{d\E}{dn}+\frac{dE_{self}(\E)}{dn}=\frac{d\E}{dn}+\frac{dE_{self}(\E)}{d\E}\frac{d\E}{dn}=\frac{d\E}{dn}(1+\frac{dE_{self}(\E)}{d\E}) \text{.}
+\end{equation}
+Keďže hustota stavov je derivácia počtu stavov podľa energie, otočením oboch strán poslednej rovnice dostávame pre hustotu stavov vzťah
+\begin{equation}
+ \label{eq:aa_dos1}
+ \rho(\E)=\rho_0(\E)\frac{1}{1+\frac{dE_{self}(\E)}{d\E}} \text{,}
+ \end{equation}
+ kde $\rho_0(\E) \equiv dn/d\E$ je hustota stavov elektrónov bez e-e interakcie, interagujúcich len s disorderom (pre slabý disorder je približne rovná hustote stavov \eqref{eq:rho_par} pre voľnú časticu), a
+ $dE_{self}(\E)/d\E$ je korekcia spôsobená e-e interakciou aj interakciou s disorderom.
+ Pre $dE_{self}(\E)/d\E \ll 1$  má výsledná hustota stavov tvar
+\begin{equation}
+ \label{eq:aa_dos2}
+ \rho(\E) \simeq \rho_0(\E)[1-\frac{dE_{self}(\E)}{d\E}] \simeq \rho_0(\E_F)[1-\frac{dE_{self}(\E)}{d\E}] \text{.}
+\end{equation}
+
+Keď do rovnice \eqref{eq:erg_meandis modif} dosadíme vzťah \eqref{eq:aa_matrix_element_final}, dostaneme
+\begin{equation}
+ \label{eq:aa_self_energy}
+ E_{self}=-\int_{0}^{\E_F}d\E' \int \frac{d\vq}{8\pi^4}V(q)\frac{\hbar D q^2}{(\hbar D q^2)+(\E-\E')}\text{,}
+\end{equation}
+kde hranice integrálu cez premennú $\vq$ sú obmedzené nerovnosťou $q < q_{max} = A/l$, kde $A \sim 1$. Príspevok od $q > q_{max}$ Altshuler a Aronov neuvažovali, takže teraz ho nebudeme uvažovať ani my
+a pozrieme sa naň až v ďaľšej kapitole.
+
+Pravú stranu rovnice \eqref{eq:aa_self_energy} najprv upravíme použitím označenia $\epsilon = \E - \E_F$ a substitúcie $\epsilon'  = \E'  - \E_F$. Potom urobíme susbtitúciu  $\epsilon'' = \epsilon - \epsilon'$.
+Rovnica nadobudne tvar
+\begin{equation}
+\label{eq:aa_selfenergy_subst_2}
+E_{self}=-\int_{\epsilon}^{\epsilon+\E_F}d\epsilon'' \int \frac{d\vq}{8\pi^4}V(q)\frac{\hbar D q^2}{(\hbar Dq^2)^2+(\epsilon'')^2}\text{.}
+\end{equation}
+Nás budú zaujímať energie $|\epsilon| \ll \E_F$ a preto môžeme v poslednom vzťahu urobiť aproximáciu $\E_F=\infty$. Dostávame
+\begin{equation}
+\label{eq:aa_selfenergy_infinite}
+E_{self}=-\int_{\epsilon}^{\infty}d\epsilon'' \int \frac{d\vq}{8\pi^4}V(q)\frac{\hbar D q^2}{(\hbar Dq^2)^2+(\epsilon'')^2}\text{.}
+\end{equation}
+Derivovaním podľa premennej $\epsilon$ dostaneme
+\begin{equation}
+ \label{eq:aa_selfenergy_der}
+ \frac{dE_{self}(\epsilon)}{d\epsilon}=\int \frac{d\vq}{8\pi^4}V(q)\frac{\hbar D q^2}{(\hbar Dq^2)^2+(\epsilon)^2}\text{.}
+\end{equation}
+Za $V(q)$ dosadíme tienený potenciál $V(q)=e^2/\epsilon_0(q^2+k_s^2)$ a prejdeme do sférických súradnic:
+\begin{equation}
+ \frac{dE_{self}(\epsilon)}{d\epsilon}= \frac{4\pi}{8\pi^4} \int_0^{q_{max}} dq q^2 \frac{e^2}{\epsilon_0(q^2+k_s^2)}\frac{\hbar D q^2}{(\hbar Dq^2)^2+(\epsilon)^2} \text{.}
+\end{equation}
+Zavedieme substitúcie $x=\frac{q}{k_s}$ a $a=\sqrt{\frac{|\epsilon|}{\hbar D k_s^2}}$, a pravú stranu rovnice \eqref{eq:aa_selfenergy_der} prepíšeme pomocou rozkladu na parciálne zlomky do tvaru
+\begin{equation}
+\label{eq:aa_selfenergy_der_subst1}
+\frac{e^2}{4\pi^2 \epsilon_0 \hbar D k_s}\left[1+a^{4}\right]^{-1}\frac{2}{\pi}\int_0^{x_{max}} dx(\frac{1}{1+x^2}-
+\frac{1}{1+(\frac{x}{a})^4}+\frac{x^2}{1+(\frac{x}{a})^4})\text{.}
+\end{equation}
+kde $x_{max}=\frac{q_{max}}{k_s}$. Pre prvý integrál dostaneme výsledok
+\begin{equation}
+ \label{eq:aa_int1}
+ \frac{2}{\pi}\int_0^{x_{max}}\frac{dx}{1+x^2}= \frac{2}{\pi}\arctan{(x_{max})} \simeq  \frac{2}{\pi}x_{max}  = \frac{2}{\pi}\frac{q_{max}}{k_s} \text{,}
+\end{equation}
+kde sme využili, že $x_{max} \ll 1$. Pri počítaní druhého integrálu použijeme  substitúciu $y=\frac{x}{a}$. Dostaneme
+\begin{equation}
+ \label{eq:aa_int2_capped}
+ \frac{2}{\pi}\int_0^{x_{max}}\frac{dx}{1+(\frac{x}{a})^4} = a\frac{2}{\pi}\int_0^{y_{max}} dy \frac{1}{1+y^4}=a\left[F(y_{max})-F(0)\right]\text{,}
+\end{equation}
+kde
+\begin{equation}
+ \label{eq:aa_primitive_func}
+ F(y)=\frac{1}{4\sqrt 2}[ \ln(y^2+\sqrt 2 y+1)-\ln(y^2-\sqrt 2 y+1) + 2\arctan(1+\sqrt 2 y ) - 2\arctan(1-\sqrt 2 y)]\text{}
+\end{equation}
+je primitívna funkcia.
+Vidno, že $F(0)=0$.
+Keďže $y_{max}=  \frac{\sqrt{\hbar D} q_{max}}{\mid \epsilon \mid}$ , pre malé energie $\epsilon $ je $y_{max}$ veľké a preto vyšetríme, ako sa správa $F(y)$
+pre veľké $y$. Rozvinieme $F(y)$ do Taylorovho radu pre veľké $y$. Rozvoje pre jednotlivé členy funkcie $F(y)$ sú
+\begin{align*}
+ \arctan(\sqrt 2 y+1)&=\frac{\pi}{2}-\frac{1}{\sqrt 2 y}+\frac{1}{2 y^2}-\frac{1}{3 \sqrt 2 y^3} ... \\
+ \arctan(\sqrt 2 y -1)&= -\frac{\pi}{2}+\frac{1}{\sqrt 2 y}+\frac{1}{2 y^2}+\frac{1}{3 \sqrt 2 y^3} ...\\
+ \ln(y^2+\sqrt 2 y+1)&=  2 \ln y + \frac{\sqrt 2} {y}-\frac{\sqrt 2}{3y^3} ...\\
+ \ln(y^2-\sqrt 2 y+1)&= 2 \ln y - \frac{\sqrt 2} {y}+\frac{\sqrt 2}{3y^3}...\ \text{.}
+\end{align*}
+Pre rozvoj celej funkcie$F(y)$ dostaneme
+\begin{equation}
+ \label{eq:aa_primitive_func_taylor}
+F(y)\simeq \frac{1}{2\sqrt2\pi} - \frac{1}{3y^3} + \dots \text{.}
+\end{equation}
+Keď  člen $\frac{1}{3y^3}$ a členy za ním nasledujúce zanedbáme,
+výpočet výrazu \eqref{eq:aa_int2_capped}  dá výsledok
+\begin{equation}
+ \label{eq:aa_int2_capped_final}
+ \frac{2}{\pi}\int_0^{x_{max}}\frac{dx}{1+(\frac{x}{a})^4} = \frac{2}{\pi}a\int_0^{y_{max}} dy \frac{1}{1+y^4}=a\left[F(y_{max})-F(0)\right]
+  \simeq
+  \sqrt{\frac{|\epsilon|}{\hbar D k_s^2}} \frac{1}{\sqrt{2}}\text{,}
+\end{equation}
+ktorý je úmerný $\sqrt{|\epsilon|}$. Príspevok od zanedbaných členov rozvoja $F(y)$ by k výsledku \eqref{eq:aa_int2_capped_final} pridal členy s vyššími mocninami $|\epsilon|$, ktoré sú pre malé $|\epsilon|$ zanedbateľné.
+Konečne,  pre tretí integrál pri použití rovnakej substitúcie dostaneme
+\begin{equation}
+ \label{eq:aa_int3}
+ \frac{2}{\pi}\int_0^{x_{max}}dx\frac{x^2}{1+(\frac{x}{a})^4} =   \frac{2a^3}{\pi}\int_0^{y_{max}}\frac{y^2}{1+y^4}=a^3G(y) \text{.}
+\end{equation}
+Primitívnu funkciu $G(y)$ vieme vypočítať podobne ako primitívnu funkciu \eqref{eq:aa_primitive_func}.
+Podstatné je, že vďaka muliplikatívnemu faktoru $a^3$ nám tretí integrál dá členy rádu $|\epsilon|^{\frac{3}{2}}$ a vyššie. Preto
+môžeme celý tretí integrál zanedbať.
+
+Vzťah \eqref{eq:aa_selfenergy_der_subst1} po týchto výpočtoch nadobudne tvar
+\begin{equation}
+\label{eq:aa_selfenergy_der_final}
+\frac{dE_{self}}{d\epsilon}=
+\frac{e^2q_{max}}{2\pi^3 \epsilon_0 \hbar D k_s^{2}}  \ \   \left[1+\frac{|\epsilon|^2}{\hbar^2D^2k_s^4}\right]^{-1} \ \
+\left(1- \frac{\pi\sqrt{|\epsilon|}}{2q_{max}\sqrt{2\hbar D }}\right)\text{,}
+\end{equation}
+ktorý sa po zanedbaní  členov rádu vyššieho  než $|\epsilon|^{\frac{1}{2}}$ zjednoduší na
+\begin{equation}
+\label{eq:aa_selfenergy_der_final}
+\frac{dE_{self}}{d\epsilon}=\frac{e^2q_{max}}{2\pi^3 \epsilon_0 \hbar D k_s^{2}} \ \ \
+\left(1- \frac{\pi\sqrt{|\epsilon|}}{2q_{max}\sqrt{2\hbar D}}\right)        \text{.}
+\end{equation}
+Keď výraz  \eqref{eq:aa_selfenergy_der_final} dosadíme do rovnice pre hustotu stavov \eqref{eq:aa_dos2}, získame vzťah
+\begin{equation}
+ \label{eq:aa_dos3}
+ \rho(\E)=\rho_0(\E_F)\left[1-\frac{e^{2}}{\epsilon_0 k_s^{2}}\ \  \frac{q_{max}}{2\pi^3 \hbar D}
+ +  \frac{e^{2}}{\epsilon_0 k_s^{2}} \ \ \frac{1}{2\pi^2 (2\hbar D)^{3/2}}  \ \sqrt{|\E-\E_F|}  \right]\text{,}
+\end{equation}
+ktorý sa pre $k_s^2=\frac{e^2 \rho_0(E_F)}{\epsilon_0}$ dá upraviť ako
+\begin{equation}
+ \label{eq:aa_dos3 fin}
+ \rho(\E)=\rho_0(\E_F) - \frac{q_{max}}{2\pi^3 \hbar D}
+ +    \frac{1}{2\pi^2 (2\hbar D)^{3/2}}  \ \sqrt{|\E-\E_F|}  \text{.}
+\end{equation}
+Altshuler a Aronov uvádzajú výsledok \eqref{eq:aa_dos3 fin} v tvare
+\begin{equation}
+ \label{eq:aa_dos_final}
+ \rho(\E)=\rho(\E_F)+ \frac{1}{2\pi^2 (2\hbar D)^{3/2}}  \ \sqrt{|\E-\E_F|}\text{}
+\end{equation}
+bez toho, aby špecifikovali $\rho(\E_F)$.
+
+
+

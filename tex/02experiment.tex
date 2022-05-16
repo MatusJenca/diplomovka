@@ -1,190 +1,209 @@
-\section {Experimentálne meranie hustoty stavov v disorderovanom kove}
-V tejto kapitole predstavíme experimentálnu metódu merania hustoty stavov
-Táto metóda využíva efekt tunelovania elektrónu cez potenciálovú bariéru.
+\section {Meranie hustoty stavov v kove s disorderom metódou tunelovej spektroskopie}
 
-Experimentálna sústava pozostáva z dvoch kovov odelených izolantom. Naľavo máme čistý 
-kov, ktorého hustotu poznáme - {\it známy kov}. Napravo máme disorderovaný kov, ktorého 
-hustotu stavov budeme merať - {\it skúmaný kov}. Izolant tvorí potenciálovú bariéru.
-Na sústavu priložíme napätie  $U$ a budeme merať prúd.  
+V tejto kapitole uvedieme metódu merania hustoty stavov - tunelovú spektroskopiu.
+Uvedieme tiež niekoľko vybraných experimentálnych výsledkov tejto metódy, ktoré sme prevzali z literatúry. Budú
+motiváciou pre naše výpočty v nasledujúcich kapitolách.
 
-Bez priloženého napätia ($U=0$) popisuje Hamiltonián 
+Ako je ukázané na obrázku  \eqref{fig:schema}, experimentálna sústava pozostáva z dvoch kovov odelených tenkou vrstvou izolantu. Naľavo od izolantu je čistý
+kov, ktorého hustota stavov sa dá v okolí Fermiho energie považovať za konštantu nezávislú od energie. t.j., nie je ovplyvnená javom Altshulera - Aronova. Napravo je {\it skúmaný kov} - kov s disorderom, ktorého
+hustotu stavov chceme merať. Izolant tvorí potenciálovú bariéru, ktorá je dostatočne tenká na to, aby umožňovala slabé elektrónové tunelovanie z kovu do kovu.
+Na sústavu sa priloží napätie  $U$, ktoré spôsobí, že z kovu do kovu tečie elektrónový tunelovací prúd $I(U)$. Meria sa volt-ampérová charakteristika $I(U)$ a diferenciálna vodivosť $dI(U)/dU$.
+V nasledujúcich riadkoch stručne zhrnieme štandartnú teóriu tunelovacieho prúdu, ktorá umožňuje z nameranej diferenciálnej vodivosti $dI(U)/dU$ určiť hustotu stavov v skúmanom kove ako funkciu
+elektrónovej energie $\E-\E_F$.
+
+
+\begin{figure}
+        \centering
+        \includegraphics[origin=c,scale=0.4]{grafy/schema}
+        \caption{Štruktúra kov-izolant-kov pre tunelovú spektroskopiu.}
+        \label{fig:schema}
+    \end{figure}
+\begin{figure}
+        \centering
+        \includegraphics[origin=c,scale=0.5]{grafy/barier_v3}
+        \caption{Pásový diagram  štruktúry kov-izolant-kov z predchádzajúceho obrázku. }
+        \label{fig:barier_v3}
+    \end{figure}
+\begin{figure}
+        \centering
+        \includegraphics[origin=c,scale=0.5]{grafy/3bariers}
+        \caption{Schématické znázornenie stavov $\psi_{l}(x)$ vľavo od bariéry a stavov $\psi_{r}(x)$ vpravo od bariéry podľa popisu v texte.}
+        \label{fig:3bariers}
+    \end{figure}
+Na Obr. \eqref{fig:barier_v3}  je ukázaný pásový diagram štruktúry kov-izolant-kov, ktorý nám pomôže pri výpočte $I(U)$. Pre jednoduchosť uvažujeme dva rovnaké kovy s Fermiho energiou $\E_{F}$.
+Energiu dna vodivostného pása označujeme $\E_{c,l}$ v kove vľavo od bariéry a $\E_{c,r}$ v kove vpravo od bariéry. Chemický potenciál elektrónov označujeme $\mu_{l}$ v kove vľavo a $\mu_{r}$ v kove vpravo.
+Vlastnú hodnotu energie elektrónu v stave $l$ vľavo od bariéry označujeme ako $\E_{l}$ a vlastnú hodnotu energie elektrónu v stave $r$ vpravo od bariéry označujeme ako $\E_{r}$.  Izolant vytvára medzi kovmi energetickú bariéru výšky $V_{0}$, priložené napätie $U$ celé padá na bariéru a spôsobuje jej zošikmenie. Vidno, že $\mu_{l} - \mu_{r} = -eU$ a $\E_{c,l}  - \E_{c,r} = -eU$. Na obrázku sa predpokladá záporné $U$. Zdôraznime tiež, že energie $\E_{c,l}$, $\mu_{l}$,  a $\E_{l}$ aj energie $\E_{c,r}$, $\mu_{r}$,  a $\E_{r}$ sú na obrázku odčítané od tej istej nulovej hladiny.
+
+Teraz definujme presnejšie, čo znamenajú pojmy stav $l$ a energia $\E_{l}$ vľavo od bariéry, a stav $r$ a energia $\E_{r}$ vpravo od bariéry.
+K tomu nám pomôže obrázok \eqref{fig:3bariers}.
+Hamiltonián $\hat{H}$ popisujúci pohyb elektrónu v celej štruktúre na obr. \eqref{fig:barier_v3} zapíšeme v tvare
 \begin{equation}
  \label{eq:02barrier}
- \hat{H}=\frac{\hbar^2 \laplace }{2m}+V(x) \text{,}
-\end{equation} 
-kde 
+ \hat{H}=-\frac{\hbar^2 \laplace }{2m}+V(x) \text{,}
+\end{equation}
+kde
 \begin{equation}
  \label{eq:02potential_barrier}
  V(x)=
  \begin{cases}
     V_0,& \text{pre } 0<x<b\\
-    0,              & \text{inak}
+    0,              & \text{pre ostatné $x$}
 \end{cases}\text{,}
-\end{equation} 
-kde $b$ je šírka bariéry,
-
-Hladanie vlastných stavov Hamiltoniánu \eqref{eq:02barrier} je učebnicový problém, ktorý sa 
-štandartne rieši nájdením vlnových funkcii v troch oblastiach a následným ,,zošívaním'' 
-pomocou podmienky spojitosti vlnovej funkcie a jej derivácie. 
-
-Štandartný spôsob riešenia však zlyhá po priložení napätia na experimentálnu sústavu. 
-Preto predstavíme iný spôsob.
-
-Majme teraz dve nekonečne široké bariéry z ľava:
+\end{equation}
+kde $b$ je šírka bariéry, $V_0$ je výška bariéry, a pre jednoduchosť neberieme do úvahy deformáciu bariéry spôsobenú priloženým napätím $U$.
+Teraz namiesto bariéry opísanej potenciálom $V(x)$ uvažujme polonekonečnú bariéru opísanú potenciálom
 \begin{equation}
  \label{eq:02potential_left}
  V_l(x)=
  \begin{cases}
     V_0,& \text{pre } 0<x\\
-    0,              & \text{inak}
+    0,              & \text{pre ostatné $x$}
 \end{cases}\text{,}
 \end{equation}
-a podobne sprava
+ktorý je ukázaný aj na \eqref{fig:3bariers}. Zodpovedajúci Hamiltoníán
+\begin{equation}
+ \label{eq:02barrier}
+ \hat{H_l}=-\frac{\hbar^2 \laplace }{2m}+V_l(x) \text{,}
+\end{equation}
+má vlastné funkcie $\psi_{l}(x)$ a vlastné energie $\E_{l}(x)$. Vlnové funkcie
+$\psi_{l}(x)$ klesnú vo vnútri bariéry exponenciálne rýchlo na nulu. Preto o elektróne v stave
+$\psi_{l}(x)$ s energiou $\E_{l}$ môžeme hovoriť ako o elektróne v stave $l$ vľavo od bariéry.
+Podobne, uvažujme polonekonečnú bariéru opísanú potenciálom
  \begin{equation}
  \label{eq:02potential_right}
  V_r(x)=
  \begin{cases}
     V_0,& \text{pre } b>x\\
-    0,              & \text{inak}
+    0,              & \text{pre ostatné $x$}
 \end{cases}\text{.}
 \end{equation}
-Pre obe bariéry \eqref{eq:02potential_left} a \eqref{eq:02potential_right} vieme určiť 
-vlastné stavy $\psi_{l}(x)$ a $\psi_{r}(x)$. Tieto stavy sú očividne dobrou aproximáciou 
-stavov naľavo a napravo od konečnej bariéry \eqref{eq:02potential_barrier}. Nie sú to však 
-vlastné stavy hamiltoniánu \eqref{eq:02barrier}, preto musíme riešiť časovú SchR 
+ Zodpovedajúci Hamiltoníán
 \begin{equation}
- \label{eq:02time_schr}
- i\hbar \frac{d}{dt}\psi(x,t)=\hat{H} \psi(x,t)\text{.}
-\end{equation} 
-Časticu je v čase $t=0$ na ľavo od bariéry teda v stave $\psi_l(x)$, teda máme počiatočnú 
-podmienku 
-\begin{equation}
- \label{eq:02init_cond} 
- \psi(x,0)=\psi_l(x)\text{.}
+ \label{eq:02barrier}
+ \hat{H_r}=-\frac{\hbar^2 \laplace }{2m}+V_r(x) \text{,}
 \end{equation}
-Riešenie časovej SchR \eqref{eq:02time_schr} hľadáme v tvare:
-\begin{equation}
- \label{eq:02time_schr_solution}
- \psi(x,t)=c_l(t)\psi_l(x)e^{-\frac{iE_l t}{\hbar}}+\sum_{\forall r} c_r(t)\psi_l(x)e^{-\frac{iE_r t}
-{\hbar}}\text{,}
-\end{equation}  
-kde s počiatočných podmienok \eqref{eq:02init_cond} dostávame:
-\begin{equation}
- \label{eq:02time_schr_coeficients} 
-c_l(0)=1 , c_r(0)=0 \text{.}
- \end{equation} 
- Pre slabo preniknuteľnú bariéru vieme koeficienty aproximovať ako:
- \begin{equation}
- \label{eq:02time_schr_coeficients_approx} 
-c_l(t)\doteq1,c_l'(t)\doteq1 , c_r(t)\doteq0 \text{.}
- \end{equation} 
- 
-Dosadením \eqref{eq:02time_schr_solution}  do \eqref{eq:02time_schr} a použitím 
-\eqref{eq:02time_schr_coeficients_approx} 
-a následnými úpravami  dostávame
+má vlastné funkcie $\psi_{r}(x)$ a vlastné energie $\E_{r}$. Podobne ako pre stavy $\psi_{l}(x)$,
+o elektróne v stave
+$\psi_{r}(x)$ s energiou $\E_{r}$ môžeme hovoriť ako o elektróne v stave $r$ vpravo od bariéry.
+
+Uvažujme elektrón nachádzajúci sa v čase $t=0$ v stave $\psi_{l}(x)$, teda vľavo od bariéry. Keďže stav $\psi_{l}(x)$
+nie je stacionárnym stavom Hamiltoniánu $\hat{H}$, existuje nenulová pravdepodobnosť $w_{l\to r}$,
+že elektrón nachádzajúci sa v stave $\psi_l$ s energiou $E_r$ za jednotku času pretuneluje do niektorého zo stavov $\psi_r$ s energiou $E_r$.
+Pravdepodobnosť $w_{l\to r}$ je daná Bardeenovou formulou
 \begin{equation}
  \label{eq:02golden_rule}
- w_{r\to l}=\frac{2\pi}{\hbar} \bra{\psi_l}H-E_l\ket{\psi_r}\delta(E_l-E_r)\text{.}
-\end{equation} 
-Dostali sme vzťah podobný Fermiho zlatému pravidlu, ktorý popisuje pravdepodobnost 
-prechod zo stavu $\psi_l$  do stavu $\psi_r$. 
-
-V ďalšom zavedieme označenie
-\begin{equation}
-\label{eq:02t}
-t_{k_l \to k_r}=\bra{\psi_l}H-E_l\ket{\psi_r}
+ w_{l\to r}=\frac{2\pi}{\hbar} |\bra{\psi_r}\hat{H}-\E_l\ket{\psi_l}|^{2} \delta(\E_l-\E_r)\text{,}
 \end{equation}
+kde $\hat{H}-\E_l$ je slabá porucha zodpovedná za tunelovanie z neporušeného stavu $l$ do do neporušeného stavu $r$.
+Vzťah \eqref{eq:02golden_rule} sa odvodzuje pomocou nestacionárnej poruchovej teórie podobne ako Fermiho zlaté pravidlo.
+Jediný rozdiel je, že Fermiho zlaté pravidlo popisuje prechody medzi neporušenými stavmi toho istého Hamiltoniánu, zatiaľ čo tu máme dočinenia
+s prechodmi medzi stavmi $l$ neporušeného Hamiltoniánu $\hat{H_l}$ a stavmi $r$ neporušeného Hamiltoniánu $\hat{H_r}$.
+Pravdepodobnosť $w_{r\to l}$ sa získa zo vzťahu pre $w_{l\to r}$ výmenou $l$ za $r$ a $r$ za $l$.
+Konečne, stavy $l$ a $r$ sme doposiaľ diskutovali (obr. \ref{fig:3bariers})  bez prítomnosti priloženého napätia $U$.
+Zobecnenie stavov $l$ a $r$ na štruktúru s priloženým napätím  (obr. \ref{fig:barier_v3}) je však zrejmé a výsledné $w_{r\to l}$ sa nezmení.
 
-Teraz priložíme na sústavu napätie $U$, čo spôsobí zmenu dna energetického pásu na 
-pravej strane bariéry $\Delta E_c$.  Potenciálová bariéra má teraz tvar lineárnej funkcie.
-Obsadzovacie čísla jednotlivých elektrónových stavov budú na ľavo dané Fermi-Diracovým rozdelením:
-\begin{equation}
- \label{eq:02fermidirac_left}
- f_l(k_l)=\frac{1}{e^{\frac{E_{k_l}-\mu_l}{k_bT}}+1}\text{,}
-\end{equation} 
-
-podobne pre stavy na pravo:
-
-\begin{equation}
- \label{eq:02fermidirac_right}
- f_r(k_r)=\frac{1}{e^{\frac{E_{k_r}-\mu_r}{k_bT}}+1}\text{.}
-\end{equation} 
-
-Počet elektrónov ktoré prejdu zľava do prava, resp sprava do ľava.
+Teraz môžeme vyrátať tunelovací prúd $I(U)$.
+Počet elektrónov, ktoré pretunelujú cez bariéru za jednotku času zľava do prava, je
 \begin{equation}
 \label{eq:02elctronsLTR}
-\Gamma^+(\Delta E)=\sum_{k_l}{\sum_{k_r} w_{k_l \to k_r} f_l(k_l)[1-f_r(k_r)]}
+\Gamma^+=2\sum_{l}{\sum_{r} w_{l \to r} f_l(\E_l)[1-f_r(\E_r)]} \text{,}
 \end{equation}
-
+kde faktor $2$ započítava dve orientácie spinu,
+\begin{equation}
+ \label{eq:02fermidirac_left}
+ f_l(\E_l)=\frac{1}{e^{\frac{\E_l-\mu_l}{k_bT}}+1}\text{,}
+\end{equation}
+je Fermi-Diracove obsadzovacie číslo stavov $l$ a
+\begin{equation}
+ \label{eq:02fermidirac_right}
+ f_r(\E_r)=\frac{1}{e^{\frac{\E_r-\mu_r}{k_bT}}+1}\text{.}
+\end{equation}
+je Fermi-Diracove obsadzovacie číslo stavov $r$.
+Podobne, počet elektrónov, ktoré pretunelujú cez bariéru za jednotku času zprava doľava, je
 \begin{equation}
 \label{eq:02elctronsRTL}
-\Gamma^-(\Delta E)=\sum_{k_l}{\sum_{k_r} w_{k_r \to k_l} f_r(k_r)[1-f_l(k_l)]}
+\Gamma^-=2\sum_{r}{\sum_{l} w_{r \to l} f_r(\E_r)[1-f_l(\E_l)]} \text{.}
 \end{equation}
-
-Kde $\Delta E$ je rozdiel energii medzi stavmi naľavo a napravo, pozri obrázok. Celkový prúd je teda 
+Pre celkový prúd platí, že $I=-e (\Gamma^+ - \Gamma^-)$.
+Skôr ako dosadíme za $\Gamma^+$ a $\Gamma^-$, urobíme
+obvyklú aproximmáciu
+\begin{equation}
+ \label{eq:02golden_ruleaprox}
+ w_{l\to r}=\frac{2\pi}{\hbar} |\bra{\psi_r}\hat{H}-\E_l\ket{\psi_l}|^{2} \delta(\E_l-\E_r) \simeq \frac{2\pi}{\hbar} |t|^{2} \delta(\E_l-\E_r) \text{,}
+\end{equation}
+kde maticový element $\bra{\psi_r}\hat{H}-\E_l\ket{\psi_l}$ je aproximovaný konštantou $t$. Táto aproximácia predpokladá, že aplikované napätie je zanedbateľne v porovnaní s energiami
+$E_F$ a $V_0$, a tiež, že dominantný príspevok k tunelovaniu dávajú elektróny dopadajúce kolmo na bariéru. Rovnakú aproximáciu prijmeme pre $w_{r\to l}$.
+Keď aproximáciu $w_{l\to r}= w_{r\to l} = \frac{2\pi}{\hbar} |t|^{2} \delta(\E_l-\E_r)$ dosadíme do rovníc \eqref{eq:02elctronsLTR} a \eqref{eq:02elctronsRTL},
+vzťah $I=-e (\Gamma^+ - \Gamma^-)$ sa dá upraviť na tvar
 \begin{equation}
 \label{eq:02current}
-I={\Gamma^+(\Delta E) - \Gamma^-(\Delta E)}
+I=  -2e \frac{2\pi}{\hbar} |t|^{2} \sum_{l} \sum_{r} [f_l(\E_l) -  f_r(\E_r)] \delta(\E_l-\E_r) \text{.}
 \end{equation}
-
-
-V roviniciach \eqref{eq:02elctronsLTR} a \eqref{eq:02elctronsRTL}  prejdeme od sumy k integrálu a dosadíme Zlaté pravidlo \eqref{eq:02golden_rule}. Nakoniec prejdeme k integrálu cez energiu, kde musíme násobiť hustotu stavov.
-\begin{align*}
-\Gamma^+(\Delta E)=\frac{2\pi}{\hbar}2\sum_{k_l} \sum_{k_r} {|t_{k_l \to k_r}|^2f_l(k_l)[1-f_r(k_r)]\delta(E_{l}-E_{r})}= \\
-\frac{2\pi}{\hbar}2 \int_{0}^{\infty}\frac{L}{\pi} dk_{r}\int_{0}^{\infty}\frac{L}{\pi} dl_{l} {|t_{k_l \to k_r}|^2f_l(k_l)[1-f_r(k_r)]\delta(E_{l}-E_{r})} \simeq\\
- \frac{2\pi}{\hbar}2 |t|^2 \int_{E_{c,l}}^{\infty}\frac{L}{\pi}\rho_r(E_r)dE_r\int_{E_{c,r}}^{\infty}\frac{L}{\pi} N_r(E_r)dE_r {f_l(k_l)[1-f_r(k_r)]\delta(E_{l}-E_{r})} \text{,}\\
-\end{align*}
-kde sme v poslednom riadku zanedbali závislosť transmisného koeficientu $t(k_l,k_r)$ . Podobným spôsobom vieme upraviť aj vzťah \eqref{eq:02elctronsRTL}.
-Takto upravené vzťahy dosadíme do rovnice pre celkový prúd prechádzajúci sústavou \eqref{eq:02current} a dostaneme 
+V poslednej rovnici prejdeme od sumovania k integrovaniu cez energie:
 \begin{equation}
 \label{eq:02current2}
-I=e\frac{4\pi|t|^2}{\hbar}\int_{E_{cl}}^\infty dE_l\rho_l(E_l)\rho_r(E_l)(f_l(E_l)-f_r(E_l)) \text{,}
+I= -2e \frac{2\pi}{\hbar} |t|^{2} \int_{\E_{c,l}}^\infty d\E_l\rho_l(\E_l) \int_{\E_{c,l}}^\infty d\E_r\rho_r(\E_r) [f_l(\E_l) -  f_r(\E_r)] \delta(\E_l-\E_r) \text{,}
 \end{equation}
-kde sme navyše využili $\delta$-funkciu a zbavili sa integrovania cez $E_r$. 
-
-
-V limite nízkych teplôt $T \simeq 0$ Fermi-Diracove funkcie prejdú na $\Theta$-funkcie. Preto dostávame
-\begin{align}
-I=e\frac{4\pi|t|^2}{\hbar}[\int_{E_{cl}}^{\mu_l}dE_l-\int_{E_{cl}}^{\mu_r}dE_l\rho_r(E_l)\rho_l(E_l)]\text{,}
-\end{align}
-Chemické potenciály na ľavej a pravej strane bariéry $\mu_r$ a $\mu_l$ sa líšia o $-Ue$ teda integrál napíšeme ako
-\begin{align}
+kde $\rho_l(\E_l)$  je hustota stavov v kove vľavo a $\rho_r(\E_r)$ je hustota stavov v kove vpravo. S využitím $\delta(\E_l-\E_r)$-funkcie zintegrujeme integrál cez premennú $\E_r$ a dostávame
+\begin{equation}
 \label{eq:02current3}
-I = e \frac{4\pi|t|^2}{\hbar}\int_{\mu_r}^{\mu_r-Ue}dE_l\rho_r(E_l)\rho_l(E_l)\text{.}
-\end{align}
- Na ľavej strane bariéry je známy kov bez disorderu. Jeho hustota stavov sa v okolí Fermiho energie dá aproximovať konštantou. Fermiho energia (a teda aj chemický potenciál naľavo $\mu_l$ i napravo $\mu_r$ )je rádovo $E_F\sim\SI{10}{\eV}$ a rozdiel enregí je rádovo $eU\sim \SI{100}{\milli\eV}$, teda na celom intervale integrálu v
-\eqref{eq:02current3} možno nahradiť hustotu stavov $\rho_l(E_l)$ konštantou $\rho_1(\mu_l)$, čiže hustotou stavov na Fermiho hladine. Konštantu vyjmeme pred integrál a dostaneme
-\begin{align}
-I = e \frac{4\pi|t|^2}{\hbar}\rho_l(\mu_l)\int_{\mu_r}^{\mu_r-Ue}dE_l\rho_r(E_l)\text{,}
-\end{align}
-teda pre diferenciálnu vodivosť dostaneme
+I= -2e \frac{2\pi}{\hbar} |t|^{2} \int_{\E_{c,l}}^\infty d\E_l \rho_l(\E_l)\rho_r(\E_l) [f_l(\E_l) -  f_r(\E_l)] \text{.}
+\end{equation}
+V limite $T \rightarrow 0$ sa Fermi-Diracove funkcie $f_l$ a $f_r$ chovajú ako skokové $\Theta$-funkcie a posledný vzťah sa dá upraviť na tvar
+\begin{equation}
+\label{eq:02current3}
+I= -2e \frac{2\pi}{\hbar} |t|^{2} \int_{\mu_{r}}^{\mu_{l}} d\E_l \rho_l(\E_l)\rho_r(\E_l) =  -2e \frac{2\pi}{\hbar} |t|^{2}  \int_{\mu_{r}}^{\mu_{r}-eU} d\E_l  \rho_l(\E_l) \rho_r(\E_l) \text{.}
+\end{equation}
+Keď prejdeme k premennej $ \E = \E_l - \E_{c,r}$, tak
+\begin{equation}
+\label{eq:02current3}
+I=  -2e \frac{2\pi}{\hbar} |t|^{2}  \int_{\E_{F}}^{\E_{F}-eU} d\E  \rho_l(\E) \rho_r(\E) \text{.}
+\end{equation}
+Na záver ešte vyjmeme pred integrál $\rho_l(\E) \simeq \rho_l(\E_F)$ a máme konečný výraz pre tunelovací prúd,
+\begin{equation}
+\label{eq:02current4}
+I =  -2e \frac{2\pi}{\hbar} |t|^{2} \rho_l(\E_F) \int_{\E_{F}}^{\E_{F}-eU} d\E   \rho_r(\E) \text{.}
+\end{equation}
+Keď poslednú rovnicu zderivujeme podľa premennej $U$, dostaneme hľadanú diferenciálnu vodivosť $G(U) = dI(U)d/U$ v tvare
 \begin{align}
 \label{eq:02diff}
-\frac{d I}{d U}=e\frac{4\pi|t|^2}{\hbar}\rho_l(\mu_l)\rho_r(\mu_r-Ue)
+G(U)=e^2\frac{4\pi|t|^2}{\hbar}\rho_l(\E_F)\rho_r(\E=\E_F-eU) \text{.}
 \end{align}
-Diferenciálnu vodivosť vieme experimentálne merať, a to určením voltampérovej charakteristiky. Preto z \eqref{eq:02diff} vyjaderíme jedinú neznámu veličinu, hustotu stavov skúmaného kovu napravo. Dostaneme priamu úmernosť medzi difernciálnou vodivosťou a hustotou stacvov 
+Na záver za $\rho_r(\E=\E_F-Ue)$ dosadíme Altshuler-Aronovov výsledok  \eqref{eq:aa_dos_final}. Dostaneme
 \begin{align}
-\rho_r(\mu_r-Ue)=\alpha \frac{d I}{d U} \text{,}
+\label{eq:02diff_2}
+G(U)=e^2\frac{4\pi|t|^2}{\hbar}\rho_l(\E_F)[\rho(\E_F)+  \frac{1}{2\pi^2 (2\hbar D)^{3/2}}  \ \sqrt{|eU|}] \text{.}
 \end{align}
-kde $\alpha=\frac{\hbar}{4\pi|t|^2e}$ je konštanta úmernosti. 
+Závislosť $G(U) \propto  \sqrt{|eU|} $ bola experimentálne pozorovaná v prácach \cite{Abeles},\cite{Dynes},\cite{McMillan2}
+\cite{ImryOvadyahu}, \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero}, \cite{Teizer}, \cite{Mazur},\cite{Luna2014}, \cite{Luna2015},
+a v mnohých iných.
 
-Hustotu stavov meriame určením voltampérovej charakteristiky sústavy {\it známy} kov - bariéra (izolant) - {\it skúmaný} kov, ktorá je po prenásobení konštantou $\alpha$ hustota stavov. {\it Známy} kov musí byť čistý (bez disorderu) aby sme v okolí Fermiho energie mohli použiť parabolický disperzný zákon a týmpádom aproximáciu $\rho_l(E_l)\approx\rho_l(\mu_l)$. 
-
-Pri meraní vložíme najskôr na obe strany čistý kov, a určíme jeho diferenciálnu vodivosť, ktorú označíme  $G_0(U)$. Potom meriame diferenciálnu vodivosť sústavy s disorderovaným kovom napravo $G(U)=\frac{dI(U)}{dU}$. 
-
-Pre hustotu stavov skúmaného kovu dostaneme:
+V článku  \cite{Mazur} normovali namerané $G(U)$ na $G_0(U)$, kde $G_0(U)$ je diferenciálna vodivosť neporušená efektom
+Altshulera-Aronova ($G_0(U)$ sa dá zmerať napríklad tak, že kov s disorderom sa vymení za rovnaký ale čistý kov, zvyčajne sa dostane $G_0(U)=const$).
+To znamená, že
 \begin{align}
-\frac{\rho_r(E)}{\rho_l(E_F)} = \frac{G(U)}{G_0(U)}
+\label{eq:02diff_2 norm}
+(G(|U|) - G_0)/G_0 = (\rho(|\E- \E_F|) - \rho_0)/\rho_0 \text{,}
 \end{align}
+kde $\rho_0$ je hustota stavov neporušená javom Altshulera - Aronova. Panel (d) v obrázku \ref{fig:B2} ukazuje experimentálny výsledok z práce \cite{Mazur}, v tejto práci
+boli podobné výsledky namerané pre päť rôznych vzoriek. Panely (a), (b), a (c)  ukazujú experimentálne výsledky z prác  \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero}
+po znormovaní v práci \cite{Moskova}. V blízkom okolí Fermiho energie všetky ukázané spektrá vykazujú Altshuler-Aronovov jav $\rho(|\E- \E_F|) \propto \sqrt{|\E- \E_F|}$,
+čo je podrobne diskutované v citovaných prácach. Novou a zaujímavou spoločnou črtou všetkych výsledkov na obr. \ref{fig:B2} je však práve chovanie ďaleko od Fermiho energie,
+totiž, že $\rho(|\E- \E_F|$ s rastúcim $|\E - \E_F|$ klesá k $\rho_0$ zhora. Práve tejto experimentálnej črte sa chceme venovať teoreticky v nasedujúcich kapitolách.
 
-Kde $\rho_l(E_F)$ je daná parabolickým disperzným zákonom.
-\begin{figure}[H]
-\centering
-\includegraphics[scale=1]{grafy/DOS-cropped}
-\caption{Meranie hustoty stavov tunelovou spektroskopiou. V experimente máme "čistý" a "disorderovaný" kov oddelené tenkou vrstvou izolantu. Meraná veličina je difernciálna vodivosť $\frac{d I}{d U}$}. 
-\end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{grafy/B2}
-\caption{Výsledky merania hustoty stavov tunelovou spektroskopiou pre rôzne zliatiny. Vo výsledných grafoch môžme vidieť pokles hustoty stavov v okolí Fermiho Energie, podľa predpovedí Altschulera-Aronova. Zároveň vidíme  nárast hustoty stavov v oblasti ďalej od $E_F$.}
+\caption{Výsledky merania hustoty stavov tunelovou spektroskopiou pre rôzne kovy. Panel (d) ukazuje experimentálny výsledok z práce \cite{Mazur}. Dáta v paneloch (a), (b), a (c)
+boli získané v práci \cite{Moskova} normovaním $G(|U|)$ závislostí nameraných v prácach \cite{Schmitz1}, \cite{Schmitz2}, \cite{Escudero}. V blízkom okolí Fermiho energie všetky ukázané spektrá vykazujú Altshuler-Aronovov jav $\rho(|\E- \E_F|) \propto \sqrt{|\E- \E_F|}$. Ďaleko od Fermiho energie už Altshuler-Aronovova závislosť
+$\rho(|\E- \E_F|) \propto \sqrt{|\E- \E_F|}$ očividne neplatí a pre dostatočne veľké hodnoty $|\E - \E_F|$ vidno, že $\rho(|\E- \E_F|)$ s rastúcim $|\E - \E_F|$ klesá k $\rho_0$ zhora. }
+\label{fig:B2}
 \end{figure}
+
+
+
+%%%KONIEC NOVEHO experimentalne %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+

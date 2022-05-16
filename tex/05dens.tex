@@ -1,190 +1,185 @@
-\section{Výpočet hustoty stavov Thoulesovým ansatzom}
-V tejto kapitole vypočítame hustotu stavov pomocou Thoulesovho ansatzu. 
-Podobne ako v kapitole 2, vychádzame z rovnice pre elektrón interagujúci s disorderom je v rámci modelu {\it želé} popísaný Schrodingerovou rovnicou
+\section{Altshuler - Aronovov jav, rozšírenie teórie na energie $|\E - \E_F| \gtrsim \hbar/\tau$}
+Napíšme znovu Altshuler - Aronovov výsledok \eqref{eq:aa_dos3 fin},
 \begin{equation}
-\label{eq:05schr_dis}
-\bigl(-\frac{\hbar^2}{2m}\laplace + V_{dis}(\vr)\bigr)\phi_m^{(0)}(\vr)=\E_m\phi_m^{(0)}(\vr) \text{,}
+ \label{eq:aa_dos3 fin new}
+ \rho(\E)=\rho_0(\E_F) - \frac{q_{max}}{2\pi^3 \hbar D}
+ +    \frac{1}{2\pi^2 (2\hbar D)^{3/2}}  \ \sqrt{|\E-\E_F|}  \text{.}
 \end{equation}
-kde index $(0)$ na vlnovej funkcii označuje absenciu e-e interakcie.
+Z výsledku \eqref{eq:aa_dos3 fin new} vidno, že $\rho(\E) = \rho_0$ pre $|\E-\E_F| =  U_{co}$,
+kde
+\begin{equation}
+\label{eq:aa_U co korelenergia}
+ U_{co} = \frac{8}{3\pi^{2}} q_{max}^2 l^2 \frac{\hbar}{\tau} \text{.}
+\end{equation}
+je tzv. korelačná energia. Keď zvolíme  $q_{max} =  1/l$, tak
+$U_{co} = 0.27 \frac{\hbar}{\tau}$, pre $q_{max} =  1.92/l$ dostaneme $U_{co} = \frac{\hbar}{\tau}$. Z kapitoly 2 vieme, že
+výsledok  \eqref{eq:aa_dos3 fin new} je teoreticky spoľahlivý pre $|\E-\E_F| \ll  {\hbar}{\tau}$. Experimentálne dáta na obr. \ref{fig:B2}
+ukazujú, že výsledok  \eqref{eq:aa_dos3 fin new} platí rozumne pre  $|\E-\E_F| \lesssim  U_{co}$ a samozrejme, očividne neplatí pre $|\E-\E_F| > U_{co}$.
 
-Do rovnice \eqref{eq:05schr_dis} pridáme e-e interakciu v Hartree-Fockovej aproximácii a Hartreeho príspevok k e-e interakcii zanedbáme, dostaneme Fockove rovnice
-\begin{equation}
- \label{eq:05fock_dis}
- \bigl(-\frac{\hbar^2}{2m}\laplace + V_{dis}(\vr) \bigr)\phi_m(\vr)-\sum_{\forall m'} \int d\vrp \phi^*_{m'}(\vr)\phi_{m}(\vrp)V(\vr-\vrp)\phi_{m'}(\vr)=E_m\phi_m(\vr) \text{,}
-\end{equation}
-kde $\phi_m(\vr)$ a $E_m$ sú vlastné funkcie a vlastné energie elektrónov vo Fockovej aproximácii a $V(\vr-\vrp)$ je potenciálna energia e-e interakcie.
+Pre $|\E-\E_F| \gtrsim  U_{co}$ experiment
+na obr. \ref{fig:B2} ukazuje, že stavy vytlačené z oblasti $|\E-\E_F| \lesssim  U_{co}$ majú tendenciu sa nakopiť tesne
+nad energiou $|\E-\E_F| =  U_{co}$ v oblasti veľkosti dva a až tri krát $U_{co}$.  Konkrétne, pre dáta ukázané v paneli (d) obrázku \ref{fig:B2} bolo ukázané \cite{Mazur}, že
+v oblasti veľkosti niekoľko $U_{co}$ nad $U_{co}$ sa nakopilo najmenej $80$ percent stavov. To je argument pre tvrdenie \cite{Mazur}, že hustota stavov má tendenciu zachovávať stavy
+podobne ako ich zachováva hustota stavov v okoli supravodivej medzery. Pokiaľ je nám známe,tak tento experimentálny výsledok (najmä fakt, že  pre $|E-E_F| > U_{co}$ hodnota $\rho(\E)$ hodnotu $\rho_0$
+najprv prevýši a až potom k nej konverguje zhora) nemá oporu v dostupných teóriach.
 
-Fockove rovnice \eqref{eq:05fock_dis} budeme riešiť v prvom ráde poruchovej teórie, pretože predpokladáme, že e-e $V(\vr-\vrp)$ interakcia je slabá. Analogicky s kapitolou 2,
-rovnice \eqref{eq:05fock_dis} prenásobíme zľava funkciou $\phi^*_m(\vr)$ a integrujeme $\int d\vr$. Problém riešime v prvom ráde poruchovej teórie, $\phi_m(\vr) \simeq \phi_m^{(0)}(\vr)$. Pre prehľadnosť textu funkcie vlnové funkcie $\phi_m^{(0)}(\vr)$ preznačíme  $\phi_m(\vr)$. Odteraz sú $\phi_m(\vr)$ vlastné funkcie neinteragujúceho problému \eqref{eq:05eqschrdis}. Dostávame vzťah pre energiu 
+V tomto odseku sa pokúsime teóriu rozšíriť do oblasti energií $|E-E_F| \gtrsim U_{co}$. Náš štartovací bod bude rovnica \eqref{eq:erg_meandis}, ktorú kvôli prehľadnosti ešte raz napíšeme:
 \begin{equation}
- \label{eq:05fock_dis_erg}
- E_m=\E_m-\sum_{\forall m'} \int d\vrp \int d\vr\ \phi^*_{m'}(\vrp) \phi_{m}(\vrp)\phi^*_{m}(\vr)\phi_{m'}(\vr)V(\vr-\vrp) \text{.}
-\end{equation}
-
-Potenciál $V(\vr-\vrp)$ je tienená Coulombovská interakcia. Do rovnice \eqref{eq:05fock_dis_erg} je vhodné dosadiť jej Fourierovu transformáciu
-\begin{equation}
- \label{eq:05V_ft}
- V(\vr-\vrp)=\ftkvec{(\vr-\vrp)}{\vq}{V(q)}\text{.}
-\end{equation}
-Dosadením \eqref{eq:05V_ft} do \eqref{eq:05fock_dis_erg} dostaneme rovnicu 
-\begin{equation}
-\label{eq:05erg_V_ft}
- E_m=\E_m-\sum_{\forall m'}\frac{1}{(2\pi)^{3}} \int d\vq\ V(q) \ |\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2 \text{.}
-\end{equation}
-
-Rovnica \eqref{eq:05V_ft} popisuje jednu špecifickú vzorku kovu s disorderom.  Vystredujeme ju cez mnoho vzoriek, s makroskopicky rovnakým ale mikroskopicky rôznym disorderom
-\begin{equation}
-\label{eq:05erg_meandis}
+\label{eq:erg_meandis nex}
  \overline{E_m}=\overline{\E_m}-\sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2} \text{.}
 \end{equation}
+kde $V(q) = e^2/\epsilon_0(q^2+k_s^2)$.
+Zopakujme, že energie $\E_m$ v  rovnici \eqref{eq:erg_meandis nex} sú energie neporušené e-e interakciou, t.j. energie elektrónov interagujúcich len s disorderom (pre slabý disorder $\overline{\E_m} \simeq \hbar^2 k_m^2/2m$). Tiež zopakujme, že
+pre $q > q_{max} \simeq 1/l$ je treba vlnové funkcie $\phi_m(\vr)$ aproximovať rovinnými vlnami $\frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$, zatiaľčo pre $q < q_{max}$ treba
+$\phi_m(\vr)$ považovať za vlnové funkcie elektrónov interagujúcich len s disorderom. Rovnicu \eqref{eq:erg_meandis nex} môžeme teda zapísať aj v tvare
+\begin{equation}\label{eq:erg_meandis nex nex}
+\begin{split}
+ \overline{E_m}= &\frac{\hbar^2 k_m^2}{2m} - \sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int_{|\vq| < q_{max}} d\vq\ V(q) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2}  \\
+    &  - \sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int_{|\vq| > q_{max}} d\vq\ V(q) |\bra{k_m}e^{i\vq\cdot\vr}\ket{k_{m'}}|^2 \text{.}
+\end{split}
+\end{equation}
+kde $\ket{k_{m}}= \frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$, a potom upraviť nasledovne:
+\begin{equation}\label{eq:erg_meandis nex prepis}
+\begin{split}
+ \overline{E_m}= &\frac{\hbar^2 k_m^2}{2m} - \sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) |\bra{k_m}e^{i\vq\cdot\vr}\ket{k_{m'}}|^2  \\
+    & -\sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int_{|\vq| < q_{max}} d\vq\ V(q) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2} \\
+    & + \sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int_{|\vq| < q_{max}} d\vq\ V(q) |\bra{k_m}e^{i\vq\cdot\vr}\ket{k_{m'}}|^2\text{.}
+\end{split}
+\end{equation}
+Poslednú rovnicu môžeme prepísať do tvaru
+\begin{equation}\label{eq:erg_meandis nex prepis skratka}
+ \overline{E_m} \ \ = \ \ \E_m + E_{self}^{AA}(m) - E_{self}^{free}(m)  \text{,}
+\end{equation}
+kde
+\begin{equation}\label{eq:erg_volna castica s ee}
+\E_m = \frac{\hbar^2 k_m^2}{2m} - \sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) |\bra{k_m}e^{ivq\cdot\vr}\ket{k_{m'}}|^2  \text{}
+\end{equation}
+je energia voľného elektrónu interagujúceho s ostatnými cez tienenú Fockovu e-e interakciu,
+\begin{equation}\label{eq:erg_self AA}
+ E_{self}^{AA}(m) \ \ = \ \  -\sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int_{|\vq| < q_{max}} d\vq\ V(q) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2} \\
+    \text{}
+\end{equation}
+je self-energia, ktorú Altshuler a Aronov počítali v limite $|\E_m - \E_m'|\ll \hbar/ \tau $ v difúznej aproximácii (výpočet v kapitole 2),
+a
+\begin{equation}\label{eq:erg_self free}
+ E_{self}^{free}(m) \ \ =  \ \  - \sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int_{|\vq| < q_{max}} d\vq\ V(q) |\bra{k_m}e^{i\vq\cdot\vr}\ket{k_{m'}}|^2\text{,}
+\end{equation}
+je self-energia pochádzajúca z Fockovho príspevku od rovinných vĺn. Z vyššie uvedených rovníc vidno, že  člen $E_{self}^{free}(m)$ vznikne preto, že za neporušená energiu považujeme
+energiu $\E_m$ danú vzťahom \eqref{eq:erg_volna castica s ee}
+Naozaj, pre kov bez disorderu ($l \rightarrow \infty$, $q_{max} \rightarrow 0$)) sú oba integrály cez premennú $\vq$ v rovniciach \eqref{eq:erg_self AA} a \eqref{eq:erg_self free}
+nulové, takže zostane len neporušená energia \eqref{eq:erg_volna castica s ee}.
 
-Výsledok \eqref{eq:05erg_meandis}  je potrebné poopraviť, analogicky s kapitolou 2. Elektrón elektrónová interakcia je v porovnaní s disorderom slabá, ale len v prípade, že medzielektrónové vzdialenosti $|\vr-\vrp|\gtrsim l$, kde $l$ je stredná voľná dráha zrážok elektrónu s disorderom. Pre medzielektrónové vzdialenosti $< l$ interakcia s disorderom sa nestihne uplatniť.
+V kapitole 1 sme rovnicu \eqref{eq:erg_volna castica s ee}
+dopočítali až na konečný analytický výsledok \eqref{eq:fock_screen_final}, disperzný zákon voľného elektrónu s Fockovou self enegiou,
+z ktorého sme vypočítali aj zodpovedajúcu hustotu stavov (krivka ukázaná na obr. \ref{fig:screening_dos} červenou farbou).
+Táto hustota stavov (hustota stavov voľných interagujúcich elektrónov) je neporušená hustota stavov.
 
-To znamená, že integračný interval musíme rozdeliť na intervale  $(0, q_{max})$ a interval $(q_{max}, \infty)$, kde $q_{max}=A/l$ a $A$ je číslo blízke jednotke.
-Na intervale  $(0, q_{max})$ ponecháme \eqref{eq:05erg_V_ft} bez zmeny a na intervale  $(q_{max}, \infty)$ dosadíme namiesto funkcii $\phi_m(\vr)$ funkcie blízke rovinným vlnám  $\phi_m(\vr) \simeq \frac{1}{\sqrt \Omega}e^{i\vk_m\cdot\vr}$. Úpravu neuvádzame, ale uvažujeme ju implicitne pre každý integrál cez $dq$
+Príspevok $E_{self}^{free}(m)$ daný vzťahom \eqref{eq:erg_self free} Altshuler a Aronov neuvažovali, pretože ich zaujímalo len blízke okolie Fermiho energie.
+Neskôr uvidíme, že práve tento príspevok spôsobí nakopenie elektrónových stavov nad energiou $U_{co}$, podobné ako ukazujú experimentálne dáta na Obr.  \ref{fig:B2}
 
-Doteraz sme postupovali rovnako ako v kapitole 2, ktorá bola robená na základe úvah Altschulera a Aronova  \cite{Altshuler1},\cite{Altshuler3},\cite{Altshuler4}, teda elektrón v okolí Fermiho hladiny bol nahradený semiklasickým vlnovým balíkom, pohybujúcim sa podobne ako Brownowská častica s krokom dĺžky $l=v_F\tau$. 
-
-Teraz však zvolíme iný prístup, ktorý je, narozdiel od Altschulera Aronova platný v oblasti {\it mimo} okolia Fermiho energie. Ešte predtým ale rovnicu upravíme do vhodného tvaru nasledovným postupom.
-
-Vlnové funkcie $\phi_m(\vr)$ rozvinieme do systému rovinných vĺn. 
+Teraz ideme vypočítať člen $E_{self}^{AA}(m)$. Na rozdiel od Altshulera a Aronova (a kapitoly 2) sa o to pokúsime v limite $|\E_m - \E_m'| \gtrsim \hbar/\tau$.
+Začneme tým, že vlnové funkcie $\phi_m(\vr)$ rozvinieme do úplneho systému rovinných vĺn:
 \begin{align}
 \label{eq:05phi}
 \phi_m(\vr) = \frac{1}{\sqrt{\Omega}}\sum_{\vk}c_{\vk}^me^{i\vk\vr}\text{,}
 \end{align}
-kde $\Omega$ je normovací objem Born Von Karmanovej krabice. Dosadením do \eqref{eq:05erg_meandis} dostaneme nasledovný vzťah, kde Diracovú bra-ket notáciu nahradíme integrálmi.
+kde $\Omega$ je normovací objem. Dosadením do rovnice \eqref{eq:erg_self AA} dostaneme
+\begin{multline}
+E_{self}^{AA}(m)=  - \frac{1}{(2\pi)^3\Omega^2}     \\
+\times  \int_{|\vq| < q_{max}} d\vq\ V(\vq)\overline{ \sum_{m'} \sum_{\vk_1} \sum_{\vk_3}\int d\vr c^{m*}_{\vk_1}c^{m'}_{\vk_3}e^{i\vq\cdot q\vr}e^{i\vk_1\cdot \vr}e^{-i\vk_3\cdot \vr} \sum_{\vk_2}\sum_{\vk_4}\int d\vrp c^{m'*}_{\vk_4}c^{m}_{\vk_2}e^{-i\vq\cdot \vrp}e^{-i\vk_4\cdot \vrp}e^{i\vk_2\cdot \vrp}} \text{.}
+\end{multline}
+Keď využijeme vzťahy
+\begin{equation}
+\frac{1}{\Omega}\ \int d\vr\ e^{i(\vk_1+\vq-\vk_3)\vr}=\delta_{\vk_3,\vk_1+\vq}
+\  \   \  \text{,}
+\ \
+\frac{1}{\Omega} \ \int d\vrp e^{i(\vk_2-\vq-\vk_4)\vrp}=\delta_{\vk_2,\vk_4+\vq}
+\ \ \  \text{,}
+\end{equation}
+dostaneme
+\begin{equation}
+E_{self}^{AA}(m) = - \frac{1}{(2\pi)^3} \int_{|\vq| < q_{max}} d\vq\ V(\vq)\overline{ \sum_{m'} \sum_{\vk_1} \sum_{\vk_3}\int d\vr c^{m*}_{\vk_1}c^{m'}_{\vk_3}\delta_{\vk_3,\vk_1+\vq} \sum_{\vk_2}\sum_{\vk_4}\int d\vrp c^{m'*}_{\vk_4}c^{m}_{\vk_2}\delta_{\vk_2,\vk_4+\vq}} \text{.}
+\end{equation}
+S pomocou Kroneckerových symbolov vysumujeme cez $\vk_3$ a $\vk_4$ a prichádzame k vzťahu
 \begin{align}
-\notag
-\overline{E_m} = \E_m - \frac{1}{(2\pi)^3\Omega^2}&\int d\vq\ V(\vq)\overline{ \sum_{m'} \sum_{\vk_1} \sum_{\vk_3}\int d\vr c^{m*}_{\vk_1}c^{m'}_{\vk_3}e^{i\v\cdot q\vr}e^{i\vk_1\cdot \vr}e^{-i\vk_3\cdot \vr}}\\
-&\overline{\sum_{\vk_2}\sum_{\vk_4}\int d\vrp c^{m'*}_{\vk_4}c^{m}_{\vk_2}e^{-i\vq\cdot \vrp}e^{-i\vk_4\cdot \vrp}e^{i\vk_2\cdot \vrp}} \text{.}
+E_{self}^{AA}(m)= - \frac{1}{(2\pi)^3}\int_{|\vq| < q_{max}} d\vq\ V(\vq) \sum_{m'}\sum_{\vk}\sum_{\vkp}\overline{c^{*m}_{\vk+\vq}c^{m}_{\vk\ '+\vq}c^{*m'}_{\vk\ '}c^{m'}_{\vk}}\text{,}
 \end{align}
-Priestor rovinných vĺn je ortonormálny, teda môžme využiť nasledovné vzťahy
-\begin{align*}
-\int d\vr\ e^{i(\vk_1+\vq-\vk_3)\vr}=\delta(\vk_3-\vk_1-\vq)\\ 
-\int d\vrp e^{i(\vk_2-\vq-\vk_4)\vrp}=\delta(\vk_2-\vk_4-\vq)
-\end{align*}
-Vyžitím týchto vzťahov dostaneme
-\begin{align}
-\notag
-\overline{E_m} = \E_m - \frac{1}{(2\pi)^3\Omega^2}&\int d\vq\ V(\vq)\overline{ \sum_{m'} \sum_{\vk_1} \sum_{\vk_3}\int d\vr c^{m*}_{\vk_1}c^{m'}_{\vk_3}\delta(\vk_3-\vk_1-\vq)}\\
-&\overline{\sum_{\vk_2}\sum_{\vk_4}\int d\vrp c^{m'*}_{\vk_4}c^{m}_{\vk_2}\delta(\vk_2-\vk_4-\vq)} \text{.}
-\end{align} 
-Dve zo štyroch súm môžme nahradiť integrálmi a integrovať využitím Diracových delta funkcii, tým pádom sa týchto súm zbavíme Zvolíme si teda sumy cez $\vk_3$ a $\vk_4$.
-\begin{align}
-\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3\Omega}\int d\vq\ V(\vq) \sum_{m'}\sum_{\vk}\sum_{\vkp}\overline{c^{*m}_{\vk+\vq}c^{m}_{\vk\ '+\vq}c^{*m'}_{\vk\ '}c^{m'}_{\vk}}\text{,}
-\end{align}
-kde sme sumačné indexy nahradili $k_1=k$ a $k_2=k'$. 
+kde sumačné indexy $\vk_1$ a $\vk_2$ sú nahradené vzťahmi $\vk_1=\vk$ a $\vk_2=\vk'$.
 
-Pre ďalšie úpravy rovnice urobíme nasledovné aproximácie, ktoré vyplývajú z toho, že uvažujeme slabý disorder (platí $k_F l \gg 1$ ). Preto považujeme stavy $m$  a $m'$ za nekorelované, z čoho vyplýva že stredná hodnota súčinu je súčin stredných hodnôt. Preto dostávame
+Začíname robiť aproximácie. Tak ako pri odvádzaní klasickej Drudeho vodivosti v dodatku B, považujeme stavy $m$ a $m'$ za nekorelované. Tým sa posledná rovnica zjednoduší na tvar
 \begin{align}
-\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3\Omega}\int d\vq\ V(\vq) \sum_{m'}\sum_{\vk}\sum_{\vkp}\overline{c^{*m}_{\vk+\vq}c^{m}_{\vk\ '+\vq}}\overline{c^{*m'}_{\vk\ '}c^{m'}_{\vk}}\text{,}
+E_{self}^{AA}(m)= - \frac{1}{(2\pi)^3}\int_{|\vq| < q_{max}} d\vq\ V(\vq) \sum_{m'}\sum_{\vk}\sum_{\vkp}\overline{c^{*m}_{\vk+\vq}c^{m}_{\vk\ '+\vq}}\overline{c^{*m'}_{\vk\ '}c^{m'}_{\vk}}\text{,}
 \end{align}
-Navyše predpokladáme, že stavy $\vk$ a $\vkp$ sú nekorelované, tak isto z dôvodu slabého disorderu, čo vieme matematicky znázorniť Kroneckerovým symbolom $\delta_{\vk\vkp}$. Preto dostávame nasledovnú rovnicu
-\begin{align}
-\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3\Omega}\int d\vq\ V(\vq) \sum_{m'}\sum_{\vk}\sum_{\vkp}\overline{c^{*m}_{\vk+\vq}c^{m}_{\vk\ '+\vq}}\overline{c^{*m'}_{\vk\ '}c^{m'}_{\vk}}\delta_{\vk\vkp}\text{,}
-\end{align}
-Tým pádom sa zbavíme sumy cez $k'$ a dostávame
+Navyše predpokladáme, že aj stavy $\vk$ a $\vkp$ sú nekorelované. To znamená, že $\overline{c^{*m'}_{\vk\ '}c^{m'}_{\vk}} = \overline{c^{*m'}_{\vk}c^{m'}_{\vk}}\delta_{\vk\vkp}$ a
+tiež $\overline{c^{*m}_{\vk+\vq}c^{m}_{\vk\ '+\vq}} = \overline{c^{*m}_{\vk+\vq}c^{m}_{\vk +\vq}} \delta_{\vk\vkp}$.
+To umožňuje ľahko vysumovať cez $k'$ a dostávame
 \begin{align}
 \label{eq:05energy2}
-\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3\Omega} \int d\vq\ V(\vq) \sum_{m'}\sum_{\vk} \overline{c^{m*}_{\vk+\vq}c^{m}_{\vk+\vq}}\ \overline{c^{*m'}_{\vk}c^{m'}_{\vk}} \text{.}
+E_{self}^{AA}(m)= - \frac{1}{(2\pi)^3} \int_{|\vq| < q_{max}} d\vq\ V(\vq) \sum_{m'}\sum_{\vk} \overline{c^{m*}_{\vk+\vq}c^{m}_{\vk+\vq}}\ \overline{c^{*m'}_{\vk}c^{m'}_{\vk}} \text{.}
 \end{align}
-Teraz sa dostávame k hlavnej myšlienke tejto kapitoly. Do rovnice \eqref{eq:05energy2} dosadíme nasledovný ansatz
+
+Teraz sa dostávame k hlavnej myšlienke tejto kapitoly. V dodatku C je ukázané, že pre objekt $\overline{c^{m*}_{\vk}c^{m}_{\vk}}$ sa dá v self-konzistentnej Bornovej aproximácii  odvodiť vzťah
 \begin{align}
 \label{eq:05thouless}
-\overline{c^{m*}_{\vk}c^{m}_{\vk}}=\frac{1}{\pi \rho(\epsilon_m)}\lorenz{\epsilon_m}
+\overline{c^{m*}_{\vk}c^{m}_{\vk}}=\frac{1}{\pi \rho(\epsilon_m)}\lorenz{\epsilon_m} \text{.}
 \end{align}
-Vzťah \eqref{eq:05thouless} je Thoulessov ansatz \cite{Thouless}, ktorý sa používa pri odvodení Kubovej formuly pre optickú vodivosť. Toto odvodenie sme urobili v rámci tejto práce tiež, spolu s fyzykálnym zdôvodnením ansatzu \eqref{eq:05thouless} (viď dodatok A).
+Thouless \cite{Thouless} použil aproximáciu \eqref{eq:05thouless} pri opíse vlnových funkcií neusporiadaného elektrónového systému v kvantovej vodivosti Kuba - Greenwooda.
+Ukázal, že aproximácia \eqref{eq:05thouless} spôsobí, že kvantová vodivosť Kuba - Greenwooda prejde na klasickú Drudeho vodivosť. Thoulessov postup je podrobne prepočítaný v dodatku B.
+Naše odvodenie self-energie  $E_{self}^{AA}(m)$ sa opiera o tie isté aproximácie, ako použil Thouless.
 
 
-Po dosadení Thoulesovho ansatzu \eqref{eq:05thouless} do \eqref{eq:05energy2} dostaneme  
-
+Keď dosadíme aproximáciu \eqref{eq:05thouless} do rovnice \eqref{eq:05energy2}, dostaneme
 \begin{align}
 \label{eq:05energy3}
-\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3\Omega} \int d\vq\ V(\vq) \sum_{m'}\sum_{\vk}\frac{1}{\pi\rho(\epsilon_m)}\frac{\epsilon_\tau}{(\epsilon_m-\epsilon_k)^2+\epsilon_\tau^2}\frac{1}{\pi\rho(\epsilon_{m'})}\frac{\epsilon_\tau}{(\epsilon_{m'}-\epsilon_{|\vk+\vq|})^2+\epsilon_\tau^2} \text{.}
+E_{self}^{AA}(\epsilon_m)= - \frac{1}{(2\pi)^3} \int_{|\vq| < q_{max}} d\vq\ V(\vq) \sum_{m'}\sum_{\vk}\frac{1}{\pi\rho(\epsilon_m)}\frac{\epsilon_\tau}{(\epsilon_m-\epsilon_k)^2+\epsilon_\tau^2}\frac{1}{\pi\rho(\epsilon_{m'})}\frac{\epsilon_\tau}{(\epsilon_{m'}-\epsilon_{|\vk+\vq|})^2+\epsilon_\tau^2} \text{,}
 \end{align}
-Kde sme zaviedli nasledovné označenia
-\begin{align*}
-\epsilon_\tau &\equiv \frac{\hbar}{2\tau} \\
-\epsilon_{|\vk+\vq|}&\equiv\frac{\hbar^2|\vk+\vq\ |^2}{2m}
-\end{align*}
-Prejdeme od súm cez $m'$ a $\vk$ k integrálom v energetických súradniciach, čím nám úplne vypadne normovací objem $\Omega$ a do integrálu vstúpia hustoty stavov $\rho(\epsilon_{m'})$ a $\rho(\epsilon_k)$
-\begin{align}
-\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3} \int d\vq\ V(\vq)\int \rho(\epsilon_k)d\epsilon_k \int \rho(\epsilon_{m'})d\epsilon_{m'}\frac{1}{\pi\rho(\epsilon_m)}\frac{\epsilon_\tau}{(\epsilon_m-\epsilon_k)^2+\epsilon_\tau^2}\frac{1}{\pi\rho(\epsilon_{m'})}\frac{\epsilon_\tau}{(\epsilon_{m'}-\epsilon_{|\vk+\vq|})^2+\epsilon_\tau^2} \text{.}
-\end{align}
-
-
-Hustota stavov $\rho(\epsilon_m)$ sa vykráti, ale hustoty stavov $\rho(\epsilon_{k})$ a $\rho(\epsilon_m)$ nie. Použitie aproximácie $\rho(\epsilon_m)\approx\rho(\epsilon_k)$ nám umožňuje ich umožňuje vykrátiť
+kde $\epsilon_\tau \equiv \frac{\hbar}{2\tau}$ a $\epsilon_{|\vk+\vq|} \equiv\frac{\hbar^2|\vk+\vq\ |^2}{2m}$.
+Prejdeme od sumy cez $m'$ k intergálu $\int_0^{\epsilon_F} d\epsilon_{m'} \rho(\epsilon_{m'})$ a od sumy cez $\vk$ k integrálu  $\int d\epsilon_k \rho(\epsilon_k)$, kde $\rho(\epsilon_{m'})$ a $\rho(\epsilon_k)$
+sú hustoty stavov. Dostaneme
+\begin{multline}
+E_{self}^{AA}(\epsilon_m)= - \frac{1}{(2\pi)^3} \\
+\int_{|\vq| < q_{max}} d\vq\ V(\vq)\int d\epsilon_k \rho(\epsilon_k) \int_0^{\epsilon_F} d\epsilon_{m'} \rho(\epsilon_{m'})\frac{1}{\pi\rho(\epsilon_m)}\frac{\epsilon_\tau}{(\epsilon_m-\epsilon_k)^2+
+\epsilon_\tau^2}\frac{1}{\pi\rho(\epsilon_{m'})}\frac{\epsilon_\tau}{(\epsilon_{m'}-\epsilon_{|\vk+\vq|})^2+\epsilon_\tau^2} \text{.}
+\end{multline}
+Hustota stavov $\rho(\epsilon_m')$ sa vykráti, ale hustoty stavov $\rho(\epsilon_{k})$ a $\rho(\epsilon_m)$ nie. Napriek tomu ich kvôli jednoduchosti približne vykrátime a dostávame
 \begin{align}
 \label{eq:energy_vykratene}
-\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3} \int d\vq\ V(\vq)\int d\epsilon_k \int d\epsilon_{m'}\frac{1}{\pi}\frac{\epsilon_\tau}{(\epsilon_m-\epsilon_k)^2-\epsilon_\tau^2}\frac{1}{\pi}\frac{\epsilon_\tau}{(\epsilon_{m'}-\epsilon_{|\vk+\vq|})^2-\epsilon_\tau^2} \text{.}
+E_{self}^{AA}(\epsilon_m)= - \frac{1}{(2\pi)^3} \int_{|\vq| < q_{max}} d\vq\ V(\vq)\int d\epsilon_k \int_0^{\epsilon_F} d\epsilon_{m'}\frac{1}{\pi}\frac{\epsilon_\tau}{(\epsilon_m-\epsilon_k)^2-\epsilon_\tau^2}\frac{1}{\pi}\frac{\epsilon_\tau}{(\epsilon_{m'}-\epsilon_{|\vk+\vq|})^2-\epsilon_\tau^2} \text{.}
 \end{align}
-
-Pri integrovaní cez $d\vq$  prejdeme k sférickým súradniciam
-
+Pri integrovaní cez $d\vq$ prejdeme k sférickým súradniciam:
 \begin{align}
 \label{eq:05energy5}
 \notag
-\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3}\frac{1}{\pi^2}\int_0^{2\pi}d\phi \int_0^\pi \sin\theta d\theta\  \int_0^{q_{max}} dq\ q^2 V(q)\\ 
-\int_0^{E_F} d\epsilon_{m'} \int_0^{\infty} d \epsilon_k  \frac{\epsilon_\tau}{(\epsilon_m-\epsilon_k)^2+\epsilon_\tau^2}\frac{\epsilon_\tau}{(\epsilon_{k}+\epsilon_{q}+2\sqrt{\epsilon_{k}\epsilon_{q}}\cos(\theta)-\epsilon_{m'})^2+\epsilon_\tau^2} \text{.} 
+E_{self}^{AA}(\epsilon_m)= - \frac{1}{(2\pi)^3}\frac{1}{\pi^2}\int_0^{2\pi}d\phi \int_0^\pi d\theta \sin\theta \ \int_0^{q_{max}} dq\ q^2 V(q)\\
+\int_0^{\E_F} d\epsilon_{m'} \int_0^{\infty} d \epsilon_k \frac{\epsilon_\tau}{(\epsilon_m-\epsilon_k)^2+\epsilon_\tau^2}\frac{\epsilon_\tau}{(\epsilon_{k}+\epsilon_{q}+2\sqrt{\epsilon_{k}\epsilon_{q}}\cos(\theta)-\epsilon_{m'})^2+\epsilon_\tau^2} \text{.}
 \end{align}
-Tu je vhodné explicitne uviesť integrál na intervale $(0,q_{max})$ ako sme spomenuli na začiatku kapitoly.
-Integrál cez $d\phi$ je $2\pi$. Integrály cez $d\epsilon_m$ a $d\theta$ vieme vypočítať analyticky. Zvyšné dva budeme musieť rátať numericky, preto zavedieme bezrozmerné premenné a konštanty:
-\begin{align*}
-w=\frac{\epsilon_m}{\epsilon_\tau} \\
-u=\frac{\epsilon_{m'}}{\epsilon_\tau} \\
-x=\frac{\epsilon_k}{\epsilon_\tau} \\
-y=\frac{\epsilon_q}{\epsilon_\tau}\\ 
-\bar{y}=\frac{q}{k_s}\\
-\bar{y}_max=\frac{q_max}{k_s}\\
-u_{EF}=\frac{E_F}{\epsilon_\tau}
-\end{align*}
-V bezrozmerných premenných bude vzťah \eqref{eq:05energy5} 
+Integrál cez $d\phi$ je $2\pi$, integrály cez $d\epsilon_m$ a $d\theta$ vieme vypočítať analyticky, a zvyšné dva budeme rátať numericky. Zavedieme bezrozmerné premenné a konštanty:
+\begin{equation}
+w=\frac{\epsilon_m}{\epsilon_\tau} \ \ \text{,} \ \
+u=\frac{\epsilon_{m'}}{\epsilon_\tau} \ \ \text{,} \ \
+x=\frac{\epsilon_k}{\epsilon_\tau} \ \ \text{,} \ \
+y=\frac{\epsilon_q}{\epsilon_\tau} \ \ \text{,} \ \
+\bar{y}=\frac{q}{k_s}  \ \   \text{,} \ \
+\bar{y}_max=\frac{q_{max}}{k_s}  \ \ \text{,} \ \
+u_{EF}=\frac{\E_F}{\epsilon_\tau}  \ \ \text{.}
+\end{equation}
+V bezrozmerných premenných nadobudne vzťah \eqref{eq:05energy5} tvar
 \begin{align}
 \notag
-\overline{E_m}=\overline{\E_m} - \frac{1}{(2\pi)^3}\frac{1}{\pi^2}\int_0^{2\pi}d\phi \int_0^\pi \sin\theta d\theta\  \int_0^{\bar{y}_{max}} d\bar{y}\ k_s \frac{\bar{y}^2}{\epsilon_0(\bar{y}^2+1)}\\ 
-\int_0^{u_{EF}} du \int_0^{\infty} dx  \frac{1}{(w-x)^2+1}\frac{1}{(x+y+2\sqrt{xy}\cos(\theta)-u)^2+1} \text{.} 
+E_{self}^{AA}(\epsilon_m)= - \frac{1}{(2\pi)^3}\frac{1}{\pi^2}\int_0^{2\pi}d\phi \int_0^\pi d\theta \sin\theta \ \int_0^{\bar{y}_{max}} d\bar{y}\ k_s \frac{\bar{y}^2}{\epsilon_0(\bar{y}^2+1)}\\
+\int_0^{u_{EF}} du \int_0^{\infty} dx \frac{1}{(w-x)^2+1}\frac{1}{(x+y+2\sqrt{xy}\cos(\theta)-u)^2+1} \text{.}
 \end{align}
-Analytické integrovanie cez $d\theta$ a $du$ je priamočiare a zdĺhavé, preto ho uvádzať nebudeme Po vykonaní všetkých analytických integrálov dostaneme
+Analytické integrovanie cez $d\theta$ a $du$ je zdĺhavé, takže uvedieme len výsledok Po vykonaní analytických integrálov dostaneme
 \begin{align}
 \label{eq:05energy6}
-\overline{E_m}=\overline{\E_m}-\frac{e^2}{4\pi^4\epsilon_0 k_s^{-1}} \int_0^{\bar y_{max}} d\bar{y}\ \frac{\bar{y}^2}{1+\bar{y}^2}\int_0^{\infty} dx \frac{1}{(w-x)^2+1}F(x,y) \text{,}
+E_{self}^{AA}(\epsilon_m)= -\frac{e^2}{4\pi^4\epsilon_0 k_s^{-1}} \int_0^{\bar y_{max}} d\bar{y}\ \frac{\bar{y}^2}{1+\bar{y}^2}\int_0^{\infty} dx \frac{1}{(w-x)^2+1}F(x,y) \text{,}
 \end{align}
-kde  $F(x,y)$ je výsledok analytických integrálov
+kde
 \begin{align*}
-F(x,y)=\frac{1}{\sqrt{4xy}}&\{ \\
-&(x+y+2\sqrt{xy}-u_{EF})\arctan(x+y+2\sqrt{xy}-u_{EF}) \\
+F(x,y)=\frac{1}{\sqrt{4xy}}& \{(x+y+2\sqrt{xy}-u_{EF})\arctan(x+y+2\sqrt{xy}-u_{EF}) \\
 &-(x+y-2\sqrt{xy}-u_{EF})\arctan(x+y-2\sqrt{xy}-u_{EF}) \\
 &-(x+y+2\sqrt{xy})\arctan(x+y+2\sqrt{xy}) \\
 &+(x+y-2\sqrt{xy})\arctan(x+y-2\sqrt{xy}) \\
-&-\frac{1}{2}ln(\frac{(x+y+2\sqrt{xy}-u_{EF})^2+1}{(x+y-2\sqrt{xy}-u_{EF})^2+1}\ \frac{(x+y+2\sqrt{xy})^2+1}{(x+y-2\sqrt{xy})^2+1})\\
-&\}\text{.}
+&-\frac{1}{2}ln(\frac{(x+y+2\sqrt{xy}-u_{EF})^2+1}{(x+y-2\sqrt{xy}-u_{EF})^2+1}\ \frac{(x+y+2\sqrt{xy})^2+1}{(x+y-2\sqrt{xy})^2+1})\}\text{.}
 \end{align*}
-
-
-Numerické riešenie \eqref{eq:05selfenergy} zjednodušíme poslednou aproximáciou. Integrál cez $dx$ môžme považovať za $\delta$ funkciu
-\begin{align}
-\pi\delta(x-w)=\int_0^{\infty}dx\ \frac{1}{(x-w)^2+1}
-\end{align}
-Finálny vzťah pre energiu, ktorý budeme počítať numericky, bude nasledovný
-\begin{align}
-\label{eq:05energy7}
-\overline{E_m}=\overline{\E_m}-\frac{e^2}{4\pi^3\epsilon_0 k_s^{-1}} \int_0^{\bar y_{max}} d\bar{y}\ \frac{\bar{y}^2}{1+\bar{y}^2}F(w,y) \text{,}
-\end{align} 
-
-Teraz odvodíme vzťah pre hustotu stavov, analogicky ku kapitole 2. Rovnicu \eqref{eq:05energy7} si preznačíme
-\begin{align}
-\overline{E(\E)} = \overline{\E} - E_{self}(\E)
-\end{align}
-kde Fockova self-energia je v tomto prípade 
-\begin{align}
-\label{eq:05selfenergy}
-E_{self}(\E)=-\frac{e^2}{4\pi^3\epsilon_0 k_s^{-1}} \int_0^{\bar y_{max}} d\bar{y}\ \frac{\bar{y}^2}{1+\bar{y}^2}F(w,y)
-\end{align}
-Keď už máme vzťah pre self energiu, vieme určiť hustotu stavov:
-\begin{align}
-\label{eq:05rho_final}
-\rho(\E) \simeq \rho_0(\E_F)(1-\frac{dE_{self}(\E)}{d\E})
-\end{align}
-
- 
 
