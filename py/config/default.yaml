@@ -7,3 +7,4 @@ plot:
   width: 1
   color: null
   label: ""
+  style: "-"

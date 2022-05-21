@@ -53,20 +53,20 @@ def plus(a, b, dt=data):
 
 axlabels = [
     ['a', 'b'],
-    ['c', 'd'],
-    ['e', 'f']
+    ['c', 'd']
+    #['e', 'f']
 ]
-figure, axis = plt.subplots(3, 2, figsize=(7, 10))
+figure, axis = plt.subplots(2, 2, figsize=(7, 7))
 figure.tight_layout()
 for i, ax in enumerate(axis):
     for j, a in enumerate(ax):
         a.axis(ymax=args.ylim_top, ymin=args.ylim_btm)
         a.axhline(y=0, color='black', linestyle="--", linewidth=1)
 
-        if i == 2:
-            a.set_xlabel(r'$E/E_{F}$')
+        if i == 1:
+            a.set_xlabel(r'$\mathcal{E}/\mathcal{E}_{F}$')
         if j == 0:
-            a.set_ylabel(r'$(\rho(E)-\rho_0(E))/\rho_0(E)$')
+            a.set_ylabel(r'$(\rho(\mathcal{E})-\rho_0(\mathcal{E}))/\rho_0(\mathcal{E})$')
         a.xaxis.set_major_formatter(FormatStrFormatter('%.2f'))
         a.ticklabel_format(axis='y', style='sci', scilimits=(0, 0))
         a.set_title(f"{axlabels[i][j]})", y=1.0, pad=-14, loc='left', x=0.1)
@@ -75,8 +75,8 @@ pt('altschuler', axis[0, 0], color='red')
 pt('druhy_clen', axis[0, 1])
 pt(join('altschuler', 'prvy_clen'), axis[1, 0])
 pt(plus(join('altschuler', 'prvy_clen'), 'druhy_clen'), axis[1, 1])
-pt(join('altschuler', 0), axis[2, 0])
-pt(plus(join('altschuler', 0), 'druhy_clen'), axis[2, 1])
+#pt(join('altschuler', 0), axis[2, 0])
+#pt(plus(join('altschuler', 0), 'druhy_clen'), axis[2, 1])
 plt.subplots_adjust(left=0.1, bottom=0.1)
 #
 #plt.show()

@@ -38,7 +38,6 @@ Teraz definujme presnejšie, čo znamenajú pojmy stav $l$ a energia $\E_{l}$ v�
 K tomu nám pomôže obrázok \eqref{fig:3bariers}.
 Hamiltonián $\hat{H}$ popisujúci pohyb elektrónu v celej štruktúre na obr. \eqref{fig:barier_v3} zapíšeme v tvare
 \begin{equation}
- \label{eq:02barrier}
  \hat{H}=-\frac{\hbar^2 \laplace }{2m}+V(x) \text{,}
 \end{equation}
 kde
@@ -62,7 +61,6 @@ Teraz namiesto bariéry opísanej potenciálom $V(x)$ uvažujme polonekonečnú 
 \end{equation}
 ktorý je ukázaný aj na \eqref{fig:3bariers}. Zodpovedajúci Hamiltoníán
 \begin{equation}
- \label{eq:02barrier}
  \hat{H_l}=-\frac{\hbar^2 \laplace }{2m}+V_l(x) \text{,}
 \end{equation}
 má vlastné funkcie $\psi_{l}(x)$ a vlastné energie $\E_{l}(x)$. Vlnové funkcie
@@ -79,7 +77,6 @@ Podobne, uvažujme polonekonečnú bariéru opísanú potenciálom
 \end{equation}
  Zodpovedajúci Hamiltoníán
 \begin{equation}
- \label{eq:02barrier}
  \hat{H_r}=-\frac{\hbar^2 \laplace }{2m}+V_r(x) \text{,}
 \end{equation}
 má vlastné funkcie $\psi_{r}(x)$ a vlastné energie $\E_{r}$. Podobne ako pre stavy $\psi_{l}(x)$,
@@ -146,17 +143,14 @@ I= -2e \frac{2\pi}{\hbar} |t|^{2} \int_{\E_{c,l}}^\infty d\E_l\rho_l(\E_l) \int_
 \end{equation}
 kde $\rho_l(\E_l)$  je hustota stavov v kove vľavo a $\rho_r(\E_r)$ je hustota stavov v kove vpravo. S využitím $\delta(\E_l-\E_r)$-funkcie zintegrujeme integrál cez premennú $\E_r$ a dostávame
 \begin{equation}
-\label{eq:02current3}
 I= -2e \frac{2\pi}{\hbar} |t|^{2} \int_{\E_{c,l}}^\infty d\E_l \rho_l(\E_l)\rho_r(\E_l) [f_l(\E_l) -  f_r(\E_l)] \text{.}
 \end{equation}
 V limite $T \rightarrow 0$ sa Fermi-Diracove funkcie $f_l$ a $f_r$ chovajú ako skokové $\Theta$-funkcie a posledný vzťah sa dá upraviť na tvar
 \begin{equation}
-\label{eq:02current3}
 I= -2e \frac{2\pi}{\hbar} |t|^{2} \int_{\mu_{r}}^{\mu_{l}} d\E_l \rho_l(\E_l)\rho_r(\E_l) =  -2e \frac{2\pi}{\hbar} |t|^{2}  \int_{\mu_{r}}^{\mu_{r}-eU} d\E_l  \rho_l(\E_l) \rho_r(\E_l) \text{.}
 \end{equation}
 Keď prejdeme k premennej $ \E = \E_l - \E_{c,r}$, tak
 \begin{equation}
-\label{eq:02current3}
 I=  -2e \frac{2\pi}{\hbar} |t|^{2}  \int_{\E_{F}}^{\E_{F}-eU} d\E  \rho_l(\E) \rho_r(\E) \text{.}
 \end{equation}
 Na záver ešte vyjmeme pred integrál $\rho_l(\E) \simeq \rho_l(\E_F)$ a máme konečný výraz pre tunelovací prúd,

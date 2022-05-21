@@ -1,84 +1,108 @@
-\section{Výsledky numerického výpočtu hustoty stavov}
-V tejto kapitole vyhodnotíme vzťah \eqref{eq:05rho_final} a výsledok prepojíme s teóriou Altschulera-Aronova, a porovnáme s experimentálnymi hodnotami. 
+\section{Výsledky a diskusia}
 
-Ešte predtým ako urobíme finálny výpočet si musíme byť istý, že naša teória je správna. Vychádzame zo vzťahu \eqref{eq:05energy2}. Pri integrovaní cez $d\bar{y}$ zvolíme zatiaľ $\bar{y}_{max}=\infty$, teda nebudeme orezávať v recipročnom priestore. Naša nová teória musí byť konzistentná s už existujúcou teóriou pre self energiu Fockovej tienenej interakcie. Preto musí platiť
+Numerické výpočty robíme pre kov s Fermiho vlnovým vektorom $k_F = 1.6 \times 10^{10}$ $m^{-1}$ a elektrónovou hmotnosťou  $m = 9.1095 \times 10^{-31} \ kg$ (zodpovedajúca Fermiho energia je $9.75$ $eV$). Fundamentálne konštanty vstupujúce do výpočtov sú $e = 1.602 10^{-34} C$, $\hbar = 1.0545 \times 10^{-34} \ Js^{1}$, a $ \epsilon_0 = 8.854 \times 10^{-12} Fm^{-1}$. Parametre, ktoré vo výpočtoch meníme, sú elektrónový rozptylový čas $\tau$ a parameter
+$q_{max}$.
+
+
+Skôr ako začneme s diskusiou našich hlavných výsledkov, predvedieme aspoň jeden numerický test spoľahlivosti našich výpočtov.
+V kapitole 1 sme odvodili disperzný zákon \eqref{eq:fock_screen_final}, ktorý platí pre voľne elektróny interagujúce cez tienenú Fockovu e-e interakciu.
+Vezmime Fockovu self-energiu zo vzťahu  \eqref{eq:fock_screen_final}, označme ju $E_{self}(k(\E))$ a napíšme ju ešte raz: 
 \begin{align}
-\label{eq:06consistency}
-\lim_{\tau\to\infty}E(\E) = E_{screen}(\E) \text{,}
+\label{eq:06fockscreen}
+&E_{self}(k(\E))= \\ \notag
+&-\frac{e^2}{(2\pi)^2\epsilon_0} \biggl(
+\frac{k_F^2-k^2+k_s^2}{4k} \ln{\frac{(k_F+k)^2+k_s^2}{(k_F-k)^2+k_s^2}}-k_s\bigl(\arctan{\frac{k_F+k}{k_s}}+\arctan{\frac{k_F-k}{k_s}}\bigr)+k_F\biggr) \text{,}
 \end{align}
-kde $E_{screen}(E)$ je self energia Fockovej interakcie z rovnice \eqref{eq:fock_screen_final}.
- \begin{align}
-  \label{eq:06fockscreen}
-  &E_{screen}(\vec{k}(E))= \\ \notag
-  &-\frac{e^2}{(2\pi)^2\epsilon_0} \biggl(
-    \frac{k_F^2-k^2+k_s^2}{4k} \ln{\frac{(k_F+k)^2+k_s^2}{(k_F-k)^2+k_s^2}}-k_s\bigl(\arctan{\frac{k_F+k}{k_s}}+\arctan{\frac{k_F-k}{k_s}}\bigr)+k_F\biggr) \text{,}
- \end{align}
- kde za $k$ dosadíme vlnový vektor prislúchajúci danému $E$ v parabolickom disperznom zákone.
- 
- Rovnosť \eqref{eq:06fockscreen} platí aj pri konečnom orezávaní, ale energia $E_{screen}$ musí byť rovnako orezaná. Preto pri výpočte hustoty stavov podľa 
- \eqref{eq:05rho_final} môžme počítať:                                      
- \begin{align}
- \label{eq:06densplot}
-\frac{\rho(\E)-\rho_0(\E_F)}{\rho_0(\E_F)}=\frac{dE_{\tau0}}{d\E}-\frac{dE_{\infty}}{d\E} \text{.}
- \end{align}
-Kde $E_{\tau_0}$ a $E_{\infty}$ sú self energie získané numerickým integrovaním \eqref{eq:05selfenergy} pri konečnej dobe života elektrónu $\tau=\tau0$ resp. nekonečnej dobe života $\tau=\infty$
-Funkcia \eqref{eq:06densplot} je náš finálny výsledok, ktorý prepojíme z Altschuler-Aronovovou teóriou a kvalitatívne porovnáme s experimentálnymi hodnotami. 
-Altschuler-Aronovova teória v tomto tvare je 
-\begin{align}
-\label{eq:06altschuler}
-\frac{\rho(\E)-\rho(\E_F)}{\rho(\E_F)}= -\frac{1}{2\pi^3\hbar D l \rho_0(\E_F)}+\frac{1}{\sqrt{2}(2\pi)^2(\hbar D)^\frac{3}{2}\rho(\E_F)}\sqrt{|\E-\E_F|}
-\end{align}
+kde na pravej strane je na mieste $k$-čka závisloť $k=k(\E)$ pre parabolický disperzný zákon. 
 
-Pri vzťahu \eqref{eq:06densplot} ako aj teste konzistencie \eqref{eq:06consistency} využijeme obdĺžnikovú metódu integrovania:
-\begin{align}
-\int_a^b g(x)dx &\approx G(b)-G(a)\\
-G(x) &= \sum_0^N \frac{g(x)-g(x+dx)}{2}\\
-dx &= \frac{|a-b|}{N} \text{,}
-\end{align}
-kde $N$ je počet integračných krokov. 
+Chceme otestovať numerický výpočet self-energie $E_{self}^{AA}(\E)$ danej vzťahom
+\eqref{eq:05energy6}. Pre účely numerického testovania položíme  vo vzťahu \eqref{eq:05energy6} 
+$q_{max} = \infty$ (v reálnych numerických testoch berieme $q_{max}$ významne väčšie ako $2k_{F}$). Následne si všimneme, že ak je $q_{max} = \infty$, tak vzťah  \eqref{eq:05energy6}
+musí v limite $\hbar/2\tau \rightarrow 0$ (limita čistého kovu) konvergovať k Fockovej self-energii \eqref{eq:06fockscreen}.
+Túto konvergenciu úspešne demonštrujú numerické výsledky na Obr. \eqref{fig:plot_test}.  
 
-V našom prípade za $g(x)$ dosadíme 
-\begin{align}
-g(x) = -\frac{e^2}{4\pi^3\epsilon_0 k_s^{-1}} \frac{x^2}{1+x^2}F(w,\frac{\hbar^2\k_s^2 x^2}{2m})
-\end{align}
 
-Deriváciu self energie budeme tak isto počítať numericky a to z definície derivácie:
-\begin{align}
-\frac{df(x)}{d x} = \frac{f(x+\Delta x)-f(x-\Delta x)}{2\Delta x}
-\end{align}
-
-Pri numerických výpočtoch použijeme nasledovné hodnoty:
-
-Náboj elektrónu $e = \SI{1.60217662e-19}{\joule}$, redukovaná Planckova konštanta $\hbar = \SI{1.0545718e-34}{\joule\second}$, hmotnosť elektrónu
- $m = \SI{9.109534e-31}{\kilo\gram}$, Fermiho vlnový vektor $k_F = \SI{1.6e10}{\per\meter}$, recipročná tieniaca dĺžka $k_s=k_F$, permitivita
- $ \epsilon_0 = \SI{8.854187e-12}{\farad\per\meter}$, doba života elektrónu $\tau_0 = \SI{6.58e15}{\second}$. Počet krokov integrovania $N=1000$
-\begin{figure}[H]
+\begin{figure}
 \centering
-\includegraphics[scale=1]{grafy/plot_se_test}
-\caption{Porovnanie self energie pre tienenú Fockovu interakciu so self energiou počítanou pomocou Thoulessovho ansatzu. Na x-ovej osi je bezrozmerná energia normovaná Fermiho energiou $\frac{E}{E_F}$, na y-ovej osi je self energia v jouloch.1 Za $\tau_0$ bola zvolená hodnota $\tau_0=\SI{6.58e-15}{\second}$ Z grafu je vidieť konzistentnosť podľa \eqref{eq:06consistency}.}
-\label{fig:plot_test} 
+\includegraphics[scale=1]{grafy/plot_se_test}[t]
+\caption{Self-energia normovaná na $\E_F$ v závislosti od energie elektrónu $\E/\E_F$, kde $\E_F=9.75$ $eV$. Prerušovaná čiara ukazuje závislosť získanú tabeláciou vzorca \eqref{eq:06fockscreen}. 
+Plné čiary sú výsledky získané numerickým vypočtom vzťahu \eqref{eq:05energy6} s  $q_{max} = \infty$ (prakticky $q_{max} = 10 k_F$)  pre postupne narastajúcu
+hodnotu rozptylového času $\tau$,teda pre slabší a slabší disorder. Plné čiary sa s rastúcou hodnotou $\tau$ blížia k prerušovanej čiare a pre dostatočne veľké $\tau$ sa s ňou perfektne prekrývajú. Toto 
+chovanie je v súlade s očakávaním (viď text) a možno ho považovať za dôležitý test správnosti našich numerických výpočtov vzťahu \eqref{eq:05energy6}.}
+\label{fig:plot_test}
 \end{figure}
 
-Z grafu na obrázku \ref{fig:plot_test} vidno, že naša teória je konzistentná. V ďalšom počítame hustotu stavov podľa \eqref{eq:06densplot}, teraz už ale s konečným orezávaním (cut-off). V kapitole 2 sme ukázali, že vhodný cut-off je
-pre $q_{max}=\frac{A}{v_F \tau_0}$ resp. $\bar{y}_{max}=\frac{A}{v_F \tau_0 ks}$, kde $A$ je blízke jednotke. S týmto cut-offom vypočítame self energiu pre $\tau=\tau_0$ a pre $\tau=100\tau_0$ (postačujúca aproximácia nekonečného $\tau$) a dosadíme do \eqref{eq:06densplot}. 
+Nasleduje diskusia našich hlavných výsledkov, ktoré sú ukázané na obrázkoch \ref{fig:results1}, \ref{fig:results2} a \ref{fig:results3}.
+Na týchto obrázkoch plotujeme hustotu stavov \eqref{eq:erg_meandis nex prepis skratka7} prepísanú v tvare relatívnej odchýlky:
+\begin{equation}\label{eq:erg_hustota stavov relat}
+\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)} = - \frac{dE_{self}^{AA}(\E)}{d\E} + \frac{dE_{self}^{free}(\E)}{d\E} \text{,}
+\end{equation}
+Výpočty na obrázkoch \ref{fig:results1}, \ref{fig:results2} a \ref{fig:results3} sa líšia jedine hodnotou parametrov $\tau$ a $q_{max}$.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{grafy/plot_tau_1_c_1}[t]
+\caption{Panel (a): Krivka ukázaná červenou farbou je pôvodná závislosť Altshulera - Aronova daná vzťahom \eqref{eq:erg_hustota stavov relat povodny},
+krivka ukázaná modrou farbou ukazuje náš numerický výpočet vzťahu \eqref{eq:erg_hustota stavov relat naša bez}. Panel (c) ukazuje obidva grafy z panelu (a) este raz, avšak "zošité" približne v energii  $|\E-\E_F| = U_{co}$. Panel (b) ukazuje závislosť danú vzťahom \eqref{eq:erg_hustota stavov relat prvy vynech}. Panel (d) ukazuje celkovú závislosť $\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)}$, získanú sčítaním grafov v paneloch (b) a (c).
+Výpočty boli urobené pre $\tau = 6.66 \times 10^{-15} \ s$ a $q_{max} = 1/l$, ostatné parametre sú uvedené v texte.}
+\label{fig:results1}
+\end{figure}
+
+
+Začneme grafmi na obrázku \ref{fig:results1}, vypočítanými pre $\tau = 6.66 \times 10^{-15} \ s$ a $q_{max} = 1/l$. Panel (a) na obr. \ref{fig:results1} ukazuje červenou farbou pôvodný výsledok Altshulera - Aronova 
+\begin{equation}\label{eq:erg_hustota stavov relat povodny}
+\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)} = - \frac{e^{2}}{\epsilon_0 k_s^{2}}\ \  \frac{q_{max}}{2\pi^3 \hbar D}
+ +  \frac{e^{2}}{\epsilon_0 k_s^{2}} \ \ \frac{1}{2\pi^2 (2\hbar D)^{3/2}}  \ \sqrt{|\E-\E_F|} \text{,}
+\end{equation}
+ktorý neberie do úvahy člen $\frac{dE_{self}^{free}(\E)}{d\E}$. Zopakujme, že vzťah \eqref{eq:erg_hustota stavov relat povodny}  platí pre $|\E-\E_F| \lesssim U_{co}$, kde  $U_{co} = 0.27 \frac{\hbar}{\tau}$ pre $q_{max} = 1/l$. 
+
+Pre porovnanie, panel (a) ukazuje
+aj závislosť 
+\begin{equation}\label{eq:erg_hustota stavov relat naša bez}
+\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)} = - \frac{dE_{self}^{AA}(\E)}{d\E} \text{,}
+\end{equation}
+čo je náš výsledok \eqref{eq:erg_hustota stavov relat povodny} s vynechaným členom $\frac{dE_{self}^{free}(\E)}{d\E}$. 
+Ako bolo diskutované v prechádzajúcej kapitole, náš výpočet člena  $- \frac{dE_{self}^{AA}(\E)}{d\E}$ platí pre 
+$|\E-\E_F| \gtrsim \frac{\hbar}{\tau}$, pretože je založený na self-konzistentnej Bornovej aproximácii. Panel (a)
+na Obr. \ref{fig:results1} ukazuje, že k určitému potlačeniu hustoty stavov v okolí Fermiho energie dochádza aj v self-konzistentnei Bornovej aproximácii.
+\vspace{2cm}
+
+Panel (c) ukazuje obidva grafy z panelu (a) este raz, avšak "zošité" približne v energii  $|\E-\E_F| = U_{co}$. Získali sme tak graf, ktorý je
+kvantitatívne správny v nízkoenergetickej limite $|\E-\E_F| \ll  U_{co}$ (Altshuler-Aronovova teória) a tiež v opačnej limite $|\E-\E_F| \gg U_{co}$ (tam platí naša Bornovská teória). 
+V okolí energie $U_{co}$ je získaný graf samozrejme len orientačný a kvalitatívny. Keby sa do našej Bornovskej teórie (dodatok C) pridali vyššie poruchové členy, zošitie oboch teórii v 
+paneli (c) by možno bolo hladšie.
+
+Panel (b) na obrázku \ref{fig:results1} ukazuje závislosť 
+\begin{equation}\label{eq:erg_hustota stavov relat prvy vynech}
+\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)} =  \frac{dE_{self}^{free}(\E)}{d\E} \text{,}
+\end{equation}
+čo je závislosť \eqref{eq:erg_hustota stavov relat}, avšak s vynechaným členom $- \frac{dE_{self}^{AA}(\E)}{d\E}$.
+Očividne, na rozdiel od člena $- \frac{dE_{self}^{AA}(\E)}{d\E}$, člen $\frac{dE_{self}^{free}(\E)}{d\E}$ hustotu stavov v okolí Fermiho energie zväčšuje.
+
+Konečne, panel (d) na obr.  \ref{fig:results1} ukazuje celkovú závislosť $\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)}$, získanú sčítaním grafov v paneloch (b) a (c).
+Pri energiách $|\E-\E_F| \lesssim U_{co}$ vidíme na paneli (d) už  dobre známe potlačenie hustoty stavov podľa Altshulera a Aronova. Pre energie tesne nad $U_{co}$ však 
+na paneli (d) jasne vidíme, že závislosť $\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)}$ sa stala kladnou. Inými slovami, na paneli (d) vidíme, že pomerne významná časť stavov sa nakopila tesne nad energiou
+$U_{co}$, tak ako to ukazujú experimentálne dáta na obr. \eqref{fig:B2}. 
+Podobnosť teoretického grafu v paneli (d) obrázku ref{fig:results1} a experimentálnych grafov na obr. \eqref{fig:B2} je podľa nášho názoru pozoruhodná.
+
+Náš teoretický graf v paneli (d) obrázku ref{fig:results1} ukazuje pre dostatočne veľké energie nad $U_{co}$ aj jemný prepad do záporných hodnôt. Tento jemný prepad je 
+podľa nášho názoru artefakt toho, že používame ostrý cutoff $q_{max}$. Veríme, že keby sa použil hladký cutoff $e^{q/q_{max}}$, tak pozorovaný jemný prepad do záporných hodnôt by vymizol.
+\vspace{5cm}
+
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[origin=c,scale=0.6]{grafy/plot_tau_1_c_1_98}
+\caption{Tie isté výpočty ako na obrázku \ref{fig:results1}, len namiesto $q_{max} = 1/l$ sme použili $q_{max} = 1.92/l$. }
+\label{fig:results2}
+\end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=1]{grafy/plot_dos}
-\caption{Hustota stavov podľa \eqref{eq:06densplot}. Na x-ovej osi je bezrozmerná energia, na y-ovej osi je hustota stavov podľa \eqref{eq:06densplot}.}
-\end{figure}
-Z grafu na obrázku je na prvý pohľad zrejmé, že nesedí s experimentom v blízkom okolí Fermiho energie. To sme však očakávali, pretože naša teória je pre energie ďalej od Fermiho energie. V okolí Fermiho energie máme k dispozícii Altschulera Aronova. 
-
- Našu teóriu z Altschuler-Aronovovou teóriou. Funkcie jednoducho "zošijeme" v bodoch kde krivka Altschulerovej hustoty stavov \eqref{eq:06altschuler} pretína našu krivku \eqref{eq:06densplot}, teda priebeh nebude hladký. Spojiť funkcie hladko je nad rámec tejto práce. V okolí Fermiho energie použijeme výsledok Altschuler-Aronova, a v bodoch ďalej od Fermiho energie použijeme náš výsledok. Pre ďalšiu analýzu výsledkov skúmame aj vplyv oboch členov \eqref{eq:06densplot} osobitne. Tak isto predvedieme aj vplyv druhého člena na štandardný postup pri výpočte hustoty stavov, teda spojenie Altschuler-Aronova s parabolickou hustotou stavov. Druhý $\rho_{corr}(\E)=-\frac{dE_{\infty}}{d\E}$  znamená zarátanie Fockovej tienenej interakcie.
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.8]{grafy/plot_tau_1_c_1}
-\caption{Analýza hustoty stavov. {\it a)} Altschuler-Aronov (červená čiara), prvý člen $\frac{dE_{\tau_0}(\E)}{d\E}$ {\it b)} druhý člen, $-\frac{dE_{\infty}(\E)}{d\E}$  {\it c)} Altschuler-Aronov spojený s prvým členom  \eqref{eq:06densplot}. {\it d)} oba členy \eqref{eq:06densplot} spojené z Altschuler-Aronovom. {\it e)} Parabolický disperzný zákon (čistý kov) spojený z Altschuler-Aronovom. {\it f)} Parabolický disperzný zákon spojený z Altschuler-Aronovom od ktorého je odčítaný druhý člen \eqref{eq:06densplot}}
-\label{fig:results}
+\includegraphics[origin=c,scale=0.6]{grafy/plot_tau_0_1_c_1}
+\caption{Tie isté výpočty ako na predchádzajúcich dvoch obrázkoch, avšak pre  $\tau = 6.66 \times 10^{-16} \ s$ a $q_{max} = 1/l$.}
+\label{fig:results3}
 \end{figure}
 
-Finálny výsledok je na obrázku \ref{fig:results} {\it d)}. Vidíme, že výsledok kvalitatívne pripomína experimentálne výsledky. Pozoruhodné sú hlavne dve lokálne maximá, ktoré pri štandardnom postupe nevidíme. Tieto maximá sú práve nahromadené stavy nad energiou $U_{co}$ z experimentu, ktoré spôsobia zvýšenie hustoty stavov oproti čistému kovu. 
 
-Pozoruhodné je aj to, že maximá dostaneme aj vtedy, keď započítame iba druhý člen  $\rho_{corr}(E)=-\frac{dE_{\infty}}{d\E}$ ako opravu hustoty stavov pre čistý kov doplnenú Altschuler-Aronovom.
-
-Výsledky nám zatiaľ nesedia kvantitatívne s experimentom. Dajú sa však nafitovať menením $\tau_0$ a koeficientu orezávania $A$.

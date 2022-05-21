@@ -1,19 +1,24 @@
-title: "Test self energie"
+title: ""
 draw_x: false
 xaxis: |
-  $\frac{E}{E_{Fermi}}$
+  $\mathcal{E}/\mathcal{E}_{F}$
 yaxis: |
-  $\Sigma_{self}$ [ J ]
+  $E_{self}(k(\mathcal{E}))/\mathcal{E}_{F}$
 legend: true
-se_1ls_q_10_tau_inf:
+fock:
+  style: "--"
   label: |
-    $\Sigma_{screen}$
-  color: "red"
-se_1ls_q_10_tau_1:
+    rovnica (137)
+  color: "black"
+1ef:
   label: |
-    $\tau = \tau_0$
-  color: "blue"
-se_1ls_q_10_tau_0.1:
+    $\frac{\hbar}{2\tau}=\mathcal{E}_F$
+0.1ef:
   label: |
-    $\tau = 0.1 \tau_0$
-  color: "green"
+    $\frac{\hbar}{2\tau}=10^{-1}\mathcal{E}_F$
+0.01ef:
+  label: |
+    $\frac{\hbar}{2\tau}=10^{-2}\mathcal{E}_F$
+0.001ef:
+  label: |
+    $\frac{\hbar}{2\tau}=10^{-3}\mathcal{E}_F$

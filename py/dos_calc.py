@@ -6,8 +6,9 @@ import datetime
 import numpy as np
 from tools.selfenergy import SelfEnergy, SelfEnergyScipy, DoubleSelfEnergy, DoubleSelfEnergyScipy
 from tools.density import DensityOfStates, DensityOfStatesScipy
+from tools.physfunction import PhysFunction
 from tools.altschuler import Altschuler
-
+EFERMI = PhysFunction().Ef
 
 def output_name(args):
     name = {
@@ -60,12 +61,12 @@ def calc_selfenergy(args):
         print(f"invalid integration method {args.int_method}, type dos_calc -h for help")
         return
     if args.taucoef == -1:
-        se = [[sefunc.test(e), 0] for e in erg]  # error is always 0
+        se = [[sefunc.test(e)/EFERMI, 0] for e in erg]  # error is always 0
     else:
         if args.int_method in ('square', 'dsquare'):
-            se = [[sefunc(e, taucoef=args.taucoef), 0] for e in erg]
+            se = [[sefunc(e, taucoef=args.taucoef)/EFERMI, 0] for e in erg]
         else:
-            se = [sefunc(e, taucoef=args.taucoef) for e in erg]
+            se = [sefunc(e, taucoef=args.taucoef)/EFERMI for e in erg]
     return {
         'x': [e for e in erg],
         'y': [s[0] for s in se],

@@ -5,12 +5,12 @@
 \contentsline {section}{\numberline {2}Elektrón-elektrónová interakcia v kove s disorderom : Jav Altshulera - Aronovova}{20}{section.2}%
 \contentsline {section}{\numberline {3}Meranie hustoty stavov v kove s disorderom metódou tunelovej spektroskopie}{28}{section.3}%
 \contentsline {section}{\numberline {4}Altshuler - Aronovov jav, rozšírenie teórie na energie $|\mathcal {E}- \mathcal {E}_F| \gtrsim \hbar /\tau $}{37}{section.4}%
-\contentsline {section}{\numberline {5}Výsledky numerického výpočtu hustoty stavov}{41}{section.5}%
-\contentsline {section}{Záver}{48}{section*.17}%
-\contentsline {section}{Dodatok A}{49}{section*.18}%
-\contentsline {section}{\numberline {A}Kubova-Greenwoodova formula}{49}{appendix.A}%
-\contentsline {section}{Dodatok B}{52}{section*.19}%
-\contentsline {section}{\numberline {B}Od kvantovej vodivosti Kuba Greenwooda ku klasickej Drudeho vodivosti}{52}{appendix.B}%
-\contentsline {section}{Dodatok C}{55}{section*.20}%
-\contentsline {section}{\numberline {C}Vlnová funkcia elektrónu v prímesnom disorderi: Self-konzistentná Bornova aproximácia}{55}{appendix.C}%
-\contentsline {section}{Zoznam použitej literatúry}{60}{section*.21}%
+\contentsline {section}{\numberline {5}Výsledky a diskusia}{43}{section.5}%
+\contentsline {section}{Záver}{49}{section*.18}%
+\contentsline {section}{Dodatok A}{51}{section*.19}%
+\contentsline {section}{\numberline {A}Kubova-Greenwoodova formula}{51}{appendix.A}%
+\contentsline {section}{Dodatok B}{54}{section*.20}%
+\contentsline {section}{\numberline {B}Od kvantovej vodivosti Kuba Greenwooda ku klasickej Drudeho vodivosti}{54}{appendix.B}%
+\contentsline {section}{Dodatok C}{57}{section*.21}%
+\contentsline {section}{\numberline {C}Vlnová funkcia elektrónu v prímesnom disorderi: Self-konzistentná Bornova aproximácia}{57}{appendix.C}%
+\contentsline {section}{Zoznam použitej literatúry}{62}{section*.22}%

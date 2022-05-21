@@ -71,6 +71,7 @@ if __name__ == "__main__":
             plt.plot(xaxis, yaxis,
                      linewidth=load_subvalue('width'),
                      label=load_subvalue('label'),
+                     linestyle=load_subvalue('style'),
                      color=load_subvalue('color')
                      )
     if load_value('legend'):

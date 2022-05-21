@@ -24,7 +24,7 @@ kde $C$ je konštanta, $\hbar \vec k$ je hybnosť častice, a
 \end{equation}
 je energia častice. Rovinná vlna sa dá normalizovať na konečný objem $V = L_xL_yL_z$,
 ak uvažujeme priestor rozdelený na kvádre so stranami $L_x$, $L_y$ a $L_z$ a predpokladáme
-periodické Born vonKarmanove okrajové podmienky
+periodické Born von Karmanove okrajové podmienky
 \begin{equation}
  \Psi(x,y,z)=\Psi(x+L_x,y,z)\\, \\\ \Psi(x,y,z)=\Psi(x,y+L_y,z)\\, \\\ \Psi(x,y,z)=\Psi(x,y,z+L_z) \text{.}
 \end{equation}
@@ -38,7 +38,7 @@ z ktorej vypočítame normovaciu konštantu
  \label{eq:A}
  C=\sqrt{\frac{1}{L_xL_yL_z}} = \sqrt{\frac{1}{V}} \text{.}
 \end{equation}
-Keď rovinnú vlnu \eqref{eq:fp} dosadíme do Born vonKarmanových podmienok, dostaneme, že
+Keď rovinnú vlnu \eqref{eq:fp} dosadíme do Born von Karmanových podmienok, dostaneme, že
 \begin{equation}
  k_x=\frac{2\pi}{L_x}n_x , \   n_x=0,\pm 1 \pm 2, ...\\, k_y=\frac{2\pi}{L_y}n_y ,  \  n_y=0,\pm 1 \pm 2, ...\\, k_z=\frac{2\pi}{L_z}n_z , \  n_z=0,\pm 1 \pm 2, ... \text{.}
 \end{equation}
@@ -149,7 +149,7 @@ a aj od ich spinových súradníc ($s$), a $E$ je vlastná hodnota energie $N$ e
 
 Hartreeho-Fockova aproximácia nahrádza mnohočasticovú Schrodingerovu rovnicu jednoelektrónovým priblížením.
 Interakciu elektrónu s iónmi v Hamiltoniáne \eqref{eq:hrtf_ham} môžeme zobrať tak ako je, pretože je jednočasticová.
-Aproximovať jednoelektrónovým priblížením potrebujeme e-e interakciu popísanú tretím členom v rovnici \ref{eq:hrtf_ham}), pretože závisí od $N$ premenných $\vr$.
+Aproximovať jednoelektrónovým priblížením potrebujeme e-e interakciu popísanú tretím členom v rovnici \eqref{eq:hrtf_ham}, pretože závisí od $N$ premenných $\vr$.
 Predpokladajme, že sme také jednoelektrónové priblíženie už našli, čo znamená, že $i$-tý elektrón popisuje jednočasticová vlnová funkcia
 $\phi_i(\vr_i,s_i)$. Keďže sme pri absolútnej nule, chceme vypočítať $\Psi(\vr_1,s_1,...,\vr_n,s_n)$ a $E$  v základnom stave.
 V Hartreeho aproximácii sa $\Psi(\vr_1,s_1,...,\vr_n,s_n)$ aproximuje ako jednoduchý súčin
@@ -182,7 +182,7 @@ kde $\hat{H}$ je mnohočasticový Hamiltonián \eqref{eq:hrtf_ham}.
 Keď do funkcionálu $\eqref{eq:erg_func}$ dosadíme jednoduchý súčin \eqref{eq:Psi1} a funkcionál zminimalizujeme variačnou metódou,
 dostaneme efektívnu jednočasticovú rovnicu pre $\phi$,
 \begin{equation}
-\label{eq:fock3}
+\label{eq:hartree}
 (-\frac{\hbar^2}{2m}\laplace -\sum_j\frac{e^2}{4\pi \epsilon_0}{\frac{1}{|\vr-\vR_j|}} -\frac{e}{4\pi \epsilon_0} \int d\vrp\ \rho_{el}(\vrp) \frac {1}{|\vr-\vrp|})\phi_i({\vec{r}})=E_i\phi_i(\vec{r}), \text{,}
 \end{equation}
 kde
@@ -191,8 +191,8 @@ kde
 \rho_{el}(\vr)=-e \sum_j |\phi_j(\vr)|^2 \text{.}
 \end{equation}
 
-Rovnica \eqref{eq:fock3} je Hartreeho rovnica. Funkcia $\phi_i$ tu popisuje jednoelektrónový stav s kvantovým číslom $i$ a $E_i$ je príslušná vlastná hodnota jednoelektrónovej energie (pozor, nezamieňať si $E_i$ a symbol $E$ použitý vyššie pre $N$-elektrónovú energiu $E$).
-Druhý člen na ľavej strane rovnice \eqref{eq:fock3} je interakcia elektrónu s iónmi a tretí člen popisuje efektívnu e-e interakciu, v rámci ktorej elektrón interaguje coulombovsky s elektrónovou hustotou $\rho_{el}(\vr)$ generovanou
+Rovnica \eqref{eq:hartree} je Hartreeho rovnica. Funkcia $\phi_i$ tu popisuje jednoelektrónový stav s kvantovým číslom $i$ a $E_i$ je príslušná vlastná hodnota jednoelektrónovej energie (pozor, nezamieňať si $E_i$ a symbol $E$ použitý vyššie pre $N$-elektrónovú energiu $E$).
+Druhý člen na ľavej strane rovnice \eqref{eq:hartree} je interakcia elektrónu s iónmi a tretí člen popisuje efektívnu e-e interakciu, v rámci ktorej elektrón interaguje coulombovsky s elektrónovou hustotou $\rho_{el}(\vr)$ generovanou
 všetkymi ostatnými elektrónmi (vo vzťahu \eqref{eq:rho vsetkych} sa sumuje cez všetky ostatné elektróny, ktoré obsadzujú stavy $j$ od najnižšieho až po Fermiho energiu). Tretí člen je Hartreeho jednoelektrónová aproximácia e-e interakcie.
 
 Keď do funkcionálu $\eqref{eq:erg_func}$ dosadíme Slaterov determinant \eqref{eq:slatter}, minimalizáciou funkcionálu dostaneme
@@ -208,7 +208,7 @@ kde $i = 1, 2, \dots N$, členy
 \label{eq:hartree a ion}
 U^{el}(\vec{r}) = -\frac{e}{4\pi \epsilon_0} \int d\vrp\ \rho_{el}(\vrp) \frac {1}{|\vr-\vrp|} \ \  \text{a} \ \  U^{ion}(\vec{r}) = -\sum_j\frac{e^2}{4\pi \epsilon_0}{\frac{1}{|\vr-\vR_j|}}
 \end{equation}
-sú tie isté ako interakčné členy v Hartreeho rovnici \eqref{eq:fock3} a tretí člen na ľavej strane rovnice \eqref{eq:fock3}
+sú tie isté ako interakčné členy v Hartreeho rovnici \eqref{eq:hartree} a tretí člen na ľavej strane rovnice \eqref{eq:fock3}
 je Fockova e-e interakcia (čiarka na sumou cez $j$ vo Fockovom člene znamená, že sa sumuje iba cez stavy $j$ s jednou orientáciou spinu, suma ide až po stavy na Fermiho hladine).
 
 Ďaľšou aproximáciou bude model \emph{želé}. Predpokladajme,
@@ -220,8 +220,8 @@ U^{ion}(\vec{r}) = \frac{-e}{4\pi \epsilon_0}\int d\vrp \frac{\rho_{ion}(\vrp)}{
 V modeli \emph{želé} aproximujeme $\rho_{ion}(\vr)$ priestorovo homogénnou hustotou náboja $\rho_{ion}=Ne/V$, kde $V$ je objem Born von Karmánovej vzorky.
 Ak v Hartreeho rovníci \eqref{eq:fock3} použijeme model \emph{želé} s $\rho_{ion}=Ne/V$ a za vlnové funkcie dosadíme rovinné vlny $\phi(\vr)=\frac{1}{\sqrt{V}}e^{i\vk\cdot\vr}$,
 dostaneme, že $\rho_{el}=-Ne/V$, vďaka čomu sa potenciály $U^{ion}(\vec{r})$ a $U^{el}(\vec{r})$ navzájom presne vynulujú.
-To znamená, že Hartreeho rovníca \eqref{eq:fock3} sa v modeli \emph{želé} redukuje na Schrodigerovu rovnicu pre volnú časticu.
-Keď urobíme to isté v Hartreeho-Fockovych rovniciach $\eqref{eq:fock3}$, $U^{ion}(\vec{r})$ a $U^{el}(\vec{r})$ sa navzájom vynulujú
+To znamená, že Hartreeho rovnica \eqref{eq:hartree} sa v modeli \emph{želé} redukuje na Schrodigerovu rovnicu pre volnú časticu.
+Keď urobíme to isté v Hartreeho-Fockovych rovniciach \eqref{eq:fock3}, $U^{ion}(\vec{r})$ a $U^{el}(\vec{r})$ sa navzájom vynulujú
 ale Fockov člen zostane a Hartreeho-Fockove rovnice nadobudnú tvar
 \begin{equation}
 \label{eq:fock_final}

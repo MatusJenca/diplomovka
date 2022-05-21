@@ -51,7 +51,7 @@ dostaneme rovnicu
 
 Na tomto mieste musíme poruchový výsledok \eqref{eq:erg_V_ft} skorigovať. Poruchové riešenie
 $\phi_m(\vr) \simeq \phi_m^{(0)}(\vr)$ môžeme na rovnicu  \eqref{eq:fock_dis} aplikovať len vtedy,
-keď je interakcia $V(\vr-\vrp)$ slabá v porovnaní s interakcou s disorderom, alebo opačne, keď interakcia s disorderom dominuje nad e-e interakciou.
+keď je interakcia $V(\vr-\vrp)$ slabá v porovnaní s interakciou s disorderom.
 To je pravda pre medzielektrónové vzdialenosti $|\vr-\vrp| \gtrsim l$, pretože na vzdialenostiach $>l$ sa už interakcia s disorderom uplatňuje,
 zatiaľčo interakcia $V(\vr-\vrp)$ je exponenciálne zatienená už na vzdialenosti $|\vr-\vrp| \simeq k_s^{-1} \simeq k_F^{-1} \ll l$.
 Keď však dva elektróny navzájom interagujú vo vzdialenosti $|\vr-\vrp| \lesssim l$, interakcia s disorderom sa nestihne uplatniť.
@@ -78,7 +78,7 @@ $\phi_m(\vr)$, ktoré pre $q < q_{max}$ nepoznáme. Našťastie, my nepotrebujem
 \end{equation}
 Výpočet $\overline{| M_{mm'}|^2}$ pre $q < q_{max}$ urobíme v difúznej aproximácii tak ako Altshuler a Aronov.
 
- Vodivostný elektrón z blízkeho okolia Fermiho nergie sa v slabom prímesovom disorderi pohybuje rýchlosťou blízkou Fermiho rýchlosti $v_F$, pričom sa raz za čas $\tau$ elasticky zrazí s prímesou a rozptýli do náhodného smeru. Elektrón má teda elastickú strednú voľnú dráhu $l=v_F\tau$ a jeho pohyb je vlastne náhodným kráčaním s dĺžkou kroku $l$. To znamená, že jeho pohyb je difúzny podobne ako pohyb klasickej Brownovskej častice.
+ Vodivostný elektrón z blízkeho okolia Fermiho energie sa v slabom prímesovom disorderi pohybuje rýchlosťou blízkou Fermiho rýchlosti $v_F$, pričom sa raz za čas $\tau$ elasticky zrazí s prímesou a rozptýli do náhodného smeru. Elektrón má teda elastickú strednú voľnú dráhu $l=v_F\tau$ a jeho pohyb je vlastne náhodným kráčaním s dĺžkou kroku $l$. To znamená, že jeho pohyb je difúzny podobne ako pohyb klasickej Brownovskej častice.
 Ak sa Brownovská častica v čase $t=0$ nachádza v mieste $\vec r = \vec r_0$, potom pravdepodobnosť nájsť túto časticu v čase $t$  v mieste $\vec r$ je
 \begin{equation}
  \label{eq:diffusion}
@@ -108,7 +108,7 @@ klasickú difúziu častice s energiou $\E$, musí platiť, že $\Delta \E \ll \
  \label{eq:obmedzenia}
  \Delta \E \lesssim \hbar/\tau \ \ , \ \  \hbar/\tau \ll E_F
 \end{equation}
-Obmedzenie $\Delta \E \lesssim \hbar/\tau$ znamená, že difúzna aproxímícia \eqref{eq:aa_postulate} je spoľahlivá len pre časy $t >> \tau$. Na tieto obmedzenia ešte v našom texte
+Obmedzenie $\Delta \E \lesssim \hbar/\tau$ znamená, že difúzna aproximácia \eqref{eq:aa_postulate} je spoľahlivá len pre časy $t >> \tau$. Na tieto obmedzenia ešte v našom texte
 veľa krát narazíme.  Obmedzenie $\hbar/\tau \ll E_F$ je ekvivalentné podmienke slabého disorderu $k_Fl \gg 1$.
 
 Keď rozvoj  \eqref{eq:aa_psi_sum} dosadíme do rovnice \eqref{eq:aa_postulate}, dostaneme
@@ -279,7 +279,7 @@ pre veľké $y$. Rozvinieme $F(y)$ do Taylorovho radu pre veľké $y$. Rozvoje p
  \ln(y^2+\sqrt 2 y+1)&=  2 \ln y + \frac{\sqrt 2} {y}-\frac{\sqrt 2}{3y^3} ...\\
  \ln(y^2-\sqrt 2 y+1)&= 2 \ln y - \frac{\sqrt 2} {y}+\frac{\sqrt 2}{3y^3}...\ \text{.}
 \end{align*}
-Pre rozvoj celej funkcie$F(y)$ dostaneme
+Pre rozvoj celej funkcie $F(y)$ dostaneme
 \begin{equation}
  \label{eq:aa_primitive_func_taylor}
 F(y)\simeq \frac{1}{2\sqrt2\pi} - \frac{1}{3y^3} + \dots \text{.}
@@ -304,7 +304,7 @@ môžeme celý tretí integrál zanedbať.
 
 Vzťah \eqref{eq:aa_selfenergy_der_subst1} po týchto výpočtoch nadobudne tvar
 \begin{equation}
-\label{eq:aa_selfenergy_der_final}
+%\label{eq:aa_selfenergy_der_final}
 \frac{dE_{self}}{d\epsilon}=
 \frac{e^2q_{max}}{2\pi^3 \epsilon_0 \hbar D k_s^{2}}  \ \   \left[1+\frac{|\epsilon|^2}{\hbar^2D^2k_s^4}\right]^{-1} \ \
 \left(1- \frac{\pi\sqrt{|\epsilon|}}{2q_{max}\sqrt{2\hbar D }}\right)\text{,}

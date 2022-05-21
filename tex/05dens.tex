@@ -1,4 +1,5 @@
 \section{Altshuler - Aronovov jav, rozšírenie teórie na energie $|\E - \E_F| \gtrsim \hbar/\tau$}
+
 Napíšme znovu Altshuler - Aronovov výsledok \eqref{eq:aa_dos3 fin},
 \begin{equation}
  \label{eq:aa_dos3 fin new}
@@ -182,4 +183,70 @@ F(x,y)=\frac{1}{\sqrt{4xy}}& \{(x+y+2\sqrt{xy}-u_{EF})\arctan(x+y+2\sqrt{xy}-u_{
 &+(x+y-2\sqrt{xy})\arctan(x+y-2\sqrt{xy}) \\
 &-\frac{1}{2}ln(\frac{(x+y+2\sqrt{xy}-u_{EF})^2+1}{(x+y-2\sqrt{xy}-u_{EF})^2+1}\ \frac{(x+y+2\sqrt{xy})^2+1}{(x+y-2\sqrt{xy})^2+1})\}\text{.}
 \end{align*}
+Numerickú integráciu dvojného integrálu robíme štandartným spôsobom obdĺžnikovou metódou
 
+Ďalej potrebujeme vypočítať self-energiu $E_{self}^{free}(m)$ danú vzťahom \eqref{eq:erg_self free}. Vzťah \eqref{eq:erg_self free} sa dá integrovať analyticky,
+ale výpočet vedie k veľmi veľkej analytickej formule. Kvôli zjednodušeniu výkladu a kvôli zjednodušeniu programátorskej práce sme 
+vzťah \eqref{eq:erg_self free} počítali numericky pomocou limity
+\begin{equation}
+\label{limit tau infty}
+E_{self}^{free}(\epsilon_m) = \lim_{\epsilon_\tau \rightarrow 0} E_{self}^{AA}(\epsilon_m) \text{,}
+\end{equation}
+kde $E_{self}^{AA}(\epsilon_m)$ je dané vzťahom \eqref{eq:05energy6}. Táto limita  zopovedá prechodu od self-konzistentnej Bornovej aproximácie \eqref{eq:05thouless} k rovinným vlnám $\ket{k_{m}}= \frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$, pretože Lorentzián \eqref{eq:05thouless} sa v limite $\tau \rightarrow \infty$ blíži k $\delta$-funkcii s jediným stavom
+$\ket{k} = \ket{k_{m}}$. Pri numerickom výpočte pravej strany rovnice \eqref{limit tau infty} nám stačí použiť dostatočne  malé $\epsilon_\tau$. 
+
+Hustotu môžeme vypočítať nasledovne. Rovnicu \eqref{eq:erg_meandis nex prepis skratka}
+prepíšeme do tvaru
+\begin{equation}\label{eq:erg_meandis nex prepis skratka2}
+ \overline{E_m} \ \ = \ \ \E_m + E_{self}^{AA}(\epsilon_m) - E_{self}^{free}(\epsilon_m)  \text{,}
+\end{equation}
+ktorý po formálnom vystredovaní cez $\frac{1}{\rho(\epsilon)}\sum_{\forall m} \delta(\epsilon-\epsilon_{m})$
+prejde na tvar
+\begin{equation}
+ \overline{E} \ \ = \ \ \E(\epsilon) + E_{self}^{AA}(\epsilon) - E_{self}^{free}(\epsilon)  \text{.}
+\end{equation}
+Obidve strany poslednej rovnice derivujeme podľa počtu stavov $n$ (na jednotku objemu) a prevrátime. Dostaneme
+\begin{equation}
+\frac{dn}{d\overline{E}} \ \ = \frac{1}{d\E(\epsilon)/dn + dE_{self}^{AA}(\epsilon)/dn - dE_{self}^{free}(\epsilon)/dn}  \text{,}
+\end{equation}
+po úprave
+\begin{equation}\label{eq:erg_meandis nex prepis skratka4}
+\frac{dn}{d\overline{E}} \ \ = \frac{1}{d\E/dn + (d\E/dn)(dE_{self}^{AA}(\epsilon)/d\E) - (d\E/dn)(dE_{self}^{free}(\epsilon)/d\E}  \text{,}
+\end{equation}
+a po ďaľšej úprave
+\begin{equation}
+\frac{dn}{d\overline{E}} \ \ = \frac{dn}{d\E}\frac{1}{1 + dE_{self}^{AA}(\epsilon)/d\E - dE_{self}^{free}(\epsilon)/d\E}  \text{.}
+\end{equation}
+Po Taylorovom rozvoji pre $|dE_{self}^{AA}(\epsilon)/d\E - dE_{self}^{free}(\epsilon)/d\E|  \ll 1$ a po ďaľšej malej úprave
+\begin{equation}
+\frac{dn}{d\overline{E}} \ \ = \frac{dn}{d\E} (1 - \frac{dE_{self}^{AA}(\epsilon)}{d\epsilon}\frac{d\epsilon}{d\E} + \frac{dE_{self}^{free}(\epsilon)}{d\epsilon}\frac{d\epsilon}{d\E}) \text{.}
+\end{equation}
+V poslednej rovnici identifikujeme $\rho_0(\E) \equiv \frac{dn}{d\E}$ ako neporušenú hustotu neporušených energetických hladin $\E$,
+$\rho(\E) \equiv \frac{dn}{d\overline{E}}$ ako porušenú hustotu neporušených energetických hladin $\E$, a posledné dva členy na pravej strane ako poruchu.
+Výsledná porušená hustota stavov teda je
+\begin{equation}\label{eq:erg_meandis nex prepis skratka6}
+\rho(\E) \ \ = \rho_0(\E) (1 - \frac{dE_{self}^{AA}(\epsilon)}{d\epsilon}\frac{d\epsilon}{d\E} + \frac{dE_{self}^{free}(\epsilon)}{d\epsilon}\frac{d\epsilon}{d\E}) \text{,}
+\end{equation}
+Ešte si všimnime, že oba poruchové členy obsahujú deriváciu
+$\frac{d\epsilon}{d\E}$, kde  funkcia $\E(\epsilon)$ nie je nič iné ako disperzný zákon voľných interagujúcich elektrónov (vzťah \eqref{eq:fock_screen_final}) v závislosti od premennej $\epsilon = \hbar^{2} k^{2}/2m$.
+Derivácia $\frac{d\epsilon}{d\E}$ sa ľahko vypočíta analyticky, jej hodnota sa typicky líši od jednotky iba o niekoľko percent. Preto kvôli zjednodušeniu ďaľšieho výkladu použijeme 
+vo vzťahu \eqref{eq:erg_meandis nex prepis skratka6} aproximáciu $\frac{d\epsilon}{d\E} \simeq 1$, čo znamená aj aproximáciu $\epsilon \simeq \E$. 
+Tak prichádzame k výsledku 
+ \begin{equation}\label{eq:erg_meandis nex prepis skratka7}
+\rho(\E) \ \ = \rho_0(\E) (1 - \frac{dE_{self}^{AA}(\E)}{d\E} + \frac{dE_{self}^{free}(\E)}{d\E}) \text{,}
+\end{equation}
+ktorý budeme používať pri numerických výpočtoch v nasledujúcej kapitole.
+Na rozdiel od pôvodného vzťahu \eqref{eq:aa_dos2} výsledok \eqref{eq:erg_meandis nex prepis skratka7} obsahuje naviac člen $\frac{dE_{self}^{free}(\E)}{d\E}$.
+Čo sa týka člena $\frac{dE_{self}^{AA}(\E)}{d\E}$, ten bude 
+pre energie $|\E-\E_F| \lesssim  U_{co} = \frac{8}{3\pi^{2}} q_{max}^2 l^2 \frac{\hbar}{\tau}$ daný 
+Altshuler-Aronovovym vzťahom (pozri rovnicu \eqref{eq:aa_dos3})
+\begin{equation}
+ \label{eq:aa_altshuaron}
+ \frac{dE_{self}^{AA}(\E)}{d\E} = \frac{e^{2}}{\epsilon_0 k_s^{2}}\ \  \frac{q_{max}}{2\pi^3 \hbar D}
+ -  \frac{e^{2}}{\epsilon_0 k_s^{2}} \ \ \frac{1}{2\pi^2 (2\hbar D)^{3/2}}  \ \sqrt{|\E-\E_F|}  \text{.}
+\end{equation}
+Pre energie $|\E-\E_F| \gtrsim U_{co} = \frac{8}{3\pi^{2}} q_{max}^2 l^2 \frac{\hbar}{\tau}$ budeme  člen $\frac{dE_{self}^{AA}(\E)}{d\E}$ počítať s použitím teórie opísanej v tejto kapitole (najprv
+vypočítame pomocou vzťahu \eqref{eq:05energy6} numerickú závislosť $E_{self}^{AA}(\E)$, ktorú potom numericky derivujeme).  
+
+Teóriu popísanú v tejto kapitole som spracoval podľa nepublikovaných prednášok školiteľa a konzultantky.
+Numerické výpočty, ktoré si teória vyžaduje, ako aj spracovanie výsledkov som urobil sám. 
