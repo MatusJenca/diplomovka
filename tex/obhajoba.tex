@@ -146,19 +146,27 @@
 %----------------------------------------------------------------------------------------
 %	PRESENTATION INFORMATION
 %----------------------------------------------------------------------------------------
+\beamertemplatenavigationsymbolsempty
+%\setbeameroption{show notes on second screen=right}
+%\setbeameroption{show only notes}
+\setbeamercolor{note page}{bg=white}
+\setbeamercolor{note title}{bg=white}
+\setbeamercolor{note date}{fg=white}
 \input{cmdefs}
 \title[Diplomová práca]{ Hustota elektrónových stavov v kove so slabým disorderom a slabou elektrón-elektrónovou interakciou: Jav Altshulera-Aronova} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
 
 \subtitle{Diplomová Práca} % Presentation subtitle, remove this command if a subtitle isn't required
 
-\author[Matúš Jenča]{Matúš Jenča \\
+\author[Matúš Jenča]{Matúš Jenča} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+
+\institute[FMFI UK]{Fakulta matematiky, Fyziky a Informatiky } % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+
+\date[\today]{\today  \\
+\tiny
+\vspace{10mm}
 Vedúci práce:  Doc. RNDr. Martin Moško, DrSc. \\
 Konzultant: RNDr. Antónia Mošková, CSc. \\
-} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
-
-\institute[FMFI UK]{Fakulta matematiky, Fyziky a Informatiky} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
-
-\date[\today]{\today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+\normalsize} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
 
 %----------------------------------------------------------------------------------------
 
@@ -189,16 +197,25 @@ Konzultant: RNDr. Antónia Mošková, CSc. \\
 	\end{itemize}
 \end{frame}
 \begin{frame}
+
+\note{Najprv definujeme základné pojmy na probléme neinteragujúcich elektrónov.
+ Pre neinteragujúci elektrón máme Schr\"odingerovu rovnicu voľnej častice,
+ktorej riešením je DeBroglieho rovinná vlna \eqref{eq:fp}.
+Energia neinteragujúceho elektrónu je daná parabolickým disperzným zákonom.
+Pre koncentráciu  elektrónov platí vzťah \eqref{eq:N integral sfercky}
+}
+
 \frametitle{Interagujúce elektróny v čistom kove: Hartreeho - Fockova aproximácia pre model želé}
 \begin{itemize}
 \item Pre neinteragujúci elektrón máme Schr\"odingerovu rovnicu voľnej častice,
-ktorej riešením je DeBroglieho rovinná vlna s Born von Karmanovou okrajovou podmienkou
+ktorej riešením je DeBroglieho rovinná vlna
 \begin{equation}
 \label{eq:fp}
  \Psi(\vec r,t)=\sqrt{\frac{1}{V}}e^{i(\vec k\cdot\vec r-\frac{E(k)t}{\hbar})} \text{,}
 \end{equation}
 \item Energia voľnej častice je $E=\frac{\hbar^2k^2}{2m}$
-\item Pre koncentráciu neinteragujúcich elektrónov platí
+\item Pre koncentráciu  elektrónov platí
+
 \begin{equation}
  \label{eq:N integral sfercky}
  n_e \equiv \frac{N}{L_xL_yL_z} = 2 \frac{1}{8\pi^3} \int_0^{2\pi} d\phi \int_0^{\pi}  d\theta \sin{\theta} \int_0^{\infty} dk\ k^2 f(k)  \text{.}
@@ -206,23 +223,27 @@ ktorej riešením je DeBroglieho rovinná vlna s Born von Karmanovou okrajovou p
 \end{itemize}
 \end{frame}
 \begin{frame}
+
+\note{ Po integrovaní cez $\phi$ a $\theta$ a zámene premenných za energiu definujeme hustotu stavov $\rho(E)$.
+Pre konkrétny prípad voľnej častice je hustota stavov úmerná odmocnine z energie.  Maximálne obsadené stavy  neinteragujúcich elektrónov pri $T=0$ budú na Fermiho Sfére s polomerom $k_f$ a Fermiho energiou $E_f$}
+
 \begin{itemize}
-\item Po integrovaní cez $\phi$ a $\theta$ kde spoznávame hustotu energetických hladín
+\item Po integrovaní cez $\phi$ a $\theta$ a zámene premenných za energiu definujeme hustotu stavov $\rho(E)$
 \begin{equation}
  \label{eq:N integral sfer energ}
- n_e =   \int_0^{\infty} dE \frac{1}{\pi^2}  \frac{dk}{dE} \ k^2 \ f(E)  \qquad \rho(E)=\frac{1}{\pi^2} \frac{dk}{dE} k^2  \ \text{,}
+ n_e =   \int_0^{\infty}dE\rho(E)\ f(E) \ \ \text{kde}\ \ \rho(E)=\frac{1}{\pi^2} \frac{dk}{dE} k^2  \ \text{,}
 \end{equation}
 \item pre voľné častice je hustota stavov 
 \begin{equation}
  \label{eq:rho_par}
  \rho(E)=\frac{1}{2\pi^2}{(2 m_e/\hbar^2)}^{3/2} \sqrt{E} \text{.}
 \end{equation}
-\item pri nulovej teplote platí $f(k)=\Theta(k)$, teda maximálne obsadené stavy neinteragujúcich elektrónov budú na Fermiho Sfére
+\item maximálne obsadené stavy  neinteragujúcich elektrónov pri $T=0$ budú na Fermiho Sfére s polomerom
 \begin{equation}
  \label{eq:kf}
  k_F=(3\pi^2 n_e)^{\frac{1}{3}}\text{,}
 \end{equation}
-\item energia na Fermiho ploche je Fermiho Energia
+\item energia na Fermiho sfére (Fermiho Energia) je
 \begin{equation}
  \label{eq:ef}
  E_f=\frac{\hbar^2 k_f^2}{2m_e}=\frac{\hbar^2(3\pi^2 n_e)^{\frac{2}{3}}  }{2m_e} \text{.}
@@ -230,8 +251,10 @@ ktorej riešením je DeBroglieho rovinná vlna s Born von Karmanovou okrajovou p
 \end{itemize}
 \end{frame}
 \begin{frame}
+\note{Po započítaní vzájomnej interakcie elektrónov (e-e interakciu) a interakciu s iónmi dostaneme mnohočasticový Hamiltonián. Sch. R. s hamiltoniánom \eqref{eq:hrtf_ham} sa nedá exaktne riešiť ani anlyticky, ani numericky, riešime ju teda v Hartree-Fockovom priblížení variačnou metódou, kde vlnové funkcie $\Psi$ hľadáme v tvare Slatterovho determinantu \eqref{eq:slatter}. Slatterov determinant zahŕňa výmenný efekt.}
+
 \begin{itemize}
-\item po započítaní vzájomnej interakcie elektrónov (e-e interakciu) a interakciu s iónmi dostaneme mnohočasticový Hamiltonián
+\item po započítaní vzájomnej interakcie elektrónov (e-e interakcie) a interakcie s iónmi dostaneme mnohočasticový Hamiltonián
 \begin{equation}
 \label{eq:hrtf_ham}
 \hat{H}=\sum_i [ \frac{-\hbar^2}{2m}\laplace_i  -\sum_j\frac{e^2}{4\pi \epsilon_0}{\frac{1}{|\vr_i-\vR_j|}} +\frac{1}{2}\sum_{j\neq i}\frac{e^2}{4\pi\epsilon_0}\frac{1}{|\vr_i-\vr_j|} ]
@@ -255,9 +278,12 @@ E[\Psi^*]=\expval{H}{\Psi}
 \end{itemize}
 \end{frame}
 \begin{frame}
+
+\note{  Variačnou metódou dostaneme Hartree-Fockove rovnice \eqref{eq:fock3}, kde definujeme Hartreeho člen medzielektónovej interakcie $U^{el}$ a interakciu s iónmi $U^{ion}$. Problém riešime v modeli \emph{želé}, čo znamená, že potenciál od iónov považujem za spojitý. členy $U^{el}(\vr)$ a $U^{ion}(\vr)$ vypadnú, dostaneme Fockove rovnice \eqref{eq:fock_final}. Tieto rovnice je vhodné fourierovsky pretransformovať.}
+
 \begin{itemize}
 
-\item Variačnou metódou dostaneme Fockove rovnice
+\item Variačnou metódou dostaneme Hartree-Fockove rovnice
 \tiny
 \begin{equation}
 \label{eq:fock3}
@@ -273,7 +299,7 @@ kde členy
 U^{el}(\vec{r}) = -\frac{e}{4\pi \epsilon_0} \int d\vrp\ \rho_{el}(\vrp) \frac {1}{|\vr-\vrp|} \ \  \text{a} \ \  U^{ion}(\vec{r}) = -\sum_j\frac{e^2}{4\pi \epsilon_0}{\frac{1}{|\vr-\vR_j|}}
 \end{equation}
 \normalsize
-\item Problém riešime v modeli \emph{želé}, teda členy $U^{el}(\vr)$ a $U^{ion}(\vr)$ vypadnú, dostaneme
+\item Problém riešime v modeli \emph{želé}, teda členy $U^{el}(\vr)$ a $U^{ion}(\vr)$ vypadnú, dostaneme Fockove rovnice
 \small
 \begin{equation}
 \label{eq:fock_final}
@@ -282,28 +308,15 @@ U^{el}(\vec{r}) = -\frac{e}{4\pi \epsilon_0} \int d\vrp\ \rho_{el}(\vrp) \frac {
 \normalsize
 \end{itemize}
 \end{frame}
-\begin{frame}
-Výsledná energia interagujúcich elektrónov v čistom kove v Hartree-Fockovom priblížení:
-\begin{equation}
-\label{eq:fock_erg}
-E(k)=\frac{\hbar^2 k^2}{2m}- \frac{e^2 k_f}{4\pi^2\epsilon_0} F(\frac{k}{k_f})\ \ \text{kde}\ \ F(x)=\frac{1}{2}+\frac{1-x^2}{4x}\ln{\frac{|1+x|}{|1-x|}} \text{.}
-\end{equation}
-
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[angle=-90,origin=c,scale=0.2,trim={1cm 0 1cm 0},clip]{grafy/hartree_erg} }}%
-    \subfloat{{\includegraphics[angle=-90,origin=c,scale=0.2,trim={1cm 0 1cm 0},clip]{grafy/hartree_dos_NEW} }}%
-    \vspace{-10mm}
-    \small
-    \caption{Na ľavo energia podľa rovnice \eqref{eq:fock_erg}.  Napravo hustota stavov získaná numerickým invertovaním jej derivácie. Z pravého obrázku vidíme, že HF aproxiimácia je v pre holý Coulombovský potenciál v rozpore s realitou. Nulová hustota stavov na novej hodnote Fermiho energie je totiž nulová, v takomto prípade by nešlo o kov ale izolant.}%
-    \normalsize
-    \label{fig:example}%
-\end{figure}
-\end{frame}
 
 
 \begin{frame}
-Do Fockových rovníc dosadíme namiesto holého Coulombovského potenciálu  $e^2/\epsilon_0|\vkp-\vk|^2$ tienený potenciál  $e^2/\epsilon_0(|\vkp-\vk|^2+k_s^2)$, kde $k_s$ je reciproká tieniaca dĺžka.
+\note{
+Do Fockových rovníc dosadíme fourierovu transformáciu tieneného potenciálu  $e^2/\epsilon_0(|\vkp-\vk|^2+k_s^2)$, kde $k_s$ je reciproká tieniaca dĺžka.
+Pre energiu dostávame výsledok zahŕňajúci  aj výmenný aj korelačný efekt. Vľavo energia podľa rovnice \eqref{eq:fock_screen_final}.  Napravo hustota stavov prislúchajúca \eqref{eq:fock_screen_final}.
+Čierne čiary zobrazujú energiu resp. hustotu stavov bez e-e interakcie, červené čiary zobrazujú výsledky podľa. \eqref{eq:fock_screen_final}}
+
+Do Fockových rovníc dosadíme fourierovu transformáciu tieneného potenciálu  $e^2/\epsilon_0(|\vkp-\vk|^2+k_s^2)$, kde $k_s$ je reciproká tieniaca dĺžka.
 Pre energiu dostávame
  \tiny
  \begin{equation}
@@ -320,12 +333,27 @@ Pre energiu dostávame
     \subfloat{{\includegraphics[angle=-90,origin=c,scale=0.2,trim={1cm 0 1cm 0},clip]{grafy/screening_dos} }}%
     \vspace{-10mm}
     \small
-    \caption{Na ľavo energia podľa rovnice \eqref{eq:fock_erg}.  Napravo hustota stavov získaná numerickým invertovaním jej derivácie.}%
     \normalsize
     \label{fig:example}%
 \end{figure}
+Vľavo energia podľa rovnice \eqref{eq:fock_screen_final}.  Vpravo hustota stavov prislúchajúca \eqref{eq:fock_screen_final}.
+Čierne čiary zobrazujú energiu resp. hustotu stavov bez e-e interakcie, červené čiary zobrazujú výsledky podľa. \eqref{eq:fock_screen_final}
+Naša teória zahŕňa aj výmenný aj korelačný efekt.
 \end{frame}
 \begin{frame}
+
+\note{Elektrón v disorderovanom kove bez e-e interakcie je popísaný Sch. R. \eqref{eq:schr_dis}.  Započítaním e-e interakcie v modeli \emph{želé} dostaneme Fockovu rovnicu \eqref{eq:fock_dis}.  Problém \eqref{eq:fock_dis} riešime v prvom ráde poruchovej teórie. $\phi_m(\vr) \simeq \phi_m^{(0)}(\vr)$. Problém  \eqref{eq:fock_dis} je pre jeden konkrétny disorder. Náš výsledok je stredovaný cez súbor mikroskopicky rôznych ale makroskopicky rovnakých disrderov. Pre stredný disorder dostaneme  \eqref{eq:erg_meandis}.
+Poruchové riešenie
+$\phi_m(\vr) \simeq \phi_m^{(0)}(\vr)$ môžeme na rovnicu  \eqref{eq:fock_dis} aplikovať len vtedy,
+keď je interakcia $V(\vr-\vrp)$ slabá v porovnaní s interakciou s disorderom.
+To je pravda pre medzielektrónové vzdialenosti $|\vr-\vrp| \gtrsim l$, pretože na vzdialenostiach $>l$ sa už interakcia s disorderom uplatňuje,
+zatiaľčo interakcia $V(\vr-\vrp)$ je exponenciálne zatienená už na vzdialenosti $|\vr-\vrp| \simeq k_s^{-1} \simeq k_F^{-1} \ll l$.
+Keď však dva elektróny navzájom interagujú vo vzdialenosti $|\vr-\vrp| \lesssim l$, interakcia s disorderom sa nestihne uplatniť.
+To znamená že interakcia $V(\vr-\vrp)$ na vzdialenostich $|\vr-\vrp| \lesssim l$ nie je v porovnaní s disorderom slabá porucha.
+Intuitívne je jasné, že správny poruchový ansatz v tomto prípade musí byť rovinná vlna
+$\phi_m(\vr) \simeq \frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$, ktorá je správnym riešením Fockovej rovnice v modeli želé bez disorderu.
+}
+
 \frametitle{Elektrón-elektrónová interakcia v kove s disorderom : Jav Altshulera - Aronovova}
 \begin{itemize}
 \item Elektrón v disorderovanom kove bez e-e interakcie je popísaný Sch. R.
@@ -340,27 +368,31 @@ Pre energiu dostávame
  \bigl(-\frac{\hbar^2}{2m}\laplace + V_{dis}(\vr) \bigr)\phi_m(\vr)-\sum_{\forall m'} \int d\vrp \phi^*_{m'}(\vr)\phi_{m}(\vrp)V(\vr-\vrp)\phi_{m'}(\vr)=E_m\phi_m(\vr) \text{.}
 \end{equation}
 \normalsize
-\item Problém \eqref{eq:fock_dis} riešime pre medzielektrónové vzdialenosti  $|\vr-\vrp| \gtrsim l$ v prvom ráde poruchovej teórie. $\phi_m(\vr) \simeq \phi_m^{(0)}(\vr)$
-\item problém riešime pre stredný disorder
-\item Po úpravách dostaneme 
+\item Problém \eqref{eq:fock_dis} riešime v prvom ráde poruchovej teórie. $\phi_m(\vr) \simeq \phi_m^{(0)}(\vr)$
+\item Pre stredný disorder dostaneme 
+\small
 \begin{equation}
 \label{eq:erg_meandis}
  \overline{E_m}=\overline{\E_m}-\sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2} \text{.}
 \end{equation}
+\normalsize
+\item poruchová teória platí len pre $q<q_{max}=\frac{A}{l}$ kde $A\simeq 1$ a $l$ je stredná voľná dráha elektrónu. Pre $q>q_{max}$ dosadíme za $\phi_m(\vr)$ rovinné vlny.
 \end{itemize}
 \end{frame}
 \begin{frame}
+\note
+{
+Pre výpočet energie nám stačí maticový element \eqref{eq:aa_matrix_element}. Počítame difúznou aproximáciou, podobne ako AA. 
+ Difúzna aproximácia spočíva v postulovaní rovnice \eqref{eq:aa_postulate}, teda že elektrón sa správa ako brownowská častica.
+  Vlnovú funkciu častice z rovnice \eqref{eq:aa_postulate} rozvinieme do stacionárnych stavov $\phi_m(\vr)$.
+  Difúzna aproximácia platí len za predpokladu $|\E_m-\E_{m'}|\ll\hbar / \tau$. Z difúznej aproximácie vieme dostať maticový element, ktorý dosadíme  do rovnice pre energiu \eqref{eq:erg_meandis}
+}
+
 \begin{itemize}
 \item Pre výpočet energie nám stačí maticový element.
 \begin{equation}
 \label{eq:aa_matrix_element}
 \overline{| M_{mm'}|^2} =\overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2} \text{.}
-\end{equation}
-\item $\overline{| M_{mm'}|^2}$ počítame pre $q<q_{max}$ v difúznej aproximácii - elektrón sa v okolí $E_F$ správa ako
-Brownowská častica
-\begin{equation}
- \label{eq:diffusion}
- P(\vr,t)=\frac{1}{(4\pi Dt)^{3/2}}e^{-\frac{|\vr-\vr_0|^2}{4Dt}} \text{,}
 \end{equation}
 \item Difúzna aproximácia spočíva v postulovaní rovnice
 \begin{equation}
@@ -372,19 +404,26 @@ Brownowská častica
  \label{eq:aa_psi_sum}
  \psi(\vr,t)=\frac{\sqrt{V}}{\sqrt{N}}\sum_m \phi_m^*(\vr_0)\phi_m(\vr)e^{-i\frac{\E_m}{\hbar}t} \text{,}
 \end{equation}
-\end{itemize}
-\end{frame}
-\begin{frame}
-\begin{itemize}
-\item Difúzna aproximácia platí len za predpokladu $ \Delta \E \lesssim \hbar/\tau \ \ , \ \  \hbar/\tau \ll E_F$
+\item Difúzna aproximácia platí len za predpokladu $|\E_m-\E_{m'}|\ll\hbar / \tau$
 \item Z difúznej aproximácie vieme dostať maticový element, ktorý dosadíme  do rovnice pre energiu \eqref{eq:erg_meandis}
 \begin{equation}
 \label{eq:erg_meandis modif}
  \overline{E(\E})=\overline{\E}-\int_{0}^{\E_F} d\E' \rho(\E') \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) \overline{|\bra{\phi_{\E}}e^{i\vq\cdot\vr}\ket{\phi_{\E'}}|^2} \text{.}
 \end{equation}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\note{
+rovnicu \eqref{eq:erg_meandis modif}  zapíšeme v tvare  $\overline{E(\E})=\overline\E+E_{self}(\E)$. 
+ derivujeme podľa počtu stavov a dostaneme   otočením oboch strán dostaneme hustotu stavov, ktorú počítame ako Taylorov rozvoj do prvého rádu
+\eqref{eq:der}. Otočením oboch strán dostaneme hustotu stavov, ktorú počítame ako Taylorov rozvoj do prvého rádu. Dosadením self energie dostaneme Altschuler-Aronovov výsledok \eqref{eq:aa_dos3 fin}, kde vidíme potlačenie hustoty v okolí Fermiho energie.
+}
+
+\begin{itemize}
 \item rovnicu \eqref{eq:erg_meandis modif}  zapíšeme v tvare  $\overline{E(\E})=\overline\E+E_{self}(\E)$
-\item zderivujeme podľa počtu stavov a dostaneme 
+\item derivujeme podľa počtu stavov a dostaneme 
 \begin{equation}
+\label{eq:der}
   \frac{d E(\E)}{dn}=\frac{d\E}{dn}+\frac{dE_{self}(\E)}{dn}=\frac{d\E}{dn}+\frac{dE_{self}(\E)}{d\E}\frac{d\E}{dn}=\frac{d\E}{dn}(1+\frac{dE_{self}(\E)}{d\E}) \text{.}
 \end{equation}
 \item otočením oboch strán dostaneme hustotu stavov, ktorú počítame ako Taylorov rozvoj do prvého rádu
@@ -392,23 +431,25 @@ Brownowská častica
  \label{eq:aa_dos2}
  \rho(\E) \simeq \rho_0(\E)[1-\frac{dE_{self}(\E)}{d\E}] \simeq \rho_0(\E_F)[1-\frac{dE_{self}(\E)}{d\E}] \text{.}
 \end{equation}
-\end{itemize}
-\end{frame}
-\begin{frame}
-Dosadením self energie dostaneme Altschuler-Aronovov výsledok
+\item Dosadením self energie dostaneme Altschuler-Aronovov výsledok
 \begin{equation}
  \label{eq:aa_dos3 fin}
  \rho(\E)=\rho_0(\E_F) - \frac{q_{max}}{2\pi^3 \hbar D}
  +    \frac{1}{2\pi^2 (2\hbar D)^{3/2}}  \ \sqrt{|\E-\E_F|}  \text{.}
 \end{equation}
+\end{itemize}
 \end{frame}
 \begin{frame}
+\note{
+Hustotu stavov meriame podľa obrázka. Vľavo máme čistý kov, ktorého hustotu stavov poznáme. Vpravo máme kov s disorderom. Oddelené sú tenkou vrstvou izolantu = barieru. 
+Elektróny tunelujú cez barieru ako popisuje pásový diagram na obrázku. Meraním diferenciálnej vodivosti sústavy vieme určiť hustotu stavov. 
+
+}
 \frametitle{Meranie hustoty stavov v kove s disorderom metódou tunelovej spektroskopie}
 \vspace{-15mm}
 \begin{figure}%
     \centering
-    \subfloat{{\includegraphics[scale=0.2]{grafy/schema} }}%
-    \subfloat{{\includegraphics[scale=0.2]{grafy/barier_v3} }}%
+    \subfloat{{\includegraphics[scale=0.25]{grafy/fuck_beamer} }}%
     \vspace{-10mm}
     \label{fig:example}%
 \end{figure}
@@ -419,6 +460,11 @@ $G(U)=e^2\frac{4\pi|t|^2}{\hbar}\rho_l(\E_F)\rho_r(\E=\E_F-eU)$, z čoho určím
 \normalsize
 \end{frame}
 \begin{frame}
+\note{
+Výsledky merania hustoty stavov tunelovou spektroskopiou pre rôzne kovy
+V blízkom okolí Fermiho energie všetky ukázané spektrá vykazujú Altshuler-Aronovov jav pokles úmerný odmocnine. Ďaleko od Fermiho energie už Altshuler-Aronovova závislosť
+ očividne neplatí a pre dostatočne veľké hodnoty vidno, že hustota stavov klesá k $\rho_0$ zhora.
+}
 \vspace{-10mm}
 \begin{figure}%
     \centering
@@ -433,6 +479,11 @@ $\rho(|\E- \E_F|) \propto \sqrt{|\E- \E_F|}$ očividne neplatí a pre dostatočn
 \normalsize
 \end{frame}
 \begin{frame}
+\note{
+Altschuler-Aronovov výsledok platí len pre energie $< \hbar/\tau$.  Z AA výsledku vidno že hustota stavov sa pretne s neporušenou pre $|\E-\E_F| =  U_{co}$
+tzv. korelačná energia. Pre energie oveľa väčšie ako kondenzačná experiment ukazuje, že stavy vytlačené z oblasti pod kondenzačnou energiou majú tendenciu sa nakopiť tesne
+nad energiou ňou v oblasti veľkosti dva a až tri krát kondenzačná energuia, čo AA vôbec nepopisuje. Teóriu sa pokúsime rozšíriť do oblastí nad korelačnú energiu.
+}
 \frametitle{Altshuler - Aronovov jav, rozšírenie teórie na energie $|\E - \E_F| \gtrsim \hbar/\tau$}
 \begin{itemize}
 \item Altschuler-Aronovov výsledok platí len pre energie $|\E - \E_F| < \hbar/\tau$
@@ -447,11 +498,16 @@ je tzv. korelačná energia
 nad energiou $|\E-\E_F| =  U_{co}$ v oblasti veľkosti dva a až tri krát $U_{co}$.
 \item Pokiaľ je nám známe,tak tento experimentálny výsledok (najmä fakt, že  pre $|E-E_F| > U_{co}$ hodnota $\rho(\E)$ hodnotu $\rho_0$
 najprv prevýši a až potom k nej konverguje zhora) nemá oporu v dostupných teóriach.
-\item Teóriu sa pokúsime rozšíriť do oblastí  $|E-E_F| \gtrsim U_{co}$
+\item Teóriu sa pokúsime rozšíriť do oblastí  $|\E-\E_F| \gtrsim U_{co}$
 \end{itemize}
 \end{frame}
 
 \begin{frame}
+\note{
+ Vychádzame z rovnice \eqref{eq:erg_meandis nex}. 
+ Pre $q > q_{max} \simeq 1/l$ je treba vlnové funkcie $\phi_m(\vr)$ aproximovať rovinnými vlnami $\frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$, zatiaľčo pre $q < q_{max}$ treba
+$\phi_m(\vr)$ považovať za vlnové funkcie elektrónov interagujúcich len s disorderom. 
+}
 \begin{itemize}
 \item vychádzame z rovnice
 \begin{equation}
@@ -471,15 +527,25 @@ kde $\ket{k_{m}}= \frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$
 \end{itemize}
 \end{frame}
 \begin{frame}
+\note{
+
+ Rovnicu prepíšeme do tvaru \eqref{eq:erg_meandis nex prepis skratka}. \\
+ je energia voľného elektrónu interagujúceho s ostatnými cez tienenú Fockovu e-e interakciu\\
+ je Altschuler Aronovova self eneria, ktorú AA počítali difúznou aproximáciou \\
+ je self-energia pochádzajúca z Fockovho príspevku od rovinných vĺn, túto self energiu aa nezapocitali
+ 
+}
+
 \begin{itemize}
 \item Rovnicu \eqref{eq:erg_meandis nex nex} prepíšeme do tvaru
 \begin{equation}\label{eq:erg_meandis nex prepis skratka}
  \overline{E_m} \ \ = \ \ \E_m + E_{self}^{AA}(m) - E_{self}^{free}(m)  \text{,}
 \end{equation}
+kde
 \begin{equation}\label{eq:erg_volna castica s ee}
 \E_m = \frac{\hbar^2 k_m^2}{2m} - \sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) |\bra{k_m}e^{ivq\cdot\vr}\ket{k_{m'}}|^2  \text{}
 \end{equation}
-je energia  Fockovej e-e interakcie,
+je energia voľného elektrónu interagujúceho s ostatnými cez tienenú Fockovu e-e interakciu,
 \begin{equation}\label{eq:erg_self AA}
  E_{self}^{AA}(m) \ \ = \ \  -\sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int_{|\vq| < q_{max}} d\vq\ V(q) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2}  \text{}
 \end{equation}
@@ -491,6 +557,11 @@ je self-energia pochádzajúca z Fockovho príspevku od rovinných vĺn
 \end{itemize}
 \end{frame}
 \begin{frame}
+\note{
+Počítame \eqref{eq:erg_self AA}. Altschuler a Aronov počítali v difúznej aproximácii, my zvolíme iný postup.
+ vlnové funkcie $\phi_m(\vr)$ rozvinieme do úplneho systému rovinných vĺn. Využijeme ortogonalitu, čo nám umožní sumovať cez Kroneckerove symboly.
+
+}
 \begin{itemize}
 \item Počítame \eqref{eq:erg_self AA}. Altschuler a Aronov počítali v difúznej aproximácii, my zvolíme iný postup.
 \item vlnové funkcie $\phi_m(\vr)$ rozvinieme do úplneho systému rovinných vĺn $\phi_m(\vr) = \frac{1}{\sqrt{\Omega}}\sum_{\vk}c_{\vk}^me^{i\vk\vr}$
@@ -513,6 +584,17 @@ E_{self}^{AA}(m)=  - \frac{1}{(2\pi)^3\Omega^2}     \\
 \end{frame}
 
 \begin{frame}
+\note{
+Po vysumovaní s pomocou Kroneckerovych symbolov dostaneme \eqref{eq:self aa}\\
+Začíname robiť aproximácie. Stavy $m$ a $m'$ považujeme za nekorelované. \\
+Navyše predpokladáme, že aj stavy $\vk$ a $\vkp$ sú nekorelované.\\
+rovnicu \eqref{eq:self aa} pomocou aproximáciii zjednodušíme na \eqref{eq:05energy2}\\
+\small
+Nekorelovane sú preto, lebo ccka sú komplexné cisla.  2 stavy sa lisia iba o nahodnu fazu, ktoru vyberam nezavisle.
+Preto su nekorelovane aj k aj m.
+\normalsize
+
+}
 \begin{itemize}
 \item Po vysumovaní s pomocou Kroneckerovych symbolov dostaneme
 \begin{align}
@@ -529,18 +611,35 @@ E_{self}^{AA}(m)= - \frac{1}{(2\pi)^3} \int_{|\vq| < q_{max}} d\vq\ V(\vq) \sum_
 \end{itemize}
 \end{frame}
 \begin{frame}
+\note{
+Využijeme Thoulessov Ansatz \eqref{eq:05thouless}.\\
+Thouless [22] použil aproximáciu \eqref{eq:05thouless} pri opise vlnových funkcií neusporiadaného elektrónového systému v kvantovej vodivosti Kuba - Greenwooda
+Ukázal, že aproximácia \eqref{eq:05thouless} spôsobí, že kvantová vodivosť Kuba - Greenwooda prejde na klasickú Drudeho vodivosť
+Naše odvodenie self-energie  $E_{self}^{AA}(m)$sa opiera o tie isté aproximácie, ako použil Thouless
+}
 \begin{itemize}
 \item Využijeme Thoulessov Ansatz
 \begin{align}
 \label{eq:05thouless}
 \overline{c^{m*}_{\vk}c^{m}_{\vk}}=\frac{1}{\pi \rho(\epsilon_m)}\lorenz{\epsilon_m} \text{.}
 \end{align}
-\item Thouless [22] použil aproximáciu \eqref{eq:05thouless} pri opíse vlnových funkcií neusporiadaného elektrónového systému v kvantovej vodivosti Kuba - Greenwooda
-\item Ukázal, že aproximácia \eqref{e q:05thouless} spôsobí, že kvantová vodivosť Kuba - Greenwooda prejde na klasickú Drudeho vodivosť
+\item Thouless [22] použil aproximáciu \eqref{eq:05thouless} pri opise vlnových funkcií neusporiadaného elektrónového systému v kvantovej vodivosti Kuba - Greenwooda
+\item Ukázal, že aproximácia \eqref{eq:05thouless} spôsobí, že kvantová vodivosť Kuba - Greenwooda prejde na klasickú Drudeho vodivosť
 \item Naše odvodenie self-energie  $E_{self}^{AA}(m)$sa opiera o tie isté aproximácie, ako použil Thouless
 \end{itemize}
 \end{frame}
 \begin{frame}
+\note{
+do rovnice pre $E_{self}^{AA}(m)$ dosadíme Thoulessov ansatz a prejdeme od sumy k integrálu\\
+kde sme zaviedli pomocné označenia.\\
+Hustota stavov $\rho(\epsilon_m')$ sa vykráti, ale ostatné nie. Napriek tomu ich kvôli jednoduchosti približne vykrátime.\\
+po prechode do sférických súradníc pri integrovaní cez $d\vq$ dostávame \eqref{eq:05energy5} \\
+Integrál cez $d\phi$ je $2\pi$, integrály cez $d\epsilon_m$ a $d\theta$ vieme vypočítať analyticky, a zvyšné dva budeme rátať numericky
+
+
+
+}
+
 \begin{itemize}
 \item do rovnice pre $E_{self}^{AA}(m)$ dosadíme Thoulessov ansatz a prejdeme od sumy k integrálu
 \tiny
@@ -564,6 +663,110 @@ E_{self}^{AA}(\epsilon_m)= - \frac{1}{(2\pi)^3}\frac{1}{\pi^2}\int_0^{2\pi}d\phi
 \item Integrál cez $d\phi$ je $2\pi$, integrály cez $d\epsilon_m$ a $d\theta$ vieme vypočítať analyticky, a zvyšné dva budeme rátať numericky
 \end{itemize}
 \end{frame}
+\begin{frame}
+\note{
+po formálnom vystredovaní \eqref{eq:erg_meandis nex prepis skratka}  rovnica prejde na tvar \eqref{eq:energia} \\
+rovnicu \eqref{eq:energia} derivujeme podľa počtu stavov a prevrátime. Následne po Taylorovom rozvoji a úpravách dostaneme \eqref{eq:erg_meandis nex prepis skratka7}.
+kde sme urobili aproximáciu $\frac{d\epsilon}{d\E} \simeq 1$  čo znamená aj aproximáciu $\epsilon \simeq \E$.
+hustotu stavov plotujeme v tvare relatívnej odchýlky,v tomto tvare prepíšeme aj pôvodný vzťah Altschulera a Aronova. V tomto tvare sa hustota stavov meria v experimentoch.
+
+}
+
+\begin{itemize}
+\item po formálnom vystredovaní \eqref{eq:erg_meandis nex prepis skratka} cez $\frac{1}{\rho(\epsilon)}\sum_{\forall m} \delta(\epsilon-\epsilon_{m})$
+rovnica prejde na tvar
+\begin{equation}
+\label{eq:energia}
+ \overline{E} \ \ = \ \ \E(\epsilon) + E_{self}^{AA}(\epsilon) - E_{self}^{free}(\epsilon)  \text{.}
+\end{equation}
+\item rovnicu \eqref{eq:energia} derivujeme podľa počtu stavov a prevrátime. Následne po Taylorovom rozvoji a úpravách dostaneme.
+ \begin{equation}\label{eq:erg_meandis nex prepis skratka7}
+\rho(\E) \ \ = \rho_0(\E) (1 - \frac{dE_{self}^{AA}(\E)}{d\E} + \frac{dE_{self}^{free}(\E)}{d\E}) \text{,}
+\end{equation}
+kde sme urobili aproximáciu $\frac{d\epsilon}{d\E} \simeq 1$  čo znamená aj aproximáciu $\epsilon \simeq \E$.
+\item hustotu stavov plotujeme v tvare relatívnej odchýlky, kde $\E(\epsilon)$ je disperzný zákon interagujúcich elektrónov.
+\begin{equation}\label{eq:erg_hustota stavov relat}
+\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)} = - \frac{dE_{self}^{AA}(\E)}{d\E} + \frac{dE_{self}^{free}(\E)}{d\E} \text{,}
+\end{equation}
+\item v tomto tvare prepíšeme aj pôvodný vzťah Altschulera a Aronova
+\begin{equation}\label{eq:erg_hustota stavov relat povodny}
+\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)} = - \frac{e^{2}}{\epsilon_0 k_s^{2}}\ \  \frac{q_{max}}{2\pi^3 \hbar D}
+ +  \frac{e^{2}}{\epsilon_0 k_s^{2}} \ \ \frac{1}{2\pi^2 (2\hbar D)^{3/2}}  \ \sqrt{|\E-\E_F|} \text{,}
+\end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\note{
+Panel (a): Krivka ukázaná červenou farbou je pôvodná závislosť Altshulera - Aronova \eqref{eq:erg_hustota stavov relat povodny}.
+krivka ukázaná modrou farbou ukazuje prvý člen numerického výpočtu \eqref{eq:erg_hustota stavov relat} . Panel (c) ukazuje obidva grafy z panelu (a) este raz, avšak "zošité" približne v energii  $|\E-\E_F| = U_{co}$. Panel (b) ukazuje druhý člen  \eqref{eq:erg_hustota stavov relat} . Panel (d) ukazuje celkovú závislosť $\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)}$, získanú sčítaním grafov v paneloch (b) a (c).
+}
+\frametitle{Výsledky a ich diskusia}
+\begin{columns}[c]
+
+\begin{column}{.5\textwidth}
+\includegraphics[scale=0.35]{grafy/plot_tau_1_c_1}
+\end{column}
+\begin{column}{.5\textwidth}
+\small
+Panel (a): Krivka ukázaná červenou farbou je pôvodná závislosť Altshulera - Aronova \eqref{eq:erg_hustota stavov relat povodny}.
+krivka ukázaná modrou farbou ukazuje prvý člen numerického výpočtu \eqref{eq:erg_hustota stavov relat} . Panel (c) ukazuje obidva grafy z panelu (a) este raz, avšak "zošité" približne v energii  $|\E-\E_F| = U_{co}$. Panel (b) ukazuje druhý člen  \eqref{eq:erg_hustota stavov relat} . Panel (d) ukazuje celkovú závislosť $\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)}$, získanú sčítaním grafov v paneloch (b) a (c).
+\normalsize
+\end{column}
+\end{columns}
+\end{frame}
+\begin{frame}
+\note{
+Porovnanie nášho teoretickeho výsledku s experimentálnymi výsledkami. Na obrázku je vidieť kvalitatívnu podobnosť s experimentom.
+}
+\begin{columns}[c]
+\begin{column}{.5\textwidth}
+\includegraphics[scale=0.35]{grafy/B2}
+\end{column}
+\begin{column}{.5\textwidth}
+\qquad
+\includegraphics[scale=0.35]{grafy/final}
+\end{column}
+\end{columns}
+Porovnanie nášho teoretickeho výsledku s experimentálnymi výsledkami. Na obrázku je vidieť kvalitatívnu podobnosť s experimentom.
+\end{frame}
+%----------------------------------------------------------------------------------------
+%	CLOSING SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
+	\begin{center}
+		{\Huge Poďakovanie}
+		
+		\bigskip\bigskip % Vertical whitespace
+	\end{center}
+Práca bola vypracovaná na Katedre experimentálnej fyziky FMFI UK a na Elektrotechnickom ústave SAV.
+
+Moja vďaka patrí najmä môjmu školiteľovi, Doc. RNDr. Martinovi Moškovi, DrSc. za podklady a ochotu konzultovať.
+Tak isto ďakujem aj mojej konzultantke RNDr. Antónii Moškovej, CSc. za odbornú pomoc. Napokon by som chcel poďakovať mojim rodičom
+za podporu počas celého vysokoškolského štúdia.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}
+Výsledná energia interagujúcich elektrónov v čistom kove v Hartree-Fockovom priblížení:
+\begin{equation}
+\label{eq:fock_erg}
+E(k)=\frac{\hbar^2 k^2}{2m}- \frac{e^2 k_f}{4\pi^2\epsilon_0} F(\frac{k}{k_f})\ \ \text{kde}\ \ F(x)=\frac{1}{2}+\frac{1-x^2}{4x}\ln{\frac{|1+x|}{|1-x|}} \text{.}
+\end{equation}
+
+\begin{figure}%
+    \centering
+    \subfloat{{\includegraphics[angle=-90,origin=c,scale=0.2,trim={1cm 0 1cm 0},clip]{grafy/hartree_erg} }}%
+    \subfloat{{\includegraphics[angle=-90,origin=c,scale=0.2,trim={1cm 0 1cm 0},clip]{grafy/hartree_dos_NEW} }}%
+    \vspace{-10mm}
+    \label{fig:example}%
+\end{figure}
+\small
+    Vľavo je energia podľa rovnice \eqref{eq:fock_erg}. V pravo hustota stavov prislúchajúca \eqref{eq:fock_erg}. Na pravom obrázku vidíme singularitu v novej hodnoty Fermiho energie, čo znamená že HF aproximácia je v pre holý Coulombovský potenciál v rozpore s realitou. Hustota stavov na novej hodnote Fermiho energie je totiž nulová, v takomto prípade by bol každý kov izolant.%
+    \normalsize
+\end{frame}
+
 \begin{frame}
 \begin{itemize}
 \item  Zavedieme bezrozmerné premenné a konštanty:
@@ -596,51 +799,4 @@ F(x,y)=\frac{1}{\sqrt{4xy}}& \{(x+y+2\sqrt{xy}-u_{EF})\arctan(x+y+2\sqrt{xy}-u_{
 \item Integrály \eqref{eq:05energy6} počítame numericky obdĺžnikovou metódou
 \end{itemize}
 \end{frame}
-\begin{frame}
-\frametitle{Výsledky a ich diskusia}
-\begin{columns}[c]
-
-\begin{column}{.5\textwidth}
-\includegraphics[scale=0.35]{grafy/plot_tau_1_c_1}
-\end{column}
-\begin{column}{.5\textwidth}
-\small
-Panel (a): Krivka ukázaná červenou farbou je pôvodná závislosť Altshulera - Aronova.
-krivka ukázaná modrou farbou ukazuje náš numerický výpočet. Panel (c) ukazuje obidva grafy z panelu (a) este raz, avšak "zošité" približne v energii  $|\E-\E_F| = U_{co}$. Panel (b) ukazuje závislosť danú vzťahom bez prvého člena. Panel (d) ukazuje celkovú závislosť $\frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)}$, získanú sčítaním grafov v paneloch (b) a (c).
-\normalsize
-\end{column}
-
-\end{columns}
-\end{frame}
-\begin{frame}
-\begin{columns}[c]
-\begin{column}{.5\textwidth}
-\includegraphics[scale=0.35]{grafy/B2}
-\end{column}
-\begin{column}{.5\textwidth}
-\qquad
-\includegraphics[scale=0.35]{grafy/final}
-\end{column}
-\end{columns}
-Porovnanie nášho teoretickeho výsledku s experimentálnymi výsledkami. 
-\end{frame}
-%----------------------------------------------------------------------------------------
-%	CLOSING SLIDE
-%----------------------------------------------------------------------------------------
-
-\begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
-	\begin{center}
-		{\Huge Poďakovanie}
-		
-		\bigskip\bigskip % Vertical whitespace
-	\end{center}
-Práca bola vypracovaná na Katedre experimentálnej fyziky FMFI UK a na Elektrotechnickom ústave SAV.
-
-Moja vďaka patrí najmä môjmu školiteľovi, Doc. RNDr. Martinovi Moškovi, DrSc. za podklady a ochotu konzultovať.
-Tak isto ďakujem aj mojej konzultantke RNDr. Antónii Moškovej, CSc. za odbornú pomoc. Napokon by som chcel poďakovať mojim rodičom
-za podporu počas celého vysokoškolského štúdia.
-\end{frame}
-
-%----------------------------------------------------------------------------------------
-
 \end{document} 
