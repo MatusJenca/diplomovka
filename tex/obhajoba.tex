@@ -218,8 +218,9 @@ ktorej riešením je DeBroglieho rovinná vlna
 
 \begin{equation}
  \label{eq:N integral sfercky}
- n_e \equiv \frac{N}{L_xL_yL_z} = 2 \frac{1}{8\pi^3} \int_0^{2\pi} d\phi \int_0^{\pi}  d\theta \sin{\theta} \int_0^{\infty} dk\ k^2 f(k)  \text{.}
+ n_e \equiv \frac{N}{L_xL_yL_z} = 2 \frac{1}{8\pi^3} \int_0^{2\pi} d\phi \int_0^{\pi}  d\theta \sin{\theta} \int_0^{\infty} dk\ k^2 f(k)  \text{,}
 \end{equation}
+kde $f(k)$ je Fermiho distribúcia.
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -228,17 +229,17 @@ ktorej riešením je DeBroglieho rovinná vlna
 Pre konkrétny prípad voľnej častice je hustota stavov úmerná odmocnine z energie.  Maximálne obsadené stavy  neinteragujúcich elektrónov pri $T=0$ budú na Fermiho Sfére s polomerom $k_f$ a Fermiho energiou $E_f$}
 
 \begin{itemize}
-\item Po integrovaní cez $\phi$ a $\theta$ a zámene premenných za energiu definujeme hustotu stavov $\rho(E)$
+\item Po úpravách \eqref{eq:N integral sfercky} definujeme hustotu stavov $\rho(E)$
 \begin{equation}
  \label{eq:N integral sfer energ}
  n_e =   \int_0^{\infty}dE\rho(E)\ f(E) \ \ \text{kde}\ \ \rho(E)=\frac{1}{\pi^2} \frac{dk}{dE} k^2  \ \text{,}
 \end{equation}
-\item pre voľné častice je hustota stavov 
+\item pre voľné častice 
 \begin{equation}
  \label{eq:rho_par}
  \rho(E)=\frac{1}{2\pi^2}{(2 m_e/\hbar^2)}^{3/2} \sqrt{E} \text{.}
 \end{equation}
-\item maximálne obsadené stavy  neinteragujúcich elektrónov pri $T=0$ budú na Fermiho Sfére s polomerom
+\item pri $T=0$ elektróny obsadzujú stavy vo vnútri Fermiho sféry. Polomer Fermiho sféry je Fermiho vlnový vektor
 \begin{equation}
  \label{eq:kf}
  k_F=(3\pi^2 n_e)^{\frac{1}{3}}\text{,}
@@ -254,17 +255,17 @@ Pre konkrétny prípad voľnej častice je hustota stavov úmerná odmocnine z e
 \note{Po započítaní vzájomnej interakcie elektrónov (e-e interakciu) a interakciu s iónmi dostaneme mnohočasticový Hamiltonián. Sch. R. s hamiltoniánom \eqref{eq:hrtf_ham} sa nedá exaktne riešiť ani anlyticky, ani numericky, riešime ju teda v Hartree-Fockovom priblížení variačnou metódou, kde vlnové funkcie $\Psi$ hľadáme v tvare Slatterovho determinantu \eqref{eq:slatter}. Slatterov determinant zahŕňa výmenný efekt.}
 
 \begin{itemize}
-\item po započítaní vzájomnej interakcie elektrónov (e-e interakcie) a interakcie s iónmi dostaneme mnohočasticový Hamiltonián
+\item Mnohočasticový Hamiltonián elektrónov ktoré interagujú s mriežkou jednonásobne ionizovaných iónov a vzájomne cez Coulombovskú interakciu 
 \begin{equation}
 \label{eq:hrtf_ham}
 \hat{H}=\sum_i [ \frac{-\hbar^2}{2m}\laplace_i  -\sum_j\frac{e^2}{4\pi \epsilon_0}{\frac{1}{|\vr_i-\vR_j|}} +\frac{1}{2}\sum_{j\neq i}\frac{e^2}{4\pi\epsilon_0}\frac{1}{|\vr_i-\vr_j|} ]
 \end{equation}
-\item Sch. R. s hamiltoniánom \eqref{eq:hrtf_ham} riešime v Hartree-Fockovom priblížení variačnou metódou
+\item Riešenie Sch. R. s hamiltoniánom \eqref{eq:hrtf_ham} v Hartree-Fockovom priblížení variačnou metódou
 \begin{equation}
 \label{eq:erg_func}
 E[\Psi^*]=\expval{H}{\Psi}
 \end{equation}
-\item vlnové funkcie $\Psi$ hľadáme v tvare Slatterovho determinantu 
+\item vlnové funkcie $\Psi$  v tvare Slaterovho determinantu 
 \begin{equation}
 \label{eq:slatter}
 \Psi(\vr_1,s_1,...,\vr_n,s_n)=\frac{1}{\sqrt N!}
@@ -284,22 +285,22 @@ E[\Psi^*]=\expval{H}{\Psi}
 \begin{itemize}
 
 \item Variačnou metódou dostaneme Hartree-Fockove rovnice
-\tiny
+\small
 \begin{equation}
 \label{eq:fock3}
-(-\frac{\hbar^2}{2m}\laplace +U^{ion}(\vec{r})+U^{el}(\vec{r})-
+[-\frac{\hbar^2}{2m}\laplace +U^{ion}(\vec{r})+U^{el}(\vec{r})-
 {\sum'}_j{\int d\vec{r'}\frac{e^2}{4\pi \epsilon_0|\vec{r}-\vec{r'}|}
-\phi_j^{*}(\vec{r'})\phi_i(\vec{r'})\frac{\phi_j(\vec{r})}{\phi_i(\vec{r})}})\phi_i({\vec{r}})=E_i\phi_i(\vec{r}) \text{,}
+\phi_j^{*}(\vec{r'})\phi_i(\vec{r'})\frac{\phi_j(\vec{r})}{\phi_i(\vec{r})}}]\phi_i({\vec{r}})=E_i\phi_i(\vec{r}) \text{,}
 \end{equation}
 \normalsize
-kde členy
+kde 
 
 \begin{equation}
 \label{eq:hartree a ion}
-U^{el}(\vec{r}) = -\frac{e}{4\pi \epsilon_0} \int d\vrp\ \rho_{el}(\vrp) \frac {1}{|\vr-\vrp|} \ \  \text{a} \ \  U^{ion}(\vec{r}) = -\sum_j\frac{e^2}{4\pi \epsilon_0}{\frac{1}{|\vr-\vR_j|}}
+U^{el}(\vec{r}) = \frac{e^2}{4\pi \epsilon_0} \int d\vrp\ \sum_j |\phi_j(\vr)|^2 (\vrp) \frac {1}{|\vr-\vrp|} \ \  \text{a} \ \  U^{ion}(\vec{r}) = -\sum_j\frac{e^2}{4\pi \epsilon_0}{\frac{1}{|\vr-\vR_j|}}
 \end{equation}
 \normalsize
-\item Problém riešime v modeli \emph{želé}, teda členy $U^{el}(\vr)$ a $U^{ion}(\vr)$ vypadnú, dostaneme Fockove rovnice
+\item V modeli \emph{želé} sa členy $U^{el}(\vr)$ a $U^{ion}(\vr)$ vzájomne nulujú a dostávame Fockove rovnice, ktorých riešeniami sú rovinné vlny:
 \small
 \begin{equation}
 \label{eq:fock_final}
@@ -315,17 +316,21 @@ U^{el}(\vec{r}) = -\frac{e}{4\pi \epsilon_0} \int d\vrp\ \rho_{el}(\vrp) \frac {
 Do Fockových rovníc dosadíme fourierovu transformáciu tieneného potenciálu  $e^2/\epsilon_0(|\vkp-\vk|^2+k_s^2)$, kde $k_s$ je reciproká tieniaca dĺžka.
 Pre energiu dostávame výsledok zahŕňajúci  aj výmenný aj korelačný efekt. Vľavo energia podľa rovnice \eqref{eq:fock_screen_final}.  Napravo hustota stavov prislúchajúca \eqref{eq:fock_screen_final}.
 Čierne čiary zobrazujú energiu resp. hustotu stavov bez e-e interakcie, červené čiary zobrazujú výsledky podľa. \eqref{eq:fock_screen_final}}
-
-Do Fockových rovníc dosadíme fourierovu transformáciu tieneného potenciálu  $e^2/\epsilon_0(|\vkp-\vk|^2+k_s^2)$, kde $k_s$ je reciproká tieniaca dĺžka.
-Pre energiu dostávame
- \tiny
+Fockova rovnica (12) neberie do úvahy coulombovské korelácie. Vezmeme ich do úvahy zámenou
+\vspace{-5mm}
+\begin{equation}
+\frac{1}{|\vr - \vrp|} \rightarrow \frac{1}{|\vr - \vrp|}e^{-k_s|\vr-\vrp|} \text{,}
+\end{equation}
+kde $k_s^2=e^2\rho(E_F)/\epsilon_0$ je tieniaci vektor. Dostávame disperzný zákon
+ \tiny  
  \begin{equation}
   \label{eq:fock_screen_final}
   E(\vec{k})=\frac{\hbar^2 k^2} {2m} - \frac{e^2}{(2\pi)^2\epsilon_0} \biggl(
     \frac{k_F^2-k^2+k_s^2}{4k} \ln{\frac{(k_F+k)^2+k_s^2}{(k_F-k)^2+k_s^2}}-k_s\bigl(\arctan{\frac{k_F+k}{k_s}}+\arctan{\frac{k_F-k}{k_s}}\bigr)+k_F\biggr) \text{.}
  \end{equation}
   \normalsize
-
+\end{frame}
+\begin{frame}
 \vspace{-10mm}
 \begin{figure}%
     \centering
@@ -336,9 +341,7 @@ Pre energiu dostávame
     \normalsize
     \label{fig:example}%
 \end{figure}
-Vľavo energia podľa rovnice \eqref{eq:fock_screen_final}.  Vpravo hustota stavov prislúchajúca \eqref{eq:fock_screen_final}.
-Čierne čiary zobrazujú energiu resp. hustotu stavov bez e-e interakcie, červené čiary zobrazujú výsledky podľa. \eqref{eq:fock_screen_final}
-Naša teória zahŕňa aj výmenný aj korelačný efekt.
+Panel vľavo: červená čiara ukazuje disperzný zákon podľa rovnice (14), čierna čiara ukazuje parabolický disperzný zákon neinteragujúcich elektrónov. Panel vpravo: červená a čierna čiara zobrazujú zodpovedajúce hustoty stavov.
 \end{frame}
 \begin{frame}
 
@@ -376,7 +379,7 @@ $\phi_m(\vr) \simeq \frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$, ktorá je správnym ri
  \overline{E_m}=\overline{\E_m}-\sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2} \text{.}
 \end{equation}
 \normalsize
-\item poruchová teória platí len pre $q<q_{max}=\frac{A}{l}$ kde $A\simeq 1$ a $l$ je stredná voľná dráha elektrónu. Pre $q>q_{max}$ dosadíme za $\phi_m(\vr)$ rovinné vlny.
+\item poruchová teória platí len pre $q<q_{max}=\frac{A}{l}$ kde $A\simeq 1$ a $l$ je stredná voľná dráha elektrónu. Pre $q>q_{max}$ aproximujeme $\phi_m(\vr)$ rovinnými vlnami.
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -389,12 +392,12 @@ Pre výpočet energie nám stačí maticový element \eqref{eq:aa_matrix_element
 }
 
 \begin{itemize}
-\item Pre výpočet energie nám stačí maticový element.
+\item Potrebujeme vypočítať maticový element
 \begin{equation}
 \label{eq:aa_matrix_element}
 \overline{| M_{mm'}|^2} =\overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2} \text{.}
 \end{equation}
-\item Difúzna aproximácia spočíva v postulovaní rovnice
+\item Altshuler a Aronov použili difúznu aproximáciu, ktorá spočíva v postulovaní rovnice
 \begin{equation}
  \label{eq:aa_postulate}
  \overline{\psi^*(\vr,t)\psi(\vr,t)}=\frac{1}{(4\pi Dt)^{3/2}}e^{-\frac{|\vr-\vr_0|^2}{4Dt}} \text{,}
@@ -405,10 +408,10 @@ Pre výpočet energie nám stačí maticový element \eqref{eq:aa_matrix_element
  \psi(\vr,t)=\frac{\sqrt{V}}{\sqrt{N}}\sum_m \phi_m^*(\vr_0)\phi_m(\vr)e^{-i\frac{\E_m}{\hbar}t} \text{,}
 \end{equation}
 \item Difúzna aproximácia platí len za predpokladu $|\E_m-\E_{m'}|\ll\hbar / \tau$
-\item Z difúznej aproximácie vieme dostať maticový element, ktorý dosadíme  do rovnice pre energiu \eqref{eq:erg_meandis}
+\item Z difúznej aproximácie sa dá pre maticový element odvodiť výsledok
 \begin{equation}
-\label{eq:erg_meandis modif}
- \overline{E(\E})=\overline{\E}-\int_{0}^{\E_F} d\E' \rho(\E') \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) \overline{|\bra{\phi_{\E}}e^{i\vq\cdot\vr}\ket{\phi_{\E'}}|^2} \text{.}
+ \label{eq:aa_matrix_element_final}
+ \overline{|M_{\E, \E'}|^2}=\frac{1}{\pi \rho(\E')} \frac{\hbar D q^2}{(\E-\E')^2+(\hbar Dq^2)^2}\text{,}
 \end{equation}
 \end{itemize}
 \end{frame}
@@ -420,18 +423,27 @@ rovnicu \eqref{eq:erg_meandis modif}  zapíšeme v tvare  $\overline{E(\E})=\ove
 }
 
 \begin{itemize}
-\item rovnicu \eqref{eq:erg_meandis modif}  zapíšeme v tvare  $\overline{E(\E})=\overline\E+E_{self}(\E)$
-\item derivujeme podľa počtu stavov a dostaneme 
+\item rovnicu (17)  zapíšeme v tvare  
+\begin{equation}
+E(\E)=\E+E_{self}(\E)
+\end{equation}
+ kde 
+\begin{equation}
+ \label{eq:aa_self_energy}
+ E_{self}=-\int_{0}^{\E_F}d\E' \int \frac{d\vq}{8\pi^4}V(q)\frac{\hbar D q^2}{(\hbar D q^2)+(\E-\E')}\text{,}
+\end{equation}
+
+\item Rovnicu (22) derivujeme podľa počtu stavov a dostaneme 
 \begin{equation}
 \label{eq:der}
   \frac{d E(\E)}{dn}=\frac{d\E}{dn}+\frac{dE_{self}(\E)}{dn}=\frac{d\E}{dn}+\frac{dE_{self}(\E)}{d\E}\frac{d\E}{dn}=\frac{d\E}{dn}(1+\frac{dE_{self}(\E)}{d\E}) \text{.}
 \end{equation}
-\item otočením oboch strán dostaneme hustotu stavov, ktorú počítame ako Taylorov rozvoj do prvého rádu
+\item otočením oboch strán poslednej rovnice dostaneme hustotu stavov
 \begin{equation}
  \label{eq:aa_dos2}
  \rho(\E) \simeq \rho_0(\E)[1-\frac{dE_{self}(\E)}{d\E}] \simeq \rho_0(\E_F)[1-\frac{dE_{self}(\E)}{d\E}] \text{.}
 \end{equation}
-\item Dosadením self energie dostaneme Altschuler-Aronovov výsledok
+\item Dosadením self energie dostaneme Altshulerov-Aronovov výsledok
 \begin{equation}
  \label{eq:aa_dos3 fin}
  \rho(\E)=\rho_0(\E_F) - \frac{q_{max}}{2\pi^3 \hbar D}
@@ -454,11 +466,11 @@ Elektróny tunelujú cez barieru ako popisuje pásový diagram na obrázku. Mera
     \label{fig:example}%
 \end{figure}
 \small
-Hustotu stavov určíme meraním diferenciálnej vodivosti dvoch kovov oddelených tenkou vrstvou izolantu, ako vidíme na obrázku. 
-Dá sa ukázať, že pre diferenciálnu vodivosť platí
-$G(U)=e^2\frac{4\pi|t|^2}{\hbar}\rho_l(\E_F)\rho_r(\E=\E_F-eU)$, z čoho určíme hustotu stavov. 
+Hustotu stavov určíme meraním diferenciálnej vodivosti dvoch kovov oddelených tenkou vrstvou izolantu, ako je ukázané na obrázku. 
+Dá sa ukázať, že pre diferenciálnu vodivosť platí vzťah
+$G(U)=e^2\frac{4\pi|t|^2}{\hbar}\rho_l(\E_F)\rho_r(\E=\E_F-eU)$, kde $\rho_r(\E)$ je hľadaná hustota stavov, ktorú chceme odmerať.  
 \normalsize
-\end{frame}
+ \end{frame}
 \begin{frame}
 \note{
 Výsledky merania hustoty stavov tunelovou spektroskopiou pre rôzne kovy
@@ -487,18 +499,18 @@ nad energiou ňou v oblasti veľkosti dva a až tri krát kondenzačná energuia
 \frametitle{Altshuler - Aronovov jav, rozšírenie teórie na energie $|\E - \E_F| \gtrsim \hbar/\tau$}
 \begin{itemize}
 \item Altschuler-Aronovov výsledok platí len pre energie $|\E - \E_F| < \hbar/\tau$
-\item Z AA výsledku vidno že $\rho(\E) = \rho_0$ pre $|\E-\E_F| =  U_{co}$,
+\item Z AA výsledku vidno že $\rho(\E) = \rho_0$ pre $|\E-\E_F| =  U_{co}$, kde
 \begin{equation}
 \label{eq:aa_U co korelenergia}
- U_{co} = \frac{8}{3\pi^{2}} q_{max}^2 l^2 \frac{\hbar}{\tau} \text{.}
+ U_{co} = \frac{8}{3\pi^{2}} q_{max}^2 l^2 \frac{\hbar}{\tau} 
 \end{equation}
 
-je tzv. korelačná energia
+je korelačná energia
 \item Pre $|\E-\E_F| \gtrsim  U_{co}$ experiment ukazuje, že stavy vytlačené z oblasti $|\E-\E_F| \lesssim  U_{co}$ majú tendenciu sa nakopiť tesne
 nad energiou $|\E-\E_F| =  U_{co}$ v oblasti veľkosti dva a až tri krát $U_{co}$.
 \item Pokiaľ je nám známe,tak tento experimentálny výsledok (najmä fakt, že  pre $|E-E_F| > U_{co}$ hodnota $\rho(\E)$ hodnotu $\rho_0$
 najprv prevýši a až potom k nej konverguje zhora) nemá oporu v dostupných teóriach.
-\item Teóriu sa pokúsime rozšíriť do oblastí  $|\E-\E_F| \gtrsim U_{co}$
+\item preto sa pokúsime teóriu rozšíriť do oblasti  $|\E-\E_F| \gtrsim U_{co}$
 \end{itemize}
 \end{frame}
 
@@ -509,14 +521,14 @@ najprv prevýši a až potom k nej konverguje zhora) nemá oporu v dostupných t
 $\phi_m(\vr)$ považovať za vlnové funkcie elektrónov interagujúcich len s disorderom. 
 }
 \begin{itemize}
-\item vychádzame z rovnice
+\item vychádzame z Fockovej rovnice
 \begin{equation}
 \label{eq:erg_meandis nex}
  \overline{E_m}=\overline{\E_m}-\sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int d\vq\ V(q) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2} \text{.}
 \end{equation}
 kde $V(q) = e^2/\epsilon_0(q^2+k_s^2)$.
-\item pre $q > q_{max} \simeq 1/l$ je treba vlnové funkcie $\phi_m(\vr)$ aproximovať rovinnými vlnami $\frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$, zatiaľčo pre $q < q_{max}$ treba
-$\phi_m(\vr)$ považovať za vlnové funkcie elektrónov interagujúcich len s disorderom
+\item pre $q > q_{max} \simeq 1/l$ aproximujeme vlnové funkcie $\phi_m(\vr)$ rovinnými vlnami $\frac{1}{\sqrt V}e^{i\vk_m\cdot\vr}$, zatiaľčo pre $q < q_{max}$ aproximujeme
+$\phi_m(\vr)$ vlnovými funkciami elektrónov interagujúcich len s disorderom:
 \begin{equation}\label{eq:erg_meandis nex nex}
 \begin{split}
  \overline{E_m}= &\frac{\hbar^2 k_m^2}{2m} - \sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int_{|\vq| < q_{max}} d\vq\ V(q) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2}  \\
@@ -549,7 +561,7 @@ je energia voľného elektrónu interagujúceho s ostatnými cez tienenú Fockov
 \begin{equation}\label{eq:erg_self AA}
  E_{self}^{AA}(m) \ \ = \ \  -\sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int_{|\vq| < q_{max}} d\vq\ V(q) \overline{|\bra{\phi_m}e^{i\vq\cdot\vr}\ket{\phi_{m'}}|^2}  \text{}
 \end{equation}
-je Altschuler Aronovova self energia
+je Altshulerova-Aronovova self energia
 \begin{equation}\label{eq:erg_self free}
  E_{self}^{free}(m) \ \ =  \ \  - \sum_{\forall m'} \frac{1}{(2\pi)^{3}} \int_{|\vq| < q_{max}} d\vq\ V(q) |\bra{k_m}e^{i\vq\cdot\vr}\ket{k_{m'}}|^2\text{,}
 \end{equation}
@@ -558,13 +570,13 @@ je self-energia pochádzajúca z Fockovho príspevku od rovinných vĺn
 \end{frame}
 \begin{frame}
 \note{
-Počítame \eqref{eq:erg_self AA}. Altschuler a Aronov počítali v difúznej aproximácii, my zvolíme iný postup.
+Počítame \eqref{eq:erg_self AA}. Altshuler a Aronov počítali v difúznej aproximácii, my zvolíme iný postup.
  vlnové funkcie $\phi_m(\vr)$ rozvinieme do úplneho systému rovinných vĺn. Využijeme ortogonalitu, čo nám umožní sumovať cez Kroneckerove symboly.
 
 }
 \begin{itemize}
-\item Počítame \eqref{eq:erg_self AA}. Altschuler a Aronov počítali v difúznej aproximácii, my zvolíme iný postup.
-\item vlnové funkcie $\phi_m(\vr)$ rozvinieme do úplneho systému rovinných vĺn $\phi_m(\vr) = \frac{1}{\sqrt{\Omega}}\sum_{\vk}c_{\vk}^me^{i\vk\vr}$
+\item Počítame \eqref{eq:erg_self AA}. Altshuler a Aronov počítali v difúznej aproximácii, my zvolíme iný postup.
+\item vlnové funkcie $\phi_m(\vr)$ rozvinieme do úplneho systému rovinných vĺn $\phi_m(\vr) = \frac{1}{\sqrt{\Omega}}\sum_{\vk}c_{\vk}^me^{i\vk\vr}$. 
 \tiny
 \begin{multline}
 E_{self}^{AA}(m)=  - \frac{1}{(2\pi)^3\Omega^2}     \\
@@ -596,7 +608,7 @@ Preto su nekorelovane aj k aj m.
 
 }
 \begin{itemize}
-\item Po vysumovaní s pomocou Kroneckerovych symbolov dostaneme
+\item Po vysumovaní dostaneme
 \begin{align}
 \label{eq:self aa}
 E_{self}^{AA}(m)= - \frac{1}{(2\pi)^3}\int_{|\vq| < q_{max}} d\vq\ V(\vq) \sum_{m'}\sum_{\vk}\sum_{\vkp}\overline{c^{*m}_{\vk+\vq}c^{m}_{\vk\ '+\vq}c^{*m'}_{\vk\ '}c^{m'}_{\vk}}\text{.}
@@ -618,11 +630,12 @@ Ukázal, že aproximácia \eqref{eq:05thouless} spôsobí, že kvantová vodivos
 Naše odvodenie self-energie  $E_{self}^{AA}(m)$sa opiera o tie isté aproximácie, ako použil Thouless
 }
 \begin{itemize}
-\item Využijeme Thoulessov Ansatz
+\item Využijeme Thoulessov Ansatz - tzv. self konzistentnú Bornovu aproximáciu
 \begin{align}
 \label{eq:05thouless}
-\overline{c^{m*}_{\vk}c^{m}_{\vk}}=\frac{1}{\pi \rho(\epsilon_m)}\lorenz{\epsilon_m} \text{.}
+\overline{c^{m*}_{\vk}c^{m}_{\vk}}=\frac{1}{\pi \rho(\epsilon_m)}\lorenz{\epsilon_m} \text{,}
 \end{align}
+kde $\tau$ je semiklasický elektrónový zrážkový čas pre rozptyl na prímesnom disorderi. 
 \item Thouless [22] použil aproximáciu \eqref{eq:05thouless} pri opise vlnových funkcií neusporiadaného elektrónového systému v kvantovej vodivosti Kuba - Greenwooda
 \item Ukázal, že aproximácia \eqref{eq:05thouless} spôsobí, že kvantová vodivosť Kuba - Greenwooda prejde na klasickú Drudeho vodivosť
 \item Naše odvodenie self-energie  $E_{self}^{AA}(m)$sa opiera o tie isté aproximácie, ako použil Thouless
@@ -652,7 +665,7 @@ E_{self}^{AA}(\epsilon_m)= - \frac{1}{(2\pi)^3} \\
 kde $\epsilon_\tau \equiv \frac{\hbar}{2\tau}$ a $\epsilon_{|\vk+\vq|} \equiv\frac{\hbar^2|\vk+\vq\ |^2}{2m}$.
 \item Hustota stavov $\rho(\epsilon_m')$ sa vykráti, ale hustoty stavov $\rho(\epsilon_{k})$ a $\rho(\epsilon_m)$ nie. Napriek tomu ich kvôli jednoduchosti približne vykrátime.
 \item po prechode do sférických súradníc pri integrovaní cez $d\vq$ dostávame
-\tiny
+\small
 \begin{align}
 \label{eq:05energy5}
 \notag
@@ -673,18 +686,18 @@ hustotu stavov plotujeme v tvare relatívnej odchýlky,v tomto tvare prepíšeme
 }
 
 \begin{itemize}
-\item po formálnom vystredovaní \eqref{eq:erg_meandis nex prepis skratka} cez $\frac{1}{\rho(\epsilon)}\sum_{\forall m} \delta(\epsilon-\epsilon_{m})$
-rovnica prejde na tvar
+\item po vystredovaní rovnice (30) $\frac{1}{\rho(\epsilon)}\sum_{\forall m} \delta(\epsilon-\epsilon_{m})$
+rovnica (30) prejde na tvar
 \begin{equation}
 \label{eq:energia}
  \overline{E} \ \ = \ \ \E(\epsilon) + E_{self}^{AA}(\epsilon) - E_{self}^{free}(\epsilon)  \text{.}
 \end{equation}
-\item rovnicu \eqref{eq:energia} derivujeme podľa počtu stavov a prevrátime. Následne po Taylorovom rozvoji a úpravách dostaneme.
+\item dostaneme hustotu stavov
  \begin{equation}\label{eq:erg_meandis nex prepis skratka7}
-\rho(\E) \ \ = \rho_0(\E) (1 - \frac{dE_{self}^{AA}(\E)}{d\E} + \frac{dE_{self}^{free}(\E)}{d\E}) \text{,}
+\rho(\E) \ \ = \rho_0(\E) [1 - \frac{dE_{self}^{AA}(\E)}{d\E} + \frac{dE_{self}^{free}(\E)}{d\E}] \text{,}
 \end{equation}
-kde sme urobili aproximáciu $\frac{d\epsilon}{d\E} \simeq 1$  čo znamená aj aproximáciu $\epsilon \simeq \E$.
-\item hustotu stavov plotujeme v tvare relatívnej odchýlky, kde $\E(\epsilon)$ je disperzný zákon interagujúcich elektrónov.
+
+\item hustotu stavov plotujeme v tvare relatívnej odchýlky
 \begin{equation}\label{eq:erg_hustota stavov relat}
 \frac{\rho(\E) - \rho_0(\E)}{\rho_0(\E)} = - \frac{dE_{self}^{AA}(\E)}{d\E} + \frac{dE_{self}^{free}(\E)}{d\E} \text{,}
 \end{equation}
@@ -730,6 +743,18 @@ Porovnanie nášho teoretickeho výsledku s experimentálnymi výsledkami. Na ob
 \end{columns}
 Porovnanie nášho teoretickeho výsledku s experimentálnymi výsledkami. Na obrázku je vidieť kvalitatívnu podobnosť s experimentom.
 \end{frame}
+
+\begin{frame}
+\frametitle{Záver}
+	\begin{itemize}
+	\item v tejto práci sme teoreticky študovali Altshulerov-Aronovov jav.
+	\item teóriu Altshulera-Aronova, ktorá platí pre energie $|\E - \E_F| \lesssim \hbar/\tau$ sme rozšírili na energie $|\E - \E_F| \gtrsim \hbar/\tau$
+	použitím self-konzistentnej Bornovej aproximácie. 
+	\item Získanú hustotu stavov sme normalizovali na hustotu stavov interagujúcich elektrónov v čistom kove
+	\item Získané výsledky pre relatívnu zmenu hustoty stavov sme porovnali s experimentom sme porovnali s experimentom
+	\item naša teória je s experimentom v rozumnej kvalitatívnej zhode, ceníme si najmä to , že naša teória ukazuje podobné nahromadenie stavov po oboch stranách pseudogapu, ako ukazuje experiment. 
+	\end{itemize}
+\end{frame}
 %----------------------------------------------------------------------------------------
 %	CLOSING SLIDE
 %----------------------------------------------------------------------------------------
@@ -752,43 +777,109 @@ za podporu počas celého vysokoškolského štúdia.
 \begin{frame}
 \frametitle{Otázky oponenta}
 Predpokladám, že veličina $\rho_0$ vo výraze $(\rho - \rho_0)/\rho_0$ na obr. 8 je rovná hustote stavov
-pri pevne zvolenej energii $\E_*$, t.j. $\rho_0 = \rho(\E_*)$. Na druhej strane, výsledky prezentované na obr. 10-12 sú vztiahnuté vzhľadom ku (v princípe) energeticky závislej funkcii
+pri pevne zvolenej energii $\E_*$, t.j. $\rho_0 = \rho(\E_*)$.
+
+\vspace{5mm}
+\textbf{Odpoveď:}\\
+Nie, $\rho_0(\E)$ na obrázku 8 nie je zobraté pri konštantnej energii $\E=\E_*$. To čo sa naozaj meria je [Mazur, Phys. Rev. B, vol. 76 193102 1-4 (2007)] $$\frac{G(U)-G_0(U)}{G_0(U)}=\frac{\rho(\E)-\rho_0(\E)}{\rho_0(\E)}\text{,}$$
+kde $G_0(U)$ je vodivosť bez AA efektu, ktorá väčšinou slabo závisí na $U$. Získať ju experimentálne nie je jednoduché [Mazur, PR B, 2007]
+\vspace{5mm}
+ 
+Tí experimentátori, ktorí chcú vidieť len AA pseudogap v blízkosti $E_F$, niekedy naozaj používajú normu $G(U)/G_0(U_*)$. 
+\end{frame}
+\begin{frame}
+\frametitle{Otázky oponenta}
+
+ Na druhej strane, výsledky prezentované na obr. 10-12 sú vztiahnuté vzhľadom ku (v princípe) energeticky závislej funkcii
 $\rho_0(\E)$. Možno na energetických škálach používaných v obr. 10-12 túto závislosť zanedbať. Inými slovami, ako vyzerajú grafy $[\rho_0(\E)-\rho_0(\E_*)]/\rho_0(\E_*)$ pre $\E_*$ rovné povedzme
 maximálnym energiám v obr. 10-12?
 \end{frame}
-
 \begin{frame}
 \frametitle{Otázky oponenta}
+\begin{figure}%
+    \centering
+    \subfloat{{\includegraphics[scale=0.3]{grafy/obrazok_obhajoba_1} }}%
+    \\
+    \subfloat{{\includegraphics[scale=0.3]{grafy/obrazok_obhajoba_2} }}%
+      \subfloat{{\includegraphics[scale=0.3]{grafy/obrazok_obhajoba_3} }}%
+    \vspace{-10mm}
+    \label{fig:example}%
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{Otázky oponenta}
+
 Ako by vyzerali výsledky prezentované na obr. 10-12, keby sme priamo vykresľovali
-experimentálne relevantnú veličinu $[\rho(\epsilon)-\rho(\epsilon_*)]/ρ(\epsilon_*)$?
+experimentálne relevantnú veličinu $[\rho(\E)-\rho_0(\E_*)]/\rho_0(\E_*)$?
+\vspace{5mm}
+\textbf{Odpoveď:}\\
+V práci som plotoval
+$$\frac{\rho(\E)-\rho_0(\E)}{\rho_0(\E)}=f(\E)$$
+Oponent chce vidieť:
+$$\frac{\rho(\E)-\rho_0(\E_*)}{\rho_0(\E_*)} = f(\E)\frac{\rho_0(\E)}{\rho_0(\E_*)}+\frac{\rho_0(\E)}{\rho_0(\E_*)} - 1$$
 \end{frame}
 \begin{frame}
 \frametitle{Otázky oponenta}
-Je veličina $\rho_0(\E)$, na ktorú sú normalizované výsledky v kapitole 4, totožná s normalizačnou hustotou stavov danou vzťahom (63) v kapitole 2? Ovplyvní táto skutočnosť
+\begin{figure}%
+    \centering
+    \subfloat{{\includegraphics[scale=0.4]{grafy/figTTobhajoba} }}%
+    \subfloat{{\includegraphics[scale=0.5]{grafy/obhajobaExperimental} }}%
+    \vspace{-10mm}
+    \label{fig:example}%
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{Otázky oponenta}
+Je veličina $\rho_0(\E)$, na ktorú sú normalizované výsledky v kapitole 4, totožná s normalizačnou hustotou stavov danou vzťahom (64) v kapitole 2? Ovplyvní táto skutočnosť
 konštrukciu sumárnych grafov 10c a 10d (a podobne pre obr. 11 a 12)?
-\end{frame}
-\begin{frame}
-\frametitle{Otázky oponenta}
- V staršej práci školiteľa a konzultantky [21] sa ukazuje, že celkový počet stavov v
-experimentálnych systémoch so singularitou Aľtšulera-Aronova sa zachováva už na
-škálach porovnateľných s $\hbar/\tau$. Dá sa tento výsledok zdôvodniť v rámci navrhovaného
-prístupu?
-\end{frame}
 
+\vspace{5mm}
+\textbf{Odpoveď:}\\
+Nie, veličina $\rho_0(\E)$ v kapitole 4 obsahuje e-e interakciu, zatiaľ čo veličina $\rho_0(\E)$ vo vzťahu (64) je hustota stavov neinteragujúcich elektrónov. Táto skutočnosť neovplyvní konštrukciu sumárnych grafov na obrázkoch 
+10, 11 a 12, pretože člen $\frac{dE^{AA}_{self}(\E)}{d\E}$ v rovnici (135) od  normalizácie nezávisí. 
+
+\vspace{5mm}
+Náš spôsob normalizácie by sa dal do AA odvodenia v kapitole 2 ľahko dorobiť tak, že by sa do hranatej zátvorky rovnice (79) pridal člen $\frac{dE^{free}_{self}(\E)}{d\E}$. Tento člen by AA závislosť len rigidne posunul smerom hore, dá sa to vidieť aj na našich obrázkoch.
+\end{frame}
+\begin{frame}
+\includegraphics[scale=0.5]{grafy/plot_tau_1_c_1}
+\end{frame}
 \begin{frame}
 \frametitle{Otázky oponenta}
  V staršej práci školiteľa a konzultantky [21] sa ukazuje, že celkový počet stavov v
 experimentálnych systémoch so singularitou Aľtšulera-Aronova sa zachováva už na
 škálach porovnateľných s $\hbar/\tau$. Dá sa tento výsledok zdôvodniť v rámci navrhovaného
 prístupu?
+
+\vspace{5mm}
+\textbf{Odpoveď:}\\
+Upresníme, že experimentálne merania, napríklad dáta v paneli \emph{d} obrázku 8 neukazujú exaktné zachovanie stavov, ale len 80 \%-né. Experimentátori ale veria, že za tých 80\% môže byť zodpovedná nepresnosť merania  [Mazur, PR B, 2007]. Práca [21] vychádzala z predpokladu, že stavy sa budú zachovávať presne. V našej práci nerobíme o zachovaní stavov žiadny predpoklad a nevieme povedať, či nám nakoniec výjde zachovanie stavov. V súčasnom štádiu výpočtov to tak nevyzerá, zatiaľ nás teší len kvalitatívna podobnosť vypočítaných a nameraných grafov.
+\end{frame}
+\begin{frame}
+\frametitle{Otázky oponenta}
+\includegraphics[scale=0.5]{grafy/B2}
+\end{frame}
+\begin{frame}
+\centering
+\Huge{Ďakujem za pozornosť}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %NAHRADNE SLIDY
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
 
+\begin{frame}
+\frametitle{Otázky oponenta}
+\begin{figure}%
+    \centering
+    \subfloat{{\includegraphics[scale=0.4]{grafy/figTTobhajoba} }}%
+    \subfloat{{\includegraphics[scale=0.5]{grafy/obhajobaExperimental} }}%
+    \vspace{-10mm}
+    \label{fig:example}%
+\end{figure}
 \end{frame}
+
+
 \begin{frame}
 Výsledná energia interagujúcich elektrónov v čistom kove v Hartree-Fockovom priblížení:
 \begin{equation}

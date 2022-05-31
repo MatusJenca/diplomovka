@@ -11,34 +11,38 @@
 \beamer@slide {eq:hartree a ion}{6}
 \beamer@slide {eq:fock_final}{6}
 \beamer@slide {eq:fock_screen_final}{7}
-\beamer@slide {fig:example}{7}
-\beamer@slide {eq:schr_dis}{8}
-\beamer@slide {eq:fock_dis}{8}
-\beamer@slide {eq:erg_meandis}{8}
-\beamer@slide {eq:aa_matrix_element}{9}
-\beamer@slide {eq:aa_postulate}{9}
-\beamer@slide {eq:aa_psi_sum}{9}
-\beamer@slide {eq:erg_meandis modif}{9}
-\beamer@slide {eq:der}{10}
-\beamer@slide {eq:aa_dos2}{10}
-\beamer@slide {eq:aa_dos3 fin}{10}
-\beamer@slide {fig:example}{11}
+\beamer@slide {fig:example}{8}
+\beamer@slide {eq:schr_dis}{9}
+\beamer@slide {eq:fock_dis}{9}
+\beamer@slide {eq:erg_meandis}{9}
+\beamer@slide {eq:aa_matrix_element}{10}
+\beamer@slide {eq:aa_postulate}{10}
+\beamer@slide {eq:aa_psi_sum}{10}
+\beamer@slide {eq:aa_matrix_element_final}{10}
+\beamer@slide {eq:aa_self_energy}{11}
+\beamer@slide {eq:der}{11}
+\beamer@slide {eq:aa_dos2}{11}
+\beamer@slide {eq:aa_dos3 fin}{11}
 \beamer@slide {fig:example}{12}
-\beamer@slide {eq:aa_U co korelenergia}{13}
-\beamer@slide {eq:erg_meandis nex}{14}
-\beamer@slide {eq:erg_meandis nex nex}{14}
-\beamer@slide {eq:erg_meandis nex prepis skratka}{15}
-\beamer@slide {eq:erg_volna castica s ee}{15}
-\beamer@slide {eq:erg_self AA}{15}
-\beamer@slide {eq:erg_self free}{15}
-\beamer@slide {eq:self aa}{17}
-\beamer@slide {eq:05energy2}{17}
-\beamer@slide {eq:05thouless}{18}
-\beamer@slide {eq:05energy5}{19}
-\beamer@slide {eq:energia}{20}
-\beamer@slide {eq:erg_meandis nex prepis skratka7}{20}
-\beamer@slide {eq:erg_hustota stavov relat}{20}
-\beamer@slide {eq:erg_hustota stavov relat povodny}{20}
-\beamer@slide {eq:fock_erg}{30}
+\beamer@slide {fig:example}{13}
+\beamer@slide {eq:aa_U co korelenergia}{14}
+\beamer@slide {eq:erg_meandis nex}{15}
+\beamer@slide {eq:erg_meandis nex nex}{15}
+\beamer@slide {eq:erg_meandis nex prepis skratka}{16}
+\beamer@slide {eq:erg_volna castica s ee}{16}
+\beamer@slide {eq:erg_self AA}{16}
+\beamer@slide {eq:erg_self free}{16}
+\beamer@slide {eq:self aa}{18}
+\beamer@slide {eq:05energy2}{18}
+\beamer@slide {eq:05thouless}{19}
+\beamer@slide {eq:05energy5}{20}
+\beamer@slide {eq:energia}{21}
+\beamer@slide {eq:erg_meandis nex prepis skratka7}{21}
+\beamer@slide {eq:erg_hustota stavov relat}{21}
+\beamer@slide {eq:erg_hustota stavov relat povodny}{21}
+\beamer@slide {fig:example}{28}
 \beamer@slide {fig:example}{30}
-\beamer@slide {eq:05energy6}{31}
+\beamer@slide {fig:example}{36}
+\beamer@slide {eq:fock_erg}{37}
+\beamer@slide {fig:example}{37}
+\beamer@slide {eq:05energy6}{38}
